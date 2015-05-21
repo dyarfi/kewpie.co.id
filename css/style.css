@@ -1,0 +1,558 @@
+@font-face {
+    font-family: desyrel;
+    src: url(../fonts/DESYREL.ttf);
+    font-weight: bold;
+}
+/* Template-specific stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+
+/* Account for fixed navbar */
+body{background:#fbf4e9;}
+body,
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  min-width: 970px;
+}
+
+/* Don't let the lead text change font-size. */
+.lead {
+  font-size: 16px;
+}
+
+/* Finesse the page header spacing */
+.page-header {
+  margin-bottom: 30px;
+}
+.page-header .lead {
+  margin-bottom: 10px;
+}
+
+
+/* Non-responsive overrides
+ *
+ * Utilitze the following CSS to disable the responsive-ness of the container,
+ * grid system, and navbar.
+ */
+
+/* Reset the container */
+.container {
+  width: 1280px;
+  max-width: none !important;
+}
+
+/* Demonstrate the grids */
+.container .navbar-header,
+.container .navbar-collapse {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Always float the navbar header */
+.navbar-header {
+  float: left;
+}
+
+/* Undo the collapsing navbar */
+.navbar-collapse {
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+  overflow: visible !important;
+  visibility: visible !important;
+}
+
+.navbar-toggle {
+  display: none;
+}
+.navbar-collapse {
+  border-top: 0;
+}
+
+.navbar-brand {
+  margin-left: -15px;
+}
+
+/* Always apply the floated nav */
+.navbar-nav {
+  float: left;
+  margin: 0;
+}
+.navbar-nav > li {
+  float: left;
+}
+
+/* Redeclare since we override the float above */
+.navbar-nav.navbar-right {
+  float: right;
+}
+
+/* Undo custom dropdowns */
+.navbar .navbar-nav .open .dropdown-menu {
+  position: absolute;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-width: 0 1px 1px;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #333;
+}
+.navbar .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > li > a:focus,
+.navbar .navbar-nav .open .dropdown-menu > .active > a,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #fff !important;
+  background-color: #428bca !important;
+}
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+  color: #999 !important;
+  background-color: transparent !important;
+}
+
+/* Undo form expansion */
+.navbar-form {
+  float: left;
+  width: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 0;
+  margin-left: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Copy-pasted from forms.less since we mixin the .form-inline styles. */
+.navbar-form .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.navbar-form .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.navbar-form .form-control-static {
+  display: inline-block;
+}
+
+.navbar-form .input-group {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.navbar-form .input-group .input-group-addon,
+.navbar-form .input-group .input-group-btn,
+.navbar-form .input-group .form-control {
+  width: auto;
+}
+
+.navbar-form .input-group > .form-control {
+  width: 100%;
+}
+
+.navbar-form .control-label {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.navbar-form .radio,
+.navbar-form .checkbox {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.navbar-form .radio label,
+.navbar-form .checkbox label {
+  padding-left: 0;
+}
+
+.navbar-form .radio input[type="radio"],
+.navbar-form .checkbox input[type="checkbox"] {
+  position: relative;
+  margin-left: 0;
+}
+
+.navbar-form .has-feedback .form-control-feedback {
+  top: 0;
+}
+
+/* CUSTOM GOES HERE */
+.kewpie-region{clear: both; margin-top: 50px;}
+a{color: #684b31;}
+a:hover{color: #e70413; text-decoration: blink;}
+.kewpie-main-body{
+  position: relative;
+}
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+  background: transparent url('../img/bg-mm.png') top center no-repeat;
+  height: 137px;
+}
+.navbar>.container .navbar-brand{
+  padding: 0;
+  height: auto;
+  margin-left: 40px;
+  width: 250px;
+  height: 130px;
+}
+.navbar-brand span{display: none;}
+.navbar-nav > li > a {
+  padding: 20px 50px;
+}
+.navbar-nav > .product > a {padding: 20px 44px;}
+.navbar-nav > .dalam > a {padding: 20px 42px;}
+.navbar-nav > .resep > a {padding: 30px 48px;}
+.navbar-nav > .siapa > a {padding: 20px 48px;}
+.navbar-nav > .berita > a {padding: 20px 48px;}
+.navbar-nav > .searchform {padding: 20px 5px;}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover
+{
+  background-color: transparent; 
+  color: #e80010;
+}
+.navbar-default .navbar-nav>li>a{
+  background-color: transparent;
+  font-family: "courier new";
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+.hello{
+  width: 457px;
+  margin: 220px auto 30px;
+}
+.navbar-default .navbar-nav>li>a:hover{color: #e80010;}
+.title{
+  font-size: 16px;
+  font-family: "courier new";
+  color: #684b31;
+  font-weight: bold;
+}
+.tred{color: #e70413;}
+.produk-kami{
+  text-align: center;
+  margin: 150px auto 50px;
+  width: 700px;
+  position: relative;
+}
+.pasta-left{
+	position: absolute;
+	left: -380px;
+	top: 0;
+}
+.pasta-right{
+	position: absolute;
+	right: -550px;
+	top: 0;
+}
+.item-produk{
+  margin: auto;
+}
+.food-service{
+  width: 700px;
+  margin-left: 250px;
+  margin-top: 150px;
+  position: relative;
+  z-index:1;
+}
+.food-service-head{margin-top: 50px;}
+.food-service-thumb{float: left; margin-right: 50px;}
+.food-service > .detail-left{margin-left: 363px;}
+.box-white{
+  background: #fff;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #ffffff;
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(245,245,245,1);
+  -moz-box-shadow: 0px 0px 4px 1px rgba(245,245,245,1);
+  box-shadow: 0px 0px 4px 1px rgba(245,245,245,1);
+}
+.resep-home{
+  clear: both;
+  width: 50%;
+  margin: auto;
+  position: relative;
+}
+.display-pizza{
+	position:absolute;
+	left: -135%;
+	top: -20%;
+}
+.display-sayuran{
+	position:absolute;
+	right: -100%;
+	bottom: -20%;
+}
+.display-telor-peta{
+	position:absolute;
+	right: -80%;
+	bottom: -3%;
+}
+.cup-mayonaise{
+	margin-left: -25%;
+	margin-bottom: -25%;
+	margin-top: -25%;
+}
+.box-1,.box-2{padding: 40px 30px 70px 117px; margin-bottom: 20px;}
+.box-2{margin-left: 20px; width: 120%; padding-right: 90px;}
+.box-3{
+  padding: 50px 40px 20px;
+  background: #f7a800;
+  -webkit-box-shadow: 0px 3px 13px -3px rgba(122,122,122,1);
+  -moz-box-shadow: 0px 3px 13px -3px rgba(122,122,122,1);
+  box-shadow: 0px 3px 13px -3px rgba(122,122,122,1);
+}
+.resep-title{
+  margin-bottom: -70px;
+  margin-left: -15px;
+  z-index: 1;
+}
+.cmn-t-scale img{
+  border-radius: 50%;
+  display: block;
+  
+}
+.cerita-kewpie  .cmn-t-scale  img{border-radius: 0;}
+.items-resep{position: relative; margin-bottom: 30px;}
+.jenis-resep{
+  position: absolute;
+  right: 35px;
+  top: 0;
+}
+#scale-it1 .list-resep-home{margin-top: 80px;}
+.dalam-kewpie{
+  width: 650px;
+  margin-left: 200px;
+  position: relative;
+}
+.cerita-kewpie{
+  width: 70%;
+  margin: 50px auto 0;
+}
+.cerita-kewpie img{margin-bottom: 0;}
+.news-latest{
+  text-align: center;
+  margin-top: 50px;
+  clear: both;
+}
+.title-item-produk{margin-left: -37px;}
+.items-produk-link-posisi{margin-left: -107px;;}
+.items-produk-link{width: 300px;}
+.menu-item5{opacity: 0.0; display: block;}
+.footer{
+	background: transparent url('../img/bg-foot.png') top center repeat-x;
+	padding-top:8px;
+}
+.footer-bg{
+	background: #e70413; 
+	color: #fff;
+	padding: 20px;
+}
+.copyright{
+	text-align: center;
+	padding-left:320px;
+	padding-top:15px;
+}
+.list-resep-home{margin-top: 200px !important;}
+.title-cerita-kewpie{
+	margin-right:150px;
+	position:relative;
+	z-index:1;
+}
+.isi-mayonaise{margin:50px 0  50px 200px;}
+.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center;}
+.bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat;}
+/* BUTTONS */
+.dropdown:hover .dropdown-menu {
+display: block;
+}
+.detail-left{
+  background: transparent url('../img/detail-left.png') left center no-repeat;
+  height: 54px;
+  font-family: desyrel;
+  text-align: center;
+  font-size: 24px;
+}
+.detail-right{
+  background: transparent url('../img/detail-right.png') right center no-repeat;
+  height: 54px;
+  padding-top: 11px;
+}
+.learn-detail{width: 200px;}
+.menu-lain{width: 320px; margin: auto;}
+.fork-spoon{
+  display: block;
+  margin: 30px auto;
+  clear: both;
+}
+section {
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+.title-dalam-kewpie{
+  margin: 0 0 -40px -100px;
+}
+section:last-child {
+  margin-bottom: 0;
+}
+section a {
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.cmn-t-scale {
+  color: #ef5156;
+  font-family: "courier new";
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.cmn-t-scale:hover {
+  color: #e70413;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* CUSTOM SEARCH */
+#custom-search-form {
+    margin:0;
+    margin-top: 5px;
+    padding: 0;
+}
+
+#custom-search-form .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 130px;
+}
+
+#custom-search-form button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}
+
+/* ITEM PRODUK */
+.radial-menu {
+  width:88px;
+  height:237px;
+  z-index:20;
+  margin: auto;
+}
+.mask {
+  z-index:21;
+  color:white;
+  text-align:center;
+  line-height:120px;
+  cursor:pointer;
+  position:relative;
+}
+.menu-item1, .menu-item2,.menu-item3, .menu-item4 {
+  color:white;
+  text-align:center;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  position:absolute;
+}
+.menu-item1 img,.menu-item3 img{height: 190px; position: absolute; top: 15px; left: 5px;}
+.menu-item2 img,.menu-item4 img{height: 210px; position: absolute; top: 10px; left: 5px;}
+
+/* CAROUSEL CSS */
+.carousel {
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px;
+}
+/* The controlsy */
+.carousel-control {
+  left: -12px;
+  height: 40px;
+  width: 40px;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  margin-top: 90px;
+  }
+.carousel-control.right {
+  right: -12px;
+}
+/* The indicators */
+.carousel-indicators {
+  right: 50%;
+  top: auto;
+  margin-bottom: -25px;
+  margin-right: -19px;
+}
+/* The colour of the indicators */
+.carousel-indicators li {
+  background: #fff;
+  border: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+  height: 18px;
+  width: 18px;
+  margin: auto 10px;
+}
+.carousel-indicators .active {
+  background: #e70413;
+}
+.carousel-indicators .active{
+  height: 18px;
+  width: 18px;
+  opacity: 1;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+  margin: auto 10px;
+}
+.caption-news{
+  padding: 5px 30px;
+  margin: auto;
+  margin-top: -108px;
+  background-color: rgba(255, 255, 255, 0.75);
+  position: relative;
+  width: 281px;
+  text-align: left;
+}
