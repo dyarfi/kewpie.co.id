@@ -193,6 +193,7 @@ body,
 }
 
 /* CUSTOM GOES HERE */
+.clear{clear:both;}
 .kewpie-region{clear: both; margin-top: 50px;}
 a{color: #684b31;}
 a:hover{color: #e70413; text-decoration: blink;}
@@ -381,6 +382,28 @@ a:hover{color: #e70413; text-decoration: blink;}
 .isi-mayonaise{margin:50px 0  50px 200px;}
 .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center;}
 .bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat;}
+.content-inside{margin-top: 100px;}
+.thumbnail {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+.title-page{text-align: center;margin: 50px auto;}
+.details{
+	margin: 50px auto;
+}
+.details h2, .details h4{
+	margin-top: 0px;
+	font-family: "courier new";
+	font-weight: bold;
+	color:#e70413;
+}
+.details h4{color: #684b31;}
+.details p{margin: 20px 0;}
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
 display: block;
@@ -555,4 +578,16 @@ section a {
   position: relative;
   width: 281px;
   text-align: left;
+}
+/* CONTACT */
+.contact-form{ margin-top:15px;}
+.contact-form .textarea{ min-height:220px; resize:none;}
+.form-control{ box-shadow:none; border-color:#eee; height:49px;}
+.form-control:focus{ box-shadow:none; border-color:#e70413;}
+.form-control-feedback{ line-height:50px;}
+.main-btn{ background:#e70413; border-color:#e70413; color:#fff;}
+.main-btn:hover{ background:#e70413;color:#fff;}
+.form-control-feedback {
+line-height: 50px;
+top: 0px;
 }
