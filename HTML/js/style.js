@@ -1,5 +1,7 @@
 /* slide produk */
 $(document).ready(function() {
+
+    
     /* slide menu */
     var active1 = false;
     var active2 = false;
@@ -33,11 +35,11 @@ $(document).ready(function() {
     
     });
     
-	$('.menu-item5 a').click(function() {
-		window.location = $(this).attr('href');
-		// return true;
-	});
-	
+    $('.menu-item5 a').click(function() {
+            window.location = $(this).attr('href');
+            // return true;
+    });
+
     /* carousel */
     $('#Carousel').carousel({
         interval: 5000
@@ -50,9 +52,31 @@ $(document).ready(function() {
 	
     //EFFECT
     
+    //TweenMax.to('.egg1', 5, {x: 300, ease:Power1.easeInOut}); 
+    //TweenMax.to('.egg1', 5, {y: 150, ease:Elastic.easeOut});
+    //TweenMax.to('.egg1', 3, {css:{bezier:{type:"soft", values:[{x:0, y:0}], autoRotate:true}}, ease:Power1.easeInOut});
+           
+    if ($('.hello').size() > 0) {
+        var egg = $('.hello').after('<img class="egg1" src="img/egg1.png"/>').css({'z-index':1});
+        TweenMax.from('.hello', 1, {scale:0.5, opacity:0, delay:0.06, ease:Elastic.easeOut, force3D:true}, 0.1)
+        TweenMax.staggerTo(".egg1", 5, {rotation:320, y:-360,x:240,'z-index':0, ease:Elastic.easeOut}, 1.5);
+        
+        $('.hello').hover(function() {
+            //TweenMax.from('.hello', 1, {scale:0.8, ease:Elastic.easeOut, force3D:true}, 0.1)
+        },
+        function() {
+            //TweenMax.from('.hello', 1, {scale:1, ease:Elastic.easeOut, force3D:true}, 0.1)        
+        });
+    }
+    
+ 
     var controller = $.superscrollorama();
 	// individual element tween examples
-	controller.addTween('#fade-it1', TweenMax.from( $('#fade-it1'), .5, {css:{opacity: 0}}));
+        //controller.addTween('.hello', TweenMax.from('.hello', 1, {scale:0.5, opacity:0, delay:0.05, ease:Elastic.easeOut, force3D:true}, 0.2));
+       
+        //controller.addTween('.egg1', TweenMax.from(".egg1", 1, {rotation:340, y:-360,x:240,'z-index':0}, 0.2));
+       
+        controller.addTween('#fade-it1', TweenMax.from( $('#fade-it1'), .5, {css:{opacity: 0}}));
 	controller.addTween('#fade-it2', TweenMax.from( $('#fade-it2'), .5, {css:{opacity: 0}}));
 	controller.addTween('#fade-it3', TweenMax.from( $('#fade-it3'), .5, {css:{opacity: 0}}));
 	controller.addTween('#fade-it4', TweenMax.from( $('#fade-it4'), .5, {css:{opacity: 0}}));
