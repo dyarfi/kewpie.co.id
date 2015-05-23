@@ -404,6 +404,13 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 .details h4{color: #684b31;}
 .details p{margin: 20px 0;}
+.img-ctr{
+	display: block;
+	margin: 0 auto 20px;
+}
+.img-tentang{
+	margin: 0 28px 0 86px;
+}
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
 display: block;
