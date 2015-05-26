@@ -50,10 +50,11 @@ class Public_Controller extends MY_Controller {
 		//$this->lang->load('label', config_item('language'));
 		
 		// Get language cookie
-		$cookie = get_cookie('language');
-		
+		//$language = get_cookie('language');
+        $language = $this->session->userdata('language');
+		//print_r($language);
 		// Check if cookie language if already set
-		if (!$cookie) {
+		if (!$language) {
 		
 			// Set expired time for about a month
 			$time_expired = 7200 + 60 * 60 * 24 * 30;
@@ -62,12 +63,13 @@ class Public_Controller extends MY_Controller {
 			$this->config->set_item('language', $this->Languages->getDefault()->prefix);
 			
 			// Set cookie from default variables
-			$this->input->set_cookie("language", config_item('language'), $time_expired);
+			//$this->input->set_cookie("language", config_item('language'), $time_expired);
+            $this->session->set_userdata("language", config_item('language'),$time_expired);
 		
 		} else {
 		
 			// Set language from database 
-			$this->config->set_item('language', $cookie);
+			$this->config->set_item('language', $language);
 			
 		}
 		//$this->template->theme  		= 'default';

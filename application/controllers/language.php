@@ -26,10 +26,12 @@ class Language extends CI_Controller {
 			$time_expired = 7200 + 60 * 60 * 24 * 30;
 			
 			// Set language from database 
-			$this->config->set_item('language', $language);
+			//$this->config->set_item('language', $language);
+            $this->config->set_item('language', $language);
 			
 			// Set cookie from default variables
-			$this->input->set_cookie("language",$language,$time_expired);
+			//$this->input->set_cookie("language",$language,$time_expired);
+            $this->session->set_userdata("language",$language,$time_expired);
 
 			// print_r(config_item('language'));
 			

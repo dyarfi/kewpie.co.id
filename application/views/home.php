@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
     <div class="kewpie-main-body bg-home"> <!-- for cahnging background purpose -->
 		<div class="kewpie-main-body bg-home-bottom"> <!-- for cahnging background purpose -->
-		  <div class="container">
+		  <div class="container-fluid">
 			<div class="hello">
 
 			  <img class="resep-title" src="<?php echo base_url();?>assets/public/img/hello-kewpie.png" alt="resep">

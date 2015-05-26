@@ -7,7 +7,7 @@
 /* Account for fixed navbar */
 html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 body{background:#fbf4e9; font-family:"Gotham-Book";}
-body,
+/*body,*/
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   min-width: 970px;
@@ -36,7 +36,19 @@ body,
 /* Reset the container */
 .container {
   width: 1280px;
+  overflow: hidden;
   max-width: none !important;
+}
+.container { overflow: hidden; }
+.container-fluid { overflow: hidden; }
+
+#navigation, #main, .footer {    
+  /*min-width: 1200px !important;*/
+  max-width: 1280px !important;
+  overflow: hidden;
+  margin: 0 auto;
+  /*max-width: none !important;*/
+  /*max-width: none !important;*/
 }
 
 /* Demonstrate the grids */
@@ -72,9 +84,10 @@ body,
 }
 
 /* Always apply the floated nav */
+.navbar-nav { width: 50%; border: 0px solid #990000}
 .navbar-nav {
   float: left;
-  margin: 0;
+  margin: 0 0 0 -25px;
 }
 .navbar-nav > li {
   float: left;
@@ -149,7 +162,20 @@ body,
   display: inline-table;
   vertical-align: middle;
 }
-
+.input-group-addon{
+    background: #FFFFFF;
+    /*border-right: 0px;*/
+    /*line-height: 1.5em;*/
+    border-color: #eee;
+}
+.form-control.search {
+    /*padding-top: 2px;*/
+    /*border-left: 0px*/
+}
+.form-control.search:focus {
+    border-left: 0px;
+    border: 1px solid #eee;
+}
 .navbar-form .input-group .input-group-addon,
 .navbar-form .input-group .input-group-btn,
 .navbar-form .input-group .form-control {
@@ -199,7 +225,11 @@ a:hover{color: #e70413; text-decoration: blink;}
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
-  background: transparent url('../img/bg-mm.png') top center no-repeat;
+  /*background: transparent url('../img/bg-mm.png') top center no-repeat;*/
+  background: transparent url('../img/nav.png') top center no-repeat;
+  min-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
   height: 137px;
 }
 .navbar>.container .navbar-brand{
@@ -232,10 +262,56 @@ a:hover{color: #e70413; text-decoration: blink;}
   font-size: 14px;
   text-align: center;
 }
+
+.navbar #navbar {
+	text-transform:uppercase;
+	font-size:1.3em;
+}
+.navbar #navbar ul li { width:17%; top:10px; }
+.navbar #navbar a {
+	/*line-height:0.8em !important;*/
+        line-height: 1.0em !important;
+	color:#684b31;
+	font-weight: bold;
+	text-align:center;
+	height:50px;
+	margin-top:0px;
+	padding-top:8px
+}
+.navbar #navbar ul li.divider { 
+    border-right-width: 1px;
+    border-right-style: solid;
+    -webkit-border-image: 
+      -webkit-gradient(linear, 0 100%, 0 0, from(#a29181), to(rgba(0, 0, 0, 0))) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;  
+    -o-border-image:
+      -o-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
+    border-image:
+      linear-gradient(to top, #a29181, rgba(0, 0, 0, 0)) 1 100%;
+}
+
 .hello{
   width: 457px;
   margin: 220px auto 30px;
 }
+.lang-bg { 
+    /*border: 1px solid #ff0000;*/
+    margin: 0 auto;
+    padding: 0;
+    position: fixed;
+    right: 0px;
+    top: 10px;
+    /*left:0px;*/
+    width: 140px;
+    height: 137px;
+    z-index:10;
+    /*background:url('../img/lang-bg.png') top right no-repeat;*/
+}
+.lang-bg ul li { font-size: 0.70em; font-weight: normal}
+.lang-bg ul li a { font-weight: normal !important; }
 .navbar-default .navbar-nav>li>a:hover{color: #e80010;}
 .title{
   font-size: 16px;

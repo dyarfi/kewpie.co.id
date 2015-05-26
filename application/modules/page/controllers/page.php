@@ -153,10 +153,10 @@ class Page extends Admin_Controller {
 		$crud->set_subject('Translation ' . $page_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('page_id','lang_id','subject','name','synopsis','text','added','modified');
+		$crud->fields('page_id','lang_id','subject','url','synopsis','text','added','modified');
 		
 		// Changes the default field type
-		$crud->field_type('name', 'hidden');
+		$crud->field_type('url', 'hidden');
 		$crud->field_type('added', 'hidden');
 		$crud->field_type('modified', 'hidden');
 		$crud->field_type('page_id', 'hidden', $id);
@@ -210,11 +210,11 @@ class Page extends Admin_Controller {
 			$object['user_id']  = $this->user->id;
 			$object['status']  	= 0;
 			$this->db->insert('tbl_page_details',$object);
-			redirect(strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
+			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}
 		else
 		{
-			redirect(strtolower(__CLASS__).'/detail/edit/'.$page_db->row()->id);
+			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$page_db->row()->id);
 		}
 		
 	}

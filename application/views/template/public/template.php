@@ -26,8 +26,9 @@
 	<script type="text/javascript">
 		var base_URL = '<?php echo base_url();?>';
 	</script>
+    
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body id="page-top" data-spy="scroll" data-target=".navbar-default">
 	
 	<div id="wrapper">
 		
