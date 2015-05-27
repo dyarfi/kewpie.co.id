@@ -42,15 +42,22 @@ $(document).ready(function() {
 
     /* carousel */
     $('#Carousel').carousel({
-        interval: 5000
-    })
+        interval: 20000
+    });
 	
 	/* TOOLTIPS */
     $(function () {
 	  $('[data-toggle="tooltip"]').tooltip()
-	})
+	});
 	
-	
+	//Search in list resep board
+	$('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var param = $(this).attr("href").replace("#","");
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+		$('.input-group #search_param').val(param);
+	});
 	// CONTACT Form
 	$('#contact-form').bootstrapValidator({
 //        live: 'disabled',
