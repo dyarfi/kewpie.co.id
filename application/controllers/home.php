@@ -20,9 +20,9 @@ class Home extends Public_Controller {
 		
 		$this->load->model('Content');
 		
-		$page = $this->Content->getContent('pages',array('status'=>'publish'));
+		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));
 		
-		print_r($page);
+		//print_r($page_menus);
 	}
 	
 	public function index() {
@@ -31,8 +31,17 @@ class Home extends Public_Controller {
 		$data['languages']	= $this->Languages->getAllLanguage();
 		
 		// Set menus
-		$data['menus']		= $this->Pagemenus->getAllPageMenu();
-		
+		$data['menus']      = $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
+        
+        // Set home
+		$data['home_welcome']  = $this->Content->find('pages',array('status'=>'publish','menu_id'=>1,'id'=>1));
+        
+        // Set home product
+		$data['home_product']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>2));
+        
+        // Set page product
+        $data['products']  = $this->Content->find('pages',array('status'=>'publish','menu_id'=>2));
+        
 		// Set site title page with module menu
 		$data['page_title'] = $this->config->item('developer_name') .' | '. $this->Settings->getByParameter('title_default')->value;
 		

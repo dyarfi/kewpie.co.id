@@ -8,115 +8,123 @@ class Content extends CI_Model {
 	var $primary_key = '';
 	
 	public function __construct(){
-		// Call the Model constructor
-		parent::__construct();
-		
-		// Set database library		
-		$this->db = $this->load->database('default', true);		
+	    // Call the Model constructor
+	    parent::__construct();
+
+	    // Set default db
+	    $this->db = $this->load->database('default', true);		
 		
 		// Set inflector library	
 		$this->load->helper('inflector');
 		$this->load->helper('array');
 		
+        // Set language model
+        //$this->load->model('Languages');
+		
+        
 		// Get language default
-		$this->language = config_item('language');
+		$this->lang_prefix = config_item('language');
+        
+        // Get language id
+		$this->lang_data = $this->Languages->getByPrefix($this->lang_prefix);
 
-		
 	}
-	
-	public function getContent($table='',$where='',$order='',$limit='') {
-	
-		// Set default table
-		$this->table = $this->db->dbprefix($table);
+        
+	public function find ($table='',$where_cond = '', $order_by = '', $limit = '', $offset = '') {
+        
+        /** Set table detail **/
+        $tbl = $this->db->dbprefix($table);
+        $tbl_detail = $tbl . '_details'; 
+        
+        /** Set sql default **/
+        $sql = '';
+        //$sql_detail = '';
 		
-		// Set where query
-		if ($where) {
-			$this->db->where($where);
-		}
-		// Set order data
-		if ($order) {
-			$this->db->order_by($order);
-		}
-		// Set limit query
-		if ($query) {
-			$this->db->limit($query);
-		}
-		
-		$result = $this->db->get($this->table);
-		$results = $result->result_array();
-		
-		//print_r(self::getDBLanguage());
-		$content = self::getDetails($results);
-		
-		//print_r($content);
-		//exit();
-		
-		
-		
-		$data['title']  = 'DATA';
-		$data['text']	= 'TEXT';
-		
-		
-		$data1['title']  = 'DATA1';
-		$data1['text']	= 'TEXT1';
-		
-		
-		$basket = array_replace_recursive($data, $data1);
-		
-		
-		//print_r($basket);
-		
-		
-		/*
-		$data = array();
-		foreach($objects as $object) {
-			$data
-		}
-		*/
-		
-		// print_r($objects->result_object());
-		
-		// $title = $this->getTitle();
-				
-		// print_r($this->table);
-		
-		//return $objects->result_object();
-		
-	}
-	
-	private function getTitle($table='',$id='') {
-	
-		// Set default table
-		$this->table	= $this->db->dbprefix($table);
-		
-		// Set detail language
-		$this->detail = $this->table . '_details'; 
-		
-		// $content = $this->
-				
-		//print_r($this->detail);
-		
-	}
-	
-	private function getDetails($results='') {
-		
-		// Get table language details
-		$this->detail = singular($this->table) . '_details'; 
-		
-		$ids = element('id',$results);
-		foreach ($results as $result) {
-			//print_r($result['id']);
-		
-			$ids[] = element('id',$result);
-			//print_r($result);
+        /** Build where query **/
+		if ($where_cond != '') {
+            
+            if (is_array($where_cond) && count($where_cond) != 0) {
+				$buffers	= array();
+
+				$operators	= array('LIKE',
+									'IN',
+									'!=',
+									'>=',
+									'<=',
+									'>',
+									'<',
+									'=');
+
+				foreach ($where_cond as $field => $value) {
+					$operator	= '=';
+
+					if (strpos($field, ' ') != 0)
+						list($field, $operator)	= explode(' ', $field);
+
+					if (in_array($operator, $operators)) {
+						$field		= '`'.$field.'`';
+
+						if ($operator == 'IN' && is_array($value))
+							$buffers[]	= $field.' '.$operator.' (\''.implode('\', \'', $value).'\')';
+						else
+							$buffers[]	= $field.' '.$operator.' \''.$value.'\'';
+					} else if (is_numeric($field)) {
+						$buffers[]	= $value;
+					} else {
+						$buffers[]	= $field.' '.$operator.' \''.$value.'\'';
+					}
+				}
+
+				$where_cond	= implode(' AND ', $buffers);
+			}
 		}
 		
-				
+		$sql_order = ''; 
+		if ($order_by != '') {
+			$sql_order = 'ORDER BY '; 
+			$i 	   = 1;
+			foreach ($order_by as $order => $val) {
+				$split = ($i > 1) ? ', ' : ''; 
+				$sql_order .= ' '. $split .' `'. $order.'` '.$val.' ';
+				$i++;
+			}
+			$order_by  = $sql_order;
+		}
 		
-		// $content = $this->
-				
-		//print_r($this->detail);
+        $sql_limit = ''; 
+		if ($limit != '' && $offset != '') {
+			$offset    = $offset . ','; 
+			$sql_limit = 'LIMIT '. $offset . $limit; 
+		}
+		else if ($limit != '') {
+			$sql_limit = 'LIMIT '. $limit; 
+		}
+		$limit = $sql_limit;
+        
 		
+		if ($where_cond != '') {
+			$sql = 'SELECT * FROM `'.$tbl.'` WHERE '. $where_cond . $order_by . $limit;
+		}
+		else {
+			$sql = 'SELECT * FROM `'.$tbl.'`' . $order_by . $limit;
+        }
+        
+        // Main table
+        $rows  = $this->db->query($sql);
+        
+        // Set data result
+        $returns = array();
+        $details = array();
+        
+        $p=1;
+        //print_r($this->lang_id);
+		foreach ($rows->result_array() as $row) {
+            $details[$p] = $this->db->query('SELECT * FROM `'.$tbl_detail.'` WHERE `lang_id` = '.$this->lang_data->id.' AND `field_id` = '.$row['id'].' LIMIT 1;')->result_array()[0];
+            $returns[$p] = $row;
+            $p++;
+		}
+        
+		return ($this->lang_data->is_system == 1) ? $returns : array_replace_recursive($returns, $details);
 	}
 	
 	public function getDBLanguage() {

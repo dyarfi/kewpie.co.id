@@ -31,6 +31,7 @@ class Pages Extends CI_Model {
 				. '`subject` VARCHAR(255) NULL, '
 				. '`synopsis` TEXT NULL, '
 				. '`text` TEXT NULL, '
+                . '`media` VARCHAR(255) NULL, '
 				. '`attribute` TEXT NULL, '
 				. '`publish_date` DATE NULL, '
 				. '`unpublish_date` DATE NULL, '
@@ -130,11 +131,12 @@ class Pages Extends CI_Model {
 		
 		// Set Page data
 		$data = array(			
-			'category_id'	=> $object['category_id'],
+			'menu_id'       => $object['menu_id'],
 			'name'			=> $object['name'],
 			'subject'		=> $object['subject'],
 			'synopsis'		=> $object['synopsis'],
 			'text'			=> $object['text'],
+            'media'			=> $object['media'],
 			'attribute'		=> $object['attribute'],
 			'publish_date'	=> $object['publish_date'],
 			'unpublish_date' => $object['unpublish_date'],

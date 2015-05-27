@@ -41,21 +41,21 @@ class Page extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Page');                            
             // Set table relation
-            $crud->set_relation('menu_id','tbl_page_menus','name');
+            $crud->set_relation('menu_id','tbl_page_menus','title');
             // Set columns
-            $crud->columns('subject','name','menu_id','synopsis','text','status','added','modified');			
+            $crud->columns('subject','menu_id','synopsis','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
+			$crud->fields('subject','url','menu_id','synopsis','text','media','publish_date','unpublish_date','status','added','modified');
             // Set column display 
             $crud->display_as('menu_id','Menu');
 			// Changes the default field type
-			$crud->field_type('name', 'hidden');
+			$crud->field_type('url', 'hidden');
 			$crud->field_type('added', 'hidden');
 			$crud->field_type('modified', 'hidden');
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','name','menu_id','synopsis','text','status','added','modified','translate');			
+				$crud->columns('subject','menu_id','synopsis','text','gallery','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -66,7 +66,11 @@ class Page extends Admin_Controller {
 			$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
 			// This callback escapes the default auto field output of the field name at the add/edit form. 
 			// $crud->callback_field('status',array($this,'_callback_dropdown'));
-			// This callback escapes the default auto column output of the field name at the add form
+            
+            // Callback Column 
+            $crud->callback_column('gallery',array($this,'_callback_gallery'));
+            
+            // This callback escapes the default auto column output of the field name at the add form
 			$crud->callback_column('added',array($this,'_callback_time'));
 			$crud->callback_column('modified',array($this,'_callback_time'));  
 			// Set callback before database set
@@ -74,7 +78,7 @@ class Page extends Admin_Controller {
             $crud->callback_before_update(array($this,'_callback_url'));
 			
 			// Sets the required fields of add and edit fields
-			$crud->required_fields('subject','name','text','status'); 
+			$crud->required_fields('subject','text','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/pages');
 			 
@@ -102,36 +106,20 @@ class Page extends Admin_Controller {
 				 * 
 				 */
 			}
-			
+            
+			// Unset action 
+            $crud->unset_delete();
+            
+            // Set upload field
+            $crud->set_field_upload('media','uploads/pages');
+            
             $this->load($crud, 'page');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
     }
-	
-	public function _callback_url($value, $primary_key) {
-        // Set url_title() function to set readable text
-        $value['name'] = url_title($value['name'],'-',true);
-        // Return update database
-		return $value; 
-    }
-	
-	function insert_and_redirect($lang_id,$field_id) {
-	  
-		//$this->db->where('lang_id',$lang_id);
-		//$this->db->where('field_id',$field_id);
-		//$page_db = $this->db->get('pages_lang');
 
-		//if($page_db->num_rows() == 0) {
-			  //$this->db->insert('pages_lang',array('lang_code' => $lang_id, 'field_id' => $field_id));
-			  //redirect(base_url(ADMIN).'/page/detail/edit/'.$field_id);
-		//}
-		//else {
-			  //redirect(base_url(ADMIN).'/pages/detail/edit/'.$page_db->row()->id);
-		//}
-	}
-	
-	function detail($operation = '',$page_id='',$lang_id='') {
+	function detail($operation = '',$field_id='',$lang_id='') {
 		
 		/* Just make sure that you don't want to redirect him at the page_lang page but at pages */
 		if($operation == '' || $operation == 'list') {
@@ -143,49 +131,42 @@ class Page extends Admin_Controller {
 		$crud = new grocery_CRUD();
 	
 		// Set query select
-		$crud->where('page_id',$page_id);
+		$crud->where('field_id',$field_id);
 		$crud->where('lang_id',$lang_id);
 		
 		// Set tables
-        $crud->set_table('tbl_page_details');
+        $crud->set_table('tbl_pages_details');
 		
 		// Set subject
 		$crud->set_subject('Translation ' . $page_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('page_id','lang_id','subject','url','synopsis','text','added','modified');
+		$crud->fields('field_id','lang_id','subject','url','synopsis','text','added','modified');
 		
 		// Changes the default field type
 		$crud->field_type('url', 'hidden');
 		$crud->field_type('added', 'hidden');
 		$crud->field_type('modified', 'hidden');
-		$crud->field_type('page_id', 'hidden', $id);
-		$crud->field_type('lang_id', 'hidden', $lang_id);
+		$crud->field_type('field_id', 'hidden', $id);
+        $crud->field_type('lang_id', 'hidden', $lang_id);
 		
 		// This callback escapes the default auto field output of the field name at the add form
 		$crud->callback_add_field('added',array($this,'_callback_time_added'));
 		// This callback escapes the default auto field output of the field name at the edit form
 		$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
 		
-		// This callback escapes the default auto column output of the field name at the add form
-		$crud->callback_column('added',array($this,'_callback_time'));
-		$crud->callback_column('modified',array($this,'_callback_time')); 
 		// Set callback before database set
 		$crud->callback_before_insert(array($this,'_callback_url'));
 		$crud->callback_before_update(array($this,'_callback_url'));
-		
+        
 		// Sets the required fields of add and edit fields
-		$crud->required_fields('subject','name','text','status'); 
+		$crud->required_fields('subject','text','status'); 
 		
 		$state = $crud->getState();
 		$state_info = $crud->getStateInfo();
 
-		$crud->callback_update(array($this,'_callback_update_detail'));
 		$crud->unset_list();
 		
-		//print_r($crud);
-		//$this->template->build('admin/grocery_crud', $crud->render());
-	
 		$this->load($crud, 'page_detail');
 		
 	}
@@ -193,23 +174,23 @@ class Page extends Admin_Controller {
 	function translate() {
 		
 		// URI segment for page id
-		$page_id = $this->uri->segment(4);
+		$field_id = $this->uri->segment(4);
 		// URI segment for language id
 		$lang_id = $this->uri->segment(5);
 		
 		$this->db->where('lang_id',$lang_id);
-		$this->db->where('page_id',$page_id);
+		$this->db->where('field_id',$field_id);
 		
-		$page_db = $this->db->get('tbl_page_details');
+		$page_db = $this->db->get('tbl_pages_details');
 
 		if($page_db->num_rows() == 0)
 		{
 			$object['added']	= time();
 			$object['lang_id']	= $lang_id;
-			$object['page_id']	= $page_id;
+			$object['field_id']	= $field_id;
 			$object['user_id']  = $this->user->id;
 			$object['status']  	= 0;
-			$this->db->insert('tbl_page_details',$object);
+			$this->db->insert('tbl_pages_details', $object);
 			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}
 		else
@@ -219,9 +200,27 @@ class Page extends Admin_Controller {
 		
 	}
 	
-	public function _callback_lang ($value, $row) {
-		
-	}
+    public function _callback_gallery ($value,$row) {
+        if ($row->id) { 
+            return '<a href="'.base_url(ADMIN).'/page_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
+        } else { 
+            return '-';
+        }
+    }
+    
+    public function _callback_url_detail($value, $primary_key) {
+        // Set url_title() function to set readable text
+        $value['url'] = url_title($value['subject'],'-',true);
+        // Return update database
+        return $value;
+    }
+	
+	public function _callback_url($value, $primary_key) {
+        // Set url_title() function to set readable text
+        $value['url'] = url_title($value['subject'],'-',true);
+        // Return update database
+        return $value; 
+    }
 	
 	public function _callback_translate ($value, $row) {
 		$links = '';
@@ -248,8 +247,8 @@ class Page extends Admin_Controller {
 		return '<input type="hidden" maxlength="50" value="'.$time.'" name="modified">';
     }
 	
-	public function _callback_page_id ($value, $row) {
-		return '<input type="hidden" maxlength="50" value="" name="page_id">';
+	public function _callback_field_id ($value, $row) {
+		return '<input type="hidden" maxlength="50" value="" name="field_id">';
     }
 	
 	public function _callback_lang_id ($value, $row) {
@@ -263,10 +262,10 @@ class Page extends Admin_Controller {
     
 	public function _callback_update_detail($post, $primary_key) {
 		// Unset status first and change to 1
-		unset($post['status']);
+        unset($post['status']);
 		$post['status']  	= 1;
 		// Return update database
-		return $this->db->update('tbl_page_details',$post,array('id' => $primary_key));
+		return $this->db->update('tbl_pages_details',$post,array('id' => $primary_key));
 	}
 	
     private function load($crud, $nav) {

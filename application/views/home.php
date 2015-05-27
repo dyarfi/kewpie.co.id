@@ -6,20 +6,19 @@
 
 			  <img class="resep-title" src="<?php echo base_url();?>assets/public/img/hello-kewpie.png" alt="resep">
 			  <div class="box-white box-3">
-				<h1 class="title">Kini Kewpie Hadir di Indonesia !</h1>
+				<h1 class="title"><?php echo $home_welcome[1]['subject'];?></h1>
 				<p> <!-- jumlah karakter nya harus sama -->
-				  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
+				  <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
 				  Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
-				  Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,
+				  Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,-->
+                  <?php echo $home_welcome[1]['text'];?>
 				</p>
 			  </div>
 			</div>
 			<div id="fade-it1" class="produk-kami">
-			  <img class="img-produk-kami" src="<?php echo base_url();?>assets/public/img/produk-kami.png" alt="produk kami">
+              <div class="img-produk-kami"><h3><?php echo $home_product[1]['title'];?></h3></div>
 			  <p>
-				Maecenas nec sapien tempor, placerat felis at, tempor nisl. Proin eget ante at lacus aliquet bibendum.
-				Sed quis dui sed erat posuere sollicitudin eu sit amet velit. Cras gravida massa ornare venenatis porta.
-				Suspendisse potenti. Aenean quis quam maximus, volutpat elit nec, bibendum leo.
+				<?php echo $home_product[1]['description'];?>
 			  </p>
 			  <div class="pasta-left"><img id="fade-it6" src="<?php echo base_url();?>assets/public/img/kewpie-left-pasta.png" alt="pasta"></div>
 			  <div class="pasta-right"><img id="fade-it7" src="<?php echo base_url();?>assets/public/img/kewpie-right-pasta.png" alt="pasta"></div>
@@ -28,7 +27,31 @@
 			<div id="scale-it" class="item-produk">
 
 			  <div class="row">
-				<div class="col-xs-3 col-sm-3 col-md-3">
+                
+                    <?php
+                        $j = 1;
+                        foreach ($products as $product) { ?>
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <div class="radial-menu">
+                                <?php for ($i = 1; $i <= 4; $i++) { ?>
+                                    <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/pages/'.$product['media']);?>" alt=""></div>
+                                <?php } ?>
+                                <div class="mask"><img class="" src="<?php echo base_url('uploads/pages/'.$product['media']);?>" alt=""></div>
+                                <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat;">
+                                    <h4><?php echo $product['subject'];?></h4>
+                                </div>
+                                <div class="detail-left menu-item5 items-produk-link-posisi">
+                                    <div class="detail-right items-produk-link"><a href="https://www.facebook.com/">Detail <?php echo $product['subject'];?></a></div>
+                                </div>
+                            </div>
+                        </div>       
+                    <?php
+                        $j++;
+                        } ?>
+               
+                  <!--h4 style="font-family:'Leckerli_OneRegular'"></h4-->
+                  
+				<!--div class="col-xs-3 col-sm-3 col-md-3">
 				  <div class="radial-menu">
 					<div class="menu-item1"><img class="" src="<?php echo base_url();?>assets/public/img/items/mayonais.png" alt=""></div>
 					<div class="menu-item2"><img class="" src="<?php echo base_url();?>assets/public/img/items/mayonais.png" alt=""></div>
@@ -79,13 +102,13 @@
 						<div class="detail-right items-produk-link"><a href="">Detail Saus Manis</a></div>
 					</div>
 				  </div>
-				</div>
+				</div-->
 			  </div>
 			</div>
 			<!-- FOOD SERVICE -->
 			<div id="fade-it2" class="food-service">
 			  <img class="food-service-thumb" src="<?php echo base_url();?>assets/public/img/food-service-thumb.png" alt="food service thumbnail item">
-			  <img class="food-service-head" src="<?php echo base_url();?>assets/public/img/food-service.png" alt="food service">
+              <div class="food-service-head"><h4>Food Service</h4></div>
 			  <p class="food-service-text">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
 				Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
@@ -94,6 +117,7 @@
 			  <div class="detail-left">
 				<div class="detail-right"><a href="">Detail Food Service</a></div>
 			  </div>
+              </div>
 			</div>
 			<!-- RESEP -->
 			<div class="resep-home">

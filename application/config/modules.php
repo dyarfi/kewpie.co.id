@@ -134,6 +134,17 @@ $config['modulelist'] = array(
 						'page/index/change'	=> 'Change Page Status',
 						'page/index/export'	=> 'Export Page',
 						'page/index/print'	=> 'Print Page',
+            
+                        // Pages Gallery functions
+                        'page_gallery/index'        => 'Gallery',
+                        'page_gallery/index/add'	=> 'Add Gallery',
+                        'page_gallery/index/view'	=> 'View Gallery',			
+                        'page_gallery/index/edit'	=> 'Edit Gallery',			
+                        'page_gallery/index/delete' => 'Delete Gallery',
+                        'page_gallery/index/change' => 'Change Gallery',
+                        'page_gallery/index/export' => 'Export Gallery',
+                        'page_gallery/index/print'	=> 'Print Gallery',
+            
 						// Page Menu functions
 						'pagemenu/index/add'	=> 'Add Page Menu',
 						'pagemenu/index/view'	=> 'View Page Menu',
@@ -144,6 +155,50 @@ $config['modulelist'] = array(
 						'pagemenu/index/change'	=> 'Change Page Menu Status',
 						'pagemenu/index/export'	=> 'Export Page Menu',
 						'pagemenu/index/print'	=> 'Print Page Menu'
+					    ),
+	),
+    // Product module
+	'Product' => array (
+		// Page Models list
+		'models'		=> array('product/Products','product/ProductCategories','product/ProductRecipes'),
+		// Page module menus
+		'module_menu'	=> array(
+						'product/index'             => 'Product',
+						'product_category/index'	=> 'Product Categories',
+						'product_recipe/index'	=> 'Product Recipes'),
+		// Page module functions
+		'module_function'	=> array(
+						// product functions
+						'product/index/add'	=> 'Add Product',							
+						'product/index/view'	=> 'View Product',
+						'product/index/edit'	=> 'Edit Product',
+						'product/index/delete'	=> 'Delete Product',
+						'product/detail'		=> 'Detail Product',
+						'product/translate'	=> 'Translate Product',
+						'product/index/change'	=> 'Change Product Status',
+						'product/index/export'	=> 'Export Product',
+						'product/index/print'	=> 'Print Product',
+            
+                        // Products Gallery functions
+                        'product_gallery/index'        => 'Gallery',
+                        'product_gallery/index/add'	=> 'Add Gallery',
+                        'product_gallery/index/view'	=> 'View Gallery',			
+                        'product_gallery/index/edit'	=> 'Edit Gallery',			
+                        'product_gallery/index/delete' => 'Delete Gallery',
+                        'product_gallery/index/change' => 'Change Gallery',
+                        'product_gallery/index/export' => 'Export Gallery',
+                        'product_gallery/index/print'	=> 'Print Gallery',
+            
+						// Page Menu functions
+						'product_category/index/add'	=> 'Add Page Menu',
+						'product_category/index/view'	=> 'View Page Menu',
+						'product_category/index/edit'	=> 'Edit Page Menu',
+						'product_category/index/delete'	=> 'Delete Page Menu',
+                        'product_category/detail'		=> 'Detail Page Menu',
+						'product_category/translate'	=> 'Translate Page Menu',
+						'product_category/index/change'	=> 'Change Page Menu Status',
+						'product_category/index/export'	=> 'Export Page Menu',
+						'product_category/index/print'	=> 'Print Page Menu'
 					    ),
 	)
 );

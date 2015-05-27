@@ -76,6 +76,7 @@ class Languages Extends CI_Model {
 		if ($status) {
 			$this->db->where('status',$status);
 		}
+        //$this->db->where('is_system !=',1);
 		$Q = $this->db->get($this->table);
 		if ($Q->num_rows() > 0){
 		    //foreach ($Q->result_array() as $row){
@@ -103,13 +104,13 @@ class Languages Extends CI_Model {
 	public function getByPrefix($prefix = null){
 	    $data = '';
 	    $options = array('prefix' => $prefix);
-	    $this->db->where($this->table,$options,1);
-		$Q = $this->db->get($this->table);		
-	    if ($Q->num_rows() > 0){
+        $Q = $this->db->get_where($this->table,$options,1);
+        if ($Q->num_rows() > 0){
 			foreach ($Q->result_object() as $row) {
-				$data = $Q->result_object();
+				$data = $row;
 			}
 	    }
+        
 	    $Q->free_result();
 	    return $data;
 	}
@@ -131,6 +132,19 @@ class Languages Extends CI_Model {
 	public function getDefault($prefix = null) {
 	    $data = '';
 	    $options = array('default' => 1, /*'is_system' => 1,*/ 'status' => 1);
+	    $Q = $this->db->get_where($this->table,$options,1);
+	    if ($Q->num_rows() > 0){
+		    foreach ($Q->result_object() as $row){
+			    $data = $row;
+		    }
+		}
+	    $Q->free_result();
+	    return $data;
+	}
+    
+    public function getActiveLanguage($prefix = null) {
+	    $data = '';
+	    $options = array('status' => 1,'is_system' => 0);
 	    $Q = $this->db->get_where($this->table,$options,1);
 	    if ($Q->num_rows() > 0){
 		    foreach ($Q->result_object() as $row){

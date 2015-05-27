@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
     <!-- Fixed navbar -->
-     <nav class="navbar navbar-fixed-top navbar-kewpie hidden">
+    <nav class="navbar navbar-fixed-top navbar-kewpie hidden">
         <div class="container">
 			<div class="navbar-header">
 			  <button type="button" class="navbar-toggle navbar-inverse collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -10,8 +10,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <!--a class="navbar-brand" href="http://getbootstrap.com/examples/starter-template/#"><img src="assets/img/logo.png"/></a-->
-			  <a class="" href="http://getbootstrap.com/examples/starter-template/#"><img src="<?php echo base_url();?>assets/public/img/logo.png"/></a>
+			  <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/public/img/logo.png"/></a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 			  <ul class="nav navbar-nav">
@@ -27,7 +26,7 @@
 				<li class="divider"><a href="#">Berita Terbaru</a></li-->
 			  </ul>
 			</div><!--/.nav-collapse -->
-		  </div>
+        </div>
     </nav>
 		
 		
@@ -44,20 +43,18 @@
           <!--a class="navbar-brand" href="#">
             <span>kewpie</span>
           </a-->
-          <a class="" href="http://getbootstrap.com/examples/starter-template/#"><img src="<?php echo base_url();?>assets/public/img/logo.png"/></a>
+          <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/public/img/logo.png"/></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <?php 
                 $i = 1;
                 $b = count($menus);
-                //print_r($b);
                 foreach ($menus as $menu) { ?>
-                <li class="<?php echo $i == 1 ? 'active' : '';?><?php echo $i == $b ? '' : ' divider';?>">
-                    <a href="#<?php echo base_url('page/'.$menu->url);?>"><?php echo $menu->title;?></a>
+                <li class="<?php echo $i == $b ? '' : 'divider';?><?php echo $i == 1 ? ' active' : '';?>">
+                    <a href="#<?php echo base_url('page/'.$menu['url']);?>"><?php echo $menu['title'];?></a>
                 </li>
                 <?php 
-                //print_r($i);
                 $i++;
             } 
             ?>

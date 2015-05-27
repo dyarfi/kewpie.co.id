@@ -41,9 +41,9 @@ class PageMenu extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Page Menu');                            
             // The fields that user will see on add and edit form
-			$crud->fields('title','url','description','position','status','added','modified');
+			$crud->fields('title','url','description','position','media','status','added','modified');
             // Set column
-            $crud->columns('title','position','description','modified','added','status');	
+            $crud->columns('title','position','description','media','modified','added','status');	
 			
             // Unsets the fields at the add form.
 			$crud->unset_add_fields('parent_id','sub_level','has_child','user_id','order','count','is_system','added','modified');
@@ -59,7 +59,7 @@ class PageMenu extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('title','url','description','status','added','modified','translate');			
+				$crud->columns('title','url','description','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -80,16 +80,19 @@ class PageMenu extends Admin_Controller {
 			// Sets the required fields of add and edit fields
 			$crud->required_fields('subject','position','status');   
             
+            // Unset action 
+            $crud->unset_delete();
             
             // Set upload field
-            //$crud->set_field_upload('file_name','uploads/pages');
+            $crud->set_field_upload('media','uploads/pagemenus');
+            
             $this->load($crud, 'menu');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
     }
     
-    function detail($operation = '',$menu_id='',$lang_id='') {
+    function detail($operation = '',$field_id='',$lang_id='') {
 		
 		/* Just make sure that you don't want to redirect him at the page_lang page but at pages */
 		if($operation == '' || $operation == 'list') {
@@ -101,23 +104,23 @@ class PageMenu extends Admin_Controller {
 		$crud = new grocery_CRUD();
 	
 		// Set query select
-		$crud->where('menu_id',$menu_id);
+		$crud->where('menu_id',$field_id);
 		$crud->where('lang_id',$lang_id);
 		
 		// Set tables
-        $crud->set_table('tbl_page_menu_details');
+        $crud->set_table('tbl_page_menus_details');
 		
 		// Set subject
 		$crud->set_subject('Translation ' . $page_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('menu_id','lang_id','title','url','description','added','modified');
+		$crud->fields('field_id','lang_id','title','url','description','added','modified');
 		
 		// Changes the default field type
 		$crud->field_type('url', 'hidden');
 		$crud->field_type('added', 'hidden');
 		$crud->field_type('modified', 'hidden');
-		$crud->field_type('menu_id', 'hidden', $id);
+		$crud->field_type('field_id', 'hidden', $id);
 		$crud->field_type('lang_id', 'hidden', $lang_id);
 		
 		// This callback escapes the default auto field output of the field name at the add form
@@ -131,6 +134,8 @@ class PageMenu extends Admin_Controller {
 		// Set callback before database set
 		$crud->callback_before_insert(array($this,'_callback_url'));
 		$crud->callback_before_update(array($this,'_callback_url'));
+        
+        //$crud->callback_field('url',array($this,'_callback_url'));
 		
 		// Sets the required fields of add and edit fields
 		$crud->required_fields('subject','text','status'); 
@@ -151,23 +156,23 @@ class PageMenu extends Admin_Controller {
     function translate() {
 		
 		// URI segment for menu id
-		$menu_id = $this->uri->segment(4);
+		$field_id = $this->uri->segment(4);
 		// URI segment for language id
 		$lang_id = $this->uri->segment(5);
 		
 		$this->db->where('lang_id',$lang_id);
-		$this->db->where('menu_id',$menu_id);
+		$this->db->where('field_id',$field_id);
 		
-		$page_db = $this->db->get('tbl_page_menu_details');
+		$page_db = $this->db->get('tbl_page_menus_details');
 
 		if($page_db->num_rows() == 0)
 		{
 			$object['added']	= time();
 			$object['lang_id']	= $lang_id;
-			$object['menu_id']	= $menu_id;
+			$object['field_id']	= $field_id;
 			$object['user_id']  = $this->user->id;
 			$object['status']  	= 0;
-			$this->db->insert('tbl_page_menu_details',$object);
+			$this->db->insert('tbl_page_menus_details',$object);
 			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}
 		else
@@ -182,7 +187,7 @@ class PageMenu extends Admin_Controller {
 		unset($post['status']);
 		$post['status']  	= 1;
 		// Return update database
-		return $this->db->update('tbl_page_menu_details',$post,array('id' => $primary_key));
+		return $this->db->update('tbl_page_menus_details',$post,array('id' => $primary_key));
 	}
     
   	public function _callback_url($value, $primary_key) {
@@ -217,8 +222,8 @@ class PageMenu extends Admin_Controller {
 		return '<input type="hidden" maxlength="50" value="'.$time.'" name="modified">';
     }
 	
-	public function _callback_menu_id ($value, $row) {
-		return '<input type="hidden" maxlength="50" value="" name="menu_id">';
+	public function _callback_field_id ($value, $row) {
+		return '<input type="hidden" maxlength="50" value="" name="field_id">';
     }
 	
 	public function _callback_lang_id ($value, $row) {

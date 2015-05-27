@@ -20,4 +20,16 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+    font-family: 'Leckerli_OneRegular';
+    src: url('../fonts/leckerlione-regular-webfont.eot');
+    src: url('../fonts/leckerlione-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/leckerlione-regular-webfont.woff2') format('woff2'),
+         url('../fonts/leckerlione-regular-webfont.woff') format('woff'),
+         url('../fonts/leckerlione-regular-webfont.ttf') format('truetype'),
+         url('../fonts/leckerlione-regular-webfont.svg#leckerli_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 

@@ -60,24 +60,9 @@ $route[$admin.'/setting/(:any)']	= 'admin/setting/$1';
 $route[$admin.'/serverlog/(:any)']	= 'admin/serverlog/$1';
 /***** Administrator module menu mandatory [end] *****/
 
-$route[$admin.'/career/(:any)']		= 'career/$1';
-$route[$admin.'/division/(:any)']	= 'career/division/$1';
-$route[$admin.'/applicant/(:any)']	= 'career/applicant/$1';
-$route[$admin.'/employee/(:any)']	= 'career/employee/$1';
-
 $route[$admin.'/page/(:any)']		= 'page/$1';
 $route[$admin.'/pagemenu/(:any)']	= 'page/pagemenu/$1';
-
-$route[$admin.'/qrcode/(:any)']			= 'qrcode/$1';
-$route[$admin.'/qrcodescanner/(:any)']	= 'qrcode/qrcodescanner/$1';
-
-$route[$admin.'/questionnaire/(:any)']	= 'questionnaire/$1';
-$route[$admin.'/question/(:any)']		= 'questionnaire/question/$1';
-
-$route[$admin.'/color/(:any)']			= 'color/$1';
-$route[$admin.'/colorscanner/(:any)']	= 'color/colorscanner/$1';
-$route[$admin.'/colorcontent/(:any)']	= 'color/colorcontent/$1';
-$route[$admin.'/colorpersonal/(:any)']	= 'color/colorpersonal/$1';
+$route[$admin.'/page_gallery/(:any)']  = 'page/page_gallery/$1';
 
 //$route[$admin.'/(:any)'] = '$1';
 

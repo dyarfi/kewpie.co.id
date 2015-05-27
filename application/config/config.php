@@ -357,7 +357,7 @@ $config['rewrite_short_tags'] = TRUE;
 $config['proxy_ips'] = '';
 
 // Developers Name and website
-$config['developer_name']	= 'Dentsu Digital Division'; 
+$config['developer_name']	= 'Kewpie Indonesia'; 
 $config['developer_url']	= 'http://dentsu.digital/';
 
 // TRUE for site is open or FALSE for maintenance mode
