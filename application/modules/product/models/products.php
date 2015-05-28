@@ -29,6 +29,7 @@ class Products Extends CI_Model {
 				. '`category_id` INT(11) UNSIGNED NULL, '
 				. '`name` VARCHAR(255) NULL, '
 				. '`subject` VARCHAR(255) NULL, '
+                . '`url` VARCHAR(255) NULL, '
 				. '`synopsis` TEXT NULL, '
 				. '`text` TEXT NULL, '
                 . '`media` VARCHAR(255) NULL, '
@@ -41,7 +42,7 @@ class Products Extends CI_Model {
 				. '`status` ENUM( \'publish\', \'unpublish\', \'deleted\' ) NULL DEFAULT \'publish\', '
 				. '`added` INT(11) NULL, '
 				. '`modified` INT(11) NULL, '
-				. 'INDEX (`category_id`, `name`, `publish_date`, `unpublish_date`, `allow_comment`, `order`) '
+				. 'INDEX (`category_id`, `name`, `allow_comment`, `order`) '
 				. ') ENGINE=MYISAM DEFAULT CHARSET=utf8;';
 
 		$this->db->query($sql);

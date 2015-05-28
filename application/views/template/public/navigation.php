@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');?>
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-fixed-top navbar-kewpie hidden">
@@ -16,7 +16,7 @@
 			  <ul class="nav navbar-nav">
                 <?php 
                     $i = 0;
-                    foreach ($menus as $menu) { ?>
+                    foreach ($this->menus as $menu) { ?>
                     <li class="<?php echo $i == 1 ? 'active' : '';?> divider"><a href="<?php echo base_url('page/'.$menu->url);?>"><?php echo $menu->title;?></a></li>
                 <?php } ?>
 				<!--li class="active divider"><a href="#">Produk Kami</a></li>
@@ -49,10 +49,10 @@
           <ul class="nav navbar-nav">
             <?php 
                 $i = 1;
-                $b = count($menus);
-                foreach ($menus as $menu) { ?>
-                <li class="<?php echo $i == $b ? '' : 'divider';?><?php echo $i == 1 ? ' active' : '';?>">
-                    <a href="#<?php echo base_url('page/'.$menu['url']);?>"><?php echo $menu['title'];?></a>
+                $b = count($this->menus);
+                foreach ($this->menus as $menu) { ?>
+                <li class="<?php echo $i == $b ? '' : 'divider';?><?php echo ($this->uri->segment(3) == $menu['url']) ? ' active-m' : '';?>">
+                    <a href="<?php echo base_url('read/'.$menu['type'].'/'.$menu['url']);?>"><?php echo $menu['subject'];?></a>
                 </li>
                 <?php 
                 $i++;
@@ -78,7 +78,7 @@
           </ul>
                 
             <div class="searchform pull-left">
-              <form id="custom-search-form" class="form-search form-horizontal col-lg-12 col-md-12 col-sm-12">
+              <form id="custom-search-form" class="form-search form-horizontal col-lg-12 col-md-12 col-sm-12 hidden">
                     <!--<input type="text" class="search-query form-control" placeholder="Search">-->
                     <div class="input-group input-group-sm col-lg-8">
                         <span class="input-group-addon input-sm"><span class="glyphicon glyphicon-search"></span></span>
@@ -88,15 +88,15 @@
                 
                     <div class="lang-bg">
                         <ul class="list-unstyled pull-left">
-                            <?php foreach ($languages as $language) { 
-                            if ($language->prefix == config_item('language')) { ?>
+                            <?php foreach ($this->languages as $language) { 
+                            if ($language->url == config_item('language')) { ?>
                             <li class="bg-danger" style="width: 100%">
                                 <!--img class="pull-left" src="<?php echo base_url('assets/static/img/flags').'/'.$language->prefix;?>.png"/-->
                                 <?php echo $language->prefix;?>
                             </li>
                             <?php } else { ?>
                             <li>
-                                <a href="<?php echo base_url('language/'.$language->prefix);?>">
+                                <a href="<?php echo base_url('language/'.$language->url);?>">
                                     <!--img class="pull-left" src="<?php echo base_url('assets/static/img/flags').'/'.$language->prefix;?>.png"/-->
                                     <?php echo $language->prefix;?>
                                 </a>
@@ -107,21 +107,8 @@
                         </ul>
                     </div>
             </div>
-            
-            <ul class="list-inline hidden">
-			<?php foreach ($menus as $menu) { ?>
-				<li><a href="<?php echo base_url('page/'.$menu->url);?>"><?php echo $menu->title;?></a></li>
-			<?php } ?>
-			</ul>
-			
-			
-
-
-            
+ 
         </div><!--/.nav-collapse -->
-        
-
-        
         
       </div>
     </nav>

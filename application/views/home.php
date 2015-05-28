@@ -16,9 +16,9 @@
 			  </div>
 			</div>
 			<div id="fade-it1" class="produk-kami">
-              <div class="img-produk-kami"><h3><?php echo $home_product[1]['title'];?></h3></div>
+              <div class="img-produk-kami"><h3><?php echo $home_product[1]['subject'];?></h3></div>
 			  <p>
-				<?php echo $home_product[1]['description'];?>
+				<?php echo $home_product[1]['text'];?>
 			  </p>
 			  <div class="pasta-left"><img id="fade-it6" src="<?php echo base_url();?>assets/public/img/kewpie-left-pasta.png" alt="pasta"></div>
 			  <div class="pasta-right"><img id="fade-it7" src="<?php echo base_url();?>assets/public/img/kewpie-right-pasta.png" alt="pasta"></div>
@@ -34,14 +34,14 @@
                         <div class="col-xs-3 col-sm-3 col-md-3">
                             <div class="radial-menu">
                                 <?php for ($i = 1; $i <= 4; $i++) { ?>
-                                    <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/pages/'.$product['media']);?>" alt=""></div>
+                                    <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                                 <?php } ?>
-                                <div class="mask"><img class="" src="<?php echo base_url('uploads/pages/'.$product['media']);?>" alt=""></div>
+                                <div class="mask"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                                 <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat;">
                                     <h4><?php echo $product['subject'];?></h4>
                                 </div>
                                 <div class="detail-left menu-item5 items-produk-link-posisi">
-                                    <div class="detail-right items-produk-link"><a href="https://www.facebook.com/">Detail <?php echo $product['subject'];?></a></div>
+                                    <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/'.$product['url']);?>"><?php echo $product['subject'];?></a></div>
                                 </div>
                             </div>
                         </div>       
@@ -107,15 +107,14 @@
 			</div>
 			<!-- FOOD SERVICE -->
 			<div id="fade-it2" class="food-service">
-			  <img class="food-service-thumb" src="<?php echo base_url();?>assets/public/img/food-service-thumb.png" alt="food service thumbnail item">
-              <div class="food-service-head"><h4>Food Service</h4></div>
+                <?php //print_r($home_food_service[1]['subject']);?>
+			  <img class="food-service-thumb" src="<?php echo base_url('uploads/products/'.$home_food_service[1]['media']);?>" alt="food service thumbnail item">
+              <div class="food-service-head"><h4><?php echo $home_food_service[1]['subject'];?></h4></div>
 			  <p class="food-service-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
-				Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
-				Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,
+                  <?php echo $home_food_service[1]['text'];?>
 			  </p>
 			  <div class="detail-left">
-				<div class="detail-right"><a href="">Detail Food Service</a></div>
+				<div class="detail-right"><a href="<?php echo base_url('read/product/'.$home_food_service[1]['url']);?>"><?php echo $home_food_service[1]['subject'];?></a></div>
 			  </div>
               </div>
 			</div>

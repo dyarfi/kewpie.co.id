@@ -84,7 +84,7 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
 }
 
 /* Always apply the floated nav */
-.navbar-nav { width: 50%; border: 0px solid #990000}
+.navbar-nav { width: 55%; border: 0px solid #990000}
 .navbar-nav {
   float: left;
   margin: 0 0 0 0px;
@@ -259,15 +259,15 @@ a:hover{color: #e70413; text-decoration: blink;}
   font-family: "courier new";
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
 }
-
 .navbar #navbar {
 	text-transform:uppercase;
 	font-size:1.3em;
 }
 .navbar #navbar ul li { width:18.8%; top:10px; }
+.navbar #navbar li.active a { color: #ff0000; }
 .navbar #navbar a {
 	/*line-height:0.8em !important;*/
         line-height: 1.0em !important;
@@ -442,6 +442,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 
 .items-produk-link-posisi{margin-left: -107px;;}
 .items-produk-link{width: 300px;}
+.items-produk-link a { display: block;}
 .menu-item5{opacity: 0.0; display: block;}
 .footer{
 	background: transparent url('../img/bg-foot.png') top center repeat-x;

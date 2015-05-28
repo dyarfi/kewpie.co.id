@@ -41,9 +41,9 @@ class PageMenu extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Page Menu');                            
             // The fields that user will see on add and edit form
-			$crud->fields('title','url','description','position','media','status','added','modified');
+			$crud->fields('subject','text','type','position','media','status','added','modified');
             // Set column
-            $crud->columns('title','position','description','media','modified','added','status');	
+            $crud->columns('subject','text','position','media','status','added','modified');	
 			
             // Unsets the fields at the add form.
 			$crud->unset_add_fields('parent_id','sub_level','has_child','user_id','order','count','is_system','added','modified');
@@ -59,7 +59,7 @@ class PageMenu extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('title','url','description','media','status','added','modified','translate');			
+				$crud->columns('subject','text','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -104,19 +104,21 @@ class PageMenu extends Admin_Controller {
 		$crud = new grocery_CRUD();
 	
 		// Set query select
-		$crud->where('menu_id',$field_id);
+		$crud->where('field_id',$field_id);
 		$crud->where('lang_id',$lang_id);
+        $crud->where('table','tbl_page_menus');
 		
 		// Set tables
-        $crud->set_table('tbl_page_menus_details');
+        $crud->set_table('tbl_translations');
 		
 		// Set subject
 		$crud->set_subject('Translation ' . $page_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('field_id','lang_id','title','url','description','added','modified');
+		$crud->fields('table','field_id','lang_id','subject','url','text','added','modified');
 		
 		// Changes the default field type
+		$crud->field_type('table', 'hidden');
 		$crud->field_type('url', 'hidden');
 		$crud->field_type('added', 'hidden');
 		$crud->field_type('modified', 'hidden');
@@ -131,19 +133,17 @@ class PageMenu extends Admin_Controller {
 		// This callback escapes the default auto column output of the field name at the add form
 		$crud->callback_column('added',array($this,'_callback_time'));
 		$crud->callback_column('modified',array($this,'_callback_time')); 
+        
 		// Set callback before database set
 		$crud->callback_before_insert(array($this,'_callback_url'));
 		$crud->callback_before_update(array($this,'_callback_url'));
         
-        //$crud->callback_field('url',array($this,'_callback_url'));
-		
 		// Sets the required fields of add and edit fields
 		$crud->required_fields('subject','text','status'); 
 		
 		$state = $crud->getState();
 		$state_info = $crud->getStateInfo();
-
-		$crud->callback_update(array($this,'_callback_update_detail'));
+        
 		$crud->unset_list();
 		
 		//print_r($crud);
@@ -162,17 +162,19 @@ class PageMenu extends Admin_Controller {
 		
 		$this->db->where('lang_id',$lang_id);
 		$this->db->where('field_id',$field_id);
+        $this->db->where('table','tbl_page_menus');
 		
-		$page_db = $this->db->get('tbl_page_menus_details');
+		$page_db = $this->db->get('tbl_translations');
 
 		if($page_db->num_rows() == 0)
 		{
-			$object['added']	= time();
+            $object['table']	= 'tbl_page_menus';
 			$object['lang_id']	= $lang_id;
 			$object['field_id']	= $field_id;
-			$object['user_id']  = $this->user->id;
+			$object['user_id']  = $this->user->id;            
+			$object['added']	= time();
 			$object['status']  	= 0;
-			$this->db->insert('tbl_page_menus_details',$object);
+			$this->db->insert('tbl_translations',$object);
 			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}
 		else
@@ -187,19 +189,19 @@ class PageMenu extends Admin_Controller {
 		unset($post['status']);
 		$post['status']  	= 1;
 		// Return update database
-		return $this->db->update('tbl_page_menus_details',$post,array('id' => $primary_key));
+		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
 	}
     
   	public function _callback_url($value, $primary_key) {
         // Set url_title() function to set readable text
-        $value['url'] = url_title($value['title'],'-',true);
+        $value['url'] = url_title($value['subject'],'-',true);
         // Return update database
-		return $value; 
+        return $value; 
     }
     
     public function _callback_translate ($value, $row) {
 		$links = '';
-		foreach($this->Languages->getAllLanguage(1) as $lang) {
+		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
 			// Find other than the default languages
 			if($lang->default != 1) {
 				$links .= '<a href="'.base_url(ADMIN).'/pagemenu/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';

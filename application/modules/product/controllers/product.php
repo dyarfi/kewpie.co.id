@@ -24,7 +24,7 @@ class Product extends Admin_Controller {
             // Load Products model
             $this->load->model('products');
 
-            // Load ProductMenu model
+            // Load ProductCategory model
             $this->load->model('ProductCategories');
 
             // Load Grocery CRUD
@@ -41,13 +41,13 @@ class Product extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Product');                   
             // Set table relation
-            $crud->set_relation('menu_id','tbl_product_categories','title');
+            $crud->set_relation('category_id','tbl_product_categories','subject');
             // Set columns
-            $crud->columns('subject','menu_id','synopsis','text','gallery','status','added','modified');			
+            $crud->columns('subject','category_id','synopsis','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','menu_id','synopsis','text','media','publish_date','unpublish_date','status','added','modified');
+			$crud->fields('subject','url','category_id','synopsis','text','media','status','added','modified');
             // Set column display 
-            $crud->display_as('menu_id','Menu');
+            $crud->display_as('category_id','Category');
 			// Changes the default field type
 			$crud->field_type('url', 'hidden');
 			$crud->field_type('added', 'hidden');
@@ -55,7 +55,7 @@ class Product extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','menu_id','synopsis','text','gallery','media','status','added','modified','translate');			
+				$crud->columns('subject','category_id','synopsis','text','gallery','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -133,17 +133,19 @@ class Product extends Admin_Controller {
 		// Set query select
 		$crud->where('field_id',$field_id);
 		$crud->where('lang_id',$lang_id);
+        $crud->where('table','tbl_products');
 		
 		// Set tables
-        $crud->set_table('tbl_products_details');
+        $crud->set_table('tbl_translations');
 		
 		// Set subject
 		$crud->set_subject('Translation ' . $product_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('field_id','lang_id','subject','url','synopsis','text','added','modified');
+		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','added','modified');
 		
 		// Changes the default field type
+        $crud->field_type('table', 'hidden');
 		$crud->field_type('url', 'hidden');
 		$crud->field_type('added', 'hidden');
 		$crud->field_type('modified', 'hidden');
@@ -180,17 +182,19 @@ class Product extends Admin_Controller {
 		
 		$this->db->where('lang_id',$lang_id);
 		$this->db->where('field_id',$field_id);
+        $this->db->where('table','tbl_products');
 		
-		$product_db = $this->db->get('tbl_products_details');
+		$product_db = $this->db->get('tbl_translations');
 
 		if($product_db->num_rows() == 0)
 		{
-			$object['added']	= time();
+            $object['table']	= 'tbl_products';
 			$object['lang_id']	= $lang_id;
 			$object['field_id']	= $field_id;
 			$object['user_id']  = $this->user->id;
+            $object['added']	= time();
 			$object['status']  	= 0;
-			$this->db->insert('tbl_products_details', $object);
+			$this->db->insert('tbl_translations', $object);
 			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}
 		else
@@ -224,7 +228,7 @@ class Product extends Admin_Controller {
 	
 	public function _callback_translate ($value, $row) {
 		$links = '';
-		foreach($this->Languages->getAllLanguage(1) as $lang) {
+		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
 			// Find other than the default languages
 			if($lang->default != 1) {
 				$links .= '<a href="'.base_url(ADMIN).'/product/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';

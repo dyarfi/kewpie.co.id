@@ -18,8 +18,6 @@ class Home extends Public_Controller {
 		$this->load->model('page/Pagemenus');
 		$this->load->model('page/Pages');
 		
-		$this->load->model('Content');
-		
 		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));
 		
 		//print_r($page_menus);
@@ -27,20 +25,17 @@ class Home extends Public_Controller {
 	
 	public function index() {
 		
-		// Set Language list
-		$data['languages']	= $this->Languages->getAllLanguage();
-		
-		// Set menus
-		$data['menus']      = $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
-        
-        // Set home
+		// Set home
 		$data['home_welcome']  = $this->Content->find('pages',array('status'=>'publish','menu_id'=>1,'id'=>1));
         
         // Set home product
 		$data['home_product']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>2));
         
+        // Set home product categories == 'food-services'
+		$data['home_food_service']  = $this->Content->find('product_categories',array('status'=>'publish','id'=>4));
+        
         // Set page product
-        $data['products']  = $this->Content->find('pages',array('status'=>'publish','menu_id'=>2));
+        $data['products']  = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added' => 'DESC'));
         
 		// Set site title page with module menu
 		$data['page_title'] = $this->config->item('developer_name') .' | '. $this->Settings->getByParameter('title_default')->value;

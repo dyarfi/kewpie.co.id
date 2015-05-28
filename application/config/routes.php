@@ -64,6 +64,12 @@ $route[$admin.'/page/(:any)']		= 'page/$1';
 $route[$admin.'/pagemenu/(:any)']	= 'page/pagemenu/$1';
 $route[$admin.'/page_gallery/(:any)']  = 'page/page_gallery/$1';
 
+
+$route[$admin.'/product/(:any)']		= 'product/$1';
+$route[$admin.'/product_category/(:any)']	= 'product/product_category/$1';
+$route[$admin.'/product_gallery/(:any)']  = 'product/product_gallery/$1';
+$route[$admin.'/product_recipe/(:any)']  = 'product/product_recipe/$1';
+
 //$route[$admin.'/(:any)'] = '$1';
 
 /*
@@ -78,7 +84,18 @@ $route['default_controller'] = 'home';
 $route['download/(:num)']	 = 'download';
 $route['404_override']		 = '';
 $route['language/(:any)']    = "language";
-//$route['page/(:any)']	 	 	 = 'content/view/$1';
+//$route['page/(:any)']	 	 = 'content/view/$1';
+
+$route['read/news/detail/(:any)']       = "front_news/detail/$1";
+$route['read/news/(:any)']              = "front_news/view/$1";
+$route['read/recipe/detail/(:any)']     = "front_recipe/detail/$1";
+$route['read/recipe/(:any)']            = "front_recipe/view/$1";
+$route['read/product/detail/(:any)']    = "front_product/detail/$1";
+$route['read/product/(:any)']           = "front_product/view/$1";
+$route['read/page/detail/(:any)']       = "front_page/detail/$1";
+$route['read/page/(:any)']              = "front_page/view/$1";
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

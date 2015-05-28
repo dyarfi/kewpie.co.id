@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="google" content="notranslate" />
-	<title><?php echo $page_title; ?></title>
-	
+	<title><?php echo ($page_title) ? $page_title .' | '. config_item('developer_name') : ''; ?></title>
+	<link rel="shortcut icon" href="favicon.ico" />
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>assets/public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url();?>assets/public/css/fonts.css" rel="stylesheet" type="text/css">

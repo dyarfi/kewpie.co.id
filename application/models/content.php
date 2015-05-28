@@ -23,10 +23,10 @@ class Content extends CI_Model {
 		
         
 		// Get language default
-		$this->lang_prefix = config_item('language');
+		$this->lang_prefix = $this->session->userdata('language');
         
         // Get language id
-		$this->lang_data = $this->Languages->getByPrefix($this->lang_prefix);
+		$this->lang_data = $this->Languages->getByUrl($this->lang_prefix);
 
 	}
         
@@ -34,12 +34,10 @@ class Content extends CI_Model {
         
         /** Set table detail **/
         $tbl = $this->db->dbprefix($table);
-        $tbl_detail = $tbl . '_details'; 
         
         /** Set sql default **/
         $sql = '';
-        //$sql_detail = '';
-		
+        
         /** Build where query **/
 		if ($where_cond != '') {
             
@@ -117,9 +115,8 @@ class Content extends CI_Model {
         $details = array();
         
         $p=1;
-        //print_r($this->lang_id);
-		foreach ($rows->result_array() as $row) {
-            $details[$p] = $this->db->query('SELECT * FROM `'.$tbl_detail.'` WHERE `lang_id` = '.$this->lang_data->id.' AND `field_id` = '.$row['id'].' LIMIT 1;')->result_array()[0];
+        foreach ($rows->result_array() as $row) {
+            $details[$p] = $this->db->query('SELECT * FROM `tbl_translations` WHERE `table` = \''.$tbl.'\' AND `lang_id` = '.$this->lang_data->id.' AND `field_id` = '.$row['id'].' LIMIT 1;')->result_array()[0];
             $returns[$p] = $row;
             $p++;
 		}
@@ -127,6 +124,42 @@ class Content extends CI_Model {
 		return ($this->lang_data->is_system == 1) ? $returns : array_replace_recursive($returns, $details);
 	}
 	
+    public function findIdByUrl($table='',$url='') {
+        //print_r();
+        // Set query for translations data
+        $options = array('table' =>$this->db->dbprefix($table),'url'=>$url);
+        $this->db->where($options,1);
+        
+        // Set default table data
+        $data = array();
+        $Q = $this->db->get('tbl_translations');
+       
+        if ($Q->num_rows() > 0){
+			foreach ($Q->result_object() as $row) {
+				$data = $row;
+			}    
+	    }
+        // If translation is empty and check for main table data
+        if (!$data) {
+            // Set query
+            $options = array('url'=>$url);
+            $this->db->where($options,1);
+            $Q = $this->db->get($this->db->dbprefix($table));
+            if ($Q->num_rows() > 0){
+                foreach ($Q->result_object() as $row) {
+                    // Set return for field id
+                    $row->field_id = $row->id;
+                    $data = $row;
+                }    
+            }
+        }
+        // Free query result
+        $Q->free_result();
+        // Return data
+        return $data;
+        
+    }
+    
 	public function getDBLanguage() {
 		
 		//$lang  = config_item('language');

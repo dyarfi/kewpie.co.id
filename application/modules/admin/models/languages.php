@@ -74,9 +74,8 @@ class Languages Extends CI_Model {
 	    $data = array();
 	    $this->db->order_by('added');
 		if ($status) {
-			$this->db->where('status',$status);
+			$this->db->where($status);
 		}
-        //$this->db->where('is_system !=',1);
 		$Q = $this->db->get($this->table);
 		if ($Q->num_rows() > 0){
 		    //foreach ($Q->result_array() as $row){
@@ -118,13 +117,13 @@ class Languages Extends CI_Model {
 	public function getByUrl($url = null){
 	    $data = '';
 	    $options = array('url' => $url);
-	    $this->db->where($this->table,$options,1);
-		$Q = $this->db->get($this->table);		
-	    if ($Q->num_rows() > 0){
+        $Q = $this->db->get_where($this->table,$options,1);		
+        if ($Q->num_rows() > 0){
 			foreach ($Q->result_object() as $row) {
-				$data = $Q->result_object();
+				$data = $row;
 			}
 	    }
+        
 	    $Q->free_result();
 	    return $data;
 	}

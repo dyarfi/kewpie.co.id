@@ -38,15 +38,15 @@ class Product_Recipe extends Admin_Controller {
 	    // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
-            $crud->set_table('tbl_products');
+            $crud->set_table('tbl_product_recipes');
             // Set CRUD subject
             $crud->set_subject('Product');                   
             // Set table relation
-            $crud->set_relation('product_id','tbl_products','title');
+            $crud->set_relation('product_id','tbl_products','subject');
             // Set columns
             $crud->columns('subject','product_id','synopsis','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','product_id','synopsis','text','media','publish_date','unpublish_date','status','added','modified');
+			$crud->fields('subject','url','product_id','synopsis','text','media','status','added','modified');
             // Set column display 
             $crud->display_as('product_id','Product');
 			// Changes the default field type
@@ -134,20 +134,22 @@ class Product_Recipe extends Admin_Controller {
 		// Set query select
 		$crud->where('field_id',$field_id);
 		$crud->where('lang_id',$lang_id);
+        $crud->where('table',$table);
 		
 		// Set tables
-        $crud->set_table('tbl_products_details');
+        $crud->set_table('tbl_translations');
 		
 		// Set subject
 		$crud->set_subject('Translation ' . $product_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('field_id','lang_id','subject','url','synopsis','text','added','modified');
+		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','added','modified');
 		
 		// Changes the default field type
-		$crud->field_type('url', 'hidden');
+        $crud->field_type('table', 'hidden');
 		$crud->field_type('added', 'hidden');
 		$crud->field_type('modified', 'hidden');
+        $crud->field_type('url', 'hidden');
 		$crud->field_type('field_id', 'hidden', $id);
         $crud->field_type('lang_id', 'hidden', $lang_id);
 		
@@ -181,17 +183,19 @@ class Product_Recipe extends Admin_Controller {
 		
 		$this->db->where('lang_id',$lang_id);
 		$this->db->where('field_id',$field_id);
+        $this->db->where('table','tbl_product_recipes');
 		
-		$product_db = $this->db->get('tbl_products_details');
+		$product_db = $this->db->get('tbl_translations');
 
 		if($product_db->num_rows() == 0)
 		{
-			$object['added']	= time();
+            $object['table']	= 'tbl_product_recipes';
 			$object['lang_id']	= $lang_id;
 			$object['field_id']	= $field_id;
 			$object['user_id']  = $this->user->id;
+            $object['added']	= time();
 			$object['status']  	= 0;
-			$this->db->insert('tbl_products_details', $object);
+			$this->db->insert('tbl_translations', $object);
 			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}
 		else
@@ -225,10 +229,10 @@ class Product_Recipe extends Admin_Controller {
 	
 	public function _callback_translate ($value, $row) {
 		$links = '';
-		foreach($this->Languages->getAllLanguage(1) as $lang) {
+		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
 			// Find other than the default languages
 			if($lang->default != 1) {
-				$links .= '<a href="'.base_url(ADMIN).'/product/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
+				$links .= '<a href="'.base_url(ADMIN).'/product_recipe/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
 			}
 		}
 		return $links;
@@ -266,7 +270,7 @@ class Product_Recipe extends Admin_Controller {
         unset($post['status']);
 		$post['status']  	= 1;
 		// Return update database
-		return $this->db->update('tbl_products_details',$post,array('id' => $primary_key));
+		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
 	}
 	
     private function load($crud, $nav) {
@@ -274,7 +278,7 @@ class Product_Recipe extends Admin_Controller {
         $output->nav = $nav;
         if ($crud->getState() == 'list') {
             // Set Product Title 
-            $output->product_title = 'Product Listings';
+            $output->product_title = 'Product Recipe Listings';
             // Set Main Template
             $output->main       = 'template/admin/metronix';
             // Set Primary Template

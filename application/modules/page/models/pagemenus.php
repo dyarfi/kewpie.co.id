@@ -27,8 +27,8 @@ class PageMenus Extends CI_Model {
 				. '`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY , '
 				. '`parent_id` INT(11) UNSIGNED NULL , '
 				. '`name` VARCHAR(128) NULL , '
-				. '`title` VARCHAR(255) NULL , '
-				. '`description` TEXT NULL , '
+				. '`subject` VARCHAR(255) NULL , '
+				. '`text` TEXT NULL , '
 				. '`url` VARCHAR(255) NULL , '		
 				. '`media` VARCHAR(255) NULL , '				
 				. '`position` VARCHAR(255) NULL , '
@@ -83,7 +83,7 @@ class PageMenus Extends CI_Model {
 	public function getMenu($menu=null){
 		if(!empty($menu)){
 			$data = array();
-			$options = array('title' => $menu,'status' => 'publish');
+			$options = array('subject' => $menu,'status' => 'publish');
 			$Q = $this->db->get_where('page_menus',$options,1);
 			if ($Q->num_rows() > 0){
 				foreach ($Q->result_object() as $row)

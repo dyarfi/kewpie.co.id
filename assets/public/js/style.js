@@ -39,9 +39,9 @@ $(document).ready(function() {
     
     });
     
-    $('.menu-item5').click(function() {
-		window.location = $(this).attr('href');
-		// return true;
+    $('.items-produk-link a').mousedown(function() {
+            window.location = $(this).attr('href');
+            return true;
     });
 
     /* carousel */

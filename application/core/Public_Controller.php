@@ -3,6 +3,8 @@
 class Public_Controller extends MY_Controller {
 	
 	var	$language ='';
+    var	$languages ='';
+    var $menus = '';
 	
     function __construct() {
 		
@@ -16,6 +18,8 @@ class Public_Controller extends MY_Controller {
 		$this->load->model('admin/Settings');
 		$this->load->model('admin/ServerLogs');
 		$this->load->model('admin/Languages');
+        // Site content
+        $this->load->model('Content');
 		
 		// Set site status default
 		self::getSiteStatus();
@@ -39,20 +43,11 @@ class Public_Controller extends MY_Controller {
 			// $this->template->set_theme('default');
 		}
 
-		//$this->config->set_item('language', 'item_value');
-		
-		//print_r($this->config->set_item('language', $this->Languages->getDefault()->url));
-		
-		//print_r(config_item('language'));
-		
-		//$this->config->set_item('language', $this->Languages->getDefault()->url);
-		
-		//$this->lang->load('label', config_item('language'));
 		
 		// Get language cookie
 		//$language = get_cookie('language');
         $language = $this->session->userdata('language');
-		//print_r($language);
+        
 		// Check if cookie language if already set
 		if (!$language) {
 		
@@ -60,11 +55,11 @@ class Public_Controller extends MY_Controller {
 			$time_expired = 7200 + 60 * 60 * 24 * 30;
 			
 			// Set language from database 
-			$this->config->set_item('language', $this->Languages->getDefault()->prefix);
+			$this->config->set_item('language', $this->Languages->getDefault()->url);
 			
 			// Set cookie from default variables
 			//$this->input->set_cookie("language", config_item('language'), $time_expired);
-            $this->session->set_userdata("language", config_item('language'),$time_expired);
+            $this->session->set_userdata("language", config_item('language'), $time_expired);
 		
 		} else {
 		
@@ -72,6 +67,13 @@ class Public_Controller extends MY_Controller {
 			$this->config->set_item('language', $language);
 			
 		}
+        
+        // Set Language list
+		$this->languages	= $this->Languages->getAllLanguage(array('status'=>'1'));
+		
+        // Set menus
+		$this->menus      = $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
+        
 		//$this->template->theme  		= 'default';
 		//$this->template->title  		= 'Page Title';
 		//$this->template->meta_data  	= array();
