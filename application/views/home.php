@@ -37,7 +37,7 @@
                                     <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                                 <?php } ?>
                                 <div class="mask"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                                <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat;">
+                                <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
                                     <h4><?php echo $product['subject'];?></h4>
                                 </div>
                                 <div class="detail-left menu-item5 items-produk-link-posisi">

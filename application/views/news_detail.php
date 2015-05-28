@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div class="kewpie-main-body content-inside"> <!-- for cahnging background purpose -->
+<div class="kewpie-main-body"> <!-- for cahnging background purpose -->
 		<div class="kewpie-main-body"> <!-- for cahnging background purpose -->
 			<div class="container"> <!-- content start -->
 				<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/page-berita-terbaru.png" alt="title page"></div>
