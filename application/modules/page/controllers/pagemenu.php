@@ -43,7 +43,7 @@ class PageMenu extends Admin_Controller {
             // The fields that user will see on add and edit form
 			$crud->fields('subject','text','type','position','media','status','added','modified');
             // Set column
-            $crud->columns('subject','text','position','media','status','added','modified');	
+            $crud->columns('subject','text','position','media','gallery','status','added','modified');	
 			
             // Unsets the fields at the add form.
 			$crud->unset_add_fields('parent_id','sub_level','has_child','user_id','order','count','is_system','added','modified');
@@ -59,7 +59,7 @@ class PageMenu extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','text','media','status','added','modified','translate');			
+				$crud->columns('subject','text','media','gallery','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -76,6 +76,9 @@ class PageMenu extends Admin_Controller {
             // Set callback before database set
             $crud->callback_before_insert(array($this,'_callback_url'));
             $crud->callback_before_update(array($this,'_callback_url'));
+            
+             // Callback Column 
+            $crud->callback_column('gallery',array($this,'_callback_gallery'));
             
 			// Sets the required fields of add and edit fields
 			$crud->required_fields('subject','position','status');   
@@ -184,6 +187,14 @@ class PageMenu extends Admin_Controller {
 		
 	}
     
+    public function _callback_gallery ($value,$row) {
+        if ($row->id) { 
+            return '<a href="'.base_url(ADMIN).'/page_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
+        } else { 
+            return '-';
+        }
+    }
+   
     public function _callback_update_detail($post, $primary_key) {
 		// Unset status first and change to 1
 		unset($post['status']);

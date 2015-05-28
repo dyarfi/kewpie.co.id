@@ -29,25 +29,25 @@
 			  <div class="row">
                 
                     <?php
-                        $j = 1;
-                        foreach ($products as $product) { ?>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                            <div class="radial-menu">
-                                <?php for ($i = 1; $i <= 4; $i++) { ?>
-                                    <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                                <?php } ?>
-                                <div class="mask"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                                <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
-                                    <h4><?php echo $product['subject'];?></h4>
-                                </div>
-                                <div class="detail-left menu-item5 items-produk-link-posisi">
-                                    <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>"><?php echo $product['subject'];?></a></div>
-                                </div>
+                    $j = 1;
+                    foreach ($products as $product) { ?>
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="radial-menu">
+                            <?php for ($i = 1; $i <= 4; $i++) { ?>
+                                <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
+                            <?php } ?>
+                            <div class="mask"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
+                            <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
+                                <h4><?php echo $product['subject'];?></h4>
                             </div>
-                        </div>       
+                            <div class="detail-left menu-item5 items-produk-link-posisi">
+                                <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>"><?php echo $product['subject'];?></a></div>
+                            </div>
+                        </div>
+                    </div>       
                     <?php
-                        $j++;
-                        } ?>
+                    $j++;
+                    } ?>
                
                   <!--h4 style="font-family:'Leckerli_OneRegular'"></h4-->
                   
@@ -120,88 +120,70 @@
 			</div>
 			<!-- RESEP -->
 			<div class="resep-home">
-				<div class="display-pizza"  data-toggle="tooltip" data-placement="right" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
-				Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
-				Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,">
-					<img id="fly-it4" src="<?php echo base_url();?>assets/public/img/pizza.jpg" alt="resep">
-				</div>
-			  <img id="fly-it1" class="resep-title" src="<?php echo base_url();?>assets/public/img/resep.png" alt="resep">
-			  <div id="fly-it2" class="box-white box-1">
-				<h3 class="title tred">KEWPIE Mini Pepperoni Pizzas</h3>
-				<p class="food-service-text">
-				  Enjoy these home-made mini pizzas by preparing a few
-				  simple ingredients before baking them in your toaster oven.
-				  This recipe uses pepperoni slices and KEWPIE SANDWICH
-				  SPREAD SPICY BLACK PEPPER
-				</p>
-				<p>
-				  Kewpie Tips :<br>
-				  Cherry tomatoes are a rich source of Vitamins A, C, and Folic Acid. They're also full of healthy nutrients and anti-oxidants..
-				</p>
-				<div class="detail-left learn-detail pull-right">
-				  <div class="detail-right"><a href="">Learn How</a></div>
-				</div>
-			  </div>
-			  <div id="fly-it3" class="box-white box-2">
-				<h3 class="title tred">KEWPIE Mini Pepperoni Pizzas</h3>
-				<p class="food-service-text">
-				  Enjoy these home-made mini pizzas by preparing a few
-				  simple ingredients before baking them in your toaster oven.
-				  This recipe uses pepperoni slices and KEWPIE SANDWICH
-				  SPREAD SPICY BLACK PEPPER
-				</p>
-				<p>
-				  Kewpie Tips :<br>
-				  Cherry tomatoes are a rich source of Vitamins A, C, and Folic Acid. They're also full of healthy nutrients and anti-oxidants..
-				</p>
-				<div class="detail-left learn-detail pull-right">
-				  <div class="detail-right"><a href="">Learn How</a></div>
-				</div>
-			  </div>
-			  <div class="display-sayuran"  data-toggle="tooltip" data-placement="left" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
-				Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
-				Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,">
-					<img id="fly-it5" src="<?php echo base_url();?>assets/public/img/resep-sayuran.jpg" alt="resep">
-				</div>
+                <img id="fly-it1" class="resep-title" src="<?php echo base_url();?>assets/public/img/resep.png" alt="resep">
+                <?php 
+                    $l=1;
+                    foreach ($home_recipe_favorite as $favorite ) { ?>
+                    <?php if ($l == 1) { ?>
+                        <div class="display-pizza" data-toggle="tooltip" data-placement="right" title="<?php echo strip_tags($favorite['text']);?>">
+                            <img id="fly-it4" src="<?php echo base_url('uploads/products/'.$favorite ['media']);?>" alt="resep">
+                        </div>
+                        <div id="fly-it2" class="box-white box-1">
+                            <h3 class="title tred"><?php echo $favorite['subject'];?></h3>
+                            <p class="food-service-text">
+                              <?php echo $recipe['text'];?>
+                            </p>
+                            <p>
+                              Kewpie Tips :<br>
+                              Cherry tomatoes are a rich source of Vitamins A, C, and Folic Acid. They're also full of healthy nutrients and anti-oxidants..
+                            </p>
+                            <div class="detail-left learn-detail pull-right">
+                              <div class="detail-right"><a href="">Learn How</a></div>
+                            </div>
+                        </div>
+                    <?php } else if ($l == 2) { ?>
+                    <div id="fly-it3" class="box-white box-2">
+                        <h3 class="title tred"><?php echo $favorite['subject'];?></h3>
+                        <p class="food-service-text">
+                              <?php echo $favorite['text'];?>
+                        </p>
+                        <p>
+                          Kewpie Tips :<br>
+                          Cherry tomatoes are a rich source of Vitamins A, C, and Folic Acid. They're also full of healthy nutrients and anti-oxidants..
+                        </p>
+                        <div class="detail-left learn-detail pull-right">
+                          <div class="detail-right"><a href="">Learn How</a></div>
+                        </div>
+                      </div>
+                      <div class="display-sayuran" data-toggle="tooltip" data-placement="left" title="<?php echo strip_tags($favorite['text']);?>">
+                          <img id="fly-it5" src="<?php echo base_url('uploads/products/'.$favorite['media']);?>" alt="resep">
+                    </div>
+                <?php
+                    }
+                    $l++;
+                    } 
+                ?>
+                
 			</div>
+            
+            
 			<div id="scale-it1" class="list-resep-home"><!-- size image nya harus 195x195(pixel) -->
-
-			  <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
-				<section>
-				<a class="cmn-t-scale" href="">
-				  <img src="<?php echo base_url();?>assets/public/img/items/smpl-rsp-1.png" alt="item resep a"><br>
-				  Chicken Caesar Salad
-				</a>
-				</section>
-			  <img class="jenis-resep" src="<?php echo base_url();?>assets/public/img/items/bumbu-resep.png" alt="jenis resep">
-			  </div>
-			  <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
-				<section>
-				<a class="cmn-t-scale" href="">
-				  <img src="<?php echo base_url();?>assets/public/img/items/smpl-rsp-2.png" alt="item resep a"><br>
-				  Chicken Caesar Salad
-				</a>
-				</section>
-				<img class="jenis-resep" src="<?php echo base_url();?>assets/public/img/items/bumbu-resep.png" alt="jenis resep">
-			  </div>
-			  <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
-				<section>
-				<a class="cmn-t-scale" href="">
-				  <img src="<?php echo base_url();?>assets/public/img/items/smpl-rsp-3.png" alt="item resep a"><br>
-				  Chicken Caesar Salad
-				</a>
-				</section>
-				<img class="jenis-resep" src="<?php echo base_url();?>assets/public/img/items/bumbu-resep.png" alt="jenis resep">
-			  </div>
-			  <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
-				<section>
-				<a class="cmn-t-scale" href="">
-				  <img src="<?php echo base_url();?>assets/public/img/items/smpl-rsp-4.png" alt="item resep a"><br>
-				  Chicken Caesar Salad
-				</a>
-				</section>
-				<img class="jenis-resep" src="<?php echo base_url();?>assets/public/img/items/bumbu-resep.png" alt="jenis resep">
-			  </div>
+                <?php 
+                $b=1;
+                foreach ($home_recipes as $recipe ) { ?>
+                    <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
+                      <section>
+                      <a class="cmn-t-scale" href="">
+                        <?php if ($recipe['media']) { ?><img src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="item resep a"><br><?php } ?>
+                        <?php echo $recipe['subject'];?>
+                      </a>
+                      </section>
+                    <img class="jenis-resep" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
+                    </div>
+                <?php 
+                $b++;
+                } 
+                ?>
 			  <div>
 				<img class="fork-spoon" src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork spoon">
 				<div class="detail-left menu-lain">
@@ -209,6 +191,8 @@
 				</div>
 			  </div>
 			</div>
+            
+            
 			<!-- DALAM KEWPIE -->
 			<div id="fade-it3" class="dalam-kewpie">
 			  <img class="title-dalam-kewpie" src="<?php echo base_url();?>assets/public/img/dalam-kewpie.png" alt="dalam kewpie">
@@ -384,4 +368,4 @@
 			</div>
 		  </div>
 		</div>
-	</div>
+	

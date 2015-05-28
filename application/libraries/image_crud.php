@@ -395,7 +395,8 @@ class image_CRUD {
 	{
 		$this->image_moo
 			->load($image_path)
-			->resize_crop(90,60)
+			//->resize_crop(90,60)
+            ->resize_crop(195,195)
 			->save($thumbnail_path,true);
 	}
 

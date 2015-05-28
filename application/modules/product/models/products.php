@@ -69,7 +69,7 @@ class Products Extends CI_Model {
 		return $data;
 	}
 	
-	public function getPage($id = null){
+	public function getProduct($id = null){
 		if(!empty($id)){
 			$data = array();
 			$options = array('id' => $id);
@@ -83,7 +83,7 @@ class Products Extends CI_Model {
 		}
 	}	
 	
-	public function getPageByName($name = null){
+	public function getProductByName($name = null){
 		if(!empty($name)){
 			$data = array();
 			$options = array('name' => $name,'status'=>'publish');
@@ -97,7 +97,7 @@ class Products Extends CI_Model {
 		}
 	}	
 	
-	public function getAllPage($admin=null){
+	public function getAllProduct($admin=null){
 		$data = array();
 		$this->db->order_by('added');
 		$Q = $this->db->get($this->table);
@@ -111,7 +111,7 @@ class Products Extends CI_Model {
 		return $data;
 	}	
 	
-	public function getAllPageByMenu($menu=null){
+	public function getAllProductByMenu($menu=null){
 		$data = array();
 		$this->db->order_by('added');
 		$this->db->where('category_id',$menu);
@@ -126,9 +126,9 @@ class Products Extends CI_Model {
 		return $data;
 	}	
 	
-	public function setPage($object=null){
+	public function setProduct($object=null){
 		
-		// Set Page data
+		// Set Product data
 		$data = array(			
 			'category_id'       => $object['category_id'],
 			'name'			=> $object['name'],
@@ -149,7 +149,7 @@ class Products Extends CI_Model {
 			'modified'		=> $object['status']
 		);
 		
-		// Insert Page data
+		// Insert Product data
 		$this->db->insert($this->table, $data);
 		
 		// Return last insert id primary
@@ -161,7 +161,7 @@ class Products Extends CI_Model {
 	}	
 	
 	// Delete page
-	public function deletePage($id) {
+	public function deleteProduct($id) {
 		
 		// Check page id
 		$this->db->where('id', $id);

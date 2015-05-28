@@ -17,6 +17,9 @@ class Home extends Public_Controller {
 		// Load User related model in admin module
 		$this->load->model('page/Pagemenus');
 		$this->load->model('page/Pages');
+        
+        $this->load->model('product/Products');
+		
 		
 		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));
 		
@@ -34,6 +37,12 @@ class Home extends Public_Controller {
         // Set home product categories == 'food-services'
 		$data['home_food_service']  = $this->Content->find('product_categories',array('status'=>'publish','id'=>4));
         
+        // Set home product recipe favorite
+		$data['home_recipe_favorite']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('added' => 'DESC'),2);
+        
+        // Set home product recipes favorite
+		$data['home_recipes']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'no'),array('added' => 'DESC'),4);
+       
         // Set page product
         $data['products']  = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added' => 'ASC'),4);
         

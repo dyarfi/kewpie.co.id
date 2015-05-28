@@ -17,15 +17,14 @@
                     </div>    
                 </div>
             
-                <div class="col-xs-6 col-sm-6 col-md-6 tentang">
-                    <img class="img-ctr" src="<?php echo base_url();?>assets/public/img/items/tentang-1.jpg" alt="">
-                    <img class="img-ctr" src="<?php echo base_url();?>assets/public/img/items/tentang-2.jpg" alt="">
-                    <img class="img-tentang" src="<?php echo base_url();?>assets/public/img/items/tentang-3.jpg" alt="">
-                    <img src="<?php echo base_url();?>assets/public/img/items/tentang-4.jpg" alt="">
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <?php echo $category[1]['text'];?>
-                </div>
+                <div class="container-fluid content-inside">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                       <?php if ($category[1]['media']) { ?><img src="<?php echo base_url('uploads/pagemenus/'.$category[1]['media']);?>"/><?php } ?>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <?php echo $category[1]['text'];?>
+                    </div>
+                </div>    
                 <div class="clear"></div>
 
         </div> <!-- content end -->

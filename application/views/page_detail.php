@@ -17,10 +17,7 @@
                 </div>
             
                 <div class="col-xs-6 col-sm-6 col-md-6 tentang hidden">
-                    <img class="img-ctr" src="<?php echo base_url();?>assets/public/img/items/tentang-1.jpg" alt="">
-                    <img class="img-ctr" src="<?php echo base_url();?>assets/public/img/items/tentang-2.jpg" alt="">
-                    <img class="img-tentang" src="<?php echo base_url();?>assets/public/img/items/tentang-3.jpg" alt="">
-                    <img src="<?php echo base_url();?>assets/public/img/items/tentang-4.jpg" alt="">
+                    <?php if ($page_detail[1]['media']) { ?><img src="<?php echo base_url('uploads/pages/'.$page_detail[1]['media']);?>"/><?php } ?>
                 </div>
                 
                 <div class="col-xs-6 col-sm-6 col-md-6">

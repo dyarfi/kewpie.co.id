@@ -40,13 +40,13 @@ class Product_Recipe extends Admin_Controller {
             // Set tables
             $crud->set_table('tbl_product_recipes');
             // Set CRUD subject
-            $crud->set_subject('Product');                   
+            $crud->set_subject('Product Recipe');                   
             // Set table relation
             $crud->set_relation('product_id','tbl_products','subject');
             // Set columns
             $crud->columns('subject','product_id','synopsis','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','product_id','synopsis','text','media','status','added','modified');
+			$crud->fields('subject','url','product_id','synopsis','text','favorited','media','status','added','modified');
             // Set column display 
             $crud->display_as('product_id','Product');
 			// Changes the default field type
@@ -56,7 +56,7 @@ class Product_Recipe extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','product_id','synopsis','text','gallery','media','status','added','modified','translate');			
+				$crud->columns('subject','product_id','synopsis','text','favorited','gallery','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -78,6 +78,9 @@ class Product_Recipe extends Admin_Controller {
             $crud->callback_before_insert(array($this,'_callback_url'));
             $crud->callback_before_update(array($this,'_callback_url'));
 			
+            
+            $crud->callback_after_upload(array($this,'_callback_after_upload'));
+ 
 			// Sets the required fields of add and edit fields
 			$crud->required_fields('subject','text','status'); 
             // Set upload field
@@ -114,7 +117,7 @@ class Product_Recipe extends Admin_Controller {
             // Set upload field
             $crud->set_field_upload('media','uploads/products');
             
-            $this->load($crud, 'product');
+            $this->load($crud, 'product_recipe');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
@@ -205,6 +208,18 @@ class Product_Recipe extends Admin_Controller {
 		
 	}
 	
+    public function _callback_after_upload($uploader_response,$field_info, $files_to_upload)
+    {
+        $this->load->library('image_moo');
+
+        //Is only one file uploaded so it ok to use it with $uploader_response[0].
+        $file_uploaded = $field_info->upload_path.'/'.$uploader_response[0]->name; 
+
+        $this->image_moo->load($file_uploaded)->resize(200,200)->save($file_uploaded,true);
+
+        return true;
+    }
+    
     public function _callback_gallery ($value,$row) {
         if ($row->id) { 
             return '<a href="'.base_url(ADMIN).'/product_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 

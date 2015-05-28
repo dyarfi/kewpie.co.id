@@ -35,6 +35,7 @@ class ProductRecipes Extends CI_Model {
                 . '`media` VARCHAR(255) NULL, '
 				. '`attribute` TEXT NULL, '
 				. '`allow_comment` TINYINT(1) NULL, '
+                . '`favorited` ENUM( \'yes\', \'no\') NULL, '
 				. '`tags` TEXT NULL, '
 				. '`order` TINYINT(3) NULL, '
 				. '`user_id` TINYINT(3) NULL , '
