@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div class="kewpie-main-body content-inside"> <!-- for cahnging background purpose -->
+<div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container"> <!-- content start -->
 
@@ -7,7 +7,7 @@
                 <div class="container">
                     <ul class="list-inline">
                         <?php foreach ($product_category as $category) { ?>
-                        <li class="bg-danger"><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
+                        <li><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
                         <?php } ?>
                     </ul>
                 </div>    
