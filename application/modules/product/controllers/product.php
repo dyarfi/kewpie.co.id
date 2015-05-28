@@ -108,7 +108,7 @@ class Product extends Admin_Controller {
 			}
             
 			// Unset action 
-            $crud->unset_delete();
+            //$crud->unset_delete();
             
             // Set upload field
             $crud->set_field_upload('media','uploads/products');

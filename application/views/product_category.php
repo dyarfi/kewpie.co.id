@@ -1,17 +1,17 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div class="kewpie-main-body content-inside"> <!-- for cahnging background purpose -->
+<div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container-fluid"> <!-- content start -->
             
-            <div class="details hidden">                
-                <div class="container">
-                    <ul class="list-inline">
-                        <?php foreach ($product_categories as $category) { ?>
-                        <li class="bg-danger"><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
-                        <?php } ?>
-                    </ul>
+                <div class="details hidden">                
+                    <div class="container">
+                        <ul class="list-inline">
+                            <?php foreach ($product_categories as $category) { ?>
+                            <li class="bg-danger"><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
+                            <?php } ?>
+                        </ul>
+                    </div>    
                 </div>    
-            </div>    
             
                 <div class=''>
                     <div>
