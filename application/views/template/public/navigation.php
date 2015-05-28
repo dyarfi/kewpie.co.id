@@ -58,6 +58,11 @@
                 $i++;
             } 
             ?>
+            <!--li class="active divider product"><a href="#product">Product<br>Kami</a></li>
+            <li class="divider dalam"><a href="#dalam">Di Dalam<br>Kewpie</a></li>
+            <li class="divider resep"><a href="#resep">Resep</a></li>
+            <li class="divider siapa"><a href="#siapa">Siapa<br>Kami</a></li>
+            <li class="divider berita"><a href="#berita">Berita<br>Terbaru</a></li-->
 			<!-- <li class="dropdown">
               <a data-target="http://google.com/" href="http://google.com/"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -71,6 +76,7 @@
               </ul>
             </li> -->
           </ul>
+                
             <div class="searchform pull-left">
               <form id="custom-search-form" class="form-search form-horizontal col-lg-12 col-md-12 col-sm-12 hidden">
                     <!--<input type="text" class="search-query form-control" placeholder="Search">-->

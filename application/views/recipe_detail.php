@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
-		<div class="kewpie-main-body" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/bg-list-resep.jpg') no-repeat top center; padding-top:150px; position: relative;"> <!-- for cahnging background purpose -->
+		<div class="kewpie-main-body" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/bg-list-resep.jpg') no-repeat top center; padding-top:150px; position: relative; margin-top:-140px;"> <!-- for cahnging background purpose -->
 			<div class="container"> <!-- content start -->
 				<div class="bg-box-resep-fav">
 					<h2>Resep Favorit!</h2>

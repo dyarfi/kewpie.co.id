@@ -1,15 +1,14 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<div class="kewpie-main-body content-inside"> <!-- for cahnging background purpose -->
+<div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container"> <!-- content start -->	
-            <div class="details">
                 
                  <div class="details">
                     <div class="container">
                         <ul class="list-inline">
                         <?php foreach ($pages as $page) { ?>
-                            <li class="bg-danger">
+                            <li>
                                 <a href="<?php echo base_url('read/page/detail/'.$page['url']);?>"><?php echo $page['subject'];?></a>
                             </li>    
                         <?php } ?>
@@ -28,7 +27,6 @@
                     <?php echo $page_detail[1]['text'];?>
                 </div>
                 <div class="clear"></div>
-            </div>
 
         </div> <!-- content end -->
     </div>
