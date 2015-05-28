@@ -8,7 +8,9 @@ class Front_Page extends Public_Controller {
 		// Load user related model in admin module
 		$this->load->model('admin/Users');
 		$this->load->model('admin/UserProfiles');
-					
+		
+        $this->load->model('page/Pages');
+		
 	}
 	
     public function category($detail='') {
@@ -56,7 +58,7 @@ class Front_Page extends Public_Controller {
         $data['page_detail'] = $this->Content->find('pages',array('id'=>$field->field_id));
         
         // Set data from pages
-        $data['pages'] = $this->Content->find('pages',array('menu_id'=>$field->field_id));
+        $data['pages'] = $this->Content->find('pages',array('menu_id'=>$this->Pages->getPage($field->field_id)->menu_id));
         
         // Set main template
 		$data['main']       = 'page_detail';

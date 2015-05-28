@@ -15,12 +15,13 @@
                         </ul>
                     </div>    
                 </div>
-            
-                <div class="col-xs-6 col-sm-6 col-md-6 tentang hidden">
-                    <?php if ($page_detail[1]['media']) { ?><img src="<?php echo base_url('uploads/pages/'.$page_detail[1]['media']);?>"/><?php } ?>
+                
+                <div class="col-xs-6 col-sm-6 col-md-6 tentang" style="margin-bottom:500px;margin-top:100px;">
+                    <h2><?php echo $page_detail[1]['subject'];?></h2>
+                    <?php if ($page_detail[1]['media']) { ?><img height="200px" src="<?php echo base_url('uploads/pages/'.$page_detail[1]['media']);?>"/><?php } ?>
                 </div>
                 
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="col-xs-6 col-sm-6 col-md-6" style="margin-bottom:500px;margin-top:100px;">
                     <?php echo $page_detail[1]['text'];?>
                 </div>
                 <div class="clear"></div>
