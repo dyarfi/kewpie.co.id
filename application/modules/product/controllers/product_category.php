@@ -85,6 +85,7 @@ class Product_category extends Admin_Controller {
             
             // Set upload field
             $crud->set_field_upload('media','uploads/products');
+//            $crud->set_field_upload('cover','uploads/products');
             
             $this->load($crud, 'product_category');
             

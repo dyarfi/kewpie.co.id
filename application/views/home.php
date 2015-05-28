@@ -41,7 +41,7 @@
                                     <h4><?php echo $product['subject'];?></h4>
                                 </div>
                                 <div class="detail-left menu-item5 items-produk-link-posisi">
-                                    <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/'.$product['url']);?>"><?php echo $product['subject'];?></a></div>
+                                    <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>"><?php echo $product['subject'];?></a></div>
                                 </div>
                             </div>
                         </div>       
@@ -114,7 +114,7 @@
                   <?php echo $home_food_service[1]['text'];?>
 			  </p>
 			  <div class="detail-left">
-				<div class="detail-right"><a href="<?php echo base_url('read/product/'.$home_food_service[1]['url']);?>"><?php echo $home_food_service[1]['subject'];?></a></div>
+				<div class="detail-right"><a href="<?php echo base_url('read/product/category/'.$home_food_service[1]['url']);?>"><?php echo $home_food_service[1]['subject'];?></a></div>
 			  </div>
               </div>
 			</div>

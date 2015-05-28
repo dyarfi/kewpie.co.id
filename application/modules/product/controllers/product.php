@@ -43,9 +43,9 @@ class Product extends Admin_Controller {
             // Set table relation
             $crud->set_relation('category_id','tbl_product_categories','subject');
             // Set columns
-            $crud->columns('subject','category_id','synopsis','text','gallery','status','added','modified');			
+            $crud->columns('subject','category_id','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','category_id','synopsis','text','media','status','added','modified');
+			$crud->fields('subject','url','category_id','text','attribute','media','status','added','modified');
             // Set column display 
             $crud->display_as('category_id','Category');
 			// Changes the default field type
@@ -55,7 +55,7 @@ class Product extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','category_id','synopsis','text','gallery','media','status','added','modified','translate');			
+				$crud->columns('subject','category_id','text','gallery','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -142,7 +142,7 @@ class Product extends Admin_Controller {
 		$crud->set_subject('Translation ' . $product_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','added','modified');
+		$crud->fields('table','field_id','lang_id','subject','url','text','attribute','added','modified');
 		
 		// Changes the default field type
         $crud->field_type('table', 'hidden');

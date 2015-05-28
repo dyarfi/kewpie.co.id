@@ -2,7 +2,10 @@
 <div class="kewpie-main-body content-inside"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container"> <!-- content start -->
-
+            
+            <?php 
+            print_r($product);
+            ?>
             <div class="details">                
                 <div class="container">
                     <ul class="list-inline">

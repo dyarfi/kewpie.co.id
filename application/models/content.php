@@ -126,7 +126,7 @@ class Content extends CI_Model {
 	}
 	
     public function findIdByUrl($table='',$url='') {
-        //print_r();
+        
         // Set query for translations data
         $options = array('table' =>$this->db->dbprefix($table),'url'=>$url);
         $this->db->where($options,1);

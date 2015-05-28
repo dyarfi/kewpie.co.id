@@ -165,7 +165,7 @@ $config['modulelist'] = array(
 		'module_menu'	=> array(
 						'product/index'             => 'Product',
 						'product_category/index'	=> 'Product Categories',
-						'product_recipe/index'	=> 'Product Recipes'),
+						'product_recipe/index'      => 'Product Recipes'),
 		// Page module functions
 		'module_function'	=> array(
 						// product functions
@@ -189,16 +189,27 @@ $config['modulelist'] = array(
                         'product_gallery/index/export' => 'Export Gallery',
                         'product_gallery/index/print'	=> 'Print Gallery',
             
-						// Page Menu functions
-						'product_category/index/add'	=> 'Add Page Menu',
-						'product_category/index/view'	=> 'View Page Menu',
-						'product_category/index/edit'	=> 'Edit Page Menu',
-						'product_category/index/delete'	=> 'Delete Page Menu',
-                        'product_category/detail'		=> 'Detail Page Menu',
-						'product_category/translate'	=> 'Translate Page Menu',
-						'product_category/index/change'	=> 'Change Page Menu Status',
-						'product_category/index/export'	=> 'Export Page Menu',
-						'product_category/index/print'	=> 'Print Page Menu'
+						// Product Category functions
+						'product_category/index/add'	=> 'Add Category',
+						'product_category/index/view'	=> 'View Category',
+						'product_category/index/edit'	=> 'Edit Category',
+						'product_category/index/delete'	=> 'Delete Category',
+                        'product_category/detail'		=> 'Detail Category',
+						'product_category/translate'	=> 'Translate Category',
+						'product_category/index/change'	=> 'Change Category Status',
+						'product_category/index/export'	=> 'Export Category',
+						'product_category/index/print'	=> 'Print Category',
+            
+                        // Product Recipes functions
+						'product_recipe/index/add'	=> 'Add Recipe',
+						'product_recipe/index/view'	=> 'View Recipe',
+						'product_recipe/index/edit'	=> 'Edit Recipe',
+						'product_recipe/index/delete'	=> 'Delete Recipe',
+                        'product_recipe/detail'		=> 'Detail Recipe',
+						'product_recipe/translate'	=> 'Translate Recipe',
+						'product_recipe/index/change'	=> 'Change Recipe Status',
+						'product_recipe/index/export'	=> 'Export Recipe',
+						'product_recipe/index/print'	=> 'Print Recipe'
 					    ),
 	)
 );

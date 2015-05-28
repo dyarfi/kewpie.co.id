@@ -3,7 +3,10 @@
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container"> <!-- content start -->
 
-
+                <?php //print_r($product_categories[1]['subject']);?>
+            
+                <?php print_r($products[1]['subject']);?>
+            
                 <div class=''>
                     <div>
                       <div class="carousel slide food-service-carousel" data-interval="false" data-ride="carousel" id="quote-carousel">

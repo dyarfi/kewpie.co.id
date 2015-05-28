@@ -35,7 +35,7 @@ class Home extends Public_Controller {
 		$data['home_food_service']  = $this->Content->find('product_categories',array('status'=>'publish','id'=>4));
         
         // Set page product
-        $data['products']  = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added' => 'DESC'));
+        $data['products']  = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added' => 'ASC'),4);
         
 		// Set site title page with module menu
 		$data['page_title'] = $this->config->item('developer_name') .' | '. $this->Settings->getByParameter('title_default')->value;
