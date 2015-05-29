@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
-        <div class="container-fluid"> <!-- content start -->
+        <div class="container"> <!-- content start -->
             
                 <div class="details hidden">                
                     <div class="container">

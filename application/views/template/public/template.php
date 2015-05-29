@@ -29,27 +29,21 @@
     
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-default">
-	
-	<div id="wrapper">
 		
 		<?php $this->load->view('template/public/header'); ?>
 
 		<div id="navigation">
 			<?php $this->load->view('template/public/navigation'); ?>
 		</div>
-
-		<div id="main">
 			<div class="messageFlash">
 				<?php $this->load->view('flashdata'); ?>
 			</div>
 			<div class="content">
 				<?php $this->load->view($main); ?>
 			</div>
-		</div>
 	
 	<?php $this->load->view('template/public/footer'); ?>
-		
-	</div>    
+	
 	
 	<!-- Core JavaScript Files -->
     <script src="<?php echo base_url();?>assets/public/js/jquery.min.js" type="text/javascript"></script>
