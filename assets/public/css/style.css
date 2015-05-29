@@ -5,7 +5,7 @@
  */
 
 /* Account for fixed navbar */
-html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x:hidden;}
 body{background:#fbf4e9; font-family:"Gotham-Book";}
 /*body,*/
 .navbar-fixed-top,
