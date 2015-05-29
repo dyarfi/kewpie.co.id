@@ -339,6 +339,7 @@ a:hover{color: #e70413; text-decoration: blink;}
   width: 700px;
   position: relative;
 }
+
 .pasta-left{
 	position: absolute;
 	left: -380px;
@@ -349,6 +350,27 @@ a:hover{color: #e70413; text-decoration: blink;}
 	right: -550px;
 	top: 0;
 }
+.display-pizza{
+	position:absolute;
+	left: -150%;
+	top: -20%;
+}
+.display-sayuran{
+	position:absolute;
+	right: -100%;
+	bottom: -20%;
+}
+.display-telor-peta{
+	position:absolute;
+	right: -90%;
+	bottom: -20%;
+}
+.cup-mayonaise{
+	margin-left: -25%;
+	margin-bottom: -25%;
+	margin-top: -25%;
+}
+
 .item-produk{
   margin: auto;
 }
@@ -378,26 +400,7 @@ a:hover{color: #e70413; text-decoration: blink;}
   margin: 200px auto 0;
   position: relative;
 }
-.display-pizza{
-	position:absolute;
-	left: -150%;
-	top: -20%;
-}
-.display-sayuran{
-	position:absolute;
-	right: -100%;
-	bottom: -20%;
-}
-.display-telor-peta{
-	position:absolute;
-	right: -90%;
-	bottom: -20%;
-}
-.cup-mayonaise{
-	margin-left: -25%;
-	margin-bottom: -25%;
-	margin-top: -25%;
-}
+
 .box-1,.box-2{padding: 40px 30px 70px 117px; margin-bottom: 20px;}
 .box-2{margin-left: 20px; width: 120%; padding-right: 90px;}
 .box-3{
@@ -480,7 +483,8 @@ a:hover{color: #e70413; text-decoration: blink;}
 	z-index:1;
 }
 .isi-mayonaise{margin:60px 0  50px 200px;}
-.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto; /* width and height, can be %, px or whatever. */}
+/* .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto;  width and height, can be %, px or whatever. } */
+.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') repeat-x top center; margin-top:-140px;}
 .bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat; background-size: 100% auto; /* width and height, can be %, px or whatever. */}
 .detail-resep{background: transparent url('../img/bg-detail-resep.jpg') no-repeat top center; padding-top:200px;}
 .content-inside{margin-top: 100px;}
@@ -489,7 +493,6 @@ a:hover{color: #e70413; text-decoration: blink;}
     padding: 0px;
     margin-bottom: 20px;
 }
-
 .thumbnail img {
     /* width: 100%; */
 }
