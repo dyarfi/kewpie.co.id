@@ -14,6 +14,7 @@
     <!-- Fonts -->
     <link href="<?php echo base_url();?>assets/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url();?>assets/public/css/animate.css" rel="stylesheet" />
+	<link href="<?php echo base_url();?>assets/public/css/effect.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
     <link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">
 	
