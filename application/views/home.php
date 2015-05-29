@@ -194,11 +194,11 @@
                                   <div class="item">
                                       <div class="row">
                                         <?php } ?>
-                                         <div class="col-xs-4 col-sm-4 col-md-4">
+                                         <div class="col-xs-4 col-sm-4 col-md-4 carousel-news-item-home">
                                              <a href="#"><img src="<?php echo base_url('uploads/news/'.$row['media']);?>" alt="<?php echo $row['url'];?>"></a>
                                              <div class="caption-news">
                                                <div class="caption-news-inside">
-                                                 <h4><a href="#" class=""><?php echo character_limiter($row['subject'],30,'');?></a></h4>
+                                                 <h4><a href="#" class=""><?php echo character_limiter($row['subject'],20,'');?></a></h4>
                                                  <?php echo character_limiter(strip_tags($row['synopsis']), 120);?>
                                                </div>
                                              </div>

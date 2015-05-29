@@ -40,6 +40,15 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
   max-width: none !important;
   padding-bottom:50px;
 }
+
+@media (max-width: 1280px) {
+		.container {
+			width: 1246px;
+			overflow: hidden;
+			max-width: none !important;
+			padding-bottom:50px;
+		}
+}
 /* .container { overflow: hidden; } */
 /* .container-fluid { overflow: hidden; } */
 
@@ -442,7 +451,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .news-latest{
   text-align: center;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 100px !important;
   clear: both;
 }
 .title-item-produk{ margin: 0 auto 0 -30px; padding: 0 15px 0px 15px; display: block;width:148px;height:80px; position: relative; vertical-align: middle; display:table-caption; overflow: hidden}
@@ -484,7 +493,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 .isi-mayonaise{margin:60px 0  50px 200px;}
 /* .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto;  width and height, can be %, px or whatever. } */
-.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') repeat-x top center; margin-top:-140px;}
+.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie-new.jpg') repeat-x top center; margin-top:-140px;}
 .bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat; background-size: 100% auto; /* width and height, can be %, px or whatever. */}
 .detail-resep{background: transparent url('../img/bg-detail-resep.jpg') no-repeat top center; padding-top:200px;}
 .content-inside{margin-top: 100px;}
@@ -624,6 +633,17 @@ h2, h4{
 	text-align:left;
 	padding: 30px;
 }
+.carousel-news-item-home{
+	overflow: hidden;
+	width:281px;
+	height: 350px;
+	
+	padding:0;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.carousel-news-item-home img{height: 273px;}
+.caption-news-inside{height: 500px;}
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
 display: block;
