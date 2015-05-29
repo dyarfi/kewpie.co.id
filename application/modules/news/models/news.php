@@ -1,12 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-// Model Class Object for Pages
-class Pages Extends CI_Model {
+// Model Class Object for News
+class News Extends CI_Model {
     
 	// Table name for this model
-	protected $table = 'pages';
+	protected $table = 'news';
 	
-	public function __construct(){
+	public function __construct() {
 		// Call the Model constructor
 		parent::__construct();
 		
@@ -26,7 +26,6 @@ class Pages Extends CI_Model {
                 
                 $sql	= 'CREATE TABLE IF NOT EXISTS `'.$this->table.'` ('
 				. '`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, '
-				. '`menu_id` INT(11) UNSIGNED NULL, '
 				. '`name` VARCHAR(255) NULL, '
 				. '`subject` VARCHAR(255) NULL, '
                 . '`url` VARCHAR(255) NULL, '
@@ -34,8 +33,6 @@ class Pages Extends CI_Model {
 				. '`text` TEXT NULL, '
                 . '`media` VARCHAR(255) NULL, '
 				. '`attribute` TEXT NULL, '
-				. '`publish_date` DATE NULL, '
-				. '`unpublish_date` DATE NULL, '
 				. '`allow_comment` TINYINT(1) NULL, '
 				. '`tags` TEXT NULL, '
 				. '`order` TINYINT(3) NULL, '
@@ -44,7 +41,7 @@ class Pages Extends CI_Model {
 				. '`status` ENUM( \'publish\', \'unpublish\', \'deleted\' ) NULL DEFAULT \'publish\', '
 				. '`added` INT(11) NULL, '
 				. '`modified` INT(11) NULL, '
-				. 'INDEX (`menu_id`, `name`, `publish_date`, `unpublish_date`, `allow_comment`, `order`) '
+				. 'INDEX (`name`, `allow_comment`, `order`) '
 				. ') ENGINE=MYISAM DEFAULT CHARSET=utf8;';
 
 		$this->db->query($sql);
@@ -71,7 +68,7 @@ class Pages Extends CI_Model {
 		return $data;
 	}
 	
-	public function getPage($id = null){
+	public function getNews($id = null){
 		if(!empty($id)){
 			$data = array();
 			$options = array('id' => $id);
@@ -85,7 +82,7 @@ class Pages Extends CI_Model {
 		}
 	}	
 	
-	public function getPageByName($name = null){
+	public function getNewsByName($name = null){
 		if(!empty($name)){
 			$data = array();
 			$options = array('name' => $name,'status'=>'publish');
@@ -99,7 +96,7 @@ class Pages Extends CI_Model {
 		}
 	}	
 	
-	public function getAllPage($admin=null){
+	public function getAllNews($admin=null){
 		$data = array();
 		$this->db->order_by('added');
 		$Q = $this->db->get($this->table);
@@ -113,7 +110,7 @@ class Pages Extends CI_Model {
 		return $data;
 	}	
 	
-	public function getAllPageByMenu($menu=null){
+	public function getAllNewsByMenu($menu=null){
 		$data = array();
 		$this->db->order_by('added');
 		$this->db->where('menu_id',$menu);
@@ -128,20 +125,18 @@ class Pages Extends CI_Model {
 		return $data;
 	}	
 	
-	public function setPage($object=null){
+	public function setNews($object=null){
 		
-		// Set Page data
+		// Set News data
 		$data = array(			
 			'menu_id'       => $object['menu_id'],
 			'name'			=> $object['name'],
-            'url'			=> $object['url'],
 			'subject'		=> $object['subject'],
+            'url'           => $object['url'],
 			'synopsis'		=> $object['synopsis'],
 			'text'			=> $object['text'],
             'media'			=> $object['media'],
 			'attribute'		=> $object['attribute'],
-			'publish_date'	=> $object['publish_date'],
-			'unpublish_date' => $object['unpublish_date'],
 			'allow_comment' => $object['allow_comment'],
 			'tags'			=> $object['tags'],
 			'order'			=> $object['order'],
@@ -152,7 +147,7 @@ class Pages Extends CI_Model {
 			'modified'		=> $object['status']
 		);
 		
-		// Insert Page data
+		// Insert News data
 		$this->db->insert($this->table, $data);
 		
 		// Return last insert id primary
@@ -163,13 +158,13 @@ class Pages Extends CI_Model {
 		
 	}	
 	
-	// Delete page
-	public function deletePage($id) {
+	// Delete news
+	public function deleteNews($id) {
 		
-		// Check page id
+		// Check news id
 		$this->db->where('id', $id);
 		
-		// Delete page form database
+		// Delete news form database
 		return $this->db->delete($this->table);		
 	}	
 }

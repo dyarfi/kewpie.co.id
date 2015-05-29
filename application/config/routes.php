@@ -60,6 +60,9 @@ $route[$admin.'/setting/(:any)']	= 'admin/setting/$1';
 $route[$admin.'/serverlog/(:any)']	= 'admin/serverlog/$1';
 /***** Administrator module menu mandatory [end] *****/
 
+$route[$admin.'/news/(:any)']           = 'news/$1';
+$route[$admin.'/news_gallery/(:any)']   = 'news/news_gallery/$1';
+
 $route[$admin.'/page/(:any)']		= 'page/$1';
 $route[$admin.'/pagemenu/(:any)']	= 'page/pagemenu/$1';
 $route[$admin.'/page_gallery/(:any)']  = 'page/page_gallery/$1';
@@ -67,10 +70,8 @@ $route[$admin.'/page_gallery/(:any)']  = 'page/page_gallery/$1';
 
 $route[$admin.'/product/(:any)']		= 'product/$1';
 $route[$admin.'/product_category/(:any)']	= 'product/product_category/$1';
-$route[$admin.'/product_gallery/(:any)']  = 'product/product_gallery/$1';
-$route[$admin.'/product_recipe/(:any)']  = 'product/product_recipe/$1';
-
-//$route[$admin.'/(:any)'] = '$1';
+$route[$admin.'/product_gallery/(:any)']    = 'product/product_gallery/$1';
+$route[$admin.'/product_recipe/(:any)']     = 'product/product_recipe/$1';
 
 /*
 | -------------------------------------------------------------------------
@@ -79,12 +80,10 @@ $route[$admin.'/product_recipe/(:any)']  = 'product/product_recipe/$1';
 */
 
 $route['default_controller'] = 'home';
-//$route['(:any)']			 = 'home/menu/$1';
-//$route['(:any)/page/(:any)'] = 'home/page/$1/$2';
-$route['download/(:num)']	 = 'download';
 $route['404_override']		 = '';
+
+$route['download/(:num)']	 = 'download';
 $route['language/(:any)']    = "language";
-//$route['page/(:any)']	 	 = 'content/view/$1';
 
 $route['read/news/detail/(:any)']       = "front_news/detail/$1";
 $route['read/news/(:any)']              = "front_news/view/$1";

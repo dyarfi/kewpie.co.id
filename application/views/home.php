@@ -1,33 +1,28 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
     <div class="kewpie-main-body bg-home"> <!-- for cahnging background purpose -->
 		<div class="kewpie-main-body bg-home-bottom"> <!-- for cahnging background purpose -->
-		  <div class="container-fluid">
+		  <div class="container">
 			<div class="hello">
 
 			  <img class="resep-title" src="<?php echo base_url();?>assets/public/img/hello-kewpie.png" alt="resep">
 			  <div class="box-white box-3">
 				<h1 class="title"><?php echo $home_welcome[1]['subject'];?></h1>
-				<p> <!-- jumlah karakter nya harus sama -->
+				 <!-- jumlah karakter nya harus sama -->
 				  <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
 				  Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
 				  Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,-->
-                  <?php echo $home_welcome[1]['text'];?>
-				</p>
+                  <?php echo $home_welcome[1]['text'];?>				
 			  </div>
 			</div>
 			<div id="fade-it1" class="produk-kami">
               <div class="img-produk-kami"><h3><?php echo $home_product[1]['subject'];?></h3></div>
-			  <p>
-				<?php echo $home_product[1]['text'];?>
-			  </p>
-			  <div class="pasta-left"><img id="fade-it6" src="<?php echo base_url();?>assets/public/img/kewpie-left-pasta.png" alt="pasta"></div>
+                <?php echo $home_product[1]['text'];?>
+              <div class="pasta-left"><img id="fade-it6" src="<?php echo base_url();?>assets/public/img/kewpie-left-pasta.png" alt="pasta"></div>
 			  <div class="pasta-right"><img id="fade-it7" src="<?php echo base_url();?>assets/public/img/kewpie-right-pasta.png" alt="pasta"></div>
 			</div>
 			<!-- ITEM PRODUK -->
 			<div id="scale-it" class="item-produk">
-
-			  <div class="row">
-                
+                <div class="row">
                     <?php
                     $j = 1;
                     foreach ($products as $product) { ?>
@@ -48,122 +43,61 @@
                     <?php
                     $j++;
                     } ?>
-               
-                  <!--h4 style="font-family:'Leckerli_OneRegular'"></h4-->
-                  
-				<!--div class="col-xs-3 col-sm-3 col-md-3">
-				  <div class="radial-menu">
-					<div class="menu-item1"><img class="" src="<?php echo base_url();?>assets/public/img/items/mayonais.png" alt=""></div>
-					<div class="menu-item2"><img class="" src="<?php echo base_url();?>assets/public/img/items/mayonais.png" alt=""></div>
-					<div class="menu-item3"><img class="" src="<?php echo base_url();?>assets/public/img/items/mayonais.png" alt=""></div>
-					<div class="menu-item4"><img class="" src="<?php echo base_url();?>assets/public/img/items/mayonais.png" alt=""></div>
-					<div class="mask"><img class="" src="<?php echo base_url();?>assets/public/img/items/mayonais.png" alt=""></div>
-					<img class="title-item-produk menu-item6" src="<?php echo base_url();?>assets/public/img/items/tag-mayonais.png" alt="title item produk">
-					<div class="detail-left menu-item5 items-produk-link-posisi">
-						<div class="detail-right items-produk-link"><a href="https://www.facebook.com/">Detail Mayonais</a></div>
-					</div>
-				  </div>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-				  <div class="radial-menu">
-					<div class="menu-item1"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-tiram.png" alt=""></div>
-					<div class="menu-item2"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-tiram.png" alt=""></div>
-					<div class="menu-item3"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-tiram.png" alt=""></div>
-					<div class="menu-item4"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-tiram.png" alt=""></div>
-					<div class="mask"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-tiram.png" alt=""></div>
-					<img class="title-item-produk menu-item6" src="<?php echo base_url();?>assets/public/img/items/tag-saus-tiram.png" alt="title item produk">
-					<div class="detail-left menu-item5 items-produk-link-posisi">
-						<div class="detail-right items-produk-link"><a href="">Detail Saus Tiram</a></div>
-					</div>
-				  </div>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-				  <div class="radial-menu">
-					<div class="menu-item1"><img class="" src="<?php echo base_url();?>assets/public/img/items/olesan-sandwich.png" alt=""></div>
-					<div class="menu-item2"><img class="" src="<?php echo base_url();?>assets/public/img/items/olesan-sandwich.png" alt=""></div>
-					<div class="menu-item3"><img class="" src="<?php echo base_url();?>assets/public/img/items/olesan-sandwich.png" alt=""></div>
-					<div class="menu-item4"><img class="" src="<?php echo base_url();?>assets/public/img/items/olesan-sandwich.png" alt=""></div>
-					<div class="mask"><img class="" src="<?php echo base_url();?>assets/public/img/items/olesan-sandwich.png" alt=""></div>
-					<img class="title-item-produk menu-item6" src="<?php echo base_url();?>assets/public/img/items/tag-olesan-sandwich.png" alt="title item produk">
-					<div class="detail-left menu-item5 items-produk-link-posisi">
-						<div class="detail-right items-produk-link"><a href="">Detail Olesan Sandwich</a></div>
-					</div>
-				  </div>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-				  <div class="radial-menu">
-					<div class="menu-item1"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-manis.png" alt=""></div>
-					<div class="menu-item2"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-manis.png" alt=""></div>
-					<div class="menu-item3"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-manis.png" alt=""></div>
-					<div class="menu-item4"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-manis.png" alt=""></div>
-					<div class="mask"><img class="" src="<?php echo base_url();?>assets/public/img/items/saus-manis.png" alt=""></div>
-					<img class="title-item-produk menu-item6" src="<?php echo base_url();?>assets/public/img/items/tag-saus-manis.png" alt="title item produk">
-					<div class="detail-left menu-item5 items-produk-link-posisi">
-						<div class="detail-right items-produk-link"><a href="">Detail Saus Manis</a></div>
-					</div>
-				  </div>
-				</div-->
-			  </div>
+                </div>
 			</div>
 			<!-- FOOD SERVICE -->
 			<div id="fade-it2" class="food-service">
-                <?php //print_r($home_food_service[1]['subject']);?>
-			  <img class="food-service-thumb" src="<?php echo base_url('uploads/products/'.$home_food_service[1]['media']);?>" alt="food service thumbnail item">
-              <div class="food-service-head"><h4><?php echo $home_food_service[1]['subject'];?></h4></div>
-			  <p class="food-service-text">
-                  <?php echo $home_food_service[1]['text'];?>
-			  </p>
-			  <div class="detail-left">
-				<div class="detail-right"><a href="<?php echo base_url('read/product/category/'.$home_food_service[1]['url']);?>"><?php echo $home_food_service[1]['subject'];?></a></div>
-			  </div>
+                <img class="food-service-thumb" src="<?php echo base_url('uploads/products/'.$home_food_service[1]['media']);?>" alt="food service thumbnail item">
+                <div class="food-service-head"><h4><?php echo $home_food_service[1]['subject'];?></h4></div>
+                <div class="food-service-text">
+                    <?php echo $home_food_service[1]['text'];?>
+                </div>
+                <div class="detail-left">
+                  <div class="detail-right"><a href="<?php echo base_url('read/product/category/'.$home_food_service[1]['url']);?>"><?php echo $home_food_service[1]['subject'];?></a></div>
+                </div>
               </div>
-			</div>
+			
 			<!-- RESEP -->
 			<div class="resep-home">
                 <img id="fly-it1" class="resep-title" src="<?php echo base_url();?>assets/public/img/resep.png" alt="resep">
                 <?php 
                     $l=1;
-                    foreach ($home_recipe_favorite as $favorite ) { ?>
+                    foreach ($home_recipe_favorite as $recipe ) { ?>
                     <?php if ($l == 1) { ?>
-                        <div class="display-pizza" data-toggle="tooltip" data-placement="right" title="<?php echo strip_tags($favorite['text']);?>">
-                            <img id="fly-it4" src="<?php echo base_url('uploads/products/'.$favorite ['media']);?>" alt="resep">
+                        <div class="display-pizza" data-toggle="tooltip" data-placement="right" title="<?php echo strip_tags($recipe['text']);?>">
+                            <img id="fly-it4" src="<?php echo base_url('uploads/products/'.$recipe ['media']);?>" alt="resep">
                         </div>
                         <div id="fly-it2" class="box-white box-1">
-                            <h3 class="title tred"><?php echo $favorite['subject'];?></h3>
-                            <p class="food-service-text">
-                              <?php echo $recipe['text'];?>
-                            </p>
+                            <h3 class="title tred"><?php echo $recipe['subject'];?></h3>
+                            <div class="food-service-text"><?php echo $recipe['text'];?></div>
                             <p>
                               Kewpie Tips :<br>
-                              Cherry tomatoes are a rich source of Vitamins A, C, and Folic Acid. They're also full of healthy nutrients and anti-oxidants..
+                              <?php echo $recipe['attribute'];?>
                             </p>
                             <div class="detail-left learn-detail pull-right">
                               <div class="detail-right"><a href="">Learn How</a></div>
                             </div>
                         </div>
                     <?php } else if ($l == 2) { ?>
-                    <div id="fly-it3" class="box-white box-2">
-                        <h3 class="title tred"><?php echo $favorite['subject'];?></h3>
-                        <p class="food-service-text">
-                              <?php echo $favorite['text'];?>
-                        </p>
+                      <div id="fly-it3" class="box-white box-2">
+                        <h3 class="title tred"><?php echo $recipe['subject'];?></h3>
+                        <div class="food-service-text"><?php echo $recipe['text'];?></div>
                         <p>
                           Kewpie Tips :<br>
-                          Cherry tomatoes are a rich source of Vitamins A, C, and Folic Acid. They're also full of healthy nutrients and anti-oxidants..
+                          <?php echo $recipe['attribute'];?>
                         </p>
                         <div class="detail-left learn-detail pull-right">
                           <div class="detail-right"><a href="">Learn How</a></div>
                         </div>
                       </div>
-                      <div class="display-sayuran" data-toggle="tooltip" data-placement="left" title="<?php echo strip_tags($favorite['text']);?>">
-                          <img id="fly-it5" src="<?php echo base_url('uploads/products/'.$favorite['media']);?>" alt="resep">
-                    </div>
-                <?php
+                      <div class="display-sayuran" data-toggle="tooltip" data-placement="left" title="<?php echo strip_tags($recipe['text']);?>">
+                        <img id="fly-it5" src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="resep">
+                      </div>
+                    <?php
                     }
                     $l++;
-                    } 
-                ?>
-                
+                } 
+                ?>                
 			</div>
             
             
@@ -196,26 +130,11 @@
 			<!-- DALAM KEWPIE -->
 			<div id="fade-it3" class="dalam-kewpie">
 			  <img class="title-dalam-kewpie" src="<?php echo base_url();?>assets/public/img/dalam-kewpie.png" alt="dalam kewpie">
-			  <h3 class="title tred">The Origins of KEWPIE Mayonnaise</h3>
-			  <p class="food-service-text">
-				It is said that mayonnaise was accidentally created by Duke de Richelieu's
-				French chef in the mid 18th century. Instead of using cream, the chef used oil
-				and eggs when making the Duke's victory feast. He was so pleased with the creation
-				that it was named "Mahonnaise" in honour of the Duke's defeat of the British at the Port of Mahon, Menorca.
-			  </p>
-			  <p class="food-service-text">
-				Mr Nakashima Toichiro (founder of KEWPIE Corporation) learned about mayonnaise 160 years
-				later when he travelled to the United States to learn about canned food.
-				Back then, Americans often ate vegetables with dressings that contained mayonnaise.
-				Mr Nakashima then returned to Japan to develop a nutritious mayonnaise that was high in
-				egg yolk content, eventually selling the western condiment to Japan in 1925.
-				KEWPIE Mayonnaise would then go on to capture the hearts of mayonnaise lovers all around the world.
-			  </p>
-			  <div class="display-telor-peta"  data-toggle="tooltip" data-placement="left" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
-				Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
-				Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,">
-					<img id="fly-it6" src="<?php echo base_url();?>assets/public/img/telor-peta.jpg" alt="resep">
-				</div>
+			  <h3 class="title tred"><?php echo $home_origin[1]['subject'];?></h3>
+              <?php echo $home_origin[1]['text'];?>
+                <div class="display-telor-peta" data-toggle="tooltip" data-placement="left" title="<?php echo strip_tags($home_origin[1]['synopsis']);?>">
+					<img id="fly-it6" src="<?php echo base_url('uploads/pages/'.$home_origin[1]['media']);?>" alt="resep">
+                </div>
 			</div>
 			<div id="fade-it4" class="isi-mayonaise">
 				<img src="<?php echo base_url();?>assets/public/img/isi-mayonaise.jpg" alt="isinya mayonaise">
@@ -245,6 +164,7 @@
 				</div>
 			  </div>
 			</div>
+            <div class="clear"></div>
 			<!-- NEWS KEWPIE -->
 			<div id="scale-it3" class="news-latest">
 			  <img class="title-cerita-kewpie" src="<?php echo base_url();?>assets/public/img/berita-terbaru.png" alt="berita kewpie">
@@ -252,115 +172,49 @@
 			  <div class="row">
 			  <div class="col-md-12">
 			  <div id="Carousel" class="carousel slide">
-
-			  <ol class="carousel-indicators">
-				  <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-				  <li data-target="#Carousel" data-slide-to="1"></li>
-				  <li data-target="#Carousel" data-slide-to="2"></li>
-			  </ol>
-
-			  <!-- Carousel items -->
-			  <div class="carousel-inner">
-
-				<div class="item active">
-						<div class="row">
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-1.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 1</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-2.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 2</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-3.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 3</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						</div><!--.row-->
-				</div><!--.item-->
-
-				<div class="item">
-						<div class="row">
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-3.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 1</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-1.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 2</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-2.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 3</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						</div><!--.row-->
-				</div><!--.item-->
-
-				<div class="item">
-						<div class="row">
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-2.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 1</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-3.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 2</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						  <div class="col-xs-4 col-sm-4 col-md-4">
-							<a href="#"><img src="<?php echo base_url();?>assets/public/img/items/news-list-1.png" alt="Image"></a>
-							<div class="caption-news">
-							  <div class="caption-news-inside">
-								<h4><a href="#" class="">Event 3</a></h4>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							  </div>
-							</div>
-						  </div>
-						</div><!--.row-->
-				</div><!--.item-->
-
-				<!--.Carousel-->
-
-			  </div>
+                <ol class="carousel-indicators">
+                    <?php 
+                        $z = count($home_news) % 3;
+                        for ($m=0;$m < $z;$$m++) { ?>
+                        <li data-target="#Carousel" data-slide-to="<?php echo $m;?>" <?php echo $m == 0 ? 'class="active"' :'';?>></li>
+                        <?php 
+                        $m++;
+                    } ?>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                  <?php                  
+                      $b = 1;
+                      $n = count($home_news);
+                      foreach ($home_news as $row) { 
+                        if ($b == 1) { ?>
+                        <div class="item active">
+                            <div class="row">
+                              <?php } elseif ($b % 3 == 1 && $b != 1) {	?>
+                                  <div class="item">
+                                      <div class="row">
+                                        <?php } ?>
+                                         <div class="col-xs-4 col-sm-4 col-md-4">
+                                             <a href="#"><img src="<?php echo base_url('uploads/news/'.$row['media']);?>" alt="<?php echo $row['url'];?>"></a>
+                                             <div class="caption-news">
+                                               <div class="caption-news-inside">
+                                                 <h4><a href="#" class=""><?php echo character_limiter($row['subject'],30,'');?></a></h4>
+                                                 <?php echo character_limiter(strip_tags($row['synopsis']), 120);?>
+                                               </div>
+                                             </div>
+                                        </div>
+                                        <?php if ($b % 3 == 0) {	?>
+                                        </div><!--.row-->
+                                    </div><!--.item-->
+                              <?php } if ($b == $n) { ?>
+                          </div><!--.row1-->
+                        </div><!--.item1-->
+                      <?php } 
+                      $b++;
+                      }
+                      ?>
+                      <!--.Carousel-->
+                </div>                  
 			  <!-- end carousel -->
 			  </div>
 			  </div>
@@ -368,4 +222,4 @@
 			</div>
 		  </div>
 		</div>
-	
+	</div>

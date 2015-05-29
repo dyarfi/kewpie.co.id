@@ -211,6 +211,37 @@ $config['modulelist'] = array(
 						'product_recipe/index/export'	=> 'Export Recipe',
 						'product_recipe/index/print'	=> 'Print Recipe'
 					    ),
+	),
+    // News module
+	'News' => array (
+		// News Models list
+		'models'		=> array('news/News'),
+		// News module menus
+		'module_menu'	=> array(
+                'news/index'		=> 'News'),
+		// News module functions
+		'module_function'	=> array(
+                // News functions
+                'news/index/add'	=> 'Add News',							
+                'news/index/view'	=> 'View News',
+                'news/index/edit'	=> 'Edit News',
+                'news/index/delete'	=> 'Delete News',
+                'news/detail'		=> 'Detail News',
+                'news/translate'	=> 'Translate News',
+                'news/index/change'	=> 'Change News Status',
+                'news/index/export'	=> 'Export News',
+                'news/index/print'	=> 'Print News',
+
+                // News Gallery functions
+                'news_gallery/index'        => 'Gallery',
+                'news_gallery/index/add'	=> 'Add Gallery',
+                'news_gallery/index/view'	=> 'View Gallery',			
+                'news_gallery/index/edit'	=> 'Edit Gallery',			
+                'news_gallery/index/delete' => 'Delete Gallery',
+                'news_gallery/index/change' => 'Change Gallery',
+                'news_gallery/index/export' => 'Export Gallery',
+                'news_gallery/index/print'	=> 'Print Gallery'
+                ),
 	)
 );
 

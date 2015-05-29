@@ -43,6 +43,12 @@ class Home extends Public_Controller {
         // Set home product recipes favorite
 		$data['home_recipes']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'no'),array('added' => 'DESC'),4);
        
+        // Set home news with latest three news
+		$data['home_news']  = $this->Content->find('news',array('status'=>'publish'),array('added' => 'DESC'),10);
+       
+        // Set home kewpie origin
+		$data['home_origin']  = $this->Content->find('pages',array('status'=>'publish','id'=>12),'',1);
+        
         // Set page product
         $data['products']  = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added' => 'ASC'),4);
         

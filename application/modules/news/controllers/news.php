@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Product_Recipe extends Admin_Controller {
+class News extends Admin_Controller {
 
     /**
-     * Index Product for this controller.
+     * Index News for this controller.
      *
      * Maps to the following URL
      * 		http://example.com/index.php/welcome
@@ -17,16 +17,12 @@ class Product_Recipe extends Admin_Controller {
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-	
+    
     public function __construct() {
             parent::__construct();
 			
-            // Load Products model
-            $this->load->model('Products');
-            $this->load->model('ProductRecipes');
-
-            // Load ProductMenu model
-            $this->load->model('ProductCategories');
+            // Load News model
+            //$this->load->model('News');
 
             // Load Grocery CRUD
             $this->load->library('grocery_CRUD');
@@ -38,27 +34,21 @@ class Product_Recipe extends Admin_Controller {
 	    // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
-            $crud->set_table('tbl_product_recipes');
+            $crud->set_table('tbl_news');
             // Set CRUD subject
-            $crud->set_subject('Product Recipe');                   
-            // Set table relation
-            $crud->set_relation('product_id','tbl_products','subject');
+            $crud->set_subject('News');                            
             // Set columns
-            $crud->columns('subject','product_id','synopsis','text','gallery','status','added','modified');			
+            $crud->columns('subject','synopsis','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','product_id','synopsis','text','attribute','favorited','media','status','added','modified');
-            // Set column display 
-            $crud->display_as('product_id','Product');
-            // Set column display 
-            $crud->display_as('attribute','Tips');
-			// Changes the default field type
+			$crud->fields('subject','url','synopsis','text','media','status','added','modified');
+            // Changes the default field type
 			$crud->field_type('url', 'hidden');
 			$crud->field_type('added', 'hidden');
 			$crud->field_type('modified', 'hidden');
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','product_id','synopsis','text','attribute','favorited','gallery','media','status','added','modified','translate');			
+				$crud->columns('subject','synopsis','text','gallery','media','status','added','modified','translate');
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -80,13 +70,10 @@ class Product_Recipe extends Admin_Controller {
             $crud->callback_before_insert(array($this,'_callback_url'));
             $crud->callback_before_update(array($this,'_callback_url'));
 			
-            
-            $crud->callback_after_upload(array($this,'_callback_after_upload'));
- 
 			// Sets the required fields of add and edit fields
 			$crud->required_fields('subject','text','status'); 
             // Set upload field
-            // $crud->set_field_upload('file_name','uploads/products');
+            // $crud->set_field_upload('file_name','uploads/newss');
 			 
 			$state = $crud->getState();
 			$state_info = $crud->getStateInfo();
@@ -106,7 +93,7 @@ class Product_Recipe extends Admin_Controller {
 					foreach($this->Languages->getAllLanguage() as $lang) {
 						//default is the default language
 						if($lang->default != 1) {
-							$crud->add_action($lang->name, base_url('assets/admin/img/flags/'.$lang->prefix.'.png'),'product/insert_and_redirect/'.$lang->id);
+							$crud->add_action($lang->name, base_url('assets/admin/img/flags/'.$lang->prefix.'.png'),'news/insert_and_redirect/'.$lang->id);
 						}
 					}
 				 * 
@@ -114,12 +101,12 @@ class Product_Recipe extends Admin_Controller {
 			}
             
 			// Unset action 
-            $crud->unset_delete();
+            //$crud->unset_delete();
             
             // Set upload field
-            $crud->set_field_upload('media','uploads/products');
+            $crud->set_field_upload('media','uploads/news');
             
-            $this->load($crud, 'product_recipe');
+            $this->load($crud, 'news');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
@@ -127,39 +114,37 @@ class Product_Recipe extends Admin_Controller {
 
 	function detail($operation = '',$field_id='',$lang_id='') {
 		
-		/* Just make sure that you don't want to redirect him at the product_lang product but at products */
+		/* Just make sure that you don't want to redirect him at the news_lang news but at newss */
 		if($operation == '' || $operation == 'list') {
 		   redirect(strtolower(__CLASS__).'/index');
 		}
 		
-		$product_menu = $this->module_menu .' : '. $this->Languages->getLanguage($lang_id)->name;
+		$news_menu = $this->module_menu .' : '. $this->Languages->getLanguage($lang_id)->name;
 		
 		$crud = new grocery_CRUD();
 	
 		// Set query select
 		$crud->where('field_id',$field_id);
 		$crud->where('lang_id',$lang_id);
-        $crud->where('table',$table);
+        $crud->where('table','tbl_news');
 		
 		// Set tables
         $crud->set_table('tbl_translations');
 		
 		// Set subject
-		$crud->set_subject('Translation ' . $product_menu);  
+		$crud->set_subject('Translation ' . $news_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','attribute','added','modified');
+		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','added','modified');
 		
-        $crud->display_as('attribute','Tips');
-        
 		// Changes the default field type
-        $crud->field_type('table', 'hidden');
+		$crud->field_type('table', 'hidden');
+		$crud->field_type('url', 'hidden');
 		$crud->field_type('added', 'hidden');
 		$crud->field_type('modified', 'hidden');
-        $crud->field_type('url', 'hidden');
 		$crud->field_type('field_id', 'hidden', $id);
         $crud->field_type('lang_id', 'hidden', $lang_id);
-		
+        
 		// This callback escapes the default auto field output of the field name at the add form
 		$crud->callback_add_field('added',array($this,'_callback_time_added'));
 		// This callback escapes the default auto field output of the field name at the edit form
@@ -177,27 +162,27 @@ class Product_Recipe extends Admin_Controller {
 
 		$crud->unset_list();
 		
-		$this->load($crud, 'product_detail');
+		$this->load($crud, 'news_detail');
 		
 	}
 	
 	function translate() {
 		
-		// URI segment for product id
+		// URI segment for news id
 		$field_id = $this->uri->segment(4);
 		// URI segment for language id
 		$lang_id = $this->uri->segment(5);
 		
 		$this->db->where('lang_id',$lang_id);
 		$this->db->where('field_id',$field_id);
-        $this->db->where('table','tbl_product_recipes');
+        $this->db->where('table','tbl_news');
 		
-		$product_db = $this->db->get('tbl_translations');
+		$news_db = $this->db->get('tbl_translations');
 
-		if($product_db->num_rows() == 0)
+		if($news_db->num_rows() == 0)
 		{
-            $object['table']	= 'tbl_product_recipes';
-			$object['lang_id']	= $lang_id;
+			$object['table']	= 'tbl_news';
+            $object['lang_id']	= $lang_id;
 			$object['field_id']	= $field_id;
 			$object['user_id']  = $this->user->id;
             $object['added']	= time();
@@ -207,55 +192,44 @@ class Product_Recipe extends Admin_Controller {
 		}
 		else
 		{
-			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$product_db->row()->id);
+			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$news_db->row()->id);
 		}
 		
 	}
 	
-    public function _callback_after_upload($uploader_response,$field_info, $files_to_upload)
-    {
-        $this->load->library('image_moo');
-
-        //Is only one file uploaded so it ok to use it with $uploader_response[0].
-        $file_uploaded = $field_info->upload_path.'/'.$uploader_response[0]->name; 
-
-        $this->image_moo->load($file_uploaded)->resize(200,200)->save($file_uploaded,true);
-
-        return true;
-    }
+    public function _callback_translate ($value, $row) {
+		$links = '';
+		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
+			// Find other than the default languages
+			if($lang->default != 1) {
+				$links .= '<a href="'.base_url(ADMIN).'/news/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
+			}
+		}
+		return $links;
+	}
+	
+    public function _callback_update_detail($post, $primary_key) {
+		// Unset status first and change to 1
+        unset($post['status']);
+		$post['status']  	= 1;
+		// Return update database
+		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
+	}
     
     public function _callback_gallery ($value,$row) {
         if ($row->id) { 
-            return '<a href="'.base_url(ADMIN).'/product_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
+            return '<a href="'.base_url(ADMIN).'/news_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
         } else { 
             return '-';
         }
     }
-    
-    public function _callback_url_detail($value, $primary_key) {
-        // Set url_title() function to set readable text
-        $value['url'] = url_title($value['subject'],'-',true);
-        // Return update database
-        return $value;
-    }
-	
+   
 	public function _callback_url($value, $primary_key) {
         // Set url_title() function to set readable text
         $value['url'] = url_title($value['subject'],'-',true);
         // Return update database
         return $value; 
     }
-	
-	public function _callback_translate ($value, $row) {
-		$links = '';
-		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
-			// Find other than the default languages
-			if($lang->default != 1) {
-				$links .= '<a href="'.base_url(ADMIN).'/product_recipe/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
-			}
-		}
-		return $links;
-	}
 	
     public function _callback_time ($value, $row) {
 		return empty($value) ? '-' : date('D, d-M-Y',$value);
@@ -283,21 +257,13 @@ class Product_Recipe extends Admin_Controller {
         $total = $this->user_model->total_image_submitted($row->participant_id);
         return $total;
     }
-    
-	public function _callback_update_detail($post, $primary_key) {
-		// Unset status first and change to 1
-        unset($post['status']);
-		$post['status']  	= 1;
-		// Return update database
-		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
-	}
 	
     private function load($crud, $nav) {
         $output = $crud->render();
         $output->nav = $nav;
         if ($crud->getState() == 'list') {
-            // Set Product Title 
-            $output->product_title = 'Product Recipe Listings';
+            // Set News Title 
+            $output->news_title = 'News Listings';
             // Set Main Template
             $output->main       = 'template/admin/metronix';
             // Set Primary Template
@@ -308,5 +274,5 @@ class Product_Recipe extends Admin_Controller {
     }
 }
 
-/* End of file product.php */
-/* Location: ./application/module/product/controllers/product.php */
+/* End of file news.php */
+/* Location: ./application/module/news/controllers/news.php */
