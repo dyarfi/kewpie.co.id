@@ -26,7 +26,7 @@ $_CONFIG = array(
 
     //'uploadURL' => "../../assets/static",
     //'uploadDir' => "",
-	'uploadURL' => "../../../assets/static/content",
+	'uploadURL' => "../../../../uploads/static/content",
     'uploadDir' => "",
 
     'dirPerms' => 0755,

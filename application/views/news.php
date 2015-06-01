@@ -8,7 +8,7 @@
               <div class="thumbnail">
                 <img src="<?php echo base_url('uploads/news/'.$row['media']);?>" alt="">
                   <div class="caption">
-                    <h4><?php echo character_limiter($row['subject'],60);?></h4>
+                    <h4><?php echo character_limiter($row['subject'],35,'');?></h4>
                     <?php echo word_limiter(strip_tags($row['text']),20);?>
                     <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p>
                 </div>

@@ -68,6 +68,9 @@ class Public_Controller extends MY_Controller {
 			
 		}
         
+		// Load static language library
+		$this->lang->load('name', config_item('language'));
+		
         // Set Language list
 		$this->languages	= $this->Languages->getAllLanguage(array('status'=>'1'));
 		

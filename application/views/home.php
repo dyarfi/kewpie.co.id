@@ -29,11 +29,13 @@
                                 <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                             <?php } ?>
                             <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                            <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
-                                <h4><?php echo character_limiter($product['subject'], 15,'');?></h4>
+                            <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tagh<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
+                                <h4><?php echo character_limiter($product['subject'], 30,'');?></h4>
                             </div>
                             <div class="detail-left menu-item5 items-produk-link-posisi">
-                                <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>"><?php echo character_limiter($product['subject'], 20);?></a></div>
+                                <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>">
+									<?php echo character_limiter($product['subject'], 30,'');?></a>
+								</div>
                             </div>
                         </div>
                     </div>       
@@ -61,7 +63,7 @@
                     $l=1;
                     foreach ($home_recipe_favorite as $recipe) { ?>
                     <?php if ($l == 1) { ?>
-						<div class="display-pizza" data-toggle="tooltips" data-placement="right" title="<?php echo strip_tags($recipe['text']);?>">
+						<div class="display-pizza" data-toggle="tooltip-s" data-placement="right" title="<?php //echo strip_tags($recipe['text']);?>">
                             <img id="fly-it4" src="<?php echo base_url('assets/public/img/pizza.jpg');?>" alt="resep">
                         </div>
                         <?php /* if ($recipe['media']) { ?>
@@ -96,7 +98,7 @@
                           <div class="detail-right"><a href="">Learn How</a></div>
                         </div>
                       </div>
-					  <div class="display-sayuran" data-toggle="tooltips" data-placement="left" title="<?php echo strip_tags($recipe['text']);?>">
+					  <div class="display-sayuran" data-toggle="tooltip-s" data-placement="left" title="<?php //echo strip_tags($recipe['text']);?>">
 							<img id="fly-it5" src="<?php echo base_url('assets/public/img/resep-sayuran.jpg');?>" alt="resep">
 					  </div>
                     <?php 
@@ -143,15 +145,17 @@
             
 			<!-- DALAM KEWPIE -->
 			<div id="fade-it3" class="dalam-kewpie">
-			  <img class="title-dalam-kewpie" src="<?php echo base_url();?>assets/public/img/dalam-kewpie.png" alt="dalam kewpie">
+			  <!--<img class="title-dalam-kewpie" src="<?php echo base_url();?>assets/public/img/dalam-kewpie.png" alt="dalam kewpie">-->
+				<div class="img-produk-kami"><h3><?php echo $this->lang->line('inside_kewpie');?></h3></div>
 			  <h3 class="title tred"><?php echo $home_origin[1]['subject'];?></h3>
               <?php echo $home_origin[1]['text'];?>
-                <div class="display-telor-peta" data-toggle="tooltip" data-placement="left" title="<?php echo strip_tags($home_origin[1]['synopsis']);?>">
+                <div class="display-telor-peta" data-toggle="tooltip-s" data-placement="left" title="<?php //echo strip_tags($home_origin[1]['synopsis']);?>">
 					<img id="fly-it6" src="<?php echo base_url('uploads/pages/'.$home_origin[1]['media']);?>" alt="resep">
                 </div>
 			</div>
 			<div id="fade-it4" class="isi-mayonaise">
-				<img src="<?php echo base_url();?>assets/public/img/isi-mayonaise.jpg" alt="isinya mayonaise">
+				<!--img src="<?php echo base_url();?>assets/public/img/isi-mayonaise.jpg" alt="isinya mayonaise"-->
+				<div class="mayo1"></div><div class="mayo2"></div><div class="mayo3"></div><div class="mayo4"></div><div class="mayo5"></div>
 			</div>
 			<div id="fade-it5" class="cup-mayonaise">
 				<img class="rotate-cup" src="<?php echo base_url();?>assets/public/img/cup-mayonaise.png" alt="cup mayonaise">

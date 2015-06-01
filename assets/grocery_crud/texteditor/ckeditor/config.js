@@ -8,9 +8,6 @@ CKEDITOR.editorConfig = function( config )
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-};
-CKEDITOR.editorConfig = function(config) {
-
    config.filebrowserBrowseUrl 		=  base_URL+'assets/grocery_crud/texteditor/kcfinder/browse.php?type=files';
    config.filebrowserImageBrowseUrl =  base_URL+'assets/grocery_crud/texteditor/kcfinder/browse.php?type=images';
    config.filebrowserFlashBrowseUrl =  base_URL+'assets/grocery_crud/texteditor/kcfinder/browse.php?type=flash';
