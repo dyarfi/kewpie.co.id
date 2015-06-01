@@ -30,10 +30,10 @@
                             <?php } ?>
                             <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                             <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
-                                <h4><?php echo $product['subject'];?></h4>
+                                <h4><?php echo character_limiter($product['subject'], 15,'');?></h4>
                             </div>
                             <div class="detail-left menu-item5 items-produk-link-posisi">
-                                <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>"><?php echo $product['subject'];?></a></div>
+                                <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>"><?php echo character_limiter($product['subject'], 20);?></a></div>
                             </div>
                         </div>
                     </div>       
@@ -61,18 +61,23 @@
                     $l=1;
                     foreach ($home_recipe_favorite as $recipe) { ?>
                     <?php if ($l == 1) { ?>
-                        <?php if ($recipe['media']) { ?>
+						<div class="display-pizza" data-toggle="tooltips" data-placement="right" title="<?php echo strip_tags($recipe['text']);?>">
+                            <img id="fly-it4" src="<?php echo base_url('assets/public/img/pizza.jpg');?>" alt="resep">
+                        </div>
+                        <?php /* if ($recipe['media']) { ?>
                         <div class="display-pizza" data-toggle="tooltip" data-placement="right" title="<?php echo strip_tags($recipe['text']);?>">
                             <img id="fly-it4" src="<?php echo base_url('uploads/products/'.$recipe ['media']);?>" alt="resep">
                         </div>
-                        <?php } ?>
+                        <?php } */ ?>
                         <div id="fly-it2" class="box-white box-1">
                             <h3 class="title tred"><?php echo $recipe['subject'];?></h3>
-                            <div class="food-service-text"><?php echo $recipe['text'];?></div>
-                            <p>
+                            <div class="food-service-text"><?php echo $recipe['synopsis'];?></div>
+                            <?php if ($recipe['attribute']) { ?>
+							<p>
                               Kewpie Tips :<br>
                               <?php echo $recipe['attribute'];?>
                             </p>
+							<?php } ?>
                             <div class="detail-left learn-detail pull-right">
                               <div class="detail-right"><a href="">Learn How</a></div>
                             </div>
@@ -80,20 +85,26 @@
                     <?php } else if ($l == 2) { ?>
                       <div id="fly-it3" class="box-white box-2">
                         <h3 class="title tred"><?php echo $recipe['subject'];?></h3>
-                        <div class="food-service-text"><?php echo $recipe['text'];?></div>
-                        <p>
-                          Kewpie Tips :<br>
-                          <?php echo $recipe['attribute'];?>
-                        </p>
+                        <div class="food-service-text"><?php echo $recipe['synopsis'];?></div>
+						<?php if ($recipe['attribute']) { ?>
+						<p>
+						  Kewpie Tips :<br>
+						  <?php echo $recipe['attribute'];?>
+						</p>
+						<?php } ?>
                         <div class="detail-left learn-detail pull-right">
                           <div class="detail-right"><a href="">Learn How</a></div>
                         </div>
                       </div>
-                    <?php if ($recipe['media']) { ?>
+					  <div class="display-sayuran" data-toggle="tooltips" data-placement="left" title="<?php echo strip_tags($recipe['text']);?>">
+							<img id="fly-it5" src="<?php echo base_url('assets/public/img/resep-sayuran.jpg');?>" alt="resep">
+					  </div>
+                    <?php 
+						/* if ($recipe['media']) { ?>
                       <div class="display-sayuran" data-toggle="tooltip" data-placement="left" title="<?php echo strip_tags($recipe['text']);?>">
                         <img id="fly-it5" src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="resep">
                       </div>
-                    <?php } ?>
+                    <?php }*/ ?>
                     <?php
                     }
                     $l++;
@@ -114,7 +125,7 @@
                       </a>
                       </section>
                     <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
-                        <img class="jenis-resep" width="88px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
+                        <img class="jenis-resep" width="74px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
                     <?php } ?>
                     </div>
                 <?php 

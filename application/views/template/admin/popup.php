@@ -19,6 +19,7 @@ a:hover {
 	/*text-decoration: underline;*/ text-decoration: none;
 }
 </style>
+<script>base_URL = '<?=base_url()?>';</script>
 </head>
 <body>
 <?php echo $output; ?>

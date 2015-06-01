@@ -131,7 +131,7 @@ $(document).ready(function() {
 	controller.addTween('#fly-it3', TweenMax.from( $('#fly-it3'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
 	controller.addTween('#fly-it4', TweenMax.from( $('#fly-it4'), 1, {css:{right:'2000px'}, ease:Quad.easeInOut}));
 	controller.addTween('#fly-it5', TweenMax.from( $('#fly-it5'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
-	controller.addTween('#fly-it6', TweenMax.from( $('#fly-it6'), 1, {css:{right:'2000px'}, ease:Quad.easeInOut}));
+	controller.addTween('#fly-it6', TweenMax.from( $('#fly-it6'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
 	
 	controller.addTween('#spin-it', TweenMax.from( $('#spin-it'), .25, {css:{opacity:0, rotation: 720}, ease:Quad.easeOut}));
 	

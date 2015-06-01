@@ -9,3 +9,12 @@ CKEDITOR.editorConfig = function( config )
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 };
+CKEDITOR.editorConfig = function(config) {
+
+   config.filebrowserBrowseUrl 		=  base_URL+'assets/grocery_crud/texteditor/kcfinder/browse.php?type=files';
+   config.filebrowserImageBrowseUrl =  base_URL+'assets/grocery_crud/texteditor/kcfinder/browse.php?type=images';
+   config.filebrowserFlashBrowseUrl =  base_URL+'assets/grocery_crud/texteditor/kcfinder/browse.php?type=flash';
+   config.filebrowserUploadUrl		=  base_URL+'assets/grocery_crud/texteditor/kcfinder/upload.php?type=files';
+   config.filebrowserImageUploadUrl =  base_URL+'assets/grocery_crud/texteditor/kcfinder/upload.php?type=images';
+   config.filebrowserFlashUploadUrl =  base_URL+'assets/grocery_crud/texteditor/kcfinder/upload.php?type=flash';
+};
