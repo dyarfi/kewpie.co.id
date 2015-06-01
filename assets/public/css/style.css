@@ -43,10 +43,10 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
 
 @media (max-width: 1280px) {
 		.container {
-			width: 1246px;
-			overflow: hidden;
-			max-width: none !important;
-			padding-bottom:50px;
+			/*width: 1246px;*/
+			/*overflow: hidden;*/
+			/*max-width: none !important;*/
+			/*padding-bottom:50px;*/
 		}
 }
 /* .container { overflow: hidden; } */
@@ -290,19 +290,19 @@ a:hover{color: #e70413; text-decoration: blink;}
 	margin-top:0px;
 	padding-top:8px
 }
-.navbar #navbar ul li.divider { 
+#navbar ul .divider { 
     border-right-width: 1px;
     border-right-style: solid;
-    -webkit-border-image: 
-      -webkit-gradient(linear, 0 100%, 0 0, from(#a29181), to(rgba(0, 0, 0, 0))) 1 100%;
-    -webkit-border-image: 
-      -webkit-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
-    -moz-border-image:
-      -moz-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;  
-    -o-border-image:
-      -o-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
-    border-image:
-      linear-gradient(to top, #a29181, rgba(0, 0, 0, 0)) 1 100%;
+    border-right-color: #a29181;
+    /*-webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#a29181), to(rgba(0, 0, 0, 0))) 1 100%;*/
+    /*-webkit-border-image: -webkit-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/
+    /*-moz-border-image:*/
+      /*-moz-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/  
+    /*-o-border-image:*/
+      /*-o-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/
+    /*border-image:*/
+      /*linear-gradient(to top, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/
+    
 }
 
 .hello{
@@ -456,7 +456,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 .title-item-produk{ margin: 0 auto 0 -30px; padding: 0 15px 0px 15px; display: block;width:148px;height:80px; position: relative; vertical-align: middle; display:table-caption; overflow: hidden}
 
-.img-produk-kami h3, .title-item-produk h4, .food-service-head h4, .food-service-head h5 { font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); text-align: center; }
+.img-produk-kami h3, .title-item-produk h4, .food-service-head h4, .food-service-head h5 { font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
 .img-produk-kami { padding: 32px 0 0 0;}
 .img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 10px; line-height: 0.78em; overflow: hidden;} 
 .img-produk-kami { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; } 

@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-    <div class="kewpie-main-body bg-home"> <!-- for cahnging background purpose -->
-		<div class="kewpie-main-body bg-home-bottom"> <!-- for cahnging background purpose -->
+    <div class="kewpie-main-body bg-home"> <!-- for changing background purpose -->
+		<div class="kewpie-main-body bg-home-bottom"> <!-- for changing background purpose -->
 		  <div class="container">
 			<div class="hello">
 
@@ -8,10 +8,7 @@
 			  <div class="box-white box-3">
 				<h1 class="title"><?php echo $home_welcome[1]['subject'];?></h1>
 				 <!-- jumlah karakter nya harus sama -->
-				  <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at faucibus enim.
-				  Sed vel tempor elit, nec eleifend justo. Nullam varius a tortor quis imperdiet.
-				  Vivamus ac faucibus nulla. Vestibulum gravida ultricies magna,-->
-                  <?php echo $home_welcome[1]['text'];?>				
+				  <?php echo $home_welcome[1]['text'];?>				
 			  </div>
 			</div>
 			<div id="fade-it1" class="produk-kami">
@@ -31,7 +28,7 @@
                             <?php for ($i = 1; $i <= 4; $i++) { ?>
                                 <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                             <?php } ?>
-                            <div class="mask"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
+                            <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                             <div class="title-item-produk menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tag<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
                                 <h4><?php echo $product['subject'];?></h4>
                             </div>
@@ -62,11 +59,13 @@
                 <img id="fly-it1" class="resep-title" src="<?php echo base_url();?>assets/public/img/resep.png" alt="resep">
                 <?php 
                     $l=1;
-                    foreach ($home_recipe_favorite as $recipe ) { ?>
+                    foreach ($home_recipe_favorite as $recipe) { ?>
                     <?php if ($l == 1) { ?>
+                        <?php if ($recipe['media']) { ?>
                         <div class="display-pizza" data-toggle="tooltip" data-placement="right" title="<?php echo strip_tags($recipe['text']);?>">
                             <img id="fly-it4" src="<?php echo base_url('uploads/products/'.$recipe ['media']);?>" alt="resep">
                         </div>
+                        <?php } ?>
                         <div id="fly-it2" class="box-white box-1">
                             <h3 class="title tred"><?php echo $recipe['subject'];?></h3>
                             <div class="food-service-text"><?php echo $recipe['text'];?></div>
@@ -90,9 +89,11 @@
                           <div class="detail-right"><a href="">Learn How</a></div>
                         </div>
                       </div>
+                    <?php if ($recipe['media']) { ?>
                       <div class="display-sayuran" data-toggle="tooltip" data-placement="left" title="<?php echo strip_tags($recipe['text']);?>">
                         <img id="fly-it5" src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="resep">
                       </div>
+                    <?php } ?>
                     <?php
                     }
                     $l++;
@@ -107,12 +108,14 @@
                 foreach ($home_recipes as $recipe ) { ?>
                     <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
                       <section>
-                      <a class="cmn-t-scale" href="">
+                      <a class="cmn-t-scale" href="<?php echo base_url('read/recipe/'.$recipe['url']);?>">
                         <?php if ($recipe['media']) { ?><img src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="item resep a"><br><?php } ?>
                         <?php echo $recipe['subject'];?>
                       </a>
                       </section>
-                    <img class="jenis-resep" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
+                    <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
+                        <img class="jenis-resep" width="88px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
+                    <?php } ?>
                     </div>
                 <?php 
                 $b++;
@@ -121,7 +124,7 @@
 			  <div>
 				<img class="fork-spoon" src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork spoon">
 				<div class="detail-left menu-lain">
-				  <div class="detail-right"><a href="">Lihat Menu Lainnya</a></div>
+				  <div class="detail-right"><a href="<?php echo base_url('read/recipe');?>">Lihat Menu Lainnya</a></div>
 				</div>
 			  </div>
 			</div>

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Page_Gallery extends Admin_Controller {
+class Product_Gallery extends Admin_Controller {
 
     public function __construct() {
             parent::__construct();

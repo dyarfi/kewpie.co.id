@@ -90,6 +90,8 @@ $route['read/news/(:any)']              = "front_news/view/$1";
 
 $route['read/recipe/detail/(:any)']     = "front_recipe/detail/$1";
 $route['read/recipe/(:any)']            = "front_recipe/view/$1";
+$route['read/recipe']                   = "front_recipe";
+
 
 $route['read/product/category/(:any)']  = "front_product/category/$1";
 $route['read/product/detail/(:any)']    = "front_product/detail/$1";

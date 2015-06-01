@@ -6,11 +6,29 @@ class Front_Recipe extends Public_Controller {
 		parent::__construct();
 		
 		// Load user related model in admin module
-		$this->load->model('admin/Users');
-		$this->load->model('admin/UserProfiles');
+		$this->load->model('product/Products');
 					
 	}
 	
+    public function index() {
+        
+        // Set data from menu category
+        $data['favorited']   = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('id'=>'DESC'),1);
+        
+        // Set data from menu category
+        $data['recipes']    = $this->Content->find('product_recipes',array('status'=>'publish'));
+        
+        // Set main template
+		$data['main']       = 'recipe';
+        
+		// Set site title page with module menu
+		$data['page_title'] = 'Recipe';
+		
+		// Load admin template
+		$this->load->view('template/public/template', $this->load->vars($data));
+        
+    }
+    
     public function category($detail='') {
 		
 		// Set main template
