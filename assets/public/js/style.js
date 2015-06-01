@@ -126,8 +126,8 @@ $(document).ready(function() {
 	controller.addTween('.mayo1', TweenMax.from( $('.mayo1'), .30, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
 	controller.addTween('.mayo2', TweenMax.from( $('.mayo2'), .50, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
 	controller.addTween('.mayo3', TweenMax.from( $('.mayo3'), .70, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	controller.addTween('.mayo4', TweenMax.from( $('.mayo4'), .90, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	controller.addTween('.mayo5', TweenMax.from( $('.mayo5'), 1, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
+	controller.addTween('.mayo4', TweenMax.from( $('.mayo4'), .80, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
+	controller.addTween('.mayo5', TweenMax.from( $('.mayo5'), .90, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
 	
 	
 	

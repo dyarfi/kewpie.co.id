@@ -41,9 +41,9 @@ class Product_category extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Product Category');                            
             // The fields that user will see on add and edit form
-			$crud->fields('subject','text','position','media','status','added','modified');
+			$crud->fields('subject','text','color','media','status','added','modified');
             // Set column
-            $crud->columns('subject','position','text','media','modified','added','status');	
+            $crud->columns('subject','position','text','media','color','cover','modified','added','status');	
 			
             // Unsets the fields at the add form.
 			$crud->unset_add_fields('parent_id','sub_level','has_child','user_id','order','count','is_system','added','modified');
@@ -59,9 +59,11 @@ class Product_category extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','text','media','status','added','modified','translate');			
+				$crud->columns('subject','text','media','color','cover','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
+				// Callback_column color
+				$crud->callback_column('color',array($this,'_callback_color'));
 			}
             
             // This callback escapes the default auto field output of the field name at the add form
@@ -85,7 +87,7 @@ class Product_category extends Admin_Controller {
             
             // Set upload field
             $crud->set_field_upload('media','uploads/products');
-//            $crud->set_field_upload('cover','uploads/products');
+            $crud->set_field_upload('cover','uploads/products');
             
             $this->load($crud, 'product_category');
             
@@ -186,6 +188,10 @@ class Product_category extends Admin_Controller {
 		}
 		
 	}
+	
+	public function _callback_color($item, $primary_key) {
+		
+	}
     
     public function _callback_update_detail($post, $primary_key) {
 		// Unset status first and change to 1
@@ -239,7 +245,7 @@ class Product_category extends Admin_Controller {
         $output->nav = $nav;
         if ($crud->getState() == 'list') {
             // Set Page Title 
-            $output->page_title = 'Page Menu Listings';
+            $output->page_title = 'Product Category Listings';
             // Set Main Template
             $output->main       = 'template/admin/metronix';
             // Set Primary Template
