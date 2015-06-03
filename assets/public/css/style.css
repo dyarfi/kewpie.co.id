@@ -372,7 +372,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .display-telor-peta{
 	position:absolute;
 	right: -90%;
-	bottom: -20%;
+	bottom: -100%;
 }
 .cup-mayonaise{
 	margin-left: -25%;
@@ -419,11 +419,6 @@ a:hover{color: #e70413; text-decoration: blink;}
   -moz-box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
   box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
 }
-.cmn-t-scale img{
-  border-radius: 50%;
-  display: block;
-  
-}
 .cerita-kewpie  .cmn-t-scale  img{border-radius: 0;}
 .items-resep{position: relative; margin-bottom: 30px;}
 .jenis-resep{
@@ -431,13 +426,12 @@ a:hover{color: #e70413; text-decoration: blink;}
   right: 35px;
   top: -30px;
 }
-#scale-it1 .list-resep-home{margin-top: 80px;}
-.dalam-kewpie{
-  width: 650px;
-  margin-left: 200px;
-  position: relative;
-  margin-top: 100px;
+.red-dot-resep{
+	position:absolute;
+	right: 70px;
+	bottom:50px;
 }
+#scale-it1 .list-resep-home{margin-top: 80px;}
 .cerita-kewpie{
   width: 70%;
   margin: 50px auto 0;
@@ -447,6 +441,7 @@ a:hover{color: #e70413; text-decoration: blink;}
   text-align: center;
   margin: auto;
   margin-top: 100px !important;
+  margin-bottom: 200px !important;
   clear: both;
 }
 .title-item-produk, .title-item-produk-h { margin: 0 auto 0 -30px; padding: 0 15px 0px 15px; display: block;width:148px;height:80px; position: relative; vertical-align: middle; display:table-caption; overflow: hidden}
@@ -456,6 +451,12 @@ a:hover{color: #e70413; text-decoration: blink;}
 .title-cerita-kewpie h3, .food-service-head h5, .resep-title h4 { font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
 .title-item-produk-h h4 { width: 120px;  line-height: 0.90em; font-size: 1.34em; margin:9px 0 0 0; }
 .img-produk-kami, .title-cerita-kewpie, .food-service-head { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; padding: 32px 0 0 0; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);writing-mode: rl-bt;}
+.dalam-kewpie{
+  width: 650px;
+  margin-left: 200px;
+  position: relative;
+  margin-top: 100px;
+}
 .resep-title { width: 368px; height: 263px; display: block; position: relative; background: transparent url(../img/items/tagb3.png) top center no-repeat; padding: 82px 0 0 0; margin-bottom: -70px;
   margin-left: -15px; z-index: 1; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);writing-mode: rl-bt;}
 .img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 13px; line-height: 0.78em; } 
@@ -463,7 +464,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .food-service-head {  width: 214px; height: 113px;border: 0px solid #990000; position: relative;margin: 0 auto; right: -100px; background: transparent url(../img/items/tagm1.png) top center no-repeat; }
 .food-service-head h4, .food-service-head h5 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; } 
 .food-service-head h5 { font-size: 2em; margin-top: 14px }
-.food-service-head h4 { padding-top:10px; font-size: 2.8em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px;}
+.food-service-head h4 { padding-top:10px; font-size: 2.8em; text-align: center; width: 100%; border: 0px solid #990000; margin:6px 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px;}
 .title-cerita-kewpie h3 { font-size: 3.5em; padding:8px 0 8px 0; text-align: center; width: 60%; border: 0px solid #990000; margin:0px auto 0 auto; line-height: 0.78em; }
 .title-item-produk, .title-item-produk-h {margin-left: -37px;}
 .items-produk-link-posisi{margin-left: -107px;;}
@@ -472,7 +473,9 @@ a:hover{color: #e70413; text-decoration: blink;}
 .menu-item5{opacity: 0.0; display: block;}
 .footer{
 	background: transparent url('../img/bg-foot.png') top center repeat-x;
-	padding-top:8px;
+	padding-top:36px;
+	margin-top:-36px;
+	position:relative;
 }
 .footer-bg{
 	background: #e70413; 
@@ -485,7 +488,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 	padding-top:15px;
 }
 .list-resep-home{margin:auto;margin-top: 200px !important;}
-.isi-mayonaise{margin:60px 0  50px 200px;}
+.isi-mayonaise{margin:160px 0  50px 200px;}
 /* .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto;  width and height, can be %, px or whatever. } */
 .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie-new.jpg') repeat-x top center; margin-top:-140px;}
 .bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat; background-size: 100% auto; /* width and height, can be %, px or whatever. */}
@@ -679,6 +682,18 @@ display: block;
 section {
   margin: 0 0 20px 0;
   text-align: center;
+}
+.list-resep-home section img,
+.list-resep-home section {
+  width:195px;
+  height:195px;
+}
+
+.thumb-resep-home{
+	border-radius: 50%;
+	height: 195px;
+	width: 195px;
+	overflow: hidden;
 }
 .title-dalam-kewpie{
   margin: 0 0 -40px -100px;

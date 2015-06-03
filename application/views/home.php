@@ -15,7 +15,7 @@
 			</div>
 			<div id="fade-it1" class="produk-kami">
               <div class="img-produk-kami"><h3><?php echo $home_product[1]['subject'];?></h3></div>
-                <?php echo $home_product[1]['text'];?>
+                <div class="box-white box-3"><?php echo $home_product[1]['text'];?></div>
               <div class="pasta-left"><img id="fade-it6" src="<?php echo base_url();?>assets/public/img/kewpie-left-pasta.png" alt="pasta"></div>
 			  <div class="pasta-right"><img id="fade-it7" src="<?php echo base_url();?>assets/public/img/kewpie-right-pasta.png" alt="pasta"></div>
 			</div>
@@ -128,12 +128,13 @@
                     <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
                       <section>
                       <a class="cmn-t-scale" href="<?php echo base_url('read/recipe/'.$recipe['url']);?>">
-                        <?php if ($recipe['media']) { ?><img src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="item resep a"><br><?php } ?>
+                        <?php if ($recipe['media']) { ?><div class="thumb-resep-home"><img src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="item resep a"></div><?php } ?>
                         <?php echo $recipe['subject'];?>
                       </a>
                       </section>
                     <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
                         <img class="jenis-resep" width="74px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
+						<img class="red-dot-resep" src="<?php echo base_url();?>assets/public/img/red-dot-resep.png" alt="fork spoon">
                     <?php } ?>
                     </div>
                 <?php 
@@ -150,13 +151,16 @@
             
             
 			<!-- DALAM KEWPIE -->
-			<div id="fade-it3" class="dalam-kewpie">
+			<div class="dalam-kewpie">
 			  <!--<img class="title-dalam-kewpie" src="<?php echo base_url();?>assets/public/img/dalam-kewpie.png" alt="dalam kewpie">-->
-				<div class="img-produk-kami"><h3><?php echo $this->lang->line('inside_kewpie');?></h3></div>
-			  <?php /*<h3 class="title tred"><?php echo $home_origin[1]['subject'];?></h3>*/?>
-              <?php echo $home_origin[1]['synopsis'];?>
+				<div id="fade-it3">
+					<div class="img-produk-kami title-dalam-kewpie"><h3><?php echo $this->lang->line('inside_kewpie');?></h3></div>
+					<?php /*<h3 class="title tred"><?php echo $home_origin[1]['subject'];?></h3>*/?>
+					<?php echo $home_origin[1]['synopsis'];?>
+				</div>
                 <div class="display-telor-peta" data-toggle="tooltip-s" data-placement="left" title="<?php //echo strip_tags($home_origin[1]['synopsis']);?>">
-					<img id="fly-it6" src="<?php echo base_url('uploads/pages/'.$home_origin[1]['media']);?>" alt="resep">
+					<img id="fly-it6" src="<?php echo base_url('assets/public/img/telor-peta.jpg') ?>" alt="resep">
+					<!-- <img id="fly-it6" src="<?php /*echo base_url('uploads/pages/'.$home_origin[1]['media']); */?>" alt="resep"> -->
                 </div>
 			</div>
 			<div id="fade-it4" class="isi-mayonaise">
@@ -196,6 +200,7 @@
 			  <div class="row">
 			  <div class="col-md-12">
 			  <div id="Carousel" class="carousel slide">
+			  <?php if (count($home_news) > 3) { ?>
                 <ol class="carousel-indicators">
                     <?php 
                         $z = count($home_news) % 3;
@@ -205,6 +210,7 @@
                         $m++;
                     } ?>
                 </ol>
+				<?php } ?>
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                   <?php                  

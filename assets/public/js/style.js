@@ -117,16 +117,16 @@ $(document).ready(function() {
 	controller.addTween('#fade-it2', TweenMax.from( $('#fade-it2'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it3', TweenMax.from( $('#fade-it3'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it4', TweenMax.from( $('#fade-it4'), 1, {css:{opacity: 0}}));
-	
-	controller.addTween('.mayo1', TweenMax.from( $('.mayo1'), .30, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	controller.addTween('.mayo2', TweenMax.from( $('.mayo2'), .50, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	controller.addTween('.mayo3', TweenMax.from( $('.mayo3'), .70, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	controller.addTween('.mayo4', TweenMax.from( $('.mayo4'), .80, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	controller.addTween('.mayo5', TweenMax.from( $('.mayo5'), .90, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	
 	controller.addTween('#fade-it5', TweenMax.from( $('#fade-it5'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it6', TweenMax.from( $('#fade-it6'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it7', TweenMax.from( $('#fade-it7'), 1, {css:{opacity: 0}}));
+	controller.addTween('#fade-it8', TweenMax.from( $('#fade-it8'), 2, {css:{opacity: 0}}));
+	
+	controller.addTween('.mayo1', TweenMax.from( $('.mayo1'), .15, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
+	controller.addTween('.mayo2', TweenMax.from( $('.mayo2'), .35, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
+	controller.addTween('.mayo3', TweenMax.from( $('.mayo3'), .55, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
+	controller.addTween('.mayo4', TweenMax.from( $('.mayo4'), .75, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
+	controller.addTween('.mayo5', TweenMax.from( $('.mayo5'), .90, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
 	
 	controller.addTween('#fly-it1', TweenMax.from( $('#fly-it1'), 1, {css:{right:'2000px'}, ease:Quad.easeInOut}));
 	controller.addTween('#fly-it2', TweenMax.from( $('#fly-it2'), 1, {css:{right:'2000px'}, ease:Quad.easeInOut}));
@@ -143,6 +143,5 @@ $(document).ready(function() {
 	controller.addTween('#scale-it3', TweenMax.fromTo( $('#scale-it3'), .5, {css:{opacity:0, width:'95%'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, width:'100%'}, ease:Quad.easeInOut}));
 	
 	controller.addTween('#smush-it', TweenMax.fromTo( $('#smush-it'),  1.5, {css:{opacity:0, 'margin':'0 30px'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, 'letter-spacing':'-10px'}, ease:Quad.easeInOut}), 0, 100); // 100 px offset for better timing
-	controller.addTween('.rotate-cup', TweenMax.to('.rotate-cup', 5, {rotation:360, scale:1}));
-    	
+    controller.addTween('.rotate-cup', TweenMax.to('.rotate-cup', 80, {rotation:360,  repeat:100, ease:Linear.easeNone}));	
 });
