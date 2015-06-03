@@ -41,7 +41,7 @@ class Product_category extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Product Category');                            
             // The fields that user will see on add and edit form
-			$crud->fields('subject','text','color','media','status','added','modified');
+			$crud->fields('subject','text','color','media','cover','status','added','modified');
             // Set column
             $crud->columns('subject','position','text','media','color','cover','modified','added','status');	
 			
@@ -65,6 +65,9 @@ class Product_category extends Admin_Controller {
 				// Callback_column color
 				$crud->callback_column('color',array($this,'_callback_color'));
 			}
+            
+            // Display as 
+            $crud->display_as('cover','Display');
             
             // This callback escapes the default auto field output of the field name at the add form
             $crud->callback_add_field('added',array($this,'_callback_time_added'));
@@ -190,7 +193,9 @@ class Product_category extends Admin_Controller {
 	}
 	
 	public function _callback_color($item, $primary_key) {
-		
+		// Return box with color
+        return '<div style="display:block;color:white;background:'.$item.'">'.$item.'</div>';
+        
 	}
     
     public function _callback_update_detail($post, $primary_key) {

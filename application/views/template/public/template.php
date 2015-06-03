@@ -29,7 +29,7 @@
 	</script>
     
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-default">
+<body id="page-top" data-spy="scroll" data-target=".navbar-default" class="scrollblock">
 		
 		<?php $this->load->view('template/public/header'); ?>
 

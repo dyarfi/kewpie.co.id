@@ -415,9 +415,9 @@ a:hover{color: #e70413; text-decoration: blink;}
 .box-3{
   padding: 50px 40px 20px;
   background: #f7a800;
-  -webkit-box-shadow: 0px 3px 13px -3px rgba(122,122,122,1);
-  -moz-box-shadow: 0px 3px 13px -3px rgba(122,122,122,1);
-  box-shadow: 0px 3px 13px -3px rgba(122,122,122,1);
+  -webkit-box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
 }
 .resep-title{
   margin-bottom: -70px;
@@ -457,17 +457,18 @@ a:hover{color: #e70413; text-decoration: blink;}
 .title-item-produk, .title-item-produk-h { margin: 0 auto 0 -30px; padding: 0 15px 0px 15px; display: block;width:148px;height:80px; position: relative; vertical-align: middle; display:table-caption; overflow: hidden}
 .title-item-produk-h { height:118px;}
 
-.img-produk-kami h3, .title-item-produk h4, .title-item-produk-h h4, .food-service-head h4, .food-service-head h5 { font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
+.img-produk-kami h3, .title-item-produk h4, .title-item-produk-h h4, .food-service-head h4,
+.title-cerita-kewpie h3, .food-service-head h5 { font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
 .title-item-produk-h h4 { width: 120px;  line-height: 0.90em; font-size: 1.34em; margin:9px 0 0 0; }
-.img-produk-kami { padding: 32px 0 0 0;}
-.img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 10px; line-height: 0.78em; overflow: hidden;} 
-.img-produk-kami { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; } 
-
+.img-produk-kami, .title-cerita-kewpie { padding: 32px 0 0 0;}
+.img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 10px; line-height: 0.78em; } 
+.img-produk-kami, .title-cerita-kewpie { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; } 
 .food-service-head {  width: 214px; height: 113px;border: 0px solid #990000; position: relative;margin: 0 auto; right: -100px; background: transparent url(../img/items/tagm1.png) top center no-repeat; }
 .food-service-head h4, .food-service-head h5 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; } 
 .food-service-head h5 { font-size: 2em; margin-top: 14px }
-.food-service-head h4{font-size: 30px; padding-top:10px;}
+.food-service-head h4{ font-size: 30px; padding-top:10px;}
 .food-service-head h4 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; } 
+.title-cerita-kewpie h3 { font-size: 3.5em; padding:8px 0 8px 0; text-align: center; width: 60%; border: 0px solid #990000; margin:0px auto 0 auto; line-height: 0.78em; }
 .title-item-produk, .title-item-produk-h {margin-left: -37px;}
 .items-produk-link-posisi{margin-left: -107px;;}
 .items-produk-link{width: 300px;}
@@ -488,11 +489,6 @@ a:hover{color: #e70413; text-decoration: blink;}
 	padding-top:15px;
 }
 .list-resep-home{margin:auto;margin-top: 200px !important;}
-.title-cerita-kewpie{
-	margin-right:150px;
-	position:relative;
-	z-index:1;
-}
 .isi-mayonaise{margin:60px 0  50px 200px;}
 /* .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto;  width and height, can be %, px or whatever. } */
 .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie-new.jpg') repeat-x top center; margin-top:-140px;}
@@ -643,7 +639,7 @@ h2, h4{
 	padding:0;
 	margin-top: 28px;
 	margin-left: 15px;
-	margin-right: 15px;
+	margin-right: 40px;
 	margin-bottom: 28px;
 	-webkit-box-shadow: 0px 8px 20px -4px rgba(50, 50, 50, 0.93);
 	-moz-box-shadow:    0px 8px 20px -4px rgba(50, 50, 50, 0.93);
@@ -826,6 +822,10 @@ section a {
 .menu-item2 img,.menu-item4 img{height: 210px; position: absolute; top: 10px; left: 5px;}
 
 /* CAROUSEL CSS */
+#Carousel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .carousel {
   margin-bottom: 0;
   padding: 0 40px 30px 40px;

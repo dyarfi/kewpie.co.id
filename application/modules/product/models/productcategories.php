@@ -68,7 +68,7 @@ class ProductCategories Extends CI_Model {
 		return $data;
 	}
 	
-	public function getProductCategory($id = null){
+	public function getCategory($id = null){
 		if(!empty($id)){
 			$data = array();
 			$options = array('id' => $id);
@@ -82,10 +82,10 @@ class ProductCategories Extends CI_Model {
 		}
 	}
 	
-	public function getCategory($menu=null){
-		if(!empty($menu)){
+	public function getCategoryByUrl($category=null){
+		if(!empty($category)){
 			$data = array();
-			$options = array('subject' => $menu,'status' => 'publish');
+			$options = array('url' => $category,'status' => 'publish');
 			$Q = $this->db->get_where($this->table,$options,1);
 			if ($Q->num_rows() > 0){
 				foreach ($Q->result_object() as $row)
@@ -109,7 +109,7 @@ class ProductCategories Extends CI_Model {
 			return $data;
 		}
 	}
-	public function getAllPageCategory($admin=null){
+	public function getAllCategory($admin=null){
 		$data = array();
 		$this->db->order_by('added');
 		$Q = $this->db->get($this->table);
@@ -171,7 +171,7 @@ class ProductCategories Extends CI_Model {
 		return $insert_id;
 		
 	}	
-	public function deletePageMenu($id) {
+	public function deleteCategory($id) {
 		
 		// Check page_menu id
 		$this->db->where('id', $id);

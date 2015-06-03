@@ -18,7 +18,9 @@ class Home extends Public_Controller {
 		$this->load->model('page/Pagemenus');
 		$this->load->model('page/Pages');
         
-        $this->load->model('product/Products');
+        // Load Product MOdels
+        $this->load->model('product/ProductCategories');
+		$this->load->model('product/Products');
 		
 		
 		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));

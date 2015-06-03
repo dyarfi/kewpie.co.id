@@ -22,14 +22,16 @@
                 <div class="row">
                     <?php
                     $j = 1;
-                    foreach ($products as $product) { ?>
+                    foreach ($products as $product) { 
+                        $color = str_replace('#', '', $this->ProductCategories->getCategory($product['category_id'])->color);
+                    ?>
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="radial-menu">
                             <?php for ($i = 1; $i <= 4; $i++) { ?>
                                 <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
                             <?php } ?>
                             <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                            <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tagh<?php echo $j;?>.png') top center no-repeat; padding-top: 10px;">
+                            <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tagh-<?php echo $color;?>.png') top center no-repeat; padding-top: 10px;">
                                 <h4><?php echo character_limiter($product['subject'], 30,'');?></h4>
                             </div>
                             <div class="detail-left menu-item5 items-produk-link-posisi">
@@ -162,8 +164,8 @@
 			</div>
 			<!-- CERITA KEWPIE -->
 			<div id="scale-it2"  class="cerita-kewpie">
-			  <img class="title-cerita-kewpie pull-right" src="<?php echo base_url();?>assets/public/img/cerita-kewpie.png" alt="cerita kewpie">
-			  <div class="kewpie-region">
+			  <div class="title-cerita-kewpie"><h3><?php echo $this->lang->line('kewpie_story');?></h3></div>
+              <div class="kewpie-region">
 				<div class="col-xs-6 col-sm-6 col-md-6">
 				  <section>
 				  <a class="cmn-t-scale" href="">
@@ -185,7 +187,7 @@
             <div class="clear"></div>
 			<!-- NEWS KEWPIE -->
 			<div id="scale-it3" class="news-latest">
-			  <img class="title-cerita-kewpie" src="<?php echo base_url();?>assets/public/img/berita-terbaru.png" alt="berita kewpie">
+                <div class="title-cerita-kewpie"><h3><?php echo $this->lang->line('latest_news');?></h3></div>
 			  <!-- start carousel -->
 			  <div class="row">
 			  <div class="col-md-12">
