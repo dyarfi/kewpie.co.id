@@ -41,7 +41,7 @@ class PageMenu extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Page Menu');                            
             // The fields that user will see on add and edit form
-			$crud->fields('subject','text','type','position','media','status','added','modified');
+			$crud->fields('subject','synopsis','text','type','position','media','status','added','modified');
             // Set column
             $crud->columns('subject','text','position','media','gallery','status','added','modified');	
 			
@@ -59,7 +59,7 @@ class PageMenu extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','text','media','gallery','status','added','modified','translate');			
+				$crud->columns('subject','synopsis','text','media','gallery','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -118,7 +118,7 @@ class PageMenu extends Admin_Controller {
 		$crud->set_subject('Translation ' . $page_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('table','field_id','lang_id','subject','url','text','added','modified');
+		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','added','modified');
 		
 		// Changes the default field type
 		$crud->field_type('table', 'hidden');

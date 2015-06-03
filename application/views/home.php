@@ -153,8 +153,8 @@
 			<div id="fade-it3" class="dalam-kewpie">
 			  <!--<img class="title-dalam-kewpie" src="<?php echo base_url();?>assets/public/img/dalam-kewpie.png" alt="dalam kewpie">-->
 				<div class="img-produk-kami"><h3><?php echo $this->lang->line('inside_kewpie');?></h3></div>
-			  <h3 class="title tred"><?php echo $home_origin[1]['subject'];?></h3>
-              <?php echo $home_origin[1]['text'];?>
+			  <?php /*<h3 class="title tred"><?php echo $home_origin[1]['subject'];?></h3>*/?>
+              <?php echo $home_origin[1]['synopsis'];?>
                 <div class="display-telor-peta" data-toggle="tooltip-s" data-placement="left" title="<?php //echo strip_tags($home_origin[1]['synopsis']);?>">
 					<img id="fly-it6" src="<?php echo base_url('uploads/pages/'.$home_origin[1]['media']);?>" alt="resep">
                 </div>

@@ -28,6 +28,7 @@ class PageMenus Extends CI_Model {
 				. '`parent_id` INT(11) UNSIGNED NULL , '
 				. '`name` VARCHAR(128) NULL , '
 				. '`subject` VARCHAR(255) NULL , '
+                . '`synopsis` TEXT NULL , '
 				. '`text` TEXT NULL , '
 				. '`url` VARCHAR(255) NULL , '		
 				. '`media` VARCHAR(255) NULL , '				
