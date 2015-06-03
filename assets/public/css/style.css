@@ -460,14 +460,12 @@ a:hover{color: #e70413; text-decoration: blink;}
 .img-produk-kami h3, .title-item-produk h4, .title-item-produk-h h4, .food-service-head h4,
 .title-cerita-kewpie h3, .food-service-head h5 { font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
 .title-item-produk-h h4 { width: 120px;  line-height: 0.90em; font-size: 1.34em; margin:9px 0 0 0; }
-.img-produk-kami, .title-cerita-kewpie { padding: 32px 0 0 0;}
+.img-produk-kami, .title-cerita-kewpie, .food-service-head { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; padding: 32px 0 0 0; -webkit-transform:  rotate(-3deg);-moz-transform:  rotate(-3deg);-o-transform:  rotate(-3deg);writing-mode: rl-bt;}
 .img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 10px; line-height: 0.78em; } 
-.img-produk-kami, .title-cerita-kewpie { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; } 
 .food-service-head {  width: 214px; height: 113px;border: 0px solid #990000; position: relative;margin: 0 auto; right: -100px; background: transparent url(../img/items/tagm1.png) top center no-repeat; }
 .food-service-head h4, .food-service-head h5 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; } 
 .food-service-head h5 { font-size: 2em; margin-top: 14px }
-.food-service-head h4{ font-size: 30px; padding-top:10px;}
-.food-service-head h4 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; } 
+.food-service-head h4 { padding-top:10px; font-size: 2.5em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px;}
 .title-cerita-kewpie h3 { font-size: 3.5em; padding:8px 0 8px 0; text-align: center; width: 60%; border: 0px solid #990000; margin:0px auto 0 auto; line-height: 0.78em; }
 .title-item-produk, .title-item-produk-h {margin-left: -37px;}
 .items-produk-link-posisi{margin-left: -107px;;}
