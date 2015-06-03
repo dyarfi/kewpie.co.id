@@ -45,7 +45,7 @@ class Product extends Admin_Controller {
             // Set columns
             $crud->columns('subject','category_id','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','category_id','text','attribute','media','status','added','modified');
+			$crud->fields('subject','url','category_id','text','attribute','in_front','media','status','added','modified');
             // Set column display 
             $crud->display_as('category_id','Category');
 			// Changes the default field type
@@ -55,7 +55,7 @@ class Product extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','category_id','text','gallery','media','status','added','modified','translate');			
+				$crud->columns('subject','category_id','text','gallery','in_front','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -78,7 +78,7 @@ class Product extends Admin_Controller {
             $crud->callback_before_update(array($this,'_callback_url'));
 			
 			// Sets the required fields of add and edit fields
-			$crud->required_fields('subject','text','status'); 
+			$crud->required_fields('subject','text','in_front','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/products');
 			 

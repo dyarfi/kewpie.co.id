@@ -84,7 +84,7 @@ class Product_Recipe extends Admin_Controller {
             $crud->callback_after_upload(array($this,'_callback_after_upload'));
  
 			// Sets the required fields of add and edit fields
-			$crud->required_fields('subject','text','status'); 
+			$crud->required_fields('subject','text','in_front','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/products');
 			 
