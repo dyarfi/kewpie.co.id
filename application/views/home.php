@@ -4,7 +4,9 @@
 		  <div class="container">
 			<div class="hello">
 
-			  <img class="resep-title" src="<?php echo base_url();?>assets/public/img/hello-kewpie.png" alt="resep">
+              <div class="resep-title">
+                   <h4><?php echo $this->lang->line('hello');?></h4>
+              </div>
 			  <div class="box-white box-3">
 				<h1 class="title"><?php echo $home_welcome[1]['subject'];?></h1>
 				 <!-- jumlah karakter nya harus sama -->
@@ -60,7 +62,9 @@
 			
 			<!-- RESEP -->
 			<div class="resep-home">
-                <img id="fly-it1" class="resep-title" src="<?php echo base_url();?>assets/public/img/resep.png" alt="resep">
+                <div id="fly-it1" class="resep-title">
+                    <h4><?php echo $this->lang->line('recipe');?></h4>
+                </div>
                 <?php 
                     $l=1;
                     foreach ($home_recipe_favorite as $recipe) { ?>
