@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0, user-scalable=no" />
 	<meta name="google" content="notranslate" />
 	<title><?php echo ($page_title) ? $page_title .' | '. config_item('developer_name') : ''; ?></title>
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -48,11 +49,11 @@
 	
 	<!-- Core JavaScript Files -->
     <script src="<?php echo base_url();?>assets/public/js/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url();?>assets/public/js/jquery.easing.min.js" type="text/javascript"></script>	
 	<script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url();?>assets/public/js/TweenMax.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url();?>assets/public/js/bootstrapValidator/js/bootstrapValidator.js" type="text/javascript"></script>
     <script src="<?php echo base_url();?>assets/public/js/jquery.superscrollorama.js" type="text/javascript"></script>
-	<script src="<?php echo base_url();?>assets/public/js/jquery.easing.min.js" type="text/javascript"></script>	
 	<script src="<?php echo base_url();?>assets/public/js/jquery.scrollTo.js" type="text/javascript"></script>
 	<script src="<?php echo base_url();?>assets/public/js/wow.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js" type="text/javascript"></script>

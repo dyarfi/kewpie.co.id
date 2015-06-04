@@ -35,7 +35,7 @@ class Product_Recipe extends Admin_Controller {
 	
     public function index() {
         try {
-	    // Set our Grocery CRUD
+            // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
             $crud->set_table('tbl_product_recipes');
@@ -44,21 +44,26 @@ class Product_Recipe extends Admin_Controller {
             // Set table relation
             $crud->set_relation('product_id','tbl_products','subject');
             // Set columns
-            $crud->columns('subject','product_id','synopsis','text','gallery','status','added','modified');			
+            $crud->columns('subject','product_id','synopsis','text','gallery','background','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','product_id','synopsis','text','attribute','favorited','media','status','added','modified');
+			$crud->fields('subject','url','product_id','synopsis','text','messages','attribute','favorited','served','time','media','status');
             // Set column display 
             $crud->display_as('product_id','Product');
             // Set column display 
             $crud->display_as('attribute','Tips');
+            // Set column display 
+            $crud->display_as('messages','Instructions');
+            $crud->display_as('text','Ingredients');
 			// Changes the default field type
+            $crud->field_type('served', 'integer');
+            $crud->field_type('time', 'integer');
 			$crud->field_type('url', 'hidden');
 			$crud->field_type('added', 'hidden');
 			$crud->field_type('modified', 'hidden');
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','product_id','synopsis','text','attribute','favorited','gallery','media','status','added','modified','translate');			
+				$crud->columns('subject','product_id','synopsis','text','attribute','favorited','gallery','media','background','status','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -80,13 +85,11 @@ class Product_Recipe extends Admin_Controller {
             $crud->callback_before_insert(array($this,'_callback_url'));
             $crud->callback_before_update(array($this,'_callback_url'));
 			
-            
+            // Set callback after upload
             $crud->callback_after_upload(array($this,'_callback_after_upload'));
  
 			// Sets the required fields of add and edit fields
 			$crud->required_fields('subject','text','in_front','status'); 
-            // Set upload field
-            // $crud->set_field_upload('file_name','uploads/products');
 			 
 			$state = $crud->getState();
 			$state_info = $crud->getStateInfo();
@@ -117,9 +120,11 @@ class Product_Recipe extends Admin_Controller {
             $crud->unset_delete();
             
             // Set upload field
-            $crud->set_field_upload('media','uploads/products');
+            $crud->set_field_upload('background','uploads/recipes');
+            $crud->set_field_upload('media','uploads/recipes');
             
             $this->load($crud, 'product_recipe');
+            
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
@@ -148,9 +153,11 @@ class Product_Recipe extends Admin_Controller {
 		$crud->set_subject('Translation ' . $product_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','attribute','added','modified');
+		$crud->fields('table','field_id','lang_id','subject','url','synopsis','text','messages','attribute','added','modified');
 		
         $crud->display_as('attribute','Tips');
+        $crud->display_as('text','Ingredients');
+        $crud->display_as('messages','Instructions');
         
 		// Changes the default field type
         $crud->field_type('table', 'hidden');
@@ -212,16 +219,28 @@ class Product_Recipe extends Admin_Controller {
 		
 	}
 	
-    public function _callback_after_upload($uploader_response,$field_info, $files_to_upload)
-    {
+    public function _callback_after_upload($uploader_response,$field_info, $files_to_upload) {
         $this->load->library('image_moo');
 
         //Is only one file uploaded so it ok to use it with $uploader_response[0].
-        $file_uploaded = $field_info->upload_path.'/'.$uploader_response[0]->name; 
-
-        $this->image_moo->load($file_uploaded)->resize(200,200)->save($file_uploaded,true);
-
-        return true;
+        $file_uploaded  = $field_info->upload_path.'/'.$uploader_response[0]->name; 
+        
+        $thumbnail[1]      = $field_info->upload_path.'/thumb__200x200'.$uploader_response[0]->name;
+        $thumbnail[2]      = $field_info->upload_path.'/thumb__304x182'.$uploader_response[0]->name;
+        $thumbnail[3]      = $field_info->upload_path.'/thumb__385x232'.$uploader_response[0]->name;
+        
+        $this->image_moo
+        ->load($file_uploaded)
+        ->save($file_uploaded,true)
+        ->resize_crop(200,200)
+        ->save($thumbnail[1])
+        ->resize_crop(304,182)
+        ->save($thumbnail[2])
+        ->resize_crop(385,232)
+        ->save($thumbnail[3]);
+         
+        if ($this->image_moo->error) print $this->image_moo->display_errors(); else return true;
+        
     }
     
     public function _callback_gallery ($value,$row) {

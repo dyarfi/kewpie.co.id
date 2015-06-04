@@ -160,7 +160,7 @@ $config['modulelist'] = array(
     // Product module
 	'Product' => array (
 		// Page Models list
-		'models'		=> array('product/Products','product/ProductCategories','product/ProductRecipes'),
+		'models'		=> array('product/Products','product/ProductCategories','product/ProductRecipes','product/ProductImages','product/ProductRecipeImages'),
 		// Page module menus
 		'module_menu'	=> array(
 						'product/index'             => 'Product',
@@ -209,7 +209,17 @@ $config['modulelist'] = array(
 						'product_recipe/translate'	=> 'Translate Recipe',
 						'product_recipe/index/change'	=> 'Change Recipe Status',
 						'product_recipe/index/export'	=> 'Export Recipe',
-						'product_recipe/index/print'	=> 'Print Recipe'
+						'product_recipe/index/print'	=> 'Print Recipe',
+            
+                        // Product Recipe Gallery functions
+                        'product_recipe_gallery/index'        => 'Recipe Gallery',
+                        'product_recipe_gallery/index/add'	=> 'Add Recipe Gallery',
+                        'product_recipe_gallery/index/view'	=> 'View Recipe Gallery',			
+                        'product_recipe_gallery/index/edit'	=> 'Edit Recipe Gallery',			
+                        'product_recipe_gallery/index/delete' => 'Delete Recipe Gallery',
+                        'product_recipe_gallery/index/change' => 'Change Recipe Gallery',
+                        'product_recipe_gallery/index/export' => 'Export Recipe Gallery',
+                        'product_recipe_gallery/index/print'	=> 'Print Recipe Gallery',
 					    ),
 	),
     // News module

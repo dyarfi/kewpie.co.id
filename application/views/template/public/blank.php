@@ -3,10 +3,12 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?php //echo $page_title; ?></title>	
+    <meta name="viewport" content="width=device-width, initial-scale=0, user-scalable=no" />
+	<title><?php echo $page_title; ?></title>	
 	<script type="text/javascript">
 		var base_URL = '<?php echo base_url();?>';
 	</script>
+    <link href="<?php echo base_url();?>assets/public/css/blank.css" rel="stylesheet">
 </head>
 <body>
 <?php $this->load->view($main); ?>

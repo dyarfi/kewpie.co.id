@@ -10,86 +10,84 @@ $(document).ready(function() {
 
     $('.radial-menu').on('mousedown touchstart', function() {
     
-		if (!active1) $(this).find('.menu-item1').css({'transform': 'translate(100px,0px)'});
-		else $(this).find('.menu-item1').css({'transform': 'none'}); 
+        if (!active1) $(this).find('.menu-item1').css({'transform': 'translate(100px,0px)'});
+        else $(this).find('.menu-item1').css({'transform': 'none'}); 
 
-		if (!active2) $(this).find('.menu-item2').css({'transform': 'translate(50px,0px)'});
-		else $(this).find('.menu-item2').css({'transform': 'none'});
+        if (!active2) $(this).find('.menu-item2').css({'transform': 'translate(50px,0px)'});
+        else $(this).find('.menu-item2').css({'transform': 'none'});
 
-		if (!active3) $(this).find('.menu-item3').css({'transform': 'translate(-100px,0px)'});
-		else $(this).find('.menu-item3').css({'transform': 'none'});
+        if (!active3) $(this).find('.menu-item3').css({'transform': 'translate(-100px,0px)'});
+        else $(this).find('.menu-item3').css({'transform': 'none'});
 
-		if (!active4) $(this).find('.menu-item4').css({'transform': 'translate(-50px,0px)'});
-		else $(this).find('.menu-item4').css({'transform': 'none'});
+        if (!active4) $(this).find('.menu-item4').css({'transform': 'translate(-50px,0px)'});
+        else $(this).find('.menu-item4').css({'transform': 'none'});
 
-		if (!active4) $(this).find('.menu-item5').css({'transform': 'translate(0px,-70px)', 'opacity':'1.0'});
-		else $(this).find('.menu-item5').css({'transform': 'none', 'opacity':'0.0'});
+        if (!active4) $(this).find('.menu-item5').css({'transform': 'translate(0px,-70px)', 'opacity':'1.0'});
+        else $(this).find('.menu-item5').css({'transform': 'none', 'opacity':'0.0'});
 
-		if (!active4) $(this).find('.menu-item6').css({'transform': 'translate(0px,0px)', 'opacity':'0.0'});
-		else $(this).find('.menu-item6').css({'transform': 'none', 'opacity':'1.0'});
-		active1 = !active1;
-		active2 = !active2;
-		active3 = !active3;
-		active4 = !active4;
-		active5 = !active5;
-		
-		console.log($(this).children('div').length);
-		//console.log($(this).parent('.row'));
+        if (!active4) $(this).find('.menu-item6').css({'transform': 'translate(0px,0px)', 'opacity':'0.0'});
+        else $(this).find('.menu-item6').css({'transform': 'none', 'opacity':'1.0'});
+        active1 = !active1;
+        active2 = !active2;
+        active3 = !active3;
+        active4 = !active4;
+        active5 = !active5;
+
+        console.log($(this).children('div').length);
+        //console.log($(this).parent('.row'));
     
     });
     
     $('.items-produk-link a').mousedown(function() {
-            window.location = $(this).attr('href');
-            return true;
+        window.location = $(this).attr('href');
+        return true;
     });
 
     /* carousel */
-    $('#Carousel').carousel({
-        interval: 5000
+    $('#Carousel').carousel({ interval: 5000 });
+    
+    /* carousel */
+    $('#Carousel1').carousel({ interval: 5000 });
+	
+    /* TOOLTIPS */
+    $(function () { $('[data-toggle="tooltip"]').tooltip(); });
+	
+    // CONTACT Form
+    $('#contact-form').bootstrapValidator({
+        // live: 'disabled',
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            Name: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Name is required and cannot be empty'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not valid'
+                    }
+                }
+            },
+            Message: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Message is required and cannot be empty'
+                    }
+                }
+            }
+        }
     });
-	
-	/* TOOLTIPS */
-    $(function () {
-	  $('[data-toggle="tooltip"]').tooltip();
-	});
-	
-	
-	// CONTACT Form
-	$('#contact-form').bootstrapValidator({
-//        live: 'disabled',
-		message: 'This value is not valid',
-		feedbackIcons: {
-			valid: 'glyphicon glyphicon-ok',
-			invalid: 'glyphicon glyphicon-remove',
-			validating: 'glyphicon glyphicon-refresh'
-		},
-		fields: {
-			Name: {
-				validators: {
-					notEmpty: {
-						message: 'The Name is required and cannot be empty'
-					}
-				}
-			},
-			email: {
-				validators: {
-					notEmpty: {
-						message: 'The email address is required'
-					},
-					emailAddress: {
-						message: 'The email address is not valid'
-					}
-				}
-			},
-			Message: {
-				validators: {
-					notEmpty: {
-						message: 'The Message is required and cannot be empty'
-					}
-				}
-			}
-		}
-	});
 	
     //EFFECT
     
@@ -109,7 +107,11 @@ $(document).ready(function() {
             //TweenMax.from('.hello', 1, {scale:1, ease:Quad.easeInQuart, force3D:true}, 0.1)        
         });
     }
-    
+    $('.mayo1, .mayo2, .mayo3, .mayo4, .mayo5').hover(function(){ 
+        TweenMax.to($(this), .1, {css:{scale:1.05}, immediateRender:true, ease:Quad.easeOut}); 
+    },function() {
+        TweenMax.to($(this), .1, {css:{scale:1}, immediateRender:true, ease:Quad.easeOut}); 
+    });
  
     var controller = $.superscrollorama();
 	
@@ -143,5 +145,5 @@ $(document).ready(function() {
 	controller.addTween('#scale-it3', TweenMax.fromTo( $('#scale-it3'), .5, {css:{opacity:0, width:'95%'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, width:'100%'}, ease:Quad.easeInOut}));
 	
 	controller.addTween('#smush-it', TweenMax.fromTo( $('#smush-it'),  1.5, {css:{opacity:0, 'margin':'0 30px'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, 'letter-spacing':'-10px'}, ease:Quad.easeInOut}), 0, 100); // 100 px offset for better timing
-    controller.addTween('.rotate-cup', TweenMax.to('.rotate-cup', 80, {rotation:360,  repeat:100, ease:Linear.easeNone}));	
+        controller.addTween('.rotate-cup', TweenMax.to('.rotate-cup', 80, {rotation:360,  repeat:100, ease:Linear.easeNone}));	
 });

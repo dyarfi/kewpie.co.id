@@ -72,9 +72,10 @@ class News extends Admin_Controller {
 			
 			// Sets the required fields of add and edit fields
 			$crud->required_fields('subject','text','status'); 
-            // Set upload field
-            // $crud->set_field_upload('file_name','uploads/newss');
-			 
+            
+            // Set callback after upload
+            $crud->callback_after_upload(array($this,'_callback_after_upload'));
+  
 			$state = $crud->getState();
 			$state_info = $crud->getStateInfo();
 			//print_r($state);
@@ -197,6 +198,30 @@ class News extends Admin_Controller {
 		
 	}
 	
+    public function _callback_after_upload($uploader_response,$field_info, $files_to_upload) {
+        $this->load->library('image_moo');
+
+        //Is only one file uploaded so it ok to use it with $uploader_response[0].
+        $file_uploaded  = $field_info->upload_path.'/'.$uploader_response[0]->name; 
+        
+        $thumbnail[1]      = $field_info->upload_path.'/thumb__288x173'.$uploader_response[0]->name;
+        $thumbnail[2]      = $field_info->upload_path.'/thumb__282x273'.$uploader_response[0]->name;
+        $thumbnail[3]      = $field_info->upload_path.'/thumb__640x520'.$uploader_response[0]->name;
+        
+        $this->image_moo
+        ->load($file_uploaded)
+        ->save($file_uploaded,true)
+        ->resize_crop(288,173)
+        ->save($thumbnail[1])
+        ->resize_crop(282,273)
+        ->save($thumbnail[2])
+        ->resize_crop(640,520)
+        ->save($thumbnail[3]);
+         
+        if ($this->image_moo->error) print $this->image_moo->display_errors(); else return true;
+        
+    }
+    
     public function _callback_translate ($value, $row) {
 		$links = '';
 		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {

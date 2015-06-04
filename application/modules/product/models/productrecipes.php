@@ -33,9 +33,13 @@ class ProductRecipes Extends CI_Model {
 				. '`synopsis` TEXT NULL, '
 				. '`text` TEXT NULL, '
                 . '`media` VARCHAR(255) NULL, '
+                . '`background` VARCHAR(255) NULL, '
+                . '`cover` VARCHAR(255) NULL, '
 				. '`attribute` TEXT NULL, '
 				. '`allow_comment` TINYINT(1) NULL, '
                 . '`favorited` ENUM( \'yes\', \'no\') NULL, '
+                . '`served` VARCHAR(18) NULL, '
+                . '`time` VARCHAR(18) NULL, '
 				. '`tags` TEXT NULL, '
 				. '`order` TINYINT(3) NULL, '
 				. '`user_id` TINYINT(3) NULL , '
@@ -70,7 +74,7 @@ class ProductRecipes Extends CI_Model {
 		return $data;
 	}
 	
-	public function getPage($id = null){
+	public function getRecipe($id = null){
 		if(!empty($id)){
 			$data = array();
 			$options = array('id' => $id);
@@ -84,7 +88,7 @@ class ProductRecipes Extends CI_Model {
 		}
 	}	
 	
-	public function getPageByName($name = null){
+	public function getRecipeByName($name = null){
 		if(!empty($name)){
 			$data = array();
 			$options = array('name' => $name,'status'=>'publish');
@@ -98,7 +102,7 @@ class ProductRecipes Extends CI_Model {
 		}
 	}	
 	
-	public function getAllPage($admin=null){
+	public function getAllRecipe($admin=null){
 		$data = array();
 		$this->db->order_by('added');
 		$Q = $this->db->get($this->table);
@@ -112,7 +116,7 @@ class ProductRecipes Extends CI_Model {
 		return $data;
 	}	
 	
-	public function getAllPageByMenu($menu=null){
+	public function getAllRecipeByMenu($menu=null){
 		$data = array();
 		$this->db->order_by('added');
 		$this->db->where('product_id',$menu);
@@ -127,9 +131,9 @@ class ProductRecipes Extends CI_Model {
 		return $data;
 	}	
 	
-	public function setPage($object=null){
+	public function setRecipe($object=null){
 		
-		// Set Page data
+		// Set Recipe data
 		$data = array(			
 			'product_id'       => $object['product_id'],
 			'name'			=> $object['name'],
@@ -137,6 +141,8 @@ class ProductRecipes Extends CI_Model {
 			'synopsis'		=> $object['synopsis'],
 			'text'			=> $object['text'],
             'media'			=> $object['media'],
+            'background'    => $object['background'],
+			'cover'			=> $object['cover'],
 			'attribute'		=> $object['attribute'],
 			'publish_date'	=> $object['publish_date'],
 			'unpublish_date' => $object['unpublish_date'],
@@ -150,7 +156,7 @@ class ProductRecipes Extends CI_Model {
 			'modified'		=> $object['status']
 		);
 		
-		// Insert Page data
+		// Insert Recipe data
 		$this->db->insert($this->table, $data);
 		
 		// Return last insert id primary
@@ -162,7 +168,7 @@ class ProductRecipes Extends CI_Model {
 	}	
 	
 	// Delete page
-	public function deletePage($id) {
+	public function deleteRecipe($id) {
 		
 		// Check page id
 		$this->db->where('id', $id);

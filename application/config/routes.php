@@ -79,6 +79,8 @@ $route[$admin.'/product_recipe/(:any)']     = 'product/product_recipe/$1';
 | ------------------------------------------------------------------------- 
 */
 
+
+//$route['default_controller'] = 'coming_soon';
 $route['default_controller'] = 'home';
 $route['404_override']		 = '';
 

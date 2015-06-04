@@ -7,6 +7,9 @@ class Front_Recipe extends Public_Controller {
 		
 		// Load user related model in admin module
 		$this->load->model('product/Products');
+        $this->load->model('product/ProductRecipes');
+        $this->load->model('product/ProductRecipeImages');
+
 					
 	}
 	
@@ -44,11 +47,18 @@ class Front_Recipe extends Public_Controller {
     
 	public function view($detail='') {
         
-        // Set detail 
-        $field = $this->Content->findIdByUrl('page_menus', $detail);
+        // Set detail recipe
+        $field  = $this->Content->findIdByUrl('product_recipes', $detail);
+        $_field = $this->Content->find('product_recipes',array('id'=>$field->field_id));
         
-        // Set data from menu category
-        $data['category'] = $this->Content->find('page_menus',array('id'=>$field->field_id));
+        // Set data images from recipe
+        $data['recipe']  = $_field[1];
+        
+        // Set data Similiar Recipes
+        $data['recipes'] = $this->Content->find('product_recipes',array('product_id'=>$field->product_id));
+       
+        // Set data images from recipe
+        $data['images'] = $this->ProductRecipeImages->getAllImageByRecipe($field->field_id);
         
         // Set main template
 		$data['main'] = 'recipe_detail';

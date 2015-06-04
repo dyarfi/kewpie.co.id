@@ -82,7 +82,7 @@
                             <div class="food-service-text"><?php echo $recipe['synopsis'];?></div>
                             <?php if ($recipe['attribute']) { ?>
 							<p>
-                              Kewpie Tips :<br>
+                              <h3 class="title">Kewpie Tips :</h3>
                               <?php echo $recipe['attribute'];?>
                             </p>
 							<?php } ?>
@@ -96,7 +96,7 @@
                         <div class="food-service-text"><?php echo $recipe['synopsis'];?></div>
 						<?php if ($recipe['attribute']) { ?>
 						<p>
-						  Kewpie Tips :<br>
+						  <h3 class="title">Kewpie Tips :</h3>
 						  <?php echo $recipe['attribute'];?>
 						</p>
 						<?php } ?>
@@ -128,7 +128,7 @@
                     <div class="col-xs-3 col-sm-3 col-md-3 items-resep">
                       <section>
                       <a class="cmn-t-scale" href="<?php echo base_url('read/recipe/'.$recipe['url']);?>">
-                        <?php if ($recipe['media']) { ?><div class="thumb-resep-home"><img src="<?php echo base_url('uploads/products/'.$recipe['media']);?>" alt="item resep a"></div><?php } ?>
+                        <?php if ($recipe['media']) { ?><div class="thumb-resep-home"><img class="img-responsive" src="<?php echo base_url('uploads/recipes/thumb__200x200'.$recipe['media']);?>" alt="item resep a"></div><?php } ?>
                         <?php echo $recipe['subject'];?>
                       </a>
                       </section>
@@ -148,7 +148,6 @@
 				</div>
 			  </div>
 			</div>
-            
             
 			<!-- DALAM KEWPIE -->
 			<div class="dalam-kewpie">
@@ -225,7 +224,7 @@
                                       <div class="row">
                                         <?php } ?>
                                          <div class="col-xs-4 col-sm-4 col-md-4 carousel-news-item-home">
-                                             <a href="#"><img src="<?php echo base_url('uploads/news/'.$row['media']);?>" alt="<?php echo $row['url'];?>"></a>
+                                             <a href="#"><img src="<?php echo base_url('uploads/news/thumb__282x273'.$row['media']);?>" alt="<?php echo $row['url'];?>"></a>
                                              <div class="caption-news">
                                                <div class="caption-news-inside">
                                                  <h4><a href="#" class=""><?php echo character_limiter($row['subject'],20,'');?></a></h4>
