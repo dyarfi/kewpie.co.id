@@ -88,7 +88,7 @@ $route['download/(:num)']	 = 'download';
 $route['language/(:any)']    = "language";
 
 $route['read/news/detail/(:any)']       = "front_news/detail/$1";
-$route['read/news/(:any)']              = "front_news/view/$1";
+$route['read/news']                     = "front_news";
 
 $route['read/recipe/detail/(:any)']     = "front_recipe/detail/$1";
 $route['read/recipe/(:any)']            = "front_recipe/view/$1";
@@ -97,7 +97,7 @@ $route['read/recipe']                   = "front_recipe";
 
 $route['read/product/category/(:any)']  = "front_product/category/$1";
 $route['read/product/detail/(:any)']    = "front_product/detail/$1";
-$route['read/product/(:any)']           = "front_product/view/$1";
+$route['read/product']                  = "front_product";
 
 $route['read/page/detail/(:any)']       = "front_page/detail/$1";
 $route['read/page/(:any)']              = "front_page/view/$1";

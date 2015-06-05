@@ -11,6 +11,28 @@ class Front_Product extends Public_Controller {
 					
 	}
     
+    public function index() {
+        
+    // Set main template
+        $product_categories         = $this->Content->findIdByUrl('product_categories',$detail);
+        $data['product_categories'] = $product_categories;
+        
+        // Set main template
+        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->id),array('added'=>'DESC'));
+		$data['products']           = $products;
+        //print_r($products);
+
+        // Set main template
+		$data['main']               = 'product';
+        
+        // Set site title page with module menu
+		$data['page_title'] = $product_categories->subject;
+		
+		// Load admin template
+		$this->load->view('template/public/template', $this->load->vars($data));
+		
+	}
+    
 	public function view($detail='') {
         
          // Set main template
