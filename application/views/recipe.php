@@ -62,7 +62,7 @@
                                                          <div class="caption caption-sub-pasta">
                                                              <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>"><?php echo $recipe['subject'];?></a></h4>
                                                              <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
-                                                                <img class="sub-pasta" width="40px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="<?php echo $recipe['subject'];?>">
+                                                                <img class="sub-pasta" width="36px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="<?php echo $recipe['subject'];?>">
                                                              <?php } ?>
                                                              <p class="text-left"><?php echo character_limiter(strip_tags($recipe['messages']),78);?></p>
                                                          </div>
