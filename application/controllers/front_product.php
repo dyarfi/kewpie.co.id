@@ -13,7 +13,7 @@ class Front_Product extends Public_Controller {
     
     public function index() {
         
-    // Set main template
+        // Set main template
         $product_categories         = $this->Content->findIdByUrl('product_categories',$detail);
         $data['product_categories'] = $product_categories;
         
