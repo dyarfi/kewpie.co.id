@@ -6,27 +6,26 @@ class Front_Product extends Public_Controller {
 		parent::__construct();
 		
 		// Load user related model in admin module
-		$this->load->model('admin/Users');
-		$this->load->model('admin/UserProfiles');
-					
+		$this->load->model('product/Products');
+		$this->load->model('product/ProductCategories');
+        $this->load->model('product/ProductRecipes');
+        			
 	}
     
-    public function index() {
+    public function index($detail='') {
         
         // Set main template
-        $product_categories         = $this->Content->findIdByUrl('product_categories',$detail);
-        $data['product_categories'] = $product_categories;
+        $data['product_category']   = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
         
         // Set main template
-        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->id),array('added'=>'DESC'));
+        $products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'DESC'));
 		$data['products']           = $products;
-        //print_r($products);
-
+        
         // Set main template
 		$data['main']               = 'product';
         
         // Set site title page with module menu
-		$data['page_title'] = $product_categories->subject;
+		$data['page_title']         = $this->lang->line('product');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -48,7 +47,7 @@ class Front_Product extends Public_Controller {
 		$data['main']               = 'product';
         
         // Set site title page with module menu
-		$data['page_title'] = $product_categories->subject;
+		$data['page_title']         = $this->lang->line('product') .' - '. $product_categories->subject;
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -83,7 +82,7 @@ class Front_Product extends Public_Controller {
 		$data['main']               = 'product_category';
         
         // Set site title page with module menu
-		$data['page_title'] = $product_categories->subject;
+		$data['page_title'] = $this->lang->line('product') .' - '. $product_categories->subject;
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -102,10 +101,10 @@ class Front_Product extends Public_Controller {
 
         
         // Set main template
-		$data['main'] = 'product_detail';
+		$data['main']               = 'product_detail';
         
 		// Set site title page with module menu
-		$data['page_title'] = lang('cal_su');
+		$data['page_title']         = $this->lang->line('product');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));

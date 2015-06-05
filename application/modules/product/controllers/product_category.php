@@ -41,7 +41,7 @@ class Product_category extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Product Category');                            
             // The fields that user will see on add and edit form
-			$crud->fields('subject','text','color','media','cover','status','added','modified');
+			$crud->fields('subject','url','text','color','media','cover','status','added','modified');
             // Set column
             $crud->columns('subject','position','text','media','color','cover','modified','added','status');	
 			

@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <div class="kewpie-main-body"> <!-- for changing background purpose -->
     <div class="container"> <!-- content start -->
-        <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/page-berita-terbaru.png" alt="title page"></div>
+        <div class="title-page"><div class="title-news"><h3><?php echo $this->lang->line('latest_news');?></h3></div></div>
         <div class="row">                    
             <?php foreach ($news as $row) {?>
             <div class="col-xs-3 col-sm-3 col-md-3">

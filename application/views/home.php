@@ -155,7 +155,7 @@
 				<div id="fade-it3">
 					<div class="img-produk-kami title-dalam-kewpie"><h3><?php echo $this->lang->line('inside_kewpie');?></h3></div>
 					<?php /*<h3 class="title tred"><?php echo $home_origin[1]['subject'];?></h3>*/?>
-					<?php echo $home_origin[1]['synopsis'];?>
+                    <div class="page-content"><?php echo $home_origin[1]['synopsis'];?></div>
 				</div>
                 <div class="display-telor-peta" data-toggle="tooltip-s" data-placement="left" title="<?php //echo strip_tags($home_origin[1]['synopsis']);?>">
 					<img id="fly-it6" src="<?php echo base_url('assets/public/img/telor-peta.jpg') ?>" alt="resep">

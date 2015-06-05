@@ -2,9 +2,7 @@
 <div class="kewpie-main-body content-inside"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container"> <!-- content start -->
-
-                <?php //print_r($product_categories[1]['subject']);?>
-            
+                          
                 <?php echo $products[1]['subject'];?>
             
                 <div class=''>

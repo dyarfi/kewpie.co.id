@@ -103,7 +103,8 @@
         </div>			
     </div> <!-- content end -->
 </div>
-<div class="container"> <!-- content start -->			
+<div class="container"> <!-- content start -->		
+    <?php if (!empty($recipes)) { ?>
     <div class="related-resep">
         <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> <?php echo $this->lang->line('suggested_recipe');?></div></div>
         <?php foreach($recipes as $item) { ?>
@@ -111,11 +112,11 @@
             <div class="thumbnail">
                 <?php if ($item['media']) { ?><img src="<?php echo base_url('uploads/recipes/'.$item['media']);?>" alt=""><?php } ?>
 				<div class="detail-related-thumbnail">
-					<h4><?php echo $item['subject'];?></h4>
+                    <h4><a href="<?php echo base_url('read/recipe/'.$item['url']);?>"><?php echo $item['subject'];?></a></h4>
 					<?php if ($this->Products->getProduct($item['product_id'])->media) { ?>
 					<img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($item['product_id'])->media);?>" alt="jenis resep">
 					<?php } ?>
-					<p><?php echo word_limiter(strip_tags($item['messages']),20);?></p>
+					<p><?php echo word_limiter(strip_tags($item['messages']),9);?></p>
 				</div>
             </div>
             <div class="tab-info">
@@ -125,4 +126,9 @@
         </div>
         <?php } ?>				
     </div>
+    <?php } else { ?> 
+    <div class="related-resep">
+        <div class="col-xs-4 col-sm-4 col-md-4"></div>    
+    </div>    
+    <?php } ?>
 </div> <!-- content end -->

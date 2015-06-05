@@ -25,7 +25,7 @@ class Front_Recipe extends Public_Controller {
 		$data['main']       = 'recipe';
         
 		// Set site title page with module menu
-		$data['page_title'] = 'Recipe';
+		$data['page_title'] = $this->lang->line('recipe');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -38,7 +38,7 @@ class Front_Recipe extends Public_Controller {
 		$data['main'] = 'category';
 				
 		// Set site title page with module menu
-		$data['page_title'] = 'User';
+		$data['page_title'] = $this->lang->line('recipe');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -55,7 +55,7 @@ class Front_Recipe extends Public_Controller {
         $data['recipe']  = $_field[1];
         
         // Set data Similiar Recipes
-        $data['recipes'] = $this->Content->find('product_recipes',array('product_id'=>$field->product_id));
+        $data['recipes'] = $this->Content->find('product_recipes',array('id !='=>$field->id,'product_id'=>$_field[1]['product_id']));
        
         // Set data images from recipe
         $data['images'] = $this->ProductRecipeImages->getAllImageByRecipe($field->field_id);
@@ -64,7 +64,7 @@ class Front_Recipe extends Public_Controller {
 		$data['main'] = 'recipe_detail';
         
 		// Set site title page with module menu
-		$data['page_title'] = 'Recipe';
+		$data['page_title'] = $this->lang->line('recipe') .' - ' . $_field[1]['subject'];
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));

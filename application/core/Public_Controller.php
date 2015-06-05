@@ -75,7 +75,13 @@ class Public_Controller extends MY_Controller {
 		$this->languages	= $this->Languages->getAllLanguage(array('status'=>'1'));
 		
         // Set menus
-		$this->menus      = $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
+		$this->menus       = $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
+        
+        // Set social media links
+        $this->facebook    = $this->Settings->getByParameter('socmed_facebook');        
+        $this->twitter     = $this->Settings->getByParameter('socmed_twitter');        
+        $this->gplus       = $this->Settings->getByParameter('socmed_gplus');        
+        $this->email_info  = $this->Settings->getByParameter('email_info');
         
 		//$this->template->theme  		= 'default';
 		//$this->template->title  		= 'Page Title';

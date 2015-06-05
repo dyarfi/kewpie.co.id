@@ -19,7 +19,7 @@ class Front_Page extends Public_Controller {
 		$data['main'] = 'category';
 				
 		// Set site title page with module menu
-		$data['page_title'] = 'User';
+		$data['page_title'] = $this->lang->line('page');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -42,7 +42,7 @@ class Front_Page extends Public_Controller {
 		$data['main'] = 'page';
         
 		// Set site title page with module menu
-		$data['page_title'] = 'Page';
+		$data['page_title'] = $this->lang->line('page');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -64,7 +64,7 @@ class Front_Page extends Public_Controller {
 		$data['main']       = 'page_detail';
         
 		// Set site title page with module menu
-		$data['page_title'] = 'Page';
+		$data['page_title'] = $this->lang->line('page');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));

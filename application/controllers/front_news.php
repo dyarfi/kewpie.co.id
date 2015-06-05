@@ -26,7 +26,7 @@ class Front_News extends Public_Controller {
 		$data['main'] = 'news';
 				
 		// Set site title page with module menu
-		$data['page_title'] = 'News';
+		$data['page_title'] = $this->lang->line('latest_news');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -39,7 +39,7 @@ class Front_News extends Public_Controller {
 		$data['main'] = 'category';
 				
 		// Set site title page with module menu
-		$data['page_title'] = 'User';
+		$data['page_title'] = $this->lang->line('latest_news');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -61,7 +61,7 @@ class Front_News extends Public_Controller {
 		$data['main'] = 'news';
         
 		// Set site title page with module menu
-		$data['page_title'] = 'News';
+		$data['page_title'] = $this->lang->line('latest_news');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
