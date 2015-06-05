@@ -490,9 +490,9 @@ a:hover{color: #e70413; text-decoration: blink;}
 .list-resep-home{margin:auto;margin-top: 200px !important;}
 .isi-mayonaise{margin:160px 0  50px 200px;}
 /* .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto;  width and height, can be %, px or whatever. } */
-.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie-new.jpg') repeat-x top center; margin-top:-140px;}
+.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') repeat-x top center; margin-top:-140px;}
 .bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat; background-size: 100% auto; /* width and height, can be %, px or whatever. */}
-.detail-resep{background: transparent url('../img/bg-detail-resep.jpg') no-repeat top center; padding-top:200px;}
+.detail-resep{background: transparent url('../img/bg-detail-resep.jpg') no-repeat top center; padding-top:200px; margin-top:-140px;}
 .content-inside{margin-top: 100px;}
 .thumbnail {
     position: relative;
@@ -556,8 +556,16 @@ h2, h4{
 	position:relative;
 }
 .cara-membuat{
-	background: transparent url(../img/head-cara-bikin.png) top center no-repeat;
-	padding-top: 135px;
+	background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
+	padding-top: 100px;
+	margin-bottom:-50px;
+}
+.black-crown{
+	text-align:center;
+	color:#fff;
+	font-weight: bold;
+	font-family: "courier new";
+	font-size:24px;
 }
 .cara-membuat2{
 	background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
@@ -634,7 +642,7 @@ h2, h4{
 .carousel-news-item-home{
 	overflow: hidden;
 	width:281px;
-	height: 350px;
+	/* height: 350px; */
 	
 	padding:0;
 	margin-top: 28px;
@@ -653,8 +661,8 @@ h2, h4{
 .mayo3 { background-image:url('../img/whatisinourmayo3.png'); width: 162px; }
 .mayo4 { background-image:url('../img/whatisinourmayo4.png'); width: 216px; }
 .mayo5 { background-image:url('../img/whatisinourmayo5.png'); width: 171px; }
-
-.caption-news-inside{height: 500px;}
+.detail-related-thumbnail{padding: 20px;}
+/* .caption-news-inside{height: 500px;} */
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
 display: block;

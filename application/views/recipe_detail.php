@@ -94,6 +94,9 @@
             </div>
         </div>
         <div class="cara-membuat">
+			<div class="black-crown">
+				<img src="<?php echo base_url();?>assets/public/img/black-crown.png" alt="limg resep"> Cara Membuat
+			</div>
             <div class="bg-board">
                 <?php echo $recipe['messages'];?>
             </div>
@@ -107,11 +110,13 @@
         <div class="col-xs-4 col-sm-4 col-md-4">
             <div class="thumbnail">
                 <?php if ($item['media']) { ?><img src="<?php echo base_url('uploads/recipes/'.$item['media']);?>" alt=""><?php } ?>
-                <h4><?php echo $item['subject'];?></h4>
-                <?php if ($this->Products->getProduct($item['product_id'])->media) { ?>
-                <img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($item['product_id'])->media);?>" alt="jenis resep">
-                <?php } ?>
-                <p><?php echo word_limiter(strip_tags($item['messages']),20);?></p>
+				<div class="detail-related-thumbnail">
+					<h4><?php echo $item['subject'];?></h4>
+					<?php if ($this->Products->getProduct($item['product_id'])->media) { ?>
+					<img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($item['product_id'])->media);?>" alt="jenis resep">
+					<?php } ?>
+					<p><?php echo word_limiter(strip_tags($item['messages']),20);?></p>
+				</div>
             </div>
             <div class="tab-info">
                 <button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $item['served'];?></button>

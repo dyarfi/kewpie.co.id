@@ -227,8 +227,8 @@
                                              <a href="#"><img src="<?php echo base_url('uploads/news/thumb__282x273'.$row['media']);?>" alt="<?php echo $row['url'];?>"></a>
                                              <div class="caption-news">
                                                <div class="caption-news-inside">
-                                                 <h4><a href="#" class=""><?php echo character_limiter($row['subject'],20,'');?></a></h4>
-                                                 <?php echo character_limiter(strip_tags($row['synopsis']), 120);?>
+                                                 <h4><a href="#" class=""><?php echo character_limiter($row['subject'],15,'');?></a></h4>
+                                                 <?php echo character_limiter(strip_tags($row['synopsis']), 70);?>
                                                </div>
                                              </div>
                                         </div>
