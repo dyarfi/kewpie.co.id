@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.48, user-scalable=no" />
+   
 	<meta name="google" content="notranslate" />
 	<title><?php echo ($page_title) ? $page_title .' | '. config_item('developer_name') : ''; ?></title>
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -28,7 +29,7 @@
 	<script type="text/javascript">
 		var base_URL = '<?php echo base_url();?>';
 	</script>
-    
+	<script src="<?php echo base_url();?>assets/public/js/useragents.js"></script>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-default" class="scrollblock">
 		

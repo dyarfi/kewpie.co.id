@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');  ?>
 <div class="kewpie-main-body detail-resep"> <!-- for changing background purpose -->
-    <div class="container"> <!-- content start -->				
+    <div class="container contain-resep-detail"> <!-- content start -->				
         <div class="tab-info pull-right">
             <?php
 			 $product  = $this->Products->getProduct($recipe['product_id'])->category_id;
@@ -20,15 +20,25 @@
             </div>
             <div class="detail-info-resep">
                 <h2><?php echo $recipe['subject'];?></h2>
-                <p><?php echo $recipe['synopsis'];?></p>						
-                <ul class="share list-inline">
+                <p><?php echo $recipe['synopsis'];?></p>				
+				<!-- AddThis Button BEGIN -->
+				<!--div class="addthis_default_style addthis_32x32_style"-->
+					<!--a class="addthis_button_compact">Share</a!-->
+					<!--a class="addthis_button_email"></a-->
+					<!--a class="addthis_button_print"></a-->
+					<!--a class="addthis_button_facebook"></a>
+					<a class="addthis_button_twitter"></a>
+					<a class="addthis_button_pinterest_share"></a>
+				</div-->
+				 
+                <ul class="share list-inline addthis_default_style addthis_32x32_style">
                     <li>
-                        <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter" data-placement="left">
+                        <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter addthis_button_twitter" data-placement="left">
                             <i class="fa fa-twitter"></i>
                         </a>
                     </li>
                     <li>
-                        <a data-original-title="Facebook" rel="tooltip"  href="#" class="btn btn-facebook" data-placement="left">
+                        <a data-original-title="Facebook" rel="tooltip"  href="#" class="btn btn-facebook addthis_button_facebook" data-placement="left">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </li>					
@@ -43,16 +53,17 @@
                         </a>
                     </li>
                     <li>
-                        <a data-original-title="Pinterest" rel="tooltip"  class="btn btn-pinterest" data-placement="left">
+                        <a data-original-title="Pinterest" rel="tooltip"  class="btn btn-pinterest addthis_button_pinterest_share" data-placement="left">
                             <i class="fa fa-pinterest"></i>
                         </a>
                     </li>
                     <li>
-                        <a  data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
+                        <a  data-original-title="Email" rel="tooltip" class="btn btn-mail addthis_button_email" data-placement="left">
                             <i class="fa fa-envelope"></i>
                         </a>
                     </li>
                 </ul>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-557557b93e7eb422" async="async"></script>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div id="Carousel1" class="carousel slide">
                       <!-- Carousel1 items -->

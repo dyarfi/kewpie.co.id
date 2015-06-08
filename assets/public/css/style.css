@@ -254,7 +254,7 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
 
 /* CUSTOM GOES HERE */
 .clear{clear:both;}
-.kewpie-region{clear: both; margin-top: 50px;}
+.kewpie-region{clear: both; margin-top: 50px; margin-bottom: 150px;}
 a{color: #684b31;}
 a:hover{color: #e70413; text-decoration: blink;}
 .kewpie-main-body{
@@ -467,7 +467,6 @@ a:hover{color: #e70413; text-decoration: blink;}
   text-align: center;
   margin: auto;
   margin-top: 100px !important;
-  margin-bottom: 200px !important;
   clear: both;
 }
 .title-item-produk, .title-item-produk-h { margin: 0 auto 0 -30px; padding: 0 15px 0px 15px; display: block;width:148px;height:80px; position: relative; vertical-align: middle; display:table-caption; overflow: hidden}
@@ -590,7 +589,7 @@ h2, h4{
 .cara-membuat{
 	background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
 	padding-top: 100px;
-	margin-bottom:-50px;
+	
 }
 .black-crown{
 	text-align:center;
@@ -703,6 +702,9 @@ h2, h4{
 .detail-related-thumbnail{padding: 20px;}
 .detail-related-thumbnail img { margin-top: -10px; }
 /* .caption-news-inside{height: 500px;} */
+.more-button{text-align: right; margin: 10px 0;}
+.btn-danger{border: none;}
+.contain-resep-detail{padding-bottom: 0;}
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
 display: block;
@@ -985,6 +987,10 @@ top: 0px;
     -o-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -webkit-transition: all .3s ease;
+	padding: 2px 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 .pricing-table:hover {
     box-shadow: 0px 0px 30px rgba(0,0,0, .2);
