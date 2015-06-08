@@ -117,7 +117,7 @@
         </div>
         <div class="cara-membuat">
 			<div class="black-crown">
-				<img src="<?php echo base_url();?>assets/public/img/black-crown.png" alt="limg resep"> Cara Membuat
+				<img src="<?php echo base_url();?>assets/public/img/black-crown.png" alt="limg resep"> <?php echo $this->lang->line('how_to');?>
 			</div>
             <div class="bg-board">
                 <?php echo $recipe['messages'];?>

@@ -16,6 +16,7 @@ $lang['serve'] = 'Porsi';
 $lang['minute'] = 'Menit';
 $lang['suggested_recipe'] = 'Anjuran Resep Yang Sesuai';
 $lang['favorite_recipe'] = 'Resep Favorit!';
+$lang['how_to']	= 'Cara Membuat';
 $lang['more'] = 'Selengkapnya';
 $lang['copyright'] = '2015. &copy; Kewpie Indonesia. Semua Hak Dilindungi';
 
