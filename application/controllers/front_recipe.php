@@ -7,6 +7,7 @@ class Front_Recipe extends Public_Controller {
 		
 		// Load user related model in admin module
 		$this->load->model('product/Products');
+        $this->load->model('product/ProductCategories');
         $this->load->model('product/ProductRecipes');
         $this->load->model('product/ProductRecipeImages');
 

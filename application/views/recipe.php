@@ -50,7 +50,9 @@
                            <?php                  
                             $b = 1;
                             $n = count($recipes);
-                            foreach ($recipes as $recipe) { 
+                            foreach ($recipes as $recipe) {
+                              $product  = $this->Products->getProduct($recipe['product_id'])->category_id;
+                              $color    = $this->ProductCategories->getCategory($product)->color;
                               if ($b == 1) { ?>
                               <div class="item active">
                                     <?php } elseif ($b % 6 == 1 && $b != 1) {	?>
@@ -68,8 +70,8 @@
                                                          </div>
                                                      </div>
                                                      <div class="tab-info">
-                                                         <?php if ($recipe['served']) { ?><button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button><?php } ?>
-                                                         <?php if ($recipe['time']) { ?><button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button><?php } ?>
+                                                         <?php if ($recipe['served']) { ?><button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button><?php } ?>
+                                                         <?php if ($recipe['time']) { ?><button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button><?php } ?>
                                                      </div>
                                                 </div>
                                             <?php if ($b % 6 == 0) {	?>

@@ -9,6 +9,8 @@ $(document).ready(function() {
     var active5 = false;
 
     $('.radial-menu').on('mousedown touchstart', function() {
+        
+        //$(this).parents().find('.handler').css({'transform': 'none'});
     
         if (!active1) $(this).find('.menu-item1').css({'transform': 'translate(100px,0px)'});
         else $(this).find('.menu-item1').css({'transform': 'none'}); 
@@ -33,7 +35,7 @@ $(document).ready(function() {
         active4 = !active4;
         active5 = !active5;
 
-        console.log($(this).children('div').length);
+        //console.log($(this).children('div').length);
         //console.log($(this).parent('.row'));
     
     });
@@ -52,6 +54,9 @@ $(document).ready(function() {
     /* TOOLTIPS */
     $(function () { $('[data-toggle="tooltip"]').tooltip(); });
 	
+    /* fancybox */
+    $('.fancybox').fancybox();
+    
     // CONTACT Form
     $('#contact-form').bootstrapValidator({
         // live: 'disabled',
@@ -107,12 +112,13 @@ $(document).ready(function() {
             //TweenMax.from('.hello', 1, {scale:1, ease:Quad.easeInQuart, force3D:true}, 0.1)        
         });
     }
+    
     $('.mayo1, .mayo2, .mayo3, .mayo4, .mayo5').hover(function(){ 
         TweenMax.to($(this), .1, {css:{scale:1.05}, immediateRender:true, ease:Quad.easeOut}); 
     },function() {
         TweenMax.to($(this), .1, {css:{scale:1}, immediateRender:true, ease:Quad.easeOut}); 
     });
- 
+    
     var controller = $.superscrollorama();
 	
 	controller.addTween('#fade-it1', TweenMax.from( $('#fade-it1'), 1, {css:{opacity: 0}}));
@@ -128,7 +134,7 @@ $(document).ready(function() {
 	controller.addTween('.mayo2', TweenMax.from( $('.mayo2'), .35, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
 	controller.addTween('.mayo3', TweenMax.from( $('.mayo3'), .55, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
 	controller.addTween('.mayo4', TweenMax.from( $('.mayo4'), .75, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
-	controller.addTween('.mayo5', TweenMax.from( $('.mayo5'), .90, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
+	controller.addTween('.mayo5', TweenMax.from( $('.mayo5'), .85, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
 	
 	controller.addTween('#fly-it1', TweenMax.from( $('#fly-it1'), 1, {css:{right:'2000px'}, ease:Quad.easeInOut}));
 	controller.addTween('#fly-it2', TweenMax.from( $('#fly-it2'), 1, {css:{right:'2000px'}, ease:Quad.easeInOut}));
@@ -145,5 +151,5 @@ $(document).ready(function() {
 	controller.addTween('#scale-it3', TweenMax.fromTo( $('#scale-it3'), .5, {css:{opacity:0, width:'95%'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, width:'100%'}, ease:Quad.easeInOut}));
 	
 	controller.addTween('#smush-it', TweenMax.fromTo( $('#smush-it'),  1.5, {css:{opacity:0, 'margin':'0 30px'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, 'letter-spacing':'-10px'}, ease:Quad.easeInOut}), 0, 100); // 100 px offset for better timing
-        controller.addTween('.rotate-cup', TweenMax.to('.rotate-cup', 80, {rotation:360,  repeat:100, ease:Linear.easeNone}));	
+        controller.addTween('.rotate-cup', TweenMax.to('.rotate-cup', 80, {rotation:360, repeat:-1, ease:Linear.easeNone}));	
 });

@@ -24,7 +24,7 @@
                 foreach ($this->menus as $menu) { 
                     $type = $menu['type'] !=='page' ? $menu['type'] : $menu['type'].'/'.$menu['url'];
                     ?>
-                <li class="<?php echo $i == $b ? '' : 'divider';?><?php echo ($this->uri->segment(3) == $menu['url']) ? ' active-m' : '';?>">
+                <li class="divider<?php echo ($this->uri->segment(3) == $menu['url']) ? ' active-m' : '';?>">
                     <a href="<?php echo base_url('read/'.$type);?>"><?php echo $menu['subject'];?></a>
                 </li>
                 <?php 

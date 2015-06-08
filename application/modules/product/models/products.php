@@ -34,6 +34,7 @@ class Products Extends CI_Model {
 				. '`text` TEXT NULL, '
                 . '`media` VARCHAR(255) NULL, '
 				. '`attribute` TEXT NULL, '
+                . '`messages` TEXT NULL, '
 				. '`allow_comment` TINYINT(1) NULL, '
 				. '`tags` TEXT NULL, '
 				. '`order` TINYINT(3) NULL, '
@@ -130,11 +131,12 @@ class Products Extends CI_Model {
 		
 		// Set Product data
 		$data = array(			
-			'category_id'       => $object['category_id'],
+			'category_id'   => $object['category_id'],
 			'name'			=> $object['name'],
 			'subject'		=> $object['subject'],
 			'synopsis'		=> $object['synopsis'],
 			'text'			=> $object['text'],
+            'messages'		=> $object['messages'],
             'media'			=> $object['media'],
 			'attribute'		=> $object['attribute'],
 			'publish_date'	=> $object['publish_date'],

@@ -46,15 +46,15 @@ class Product_Recipe extends Admin_Controller {
             // Set columns
             $crud->columns('subject','product_id','synopsis','text','gallery','background','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','product_id','synopsis','text','messages','attribute','favorited','served','time','media','status');
+			$crud->fields('subject','url','product_id','synopsis','text','messages','background','media','video','attribute','favorited','served','time','status');
             // Set column display 
             $crud->display_as('product_id','Product');
-            // Set column display 
+            $crud->display_as('media','Image');
             $crud->display_as('attribute','Tips');
-            // Set column display 
             $crud->display_as('messages','Instructions');
             $crud->display_as('text','Ingredients');
 			// Changes the default field type
+            //$crud->field_type('video', 'text');
             $crud->field_type('served', 'integer');
             $crud->field_type('time', 'integer');
 			$crud->field_type('url', 'hidden');
@@ -63,7 +63,7 @@ class Product_Recipe extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','product_id','synopsis','text','attribute','favorited','gallery','media','background','status','translate');			
+				$crud->columns('subject','product_id','synopsis','text','attribute','favorited','gallery','media','status','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -89,7 +89,7 @@ class Product_Recipe extends Admin_Controller {
             $crud->callback_after_upload(array($this,'_callback_after_upload'));
  
 			// Sets the required fields of add and edit fields
-			$crud->required_fields('subject','text','in_front','status'); 
+			$crud->required_fields('subject','text','in_front','media','status'); 
 			 
 			$state = $crud->getState();
 			$state_info = $crud->getStateInfo();

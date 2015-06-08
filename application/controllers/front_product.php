@@ -14,11 +14,21 @@ class Front_Product extends Public_Controller {
     
     public function index($detail='') {
         
-        // Set main template
+        // Set recipes data
+        //$data['recipes']            = $this->Content->find('product_recipes',array('status'=>'publish'));
+        
+        // Set product category data
         $data['product_category']   = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
         
-        // Set main template
-        $products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'DESC'));
+        // Set products data
+        $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'DESC'));
+        $buffer = array();
+        foreach ($_products as $val) {
+            $val['recipes']      = $this->Content->find('product_recipes',array('product_id'=>$val['id'],'status'=>'publish'));
+            $buffer[]            = $val;
+        }
+        $products = $buffer;
+        
 		$data['products']           = $products;
         
         // Set main template

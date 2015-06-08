@@ -25,24 +25,23 @@
                     <?php
                     $j = 1;
                     foreach ($products as $product) { 
-                        $color = str_replace('#', '', $this->ProductCategories->getCategory($product['category_id'])->color);
-                    ?>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <div class="radial-menu">
-                            <?php for ($i = 1; $i <= 4; $i++) { ?>
-                                <div class="menu-item<?php echo $i;?>"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                            <?php } ?>
-                            <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                            <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tagh-<?php echo $color;?>.png') top center no-repeat; padding-top: 10px;">
-                                <h4><?php echo character_limiter($product['subject'], 30,'');?></h4>
+                        $color = str_replace('#', '', $this->ProductCategories->getCategory($product['category_id'])->color); ?>
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <div class="radial-menu">
+                                <?php for ($i = 1; $i <= 4; $i++) { ?>
+                                    <div class="menu-item<?php echo $i;?> handler"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
+                                <?php } ?>
+                                <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
+                                <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tagh-<?php echo $color;?>.png') top center no-repeat; padding-top: 10px;">
+                                    <h4><?php echo character_limiter($product['subject'], 30,'');?></h4>
+                                </div>
+                                <div class="detail-left menu-item5 items-produk-link-posisi">
+                                    <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>">
+                                        <?php echo character_limiter($product['subject'], 30,'');?></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="detail-left menu-item5 items-produk-link-posisi">
-                                <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>">
-									<?php echo character_limiter($product['subject'], 30,'');?></a>
-								</div>
-                            </div>
-                        </div>
-                    </div>       
+                        </div>       
                     <?php
                     $j++;
                     } ?>
@@ -53,7 +52,9 @@
                 <img class="food-service-thumb" src="<?php echo base_url('uploads/products/'.$home_food_service[1]['media']);?>" alt="food service thumbnail item">
                 <div class="food-service-head"><h4><?php echo $home_food_service[1]['subject'];?></h4></div>
                 <div class="food-service-text">
-                    <?php echo $home_food_service[1]['text'];?>
+                    <div class="page-content">
+                        <?php echo $home_food_service[1]['text'];?>
+                    </div>    
                 </div>
                 <div class="detail-left">
                   <div class="detail-right"><a href="<?php echo base_url('read/product/category/'.$home_food_service[1]['url']);?>"><?php echo $home_food_service[1]['subject'];?></a></div>
@@ -129,7 +130,7 @@
                       <section>
                       <a class="cmn-t-scale" href="<?php echo base_url('read/recipe/'.$recipe['url']);?>">
                         <?php if ($recipe['media']) { ?><div class="thumb-resep-home"><img class="img-responsive" src="<?php echo base_url('uploads/recipes/thumb__200x200'.$recipe['media']);?>" alt="item resep a"></div><?php } ?>
-                        <?php echo $recipe['subject'];?>
+                        <span><?php echo $recipe['subject'];?></span>
                       </a>
                       </section>
                     <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
@@ -141,7 +142,7 @@
                 $b++;
                 } 
                 ?>
-			  <div>
+			  <div class="paddingtop10">
 				<img class="fork-spoon" src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork spoon">
 				<div class="detail-left menu-lain">
 				  <div class="detail-right"><a href="<?php echo base_url('read/recipe');?>">Lihat Menu Lainnya</a></div>
@@ -224,10 +225,10 @@
                                       <div class="row">
                                         <?php } ?>
                                          <div class="col-xs-4 col-sm-4 col-md-4 carousel-news-item-home">
-                                             <a href="#"><img src="<?php echo base_url('uploads/news/thumb__282x273'.$row['media']);?>" alt="<?php echo $row['url'];?>"></a>
+                                             <a href="<?php echo base_url('read/news/detail/'.$row['url']);?>"><img src="<?php echo base_url('uploads/news/thumb__282x273'.$row['media']);?>" alt="<?php echo $row['url'];?>"></a>
                                              <div class="caption-news">
                                                <div class="caption-news-inside">
-                                                 <h4><a href="#" class=""><?php echo character_limiter($row['subject'],15,'');?></a></h4>
+                                                 <h4><a href="<?php echo base_url('read/news/detail/'.$row['url']);?>" class=""><?php echo character_limiter($row['subject'],15,'');?></a></h4>
                                                  <?php echo character_limiter(strip_tags($row['synopsis']), 70);?>
                                                </div>
                                              </div>

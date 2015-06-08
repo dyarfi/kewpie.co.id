@@ -45,9 +45,11 @@ class Product extends Admin_Controller {
             // Set columns
             $crud->columns('subject','category_id','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','category_id','text','attribute','in_front','media','status','added','modified');
+			$crud->fields('subject','url','category_id','text','attribute','messages','in_front','media','status','added','modified');
             // Set column display 
+            $crud->display_as('media','Image');
             $crud->display_as('category_id','Category');
+            $crud->display_as('messages','Main Ingredients');
 			// Changes the default field type
 			$crud->field_type('url', 'hidden');
 			$crud->field_type('added', 'hidden');
@@ -142,8 +144,9 @@ class Product extends Admin_Controller {
 		$crud->set_subject('Translation ' . $product_menu);  
 		
 		// The fields that user will see on add and edit form
-		$crud->fields('table','field_id','lang_id','subject','url','text','attribute','added','modified');
-		
+		$crud->fields('table','field_id','lang_id','subject','url','text','attribute','messages','added','modified');
+		// Set column display 
+        $crud->display_as('messages','Main Ingredients');
 		// Changes the default field type
         $crud->field_type('table', 'hidden');
 		$crud->field_type('url', 'hidden');

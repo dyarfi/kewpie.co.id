@@ -67,6 +67,26 @@ class Front_News extends Public_Controller {
 		$this->load->view('template/public/template', $this->load->vars($data));
 		
 	}
+    
+    public function detail($detail='') {
+        
+        // Set detail 
+        $field = $this->Content->findIdByUrl('news', $detail);
+        
+        // Set data from menu category
+        $news         = $this->Content->find('news',array('id'=>$field->field_id,'status'=>'publish'));
+        $data['news'] = $news[1];
+        
+        // Set main template
+		$data['main'] = 'news_detail';
+        
+		// Set site title page with module menu
+		$data['page_title'] = $this->lang->line('latest_news');
+		
+		// Load admin template
+		$this->load->view('template/public/template', $this->load->vars($data));
+		
+	}
 }
 
 /* End of file user.php */

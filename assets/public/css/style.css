@@ -26,6 +26,34 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
   margin-bottom: 10px;
 }
 
+.margintop10 { margin-top: 10px; }
+.margintop20 { margin-top: 20px; }
+.margintop30 { margin-top: 30px; }
+.margintop40 { margin-top: 40px; }
+.margintop50 { margin-top: 50px; }
+
+.marginbot10 { margin-bottom: 10px; }
+.marginbot20 { margin-bottom: 20px; }
+.marginbot30 { margin-bottom: 30px; }
+.marginbot40 { margin-bottom: 40px; }
+.marginbot50 { margin-bottom: 50px; }
+
+.paddingtop10 { padding-top: 10px; }
+.paddingtop20 { padding-top: 20px; }
+.paddingtop30 { padding-top: 30px; }
+.paddingtop40 { padding-top: 40px; }
+.paddingtop50 { padding-top: 50px; }
+
+.paddingbot10 { padding-bottom: 10px; }
+.paddingbot20 { padding-bottom: 20px; }
+.paddingbot30 { padding-bottom: 30px; }
+.paddingbot40 { padding-bottom: 40px; }
+.paddingbot50 { padding-bottom: 50px; }
+
+.margintop10, .margintop20, .margintop30, .margintop40, .margintop50,
+.marginbot10, .marginbot20, .marginbot30, .marginbot40, .marginbot50,
+.paddingtop10, .paddingtop20, .paddingtop30, .paddingtop40, .paddingtop50,
+.paddingbot10, .paddingbot20, .paddingbot30, .paddingbot40, .paddingbot50 { clear: both; display: block; position: relative; }
 
 /* Non-responsive overrides
  *
@@ -290,19 +318,17 @@ a:hover{color: #e70413; text-decoration: blink;}
 	margin-top:0px;
 	padding-top:8px
 }
-#navbar ul .divider { 
+#navbar ul li.divider {
     border-right-width: 1px;
     border-right-style: solid;
     border-right-color: #a29181;
-    /*-webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#a29181), to(rgba(0, 0, 0, 0))) 1 100%;*/
-    /*-webkit-border-image: -webkit-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/
-    /*-moz-border-image:*/
-      /*-moz-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/  
-    /*-o-border-image:*/
-      /*-o-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/
-    /*border-image:*/
-      /*linear-gradient(to top, #a29181, rgba(0, 0, 0, 0)) 1 100%;*/
-    
+    /*
+    -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#a29181), to(rgba(0, 0, 0, 0))) 1 100%;
+    -webkit-border-image: -webkit-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
+    -moz-border-image: -moz-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;  
+    -o-border-image: -o-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
+    border-image: linear-gradient(to top, #a29181, rgba(0, 0, 0, 0)) 1 100%;
+    */
 }
 
 .hello{
@@ -472,6 +498,9 @@ a:hover{color: #e70413; text-decoration: blink;}
 .items-produk-link{width: 300px;}
 .items-produk-link a { display: block;}
 .menu-item5{opacity: 0.0; display: block;}
+.content-handler { position: relative;}
+/*.content-handler a { display: block; position: relative; }*/
+.link-handler { position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; margin: 0 auto; display: block; width: 100%}
 .footer{
 	background: transparent url('../img/bg-foot.png') top center repeat-x;
 	padding-top:36px;
@@ -582,10 +611,11 @@ h2, h4{
 	background: transparent url(../img/body-cara-bikin.png) top center repeat-y;
 	padding: 20px 200px;
 	color: #fff;
+        margin: 0 0 30px 0;
 }
 .line{
 	border-top: #6d5138 solid 1px;
-	margin: 80px auto 30px;
+	margin: 80px auto 60px auto;
 }
 .line-img{
 	text-align: center;
@@ -658,13 +688,17 @@ h2, h4{
 
 }
 .carousel-news-item-home img{height: 273px;}
-.mayo1,.mayo2,.mayo3,.mayo4,.mayo5 { height: 355px; display: inline-table; border:0px solid #990000; background-repeat: no-repeat; background-position: top center; background-color: transparent; }
+.mayo1, .mayo2, .mayo3, .mayo4, .mayo5 { height: 355px; display: inline-table; border:0px solid #990000; background-repeat: no-repeat; background-position: top center; background-color: transparent; z-index: 10;
+}
 .mayo1 { background-image:url('../img/whatisinourmayo1.png'); width: 270px; }
 .mayo2 { background-image:url('../img/whatisinourmayo2.png'); width: 180px; }
 .mayo3 { background-image:url('../img/whatisinourmayo3.png'); width: 162px; }
 .mayo4 { background-image:url('../img/whatisinourmayo4.png'); width: 216px; }
 .mayo5 { background-image:url('../img/whatisinourmayo5.png'); width: 171px; }
+
+
 .detail-related-thumbnail{padding: 20px;}
+.detail-related-thumbnail img { margin-top: -10px; }
 /* .caption-news-inside{height: 500px;} */
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
@@ -702,10 +736,11 @@ section {
 }
 
 .thumb-resep-home{
-	border-radius: 50%;
-	height: 195px;
-	width: 195px;
-	overflow: hidden;
+    border-radius: 50%;
+    height: 195px;
+    width: 195px;
+    overflow: hidden;
+    margin: 0 0 15px 0;
 }
 .title-dalam-kewpie{
   margin: 0 0 -40px -100px;
@@ -736,7 +771,10 @@ section a {
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
-
+.cmn-t-scale span {
+    display: block;
+    line-height: 1em !important;
+}
 .btn-share {
     background-color: #BEBEBE;
     border-color: #CCCCCC;
@@ -834,7 +872,7 @@ section a {
   cursor:pointer;
   position:relative;
 }
-.menu-item1, .menu-item2,.menu-item3, .menu-item4 {
+.menu-item1, .menu-item2, .menu-item3, .menu-item4 {
   color:white;
   text-align:center;
   z-index:19;
@@ -843,15 +881,15 @@ section a {
 }
 .menu-item1 img,.menu-item3 img{height: 190px; position: absolute; top: 15px; left: 5px;}
 .menu-item2 img,.menu-item4 img{height: 210px; position: absolute; top: 10px; left: 5px;}
-
+h3.p1 { font-size: 1.5em; text-align: center; padding-top: 15px; margin-bottom: 0px;}
 /* CAROUSEL CSS */
 #Carousel {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 .carousel {
   margin-bottom: 0;
-  padding: 0 40px 30px 40px;
+  padding: 0 40px 30px 10px;
 }
 #Carousel1.carousel {  margin: 40px 0 0 0; padding: 0 0px 0px 0px; }
 /* The controlsy */
@@ -883,7 +921,7 @@ section a {
 .carousel-indicators {
   right: 50%;
   top: auto;
-  margin-bottom: -25px;
+  margin-bottom: -55px;
   margin-right: -19px;
 }
 /* The colour of the indicators */
@@ -907,7 +945,7 @@ section a {
   margin: auto 10px;
 }
 .caption-news{
-  padding: 5px 30px;
+  padding: 10px 20px;
   margin: auto;
   margin-top: -108px;
   background-color: rgba(255, 255, 255, 0.75);
@@ -915,6 +953,7 @@ section a {
   width: 281px;
   text-align: left;
 }
+.caption-news h4 { margin-bottom: 5px; }
 /* CONTACT */
 .contact-form{ margin-top:15px;}
 .contact-form .textarea{ min-height:220px; resize:none;}
@@ -986,6 +1025,15 @@ top: 0px;
 .pricing-table:hover>.panel>.panel-body-landing>.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     color: #fff !important;
     -webkit-transition:  all .3s ease;
+}
+.pricing-table {
+    margin: 0px;
+    background: #ff0000;
+}
+.pricing-table table {
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
 }
 .panel-heading-landing {
     background: #e70413 !important; 

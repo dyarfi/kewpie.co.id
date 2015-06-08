@@ -6,7 +6,15 @@
             <?php if ($recipe['time']) { ?><button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button><?php } ?>
         </div>
         <div class="info-resep">
-            <div class="img-resep"><img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="limg resep"></div>
+            <div class="img-resep">
+                <div class="content-handler">
+                    <?php if ($recipe['media']) {?>
+                    <a href="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" class="fancybox" title="<?php echo $recipe['subject'];?>">
+                        <img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="<?php echo $recipe['subject'];?>">
+                    </a>
+                    <?php } ?>
+                </div>    
+            </div>
             <div class="detail-info-resep">
                 <h2><?php echo $recipe['subject'];?></h2>
                 <p><?php echo $recipe['synopsis'];?></p>						
@@ -58,7 +66,7 @@
                                             <div class="row">
                                               <?php } ?>
                                                <div class="col-xs-3 col-sm-3 col-md-3">
-                                                   <a href="#" class="fancybox"><img class="img-responsive" src="<?php echo base_url('uploads/recipes/thumb__'.$image->file_name);?>" alt="<?php echo $image->file_name;?>"></a>                                                           
+                                                   <a href="<?php echo base_url('uploads/recipes/'.$image->file_name);?>" class="fancybox"><img class="img-responsive" src="<?php echo base_url('uploads/recipes/thumb__'.$image->file_name);?>" alt="<?php echo $image->file_name;?>"></a>                                                           
                                               </div>
                                               <?php if ($b % 4 == 0) {	?>
                                               </div><!--.row-->
@@ -88,7 +96,7 @@
                 </div>
                 <?php } ?>
                 <div class="col-xs-4 col-sm-4 col-md-4">
-                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="limg resep"> <?php echo $this->lang->line('ingridient');?></h4>
+                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="limg resep"> <?php echo $this->lang->line('ingredient');?></h4>
                     <?php echo $recipe['text'];?>
                 </div>
             </div>

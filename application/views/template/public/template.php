@@ -57,7 +57,6 @@
 	<script src="<?php echo base_url();?>assets/public/js/jquery.scrollTo.js" type="text/javascript"></script>
 	<script src="<?php echo base_url();?>assets/public/js/wow.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js" type="text/javascript"></script>
-	<script src="<?php echo base_url();?>assets/public/js/jquery.vide.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url();?>assets/public/js/parallax.min.js" type="text/javascript"></script>
 	<script src="<?=base_url();?>assets/public/js/imagesloaded.pkgd.min.js" type="text/javascript"></script>
     <!-- Custom Theme JavaScript -->
