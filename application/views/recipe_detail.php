@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');  ?>
 <div class="kewpie-main-body detail-resep"> <!-- for changing background purpose -->
-    <div class="container"> <!-- content start -->				
+    <div class="container contain-resep-detail"> <!-- content start -->				
         <div class="tab-info pull-right">
             <?php if ($recipe['served']) { ?><button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button><?php } ?>
             <?php if ($recipe['time']) { ?><button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button><?php } ?>

@@ -590,7 +590,7 @@ h2, h4{
 .cara-membuat{
 	background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
 	padding-top: 100px;
-	margin-bottom:-50px;
+	
 }
 .black-crown{
 	text-align:center;
@@ -611,7 +611,7 @@ h2, h4{
 	background: transparent url(../img/body-cara-bikin.png) top center repeat-y;
 	padding: 20px 200px;
 	color: #fff;
-        margin: 0 0 30px 0;
+        margin: 0 0 0 0;
 }
 .line{
 	border-top: #6d5138 solid 1px;
@@ -700,6 +700,9 @@ h2, h4{
 .detail-related-thumbnail{padding: 20px;}
 .detail-related-thumbnail img { margin-top: -10px; }
 /* .caption-news-inside{height: 500px;} */
+.more-button{text-align: right; margin: 10px 0;}
+.btn-danger{border: none;}
+.contain-resep-detail{padding-bottom: 0;}
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
 display: block;
