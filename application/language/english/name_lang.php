@@ -9,6 +9,7 @@ $lang['kewpie_story'] = 'Kewpie Story';
 $lang['latest_news']  = 'Latest News';
 $lang['read_more'] = 'Read More';
 $lang['hello'] = 'Hello!';
+$lang['search'] = 'Search';
 $lang['kewpie_in'] = 'Kewpie in';
 $lang['ingredient'] = 'Ingredients';
 $lang['main_ingredient'] = 'Main Ingredients';

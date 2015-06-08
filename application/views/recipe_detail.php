@@ -43,12 +43,12 @@
                         </a>
                     </li>					
                     <li>
-                        <a data-original-title="Google+" rel="tooltip"  href="#" class="btn btn-google" data-placement="left">
+                        <a data-original-title="Google+" rel="tooltip"  href="#" class="btn btn-google addthis_button_google_plusone_share" data-placement="left">
                             <i class="fa fa-google-plus"></i>
                         </a>
                     </li>
                     <li>
-                        <a data-original-title="LinkedIn" rel="tooltip"  href="#" class="btn btn-linkedin" data-placement="left">
+                        <a data-original-title="LinkedIn" rel="tooltip"  href="#" class="btn btn-linkedin addthis_button_linkedin" data-placement="left">
                             <i class="fa fa-linkedin"></i>
                         </a>
                     </li>

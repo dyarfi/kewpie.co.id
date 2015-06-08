@@ -9,6 +9,7 @@ $lang['kewpie_story'] = 'Cerita Kewpie';
 $lang['latest_news']  = 'Berita Terbaru';
 $lang['read_more'] = 'Selengkapnya';
 $lang['hello'] = 'Hallo!';
+$lang['search'] = 'Cari';
 $lang['kewpie_in'] = 'Kewpie di';
 $lang['ingredient'] = 'Bahan Bahan Masakan';
 $lang['main_ingredient'] = 'Bahan Bahan Masakan';

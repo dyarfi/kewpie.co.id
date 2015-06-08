@@ -22,7 +22,7 @@
             <div class="search-form-board">
                 <div class="input-group">
                     <div class="input-group-btn search-panel">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <!--button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <span id="search_concept">Semua Produk</span> <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
@@ -30,10 +30,10 @@
                           <li><a href="#its_equal">Kueh</a></li>
                           <li><a href="#greather_than">Cingcaw</a></li>
                           <li><a href="#less_than">Tahu</a></li>
-                        </ul>
+                        </ul-->
                     </div>
                     <input type="hidden" name="search_param" value="all" id="search_param">         
-                    <input type="text" class="form-control" name="x" placeholder="Search term...">
+                    <input type="text" class="form-control" name="x" placeholder="<?php echo $this->lang->line('search');?>...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
