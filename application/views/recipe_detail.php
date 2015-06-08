@@ -2,8 +2,11 @@
 <div class="kewpie-main-body detail-resep"> <!-- for changing background purpose -->
     <div class="container"> <!-- content start -->				
         <div class="tab-info pull-right">
-            <?php if ($recipe['served']) { ?><button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button><?php } ?>
-            <?php if ($recipe['time']) { ?><button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button><?php } ?>
+            <?php
+			 $product  = $this->Products->getProduct($recipe['product_id'])->category_id;
+			 $color    = $this->ProductCategories->getCategory($product)->color;
+			if ($recipe['served']) { ?><button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button><?php } ?>
+            <?php if ($recipe['time']) { ?><button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button><?php } ?>
         </div>
         <div class="info-resep">
             <div class="img-resep">
@@ -66,7 +69,7 @@
                                             <div class="row">
                                               <?php } ?>
                                                <div class="col-xs-3 col-sm-3 col-md-3">
-                                                   <a href="<?php echo base_url('uploads/recipes/'.$image->file_name);?>" class="fancybox"><img class="img-responsive" src="<?php echo base_url('uploads/recipes/thumb__'.$image->file_name);?>" alt="<?php echo $image->file_name;?>"></a>                                                           
+                                                   <a href="<?php echo base_url('uploads/recipes/'.$image->file_name);?>" class="fancybox" rel="image_group"><img class="img-responsive" src="<?php echo base_url('uploads/recipes/thumb__'.$image->file_name);?>" alt="<?php echo $image->file_name;?>"></a>                                                           
                                               </div>
                                               <?php if ($b % 4 == 0) {	?>
                                               </div><!--.row-->
@@ -115,21 +118,23 @@
     <?php if (!empty($recipes)) { ?>
     <div class="related-resep">
         <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> <?php echo $this->lang->line('suggested_recipe');?></div></div>
-        <?php foreach($recipes as $item) { ?>
-        <div class="col-xs-4 col-sm-4 col-md-4">
+        <?php foreach($recipes as $recipe) { 
+		 $product  = $this->Products->getProduct($recipe['product_id'])->category_id;
+		 $color    = $this->ProductCategories->getCategory($product)->color; ?>
+        <div class="col-xs-4 col-sm-4 col-md-4 box-holder">
             <div class="thumbnail">
-                <?php if ($item['media']) { ?><img src="<?php echo base_url('uploads/recipes/'.$item['media']);?>" alt=""><?php } ?>
+                <?php if ($recipe['media']) { ?><img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt=""><?php } ?>
 				<div class="detail-related-thumbnail">
-                    <h4><a href="<?php echo base_url('read/recipe/'.$item['url']);?>"><?php echo $item['subject'];?></a></h4>
-					<?php if ($this->Products->getProduct($item['product_id'])->media) { ?>
-					<img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($item['product_id'])->media);?>" alt="jenis resep">
+                    <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>"><?php echo $recipe['subject'];?></a></h4>
+					<?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
+					<img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
 					<?php } ?>
-					<p><?php echo word_limiter(strip_tags($item['messages']),9);?></p>
+					<p><?php echo word_limiter(strip_tags($recipe['messages']),9);?></p>
 				</div>
             </div>
             <div class="tab-info">
-                <button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $item['served'];?></button>
-                <button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $item['time'];?> <?php echo $this->lang->line('minute');?></button>
+                <button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button>
+				<button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button>
             </div>
         </div>
         <?php } ?>				

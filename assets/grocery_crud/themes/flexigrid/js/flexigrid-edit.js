@@ -1,5 +1,7 @@
 $(function() {
-
+	$('.fancybox-video').fancybox({
+		'iframe' : true
+	});
     var save_and_close = false;
 
     $('.ptogtitle').click(function() {

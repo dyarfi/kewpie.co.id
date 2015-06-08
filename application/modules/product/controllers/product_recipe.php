@@ -46,12 +46,14 @@ class Product_Recipe extends Admin_Controller {
             // Set columns
             $crud->columns('subject','product_id','synopsis','text','gallery','background','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','product_id','synopsis','text','messages','background','media','video','attribute','favorited','served','time','status');
+			$crud->fields('subject','url','product_id','background','synopsis','text','messages','cover','media','video','attribute','favorited','served','time','status');
             // Set column display 
             $crud->display_as('product_id','Product');
             $crud->display_as('media','Image');
-            $crud->display_as('attribute','Tips');
+            $crud->display_as('video','Video (embed code):');
+			$crud->display_as('attribute','Tips');
             $crud->display_as('messages','Instructions');
+			$crud->display_as('cover','Instruction Cover');
             $crud->display_as('text','Ingredients');
 			// Changes the default field type
             //$crud->field_type('video', 'text');
@@ -68,6 +70,8 @@ class Product_Recipe extends Admin_Controller {
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
 			
+			// This callback escapes the default auto field output of the field name at the add and edit form
+			$crud->callback_field('video',array($this,'_callback_video'));
 			// This callback escapes the default auto field output of the field name at the add form
 			$crud->callback_add_field('added',array($this,'_callback_time_added'));
 			// This callback escapes the default auto field output of the field name at the edit form
@@ -120,6 +124,7 @@ class Product_Recipe extends Admin_Controller {
             $crud->unset_delete();
             
             // Set upload field
+            $crud->set_field_upload('cover','uploads/recipes');
             $crud->set_field_upload('background','uploads/recipes');
             $crud->set_field_upload('media','uploads/recipes');
             
@@ -309,6 +314,14 @@ class Product_Recipe extends Admin_Controller {
 		$post['status']  	= 1;
 		// Return update database
 		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
+	}
+	
+	function _callback_video($value = '', $primary_key = null) {
+		preg_match('/src="([^"]+)"/', $value, $match);
+		$url = $match[1];
+		$return  = '<textarea name="video" style="width:462px">'.$value.'</textarea>';
+		$return .= $value ? '<a href="'.$url.'" class="fancybox-video iframe"> Preview</a>' : '';
+		return $return;
 	}
 	
     private function load($crud, $nav) {
