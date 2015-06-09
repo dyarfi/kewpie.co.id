@@ -1012,11 +1012,11 @@ top: 0px;
 
 /* TABLE */ 
 
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+/* .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
 	border: none;
 	padding: 5px;
 }
-
+ */
 /* komposisi */
 .pricing-table {
     max-width: 368px;
@@ -1025,10 +1025,15 @@ top: 0px;
     -o-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -webkit-transition: all .3s ease;
-	padding: 2px 0;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	padding: 0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.panel {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 .pricing-table:hover {
     box-shadow: 0px 0px 30px rgba(0,0,0, .2);
@@ -1073,14 +1078,13 @@ top: 0px;
     color: #fff !important;
     -webkit-transition:  all .3s ease;
 }
-.pricing-table {
+/* .pricing-table {
     margin: 0px;
     background: #ff0000;
-}
+}  */
 .pricing-table table {
     margin: 0;
     padding: 0;
-    background: #FFFFFF;
 }
 .panel-heading-landing {
     background: #e70413 !important; 
@@ -1110,6 +1114,7 @@ top: 0px;
 }
 .panel-footer-landing {
     border: solid 2px #e70413 !important; 
+	background:#fff;
     border-bottom-left-radius: 10px !important; 
     border-bottom-right-radius: 10px !important; 
     border-top: none !important;
