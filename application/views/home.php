@@ -3,8 +3,8 @@
 		<div class="kewpie-main-body bg-home-bottom"> <!-- for changing background purpose -->
 		  <div class="container">
 			<div class="hello">
-
-              <div class="resep-title">
+              <div class="scroll-me"><h3>Scroll Me Down!</h3></div>
+              <div class="resep-title"> 
                    <h4><?php echo $this->lang->line('hello');?></h4>
               </div>
 			  <div class="box-white box-3">

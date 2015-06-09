@@ -102,9 +102,10 @@ $(document).ready(function() {
            
     if ($('.hello').size() > 0) {
         var egg = $('.hello').after('<img class="egg1" src="'+base_URL+'assets/public/img/egg1.png"/>').css({'z-index':1});
-        TweenMax.from('.hello', 1, {scale:0.5, opacity:0, delay:0.06, ease:Elastic.easeOut, force3D:true}, 0.1)
+        TweenMax.from('.hello', 1, {scale:0.5, opacity:0, delay:0.06, ease:Elastic.easeOut, force3D:true}, 0.1);
         TweenMax.staggerTo(".egg1", 5, {rotation:320, y:-360,x:240,'z-index':0, ease:Elastic.easeOut}, 1.5);
-        
+        TweenMax.from('.scroll-me', 1, {rotation:320, y:360,x:-240,'z-index':0, ease:Elastic.easeOut}, 0.1);
+        TweenMax.fromTo( $('.scroll-me'), 1.5, {css:{y:-3}, immediateRender:true, ease:Quad.easeInOut}, {css:{y:0}, ease:Quad.easeInOut, repeat:-1});
         $('.hello').hover(function() {
             //TweenMax.from('.hello', 1, {scale:0.8, ease:Quad.easeInQuart, force3D:true}, 0.1)
         },

@@ -705,9 +705,29 @@ h2, h4{
 .more-button{text-align: right; margin: 10px 0;}
 .btn-danger{border: none;}
 .contain-resep-detail{padding-bottom: 0;}
+.scroll-me {
+    font-family: 'Leckerli_OneRegular';
+    margin: 0 auto;
+    position: absolute;
+    top:-50px;
+    right: -200px;
+    color: #fff;
+}
+.scroll-me h3 {
+    width: 60%;
+    font-size: 6.8vh;
+    margin: 0 auto;
+    padding: 0 0 70px 0;
+    text-align: center;
+    line-height: 0.9em;
+    /*border: 1px solid #990000;*/
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.9);
+    background: url('../img/button-down.png') bottom center no-repeat;
+    -webkit-transform: rotate(-6deg);-moz-transform: rotate(-6deg);-o-transform: rotate(-6deg);writing-mode: rl-bt;
+}
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
-display: block;
+    display: block;
 }
 .detail-left{
   background: transparent url('../img/detail-left.png') left center no-repeat;
