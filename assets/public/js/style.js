@@ -102,10 +102,13 @@ $(document).ready(function() {
            
     if ($('.hello').size() > 0) {
         var egg = $('.hello').after('<img class="egg1" src="'+base_URL+'assets/public/img/egg1.png"/>').css({'z-index':1});
+        
         TweenMax.from('.hello', 1, {scale:0.5, opacity:0, delay:0.06, ease:Elastic.easeOut, force3D:true}, 0.1);
-        TweenMax.staggerTo(".egg1", 5, {rotation:320, y:-360,x:240,'z-index':0, ease:Elastic.easeOut}, 1.5);
+        //835, -351
+        //TweenMax.from(".egg1", 5, {'z-index':0, opacity:1, rotation:0, y:-353,x:840, ease:Expo.easeOut, immediateRender:true}, 2.9);
         TweenMax.from('.scroll-me', 1, {rotation:320, y:360,x:-240,'z-index':0, ease:Elastic.easeOut}, 0.1);
         TweenMax.fromTo( $('.scroll-me'), 1.5, {css:{y:-3}, immediateRender:true, ease:Quad.easeInOut}, {css:{y:0}, ease:Quad.easeInOut, repeat:-1});
+        
         $('.hello').hover(function() {
             //TweenMax.from('.hello', 1, {scale:0.8, ease:Quad.easeInQuart, force3D:true}, 0.1)
         },
@@ -121,7 +124,69 @@ $(document).ready(function() {
     });
     
     var controller = $.superscrollorama();
-	
+        
+        /*
+        controller.addTween('.egg1', TweenMax.fromTo( $('.egg1'), 2, 
+        {css:{rotation:-360, y:-351,x:835}, immediateRender:true, ease:Circ.easeOut}, 
+        {css:{rotation:0, y:-60,x:835}, immediateRender:true, ease:Circ.easeOut}));
+        */
+       
+       
+       controller.addTween(
+	  '.egg1',
+	  (new TimelineLite())
+	    .append(
+	      TweenMax.fromTo($('.egg1'), 2, 
+	        {css:{rotation:240, y:-353, x:1280}, immediateRender:true, ease:Quad.easeOut}, 
+	        {css:{rotation:0, y:-353, x:840, }, immediateRender:true, ease:Elastic.easeOut})
+	    )
+            .append(
+	      TweenMax.fromTo($('.egg1'), 2, 
+	        {css:{rotation:0, y:-353, x:840}, immediateRender:true, ease:Quad.easeInQuart}, 
+	        {css:{rotation:380, y:100, x:840}, immediateRender:true, ease:Quad.easeInQuart})
+	    )
+            .append(
+	      TweenMax.fromTo($('.egg1'), 2, 
+	        {css:{rotation:500, y:100, x:840}, immediateRender:true, ease:Quad.easeInQuart}, 
+	        {css:{rotation:0, y:30, x:520}, immediateRender:true, ease:Quad.easeInQuart})
+	    )
+            .append(
+	      TweenMax.fromTo($('.egg1'), 2, 
+	        {css:{rotation:0, y:30, x:520}, immediateRender:true, ease:Quad.easeInQuart}, 
+	        {css:{rotation:-360, y:0, x:120}, immediateRender:true, ease:Elastic.easeOut})
+	    ),
+	  1// scroll duration of tween
+	);
+
+        /*
+        .append('.egg1', TweenMax.fromTo( $('.egg1'), 2, 
+        {css:{rotation:0, y:-60,x:835}, immediateRender:true, ease:Elastic.easeOut}, 
+        {css:{rotation:0, y:-100,x:135}, immediateRender:true, ease:Elastic.easeOut}));
+        */
+       
+       
+        /*
+       controller.pin($('.egg1'), 10, {
+	  anim: (new TimelineLite())
+	    .append(
+	      TweenMax.to($('.egg1'), .5, 
+	        {css:{top:220, left:0, rotation:-360}, immediateRender:true, ease:Elastic.easeOut})
+	    )
+	    .append(
+	      TweenMax.to($('.egg1'), .5, 
+	        {css:{top:220, left:0}, immediateRender:true, ease:Elastic.easeOut})
+	    )
+	    .append(
+	      TweenMax.to($('.egg1'), .5, 
+	        {css:{y: -200}})
+	    )
+	    .append(
+	      TweenMax.to($('.egg1'), .5, 
+	        {css:{x: 0}})
+	    )
+	});
+        */
+        
 	controller.addTween('#fade-it1', TweenMax.from( $('#fade-it1'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it2', TweenMax.from( $('#fade-it2'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it3', TweenMax.from( $('#fade-it3'), 1, {css:{opacity: 0}}));
@@ -145,7 +210,6 @@ $(document).ready(function() {
 	//controller.addTween('#fly-it6', TweenMax.from( $('#fly-it6'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
         
         controller.addTween('#fly-it6', TweenMax.fromTo( $('#fly-it6'), .65, {css:{opacity:0, y:-390}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, y:-560}, ease:Quad.easeInOut}));
-	
 	
 	controller.addTween('#spin-it', TweenMax.from( $('#spin-it'), .25, {css:{opacity:0, rotation: 720}, ease:Quad.easeOut}));
 	
