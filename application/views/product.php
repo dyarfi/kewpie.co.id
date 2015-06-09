@@ -48,7 +48,9 @@
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="col-md-12" style="margin-top: 20px;">
                                             <div class="pricing-table">
-                                                <?php echo $product['attribute']; ?>
+												<div class="panel panel-primary" style="border: none;">
+													<?php echo $product['attribute']; ?>
+												</div>
                                             </div>
                                         </div>
                                     </div>
