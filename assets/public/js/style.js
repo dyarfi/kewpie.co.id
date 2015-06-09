@@ -128,7 +128,7 @@ $(document).ready(function() {
 	controller.addTween('#fade-it4', TweenMax.from( $('#fade-it4'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it5', TweenMax.from( $('#fade-it5'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it6', TweenMax.from( $('#fade-it6'), 1, {css:{opacity: 0}}));
-	controller.addTween('#fade-it7', TweenMax.from( $('#fade-it7'), 1, {css:{opacity: 0}}));
+        controller.addTween('#fade-it7', TweenMax.from( $('#fade-it7'), 1, {css:{opacity: 0}}));
 	controller.addTween('#fade-it8', TweenMax.from( $('#fade-it8'), 2, {css:{opacity: 0}}));
 	
 	controller.addTween('.mayo1', TweenMax.from( $('.mayo1'), .15, {css:{opacity: 0, scale:0}, ease:Quad.easeInQuart}));
@@ -142,7 +142,10 @@ $(document).ready(function() {
 	controller.addTween('#fly-it3', TweenMax.from( $('#fly-it3'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
 	controller.addTween('#fly-it4', TweenMax.from( $('#fly-it4'), 1, {css:{right:'2000px'}, ease:Quad.easeInOut}));
 	controller.addTween('#fly-it5', TweenMax.from( $('#fly-it5'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
-	controller.addTween('#fly-it6', TweenMax.from( $('#fly-it6'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
+	//controller.addTween('#fly-it6', TweenMax.from( $('#fly-it6'), 1, {css:{left:'2000px'}, ease:Quad.easeInOut}));
+        
+        controller.addTween('#fly-it6', TweenMax.fromTo( $('#fly-it6'), .65, {css:{opacity:0, y:-390}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, y:-560}, ease:Quad.easeInOut}));
+	
 	
 	controller.addTween('#spin-it', TweenMax.from( $('#spin-it'), .25, {css:{opacity:0, rotation: 720}, ease:Quad.easeOut}));
 	

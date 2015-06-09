@@ -122,7 +122,7 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
 }
 
 /* Always apply the floated nav */
-.navbar-nav { width: 53%; border: 0px solid #990000}
+.navbar-nav { width: 51.5%; border: 0px solid #990000}
 .navbar-nav {
   float: left;
   margin: 0 0 0 0px;
@@ -309,15 +309,15 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 .navbar-default .navbar-nav>li>a{
   background-color: transparent;
-  font-family: "courier new";
+  font-family: "Courier_new";
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
 }
 .navbar #navbar {
-	text-transform:uppercase;
-	font-size:1.3em;
+    text-transform:uppercase;
+    font-size:1.3em;
 }
 .navbar #navbar ul li { width:18.8%; top:10px; }
 .navbar #navbar li.active a { color: #ff0000; }
@@ -332,16 +332,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 	padding-top:8px
 }
 #navbar ul li.divider {
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: #a29181;
-    /*
-    -webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(#a29181), to(rgba(0, 0, 0, 0))) 1 100%;
-    -webkit-border-image: -webkit-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
-    -moz-border-image: -moz-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;  
-    -o-border-image: -o-linear-gradient(bottom, #a29181, rgba(0, 0, 0, 0)) 1 100%;
-    border-image: linear-gradient(to top, #a29181, rgba(0, 0, 0, 0)) 1 100%;
-    */
+    background: url('../img/divider-1px.jpg') center right no-repeat !important;
 }
 
 .hello{
@@ -362,7 +353,7 @@ a:hover{color: #e70413; text-decoration: blink;}
     /* height: 137px; */
     z-index:10;
     /*background:url('../img/lang-bg.png') top right no-repeat;*/
-	font-family:'courier new';
+	font-family:'Courier_new';
 	font-size: 30px;
 	font-weight: bold;
 }
@@ -376,7 +367,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .navbar-default .navbar-nav>li>a:hover{color: #e80010;}
 .title{
   font-size: 16px;
-  font-family: "courier new";
+  font-family: "Courier_new";
   color: #684b31;
   font-weight: bold;
 }
@@ -496,6 +487,8 @@ a:hover{color: #e70413; text-decoration: blink;}
   position: relative;
   margin-top: 100px;
 }
+.head-font h3, .head-font h3.p1 { font-family: "Courier_new"; color:#e70413; font-weight: bold; text-align: left; padding: 5px 0}
+.inside-kewpie { min-height: 500px; border:0px solid #990000; }
 .resep-title { width: 368px; height: 263px; display: block; position: relative; background: transparent url(../img/items/tagb3.png) top center no-repeat; padding: 82px 0 0 0; margin-bottom: -70px;
   margin-left: -15px; z-index: 1; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);writing-mode: rl-bt;}
 .img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 13px; line-height: 0.78em; } 
@@ -503,7 +496,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .food-service-head {  width: 214px; height: 113px;border: 0px solid #990000; position: relative;margin: 0 auto; right: -100px; background: transparent url(../img/items/tagm1.png) top center no-repeat; }
 .food-service-head h4, .food-service-head h5 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; } 
 .food-service-head h5 { font-size: 2em; margin-top: 14px }
-.food-service-head h4 { padding-top:10px; font-size: 2.8em; text-align: center; width: 100%; border: 0px solid #990000; margin:6px 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px;}
+.food-service-head h4 { padding-top:2px; font-size: 2.3em; text-align: center; width: 100%; border: 0px solid #990000; margin:6px 60px 0 0; padding-right: 40px; padding-left: 40px; line-height: 0.78em; position: absolute; top: 20px;}
 .title-cerita-kewpie h3 { font-size: 3.5em; padding:8px 0 8px 0; text-align: center; width: 60%; border: 0px solid #990000; margin:0px auto 0 auto; line-height: 0.78em; }
 .title-item-produk, .title-item-produk-h {margin-left: -37px;}
 .items-produk-link-posisi{margin-left: -107px;;}
@@ -557,7 +550,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .details .container{padding: 35px 0 0 275px;}
 h2, h4{
 	margin-top: 0px;
-	font-family: "courier new";
+	font-family: "Courier_new";
 	font-weight: bold;
 	color:#e70413;
 }
@@ -608,7 +601,7 @@ h2, h4{
 	text-align:center;
 	color:#fff;
 	font-weight: bold;
-	font-family: "courier new";
+	font-family: "Courier_new";
 	font-size:24px;
 }
 .cara-membuat2{
@@ -799,7 +792,7 @@ section a {
 .share{width: 500px;float:left;}
 .cmn-t-scale {
   color: #ef5156;
-  font-family: "courier new";
+  font-family: "Courier_new";
   font-weight: bold;
   text-transform: uppercase;
 }
