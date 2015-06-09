@@ -219,6 +219,7 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
     background-color: #e7e2e2;
     border-radius: 10px;
     height: 33px;
+    width: 110px;
     
 }
 .form-control.search:focus {

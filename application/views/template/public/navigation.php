@@ -36,9 +36,9 @@
             <div class="searchform pull-left">
               <form id="custom-search-form" class="form-search form-horizontal" action="<?php echo base_url();?>">
                     <!--<input type="text" class="search-query form-control" placeholder="Search">-->
-                    <div class="input-group input-group-sm col-md-9">
+                    <div class="input-group input-group-sm">
                         <span class="input-group-addon"><span class="fa fa-search fa-2x"></span></span>
-                        <input name="website" type="text" class="form-control search" placeholder="" value="">
+                        <input name="search" type="text" class="form-control search" placeholder="" value="">
                     </div>  
               </form>
                 
