@@ -332,7 +332,9 @@ a:hover{color: #e70413; text-decoration: blink;}
 	padding-top:8px
 }
 #navbar ul li.divider {
-    background: url('../img/divider-1px.jpg') center right no-repeat !important;
+    background-color: transparent;
+    background-image: url('../img/divider-1px.jpg');
+    background-repeat: no-repeat;
 }
 
 .hello{
