@@ -122,7 +122,7 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
 }
 
 /* Always apply the floated nav */
-.navbar-nav { width: 55%; border: 0px solid #990000}
+.navbar-nav { width: 53%; border: 0px solid #990000}
 .navbar-nav {
   float: left;
   margin: 0 0 0 0px;
@@ -200,19 +200,31 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
   display: inline-table;
   vertical-align: middle;
 }
-.input-group-addon{
-    background: #FFFFFF;
-    /*border-right: 0px;*/
+.form-search .input-group-addon{
+    background: #e7e2e2;
+    border-right: 0px;
     /*line-height: 1.5em;*/
+    font-size: 0.5em;
     border-color: #eee;
+    color: #684b31;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075) inset;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .form-control.search {
     /*padding-top: 2px;*/
-    /*border-left: 0px*/
+    border-left: 0px;
+    /*margin: 0 0 -1px 0;*/
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075) inset;
+    background-color: #e7e2e2;
+    border-radius: 10px;
+    height: 33px;
+    
 }
 .form-control.search:focus {
-    border-left: 0px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075) inset;
     border: 1px solid #eee;
+        border-left: 0px;
 }
 .navbar-form .input-group .input-group-addon,
 .navbar-form .input-group .input-group-btn,
@@ -715,7 +727,8 @@ h2, h4{
 }
 .scroll-me h3 {
     width: 60%;
-    font-size: 6.8vh;
+    /*font-size: 6.8vh;*/
+    font-size:3.2em;
     margin: 0 auto;
     padding: 0 0 70px 0;
     text-align: center;
@@ -725,6 +738,7 @@ h2, h4{
     background: url('../img/button-down.png') bottom center no-repeat;
     -webkit-transform: rotate(-6deg);-moz-transform: rotate(-6deg);-o-transform: rotate(-6deg);writing-mode: rl-bt;
 }
+
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -843,10 +857,9 @@ section a {
 }
 
 /* CUSTOM SEARCH */
-#custom-search-form {
-    margin:0;
-    margin-top: 5px;
-    padding: 0;
+#custom-search-form { 
+    margin-top:15px;
+    margin-left: -10px;
 }
 
 #custom-search-form .search-query {
@@ -881,7 +894,11 @@ section a {
 .search-query:focus + button {
     z-index: 3;   
 }
-
+.form-search {
+    /*top: 25px;*/
+    /*right: 10px;*/
+    /*left:0px;*/
+}
 /* ITEM PRODUK */
 .radial-menu {
   width:88px;
@@ -982,7 +999,7 @@ h3.p1 { font-size: 1.5em; text-align: center; padding-top: 15px; margin-bottom: 
 /* CONTACT */
 .contact-form{ margin-top:15px;}
 .contact-form .textarea{ min-height:220px; resize:none;}
-.form-control{ box-shadow:none; border-color:#eee; /* height:49px; */}
+.form-control{ /*box-shadow:none;*/ border-color:#eee; /* height:49px; */}
 .form-control:focus{ box-shadow:none; border-color:#e70413;}
 .form-control-feedback{ line-height:50px;}
 .main-btn{ background:#e70413; border-color:#e70413; color:#fff;}

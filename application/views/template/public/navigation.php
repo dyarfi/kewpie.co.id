@@ -34,15 +34,15 @@
           </ul>
                 
             <div class="searchform pull-left">
-              <form id="custom-search-form" class="form-search form-horizontal col-lg-12 col-md-12 col-sm-12 hidden">
+              <form id="custom-search-form" class="form-search form-horizontal" action="<?php echo base_url();?>">
                     <!--<input type="text" class="search-query form-control" placeholder="Search">-->
-                    <div class="input-group input-group-sm col-lg-8">
-                        <span class="input-group-addon input-sm"><span class="glyphicon glyphicon-search"></span></span>
-                        <input name="website" type="text" class="form-control search" placeholder="Search" value="">
+                    <div class="input-group input-group-sm col-md-9">
+                        <span class="input-group-addon"><span class="fa fa-search fa-2x"></span></span>
+                        <input name="website" type="text" class="form-control search" placeholder="" value="">
                     </div>  
               </form>
                 
-                    <div class="lang-bg">
+                    <div class="lang-bg pull-right">
                         <ul class="list-unstyled pull-left">
                             <?php foreach ($this->languages as $language) { 
                             if ($language->url == config_item('language')) { ?>
