@@ -13,6 +13,7 @@
 				  <?php echo $home_welcome[1]['text'];?>				
 			  </div>
 			</div>
+            <img class="egg1" src="<?php echo base_url();?>assets/public/img/egg1.png"/>
 			<div id="fade-it1" class="produk-kami">
               <div class="img-produk-kami"><h3><?php echo $home_product[1]['subject'];?></h3></div>
                 <div class="box-white box-3"><?php echo $home_product[1]['text'];?></div>
