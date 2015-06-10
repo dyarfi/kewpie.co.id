@@ -931,8 +931,8 @@ section a {
   transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
   position:absolute;
 }
-.menu-item1 img,.menu-item3 img{height: 190px; position: absolute; top: 15px; left: 5px;}
-.menu-item2 img,.menu-item4 img{height: 210px; position: absolute; top: 10px; left: 5px;}
+.menu-item1 img,.menu-item2 img{height: 210px; position: absolute; top: 10px; left: 5px;}
+.menu-item3 img,.menu-item4 img{height: 190px; position: absolute; top: 15px; left: 5px;}
 h3.p1 { font-size: 1.5em; text-align: center; padding-top: 15px; margin-bottom: 0px;}
 /* CAROUSEL CSS */
 #Carousel {

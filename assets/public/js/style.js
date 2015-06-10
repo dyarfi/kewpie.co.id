@@ -12,17 +12,17 @@ $(document).ready(function() {
         
         //$(this).parents().find('.handler').css({'transform': 'none'});
     
-        if (!active1) $(this).find('.menu-item1').css({'transform': 'translate(100px,0px)'});
-        else $(this).find('.menu-item1').css({'transform': 'none'}); 
+        if (!active1) $(this).find('.menu-item1').css({'transform': 'translate(50px,0px)','z-index': '1'});
+        else $(this).find('.menu-item1').css({'transform': 'none','z-index': '1'}); 
 
-        if (!active2) $(this).find('.menu-item2').css({'transform': 'translate(50px,0px)'});
-        else $(this).find('.menu-item2').css({'transform': 'none'});
+        if (!active2) $(this).find('.menu-item2').css({'transform': 'translate(-50px,0px)','z-index': '1'});
+        else $(this).find('.menu-item2').css({'transform': 'none','z-index': '1'});
 
-        if (!active3) $(this).find('.menu-item3').css({'transform': 'translate(-100px,0px)'});
-        else $(this).find('.menu-item3').css({'transform': 'none'});
+        if (!active3) $(this).find('.menu-item3').css({'transform': 'translate(100px,0px)','z-index': '0'});
+        else $(this).find('.menu-item3').css({'transform': 'none','z-index': '0'});
 
-        if (!active4) $(this).find('.menu-item4').css({'transform': 'translate(-50px,0px)'});
-        else $(this).find('.menu-item4').css({'transform': 'none'});
+        if (!active4) $(this).find('.menu-item4').css({'transform': 'translate(-100px,0px)','z-index': '0'});
+        else $(this).find('.menu-item4').css({'transform': 'none','z-index': '0'});
 
         if (!active4) $(this).find('.menu-item5').css({'transform': 'translate(0px,-70px)', 'opacity':'1.0'});
         else $(this).find('.menu-item5').css({'transform': 'none', 'opacity':'0.0'});
