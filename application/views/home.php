@@ -25,20 +25,26 @@
                 <div class="row">
                     <?php
                     $j = 1;
-                    foreach ($products as $product) { 
-                        $color = str_replace('#', '', $this->ProductCategories->getCategory($product['category_id'])->color); ?>
+                    foreach ($product_category as $category) { 
+                        $color    = str_replace('#', '', $category['color']); ?>
                         <div class="col-xs-3 col-sm-3 col-md-3">
                             <div class="radial-menu">
-                                <?php for ($i = 1; $i <= 4; $i++) { ?>
-                                    <div class="menu-item<?php echo $i;?> handler"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                                <?php } ?>
-                                <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
-                                <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tagh-<?php echo $color;?>.png') top center no-repeat; padding-top: 10px;">
-                                    <h4><?php echo character_limiter($product['subject'], 30,'');?></h4>
+                                <?php
+                                    $m = 1;
+                                    $tmp = array();
+                                    foreach($category['products'] as $product) { ?>
+                                        <div class="menu-item<?php echo $m;?> handler"><img class="" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt=""></div>
+                                        <?php
+                                    $m++;
+                                    }
+                                ?>
+                                <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$category['in_front'][1]['media']);?>" alt=""></div>
+                                <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tags-<?php echo $color;?>.png') top center no-repeat; padding-top: 0px;">
+                                    <h4><?php echo character_limiter($category['subject'], 30,'');?></h4>
                                 </div>
                                 <div class="detail-left menu-item5 items-produk-link-posisi">
                                     <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>">
-                                        <?php echo character_limiter($product['subject'], 30,'');?></a>
+                                        <?php echo $this->lang->line('detail') . ' ' . character_limiter($category['subject'], 30,'');?></a>
                                     </div>
                                 </div>
                             </div>

@@ -51,9 +51,20 @@ class Home extends Public_Controller {
         // Set home kewpie origin
 		$data['home_origin']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>3),'',1);
         
-        // Set page product
-        $data['products']  = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added' => 'ASC'),4);
+        // Set page product category
+        $product_category = $this->Content->find('product_categories',array('status'=>'publish','color !='=>''),array('added' => 'ASC'),4);
         
+        $temp = array();
+        foreach ($product_category as $category) {
+            $category['products'] = $this->Content->find('products',array('category_id'=>$category['id'],'in_front'=>'no','media !='=>''),array('added'=>'ASC','in_front'=>'DESC'),12);
+            $category['in_front'] = $this->Content->find('products',array('category_id'=>$category['id'],'in_front'=>'yes','media !='=>''),'',1);
+            $temp[$category['id']] = $category;
+        }
+        $_product_category = $temp;
+        
+        // Set data product category
+        $data['product_category'] = $_product_category;
+                
 		// Set site title page with module menu
 		$data['page_title'] = $this->config->item('developer_name') .' | '. $this->Settings->getByParameter('title_default')->value;
 		
