@@ -1,18 +1,15 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<div class="submenu"></div>
+<div class="container item-submenu">
+	<ul class="list-inline">
+		<?php foreach ($product_category as $category) { ?>
+		<li><a href="<?php echo base_url('read/product/category/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
+		<?php } ?>
+	</ul>
+</div>  
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
-        <div class="container"> <!-- content start -->
-            
-                <div class="details hidden">                
-                    <div class="container">
-                        <ul class="list-inline">
-                            <?php foreach ($product_categories as $category) { ?>
-                            <li class="bg-danger"><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
-                            <?php } ?>
-                        </ul>
-                    </div>    
-                </div>    
-            
+        <div class="container"> <!-- content start -->            
                 <div class=''>
                     <div>
                       <div class="carousel slide food-service-carousel" data-interval="false" data-ride="carousel" id="quote-carousel">
@@ -56,20 +53,24 @@
                             <?php if (!empty($product['recipes'])) { ?>
                             <div class="related-resep">
                                 <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> Anjuran Resep Yang Sesuai</div></div>
-                                <?php foreach($product['recipes'] as $recipe) { ?>
+                                <?php foreach($product['recipes'] as $recipe) { 
+									$product  = $this->Products->getProduct($recipe['product_id'])->category_id;
+									$color    = $this->ProductCategories->getCategory($product)->color;?>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="http://placehold.it/500x300" alt="">
+										<?php if ($recipe['media']) { ?>
+											<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt=""/>
+										<?php } ?>
                                         <div class="caption caption-sub-pasta">
                                             <h4><?php echo $recipe['subject'];?></h4>
                                             <img class="sub-pasta" src="<?php echo base_url();?>assets/public/img/items/sub-cat-pasta.jpg" alt="item pasta">
-                                            <?php echo $recipe['text'];?>
+                                            <?php echo strip_tags($recipe['text']);?>
                                         </div>
                                     </div>
-                                    <div class="tab-info">
-                                        <button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> Serves 2</button>
-                                        <button type="button" class="btn btn-danger"><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> 15 Min</button>
-                                    </div>
+                                   <div class="tab-info">
+										<button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button>
+										<button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button>
+									</div>
                                 </div>
                                 <?php } ?>
                             </div>

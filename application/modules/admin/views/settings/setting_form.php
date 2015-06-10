@@ -83,7 +83,7 @@
 									<textarea name="help_text" class="form-control" id="value" rows="2" cols="600"><?php echo $fields->help_text;?></textarea>
 								</div>
 								<span class="help-block small">Help comments for the fields</span>
-								<span class="help-block"><?php echo $errors['value'];?></span>
+								<span class="help-block"><?php echo $errors['help_text'];?></span>
 							</div>
 						</div>
 					</div>

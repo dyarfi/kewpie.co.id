@@ -2,6 +2,7 @@
 $(document).ready(function() {
     
     /* slide menu */
+
     var active1 = false;
     var active2 = false;
     var active3 = false;

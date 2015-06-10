@@ -18,7 +18,7 @@ class Front_Product extends Public_Controller {
         //$data['recipes']            = $this->Content->find('product_recipes',array('status'=>'publish'));
         
         // Set product category data
-        $data['product_category']   = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
+        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
         
         // Set products data
         $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'DESC'));
@@ -29,6 +29,7 @@ class Front_Product extends Public_Controller {
         }
         $products = $buffer;
         
+		// Set products data
 		$data['products']           = $products;
         
         // Set main template
@@ -51,8 +52,7 @@ class Front_Product extends Public_Controller {
         // Set main template
         $products                   = $this->Content->find('products',array('category_id'=>$product_categories->id),array('added'=>'DESC'));
 		$data['products']           = $products;
-        //print_r($products);
-
+        
         // Set main template
 		$data['main']               = 'product';
         
@@ -70,11 +70,12 @@ class Front_Product extends Public_Controller {
         $product_categories         = $this->Content->findIdByUrl('product_categories',$detail);
         $data['product_categories'] = $product_categories;
         
-        
-        $data['product_category']   = $this->Content->find('product_categories',array('id'=>$product_categories->field_id));
+       
+        // Set product category data
+        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
         
         // Set main data products
-        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id),array('added'=>'DESC'));
+        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id),array('added'=>'ASC'));
 		
         // Set temporary array
         $temp = array();
@@ -109,7 +110,6 @@ class Front_Product extends Public_Controller {
         $products                   = $this->Content->find('products',array('category_id'=>$product_categories[1]['id']));
 		$data['products']           = $products;
 
-        
         // Set main template
 		$data['main']               = 'product_detail';
         

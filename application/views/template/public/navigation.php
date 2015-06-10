@@ -13,6 +13,7 @@
           <!--a class="navbar-brand" href="#">
             <span>kewpie</span>
           </a-->
+		  
           <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/public/img/logo.png"/></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -33,35 +34,32 @@
             ?>
           </ul>
             <form id="custom-search-form" class="form-search form-horizontal" action="<?php echo base_url();?>">
-                <!--<input type="text" class="search-query form-control" placeholder="Search">-->
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon"><span class="fa fa-search fa-2x"></span></span>
                     <input name="search" type="text" class="form-control search" placeholder="" value="">
                 </div>  
             </form>
             <div class="pull-left">
-  
-                
-                    <div class="lang-bg pull-right">
-                        <ul class="list-unstyled pull-left">
-                            <?php foreach ($this->languages as $language) { 
-                            if ($language->url == config_item('language')) { ?>
-                            <li class="bg-danger" style="width: 100%">
-                                <!--img class="pull-left" src="<?php echo base_url('assets/static/img/flags').'/'.$language->prefix;?>.png"/-->
-                                <?php echo $language->prefix;?>
-                            </li>
-                            <?php } else { ?>
-                            <li>
-                                <a href="<?php echo base_url('language/'.$language->url);?>">
-                                    <!--img class="pull-left" src="<?php echo base_url('assets/static/img/flags').'/'.$language->prefix;?>.png"/-->
-                                    <?php echo $language->prefix;?>
-                                </a>
-                            </li>
-                            <?php } 
-                            }
-                            ?>
-                        </ul>
-                    </div>
+				<div class="lang-bg pull-right">
+					<ul class="list-unstyled pull-left">
+						<?php foreach ($this->languages as $language) { 
+						if ($language->url == config_item('language')) { ?>
+						<li class="bg-danger" style="width: 100%">
+							<!--img class="pull-left" src="<?php echo base_url('assets/static/img/flags').'/'.$language->prefix;?>.png"/-->
+							<?php echo $language->prefix;?>
+						</li>
+						<?php } else { ?>
+						<li>
+							<a href="<?php echo base_url('language/'.$language->url);?>">
+								<!--img class="pull-left" src="<?php echo base_url('assets/static/img/flags').'/'.$language->prefix;?>.png"/-->
+								<?php echo $language->prefix;?>
+							</a>
+						</li>
+						<?php } 
+						}
+						?>
+					</ul>
+				</div>
             </div>
  
         </div><!--/.nav-collapse -->

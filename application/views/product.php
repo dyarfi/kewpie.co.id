@@ -3,7 +3,7 @@
 <div class="container item-submenu">
 	<ul class="list-inline">
 		<?php foreach ($product_category as $category) { ?>
-		<li><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
+		<li><a href="<?php echo base_url('read/product/category/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
 		<?php } ?>
 	</ul>
 </div>    
