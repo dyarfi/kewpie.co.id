@@ -43,7 +43,7 @@
                                     <h4><?php echo character_limiter($category['subject'], 30,'');?></h4>
                                 </div>
                                 <div class="detail-left menu-item5 items-produk-link-posisi">
-                                    <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/detail/'.$product['url']);?>">
+                                    <div class="detail-right items-produk-link"><a href="<?php echo base_url('read/product/category/'.$category['url']);?>">
                                         <?php echo $this->lang->line('detail') . ' ' . character_limiter($category['subject'], 30,'');?></a>
                                     </div>
                                 </div>
