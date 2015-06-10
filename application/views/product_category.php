@@ -33,7 +33,7 @@
                           foreach($products as $product) { ?>
                           <div class="item <?php echo ($i==1) ? 'active' :'';?>">
                             <?php if ($product['media']) { ?><img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="items"><?php } ?>
-                            <div class="food-service-head"><h5><?php echo $product_category[1]['subject'];?></h5></div>
+                            <div class="food-service-head hidden"><h5><?php echo $product_category[1]['subject'];?></h5></div>
                             <div class="info-service">                                
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <h2><?php echo $product['subject'];?></h2>
