@@ -709,7 +709,7 @@ h2, h4{
 .mayo5 { background-image:url('../img/whatisinourmayo5.png'); width: 171px; }
 
 
-.detail-related-thumbnail{padding: 20px;}
+.detail-related-thumbnail{padding: 20px; height: 180px;}
 .detail-related-thumbnail img { margin-top: -10px; }
 /* .caption-news-inside{height: 500px;} */
 .more-button{text-align: right; margin: 10px 0;}
