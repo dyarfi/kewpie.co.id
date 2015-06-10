@@ -1,21 +1,19 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-
-
+<div class="submenu"></div>
+<div class="container item-submenu">
+	<ul class="list-inline">
+	<?php foreach ($pages as $page) { ?>
+		<li>
+			<a href="<?php echo base_url('read/page/detail/'.$page['url']);?>"><?php echo $page['subject'];?></a>
+		</li>    
+	<?php } ?>
+	</ul>
+</div>
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container"> <!-- content start -->	
                 
-                 <div class="details">
-                    <div class="container">
-                        <ul class="list-inline">
-                        <?php foreach ($pages as $page) { ?>
-                            <li>
-                                <a href="<?php echo base_url('read/page/detail/'.$page['url']);?>"><?php echo $page['subject'];?></a>
-                            </li>    
-                        <?php } ?>
-                        </ul>
-                    </div>    
-                </div>
+                 
             
                 <div class="container-fluid content-inside">
                     <div class="col-xs-6 col-sm-6 col-md-6">

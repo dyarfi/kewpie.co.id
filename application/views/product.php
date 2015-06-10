@@ -1,18 +1,17 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<div class="submenu"></div>
+<div class="container item-submenu">
+	<ul class="list-inline">
+		<?php foreach ($product_category as $category) { ?>
+		<li><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
+		<?php } ?>
+	</ul>
+</div>    
 <div class="kewpie-main-body"> <!-- for changing background purpose -->
     <div class="kewpie-main-body"> <!-- for changing background purpose -->
         <div class="container"> <!-- content start -->
-            <div class="details">                
-                <div class="container">
-                    <ul class="list-inline">
-                        <?php foreach ($product_category as $category) { ?>
-                        <li><a href="<?php echo base_url('read/product/detail/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
-                        <?php } ?>
-                    </ul>
-                </div>    
-            </div>    
-            <div class=''>
-                <div class="carousel slide food-service-carousel" data-interval="false" data-ride="carousel" id="quote-carousel">
+            <div>
+                <div class="carousel slide product-service-carousel" data-interval="false" data-ride="carousel" id="quote-carousel">
                     <!-- Bottom Carousel Indicators -->
                     <ol class="carousel-indicators">
                         <?php 
@@ -54,6 +53,7 @@
                                             </div>
                                         </div>
                                     </div>
+									<div class="clear"></div>
                                 </div>
                                 <div class="clear"></div>
                                 <?php if (!empty($product['recipes'])) { ?>
