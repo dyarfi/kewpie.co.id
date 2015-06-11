@@ -47,6 +47,7 @@ class Product extends Admin_Controller {
 			// The fields that user will see on add and edit form
 			$crud->fields('subject','url','category_id','text','attribute','messages','in_front','media','status','added','modified');
             // Set column display 
+            $crud->display_as('gallery','Package');
             $crud->display_as('media','Image');
             $crud->display_as('category_id','Category');
             $crud->display_as('messages','Main Ingredients');
@@ -196,7 +197,7 @@ class Product extends Admin_Controller {
 			$object['field_id']	= $field_id;
 			$object['user_id']  = $this->user->id;
             $object['added']	= time();
-			$object['status']  	= 0;
+			$object['status']  	= 1;
 			$this->db->insert('tbl_translations', $object);
 			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}
@@ -209,7 +210,7 @@ class Product extends Admin_Controller {
 	
     public function _callback_gallery ($value,$row) {
         if ($row->id) { 
-            return '<a href="'.base_url(ADMIN).'/product_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
+            return '<a href="'.base_url(ADMIN).'/product_gallery/index/'.$row->id.'" title="'.$row->subject.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
         } else { 
             return '-';
         }

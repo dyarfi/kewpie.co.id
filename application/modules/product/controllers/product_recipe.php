@@ -213,7 +213,7 @@ class Product_Recipe extends Admin_Controller {
 			$object['field_id']	= $field_id;
 			$object['user_id']  = $this->user->id;
             $object['added']	= time();
-			$object['status']  	= 0;
+			$object['status']  	= 1;
 			$this->db->insert('tbl_translations', $object);
 			redirect(ADMIN.strtolower(__CLASS__).'/detail/edit/'.$this->db->insert_id());
 		}

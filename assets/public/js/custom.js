@@ -7,9 +7,9 @@
 		jQuery("#load").delay(100).fadeOut("slow");
 	});
 
-	$('#container').imagesLoaded( function() {
-		// images have loaded
-		//alert("foobar");
+	$('body').imagesLoaded( function() {
+            // images have loaded
+            // alert("foobar");
 	});	
 	
 	//jQuery to collapse the navbar on scroll

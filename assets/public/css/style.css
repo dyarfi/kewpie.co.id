@@ -331,7 +331,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 	margin-top:0px;
 	padding-top:8px
 }
-#navbar ul li.divider-img {
+#navbar ul li.divider-img, ul li.divider-img {
     /*background:url('../img/divider-1px.jpg') right center no-repeat;*/
     border-right:1px solid #b49579;    
 }
@@ -545,166 +545,166 @@ a:hover{color: #e70413; text-decoration: blink;}
 .title-news{ background: url('../img/page-berita-terbaru.png') top center no-repeat; width:210px; height: 172px; display: block; margin:0 auto; text-align: center; border:0px solid #990000;}
 .title-news h3 { font-size: 2.1em; width: 74%; border:0px solid #ff0000; margin: 0px auto 0 auto; line-height: 0.8em; padding:90px 0 0 0;-webkit-transform: rotate(-1deg);-moz-transform: rotate(-1deg);-o-transform: rotate(-1deg);writing-mode: rl-bt; }
 .submenu{
-	margin: -83px auto;
-	margin-left: 25px;
-	background: transparent url('../img/bg-sub-menu.png') top center no-repeat;
-	height:80px;
-	position: relative;
-	z-index:0;
+    margin: -83px auto;
+    margin-left: 25px;
+    background: transparent url('../img/bg-sub-menu.png') top center no-repeat;
+    height:80px;
+    position: relative;
+    z-index:0;
 }
 .item-submenu{
-	padding: 40px 0 0 550px;
-	position: absolute;
-	z-index:6;
+    padding: 40px 0 0 550px;
+    position: absolute;
+    z-index:6;
 }
 h2, h4{
-	margin-top: 0px;
-	font-family: "Courier_new";
-	font-weight: bold;
-	color:#e70413;
+    margin-top: 0px;
+    font-family: "Courier_new";
+    font-weight: bold;
+    color:#e70413;
 }
 .details h4, .info-resep h4{color: #684b31;}
 .details p{margin: 20px 0;}
 .img-ctr{
-	display: block;
-	margin: 0 auto 20px;
+    /*display: block;*/
+    margin: 0 auto 20px;
 }
 .img-tentang{
-	margin: 0 28px 0 86px;
+    margin: 0 28px 0 86px;
 }
 .img-resep, .img-bahan{
-	float:left;
-	width: 519px;
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-	margin-right: 30px;
+    float:left;
+    width: 519px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    margin-right: 30px;
 }
 .img-bahan{width:196px;}
 .detail-info-resep, .detail-info-bahan{
-	height:354px;
-	background: #fff;
-	padding: 30px;
+    height:354px;
+    background: #fff;
+    padding: 30px;
 }
 .detail-info-bahan{height:258px; margin: 50px auto;}
 .detail-info-bahan ul li { list-style-type: disc; }
 .img-info Img{
-	margin: 0 20px; 
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    margin: 0 20px; 
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 .tab-info{margin-top: -35px; margin-right: 30px;margin-bottom:20px;}
 .tab-info .btn-danger{
-	background-color: #e70413;
-	/* border-radius: 4px 4px 0px 0px;
-	-moz-border-radius: 4px 4px 0px 0px;
-	-webkit-border-radius: 4px 4px 0px 0px; */
-	z-index:1;
-	position:relative;
+    background-color: #e70413;
+    /* border-radius: 4px 4px 0px 0px;
+    -moz-border-radius: 4px 4px 0px 0px;
+    -webkit-border-radius: 4px 4px 0px 0px; */
+    z-index:1;
+    position:relative;
 }
 .cara-membuat{
-	background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
-	padding-top: 100px;
+    background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
+    padding-top: 100px;
 	
 }
 .black-crown{
-	text-align:center;
-	color:#fff;
-	font-weight: bold;
-	font-family: "Courier_new";
-	font-size:24px;
+    text-align:center;
+    color:#fff;
+    font-weight: bold;
+    font-family: "Courier_new";
+    font-size:24px;
 }
 .cara-membuat2{
-	background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
-	padding-top: 85px;
+    background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
+    padding-top: 85px;
 }
 .list-resep{
-	background: transparent url(../img/head-cara-bikin3.png) bottom center no-repeat;
-	padding-bottom:85px;
+    background: transparent url(../img/head-cara-bikin3.png) bottom center no-repeat;
+    padding-bottom:85px;
 }
 .bg-board{
-	background: transparent url(../img/body-cara-bikin.png) top center repeat-y;
-	padding: 40px 50px 20px 270px;
-	color: #fff;
-	margin: 0 auto;
+    background: transparent url(../img/body-cara-bikin.png) top center repeat-y;
+    padding: 40px 50px 20px 270px;
+    color: #fff;
+    margin: 0 auto;
     padding: 70px 50px 50px 70px;
     width: 1175px;
 }
 .box-holder { margin: 0 0 20px 0; }
 .line{
-	border-top: #6d5138 solid 1px;
-	margin: 80px auto 60px auto;
+    border-top: #6d5138 solid 1px;
+    margin: 80px auto 60px auto;
 }
 .line-img{
-	text-align: center;
-	margin:-19px auto;
-	background: #fbf4e9;
-	width: 362px;
-	font-family: desyrel;
-	color:#6d5138;
-	font-size: 24px;
+    text-align: center;
+    margin:-19px auto;
+    background: #fbf4e9;
+    width: 362px;
+    font-family: desyrel;
+    color:#6d5138;
+    font-size: 24px;
 }
 .line-img img {width: 32px;}
 .sub-pasta{float:right;}
 .caption-sub-pasta{height: 180px;padding: 9px 30px !important;}
 .img-ctr{
-	display: block;
-	margin:0 auto;
+    display: block;
+    margin:0 auto;
 }
 .title-food-service-img{
-	display: block;
-	margin: -120px auto 50px 200px;
+    display: block;
+    margin: -120px auto 50px 200px;
 }
 .food-service-carousel{
-	margin: 65px 0 !important;
+    margin: 65px 0 !important;
 }
 .product-service-carousel{
-	margin: 165px 0 !important;
+    margin: 165px 0 !important;
 }
 .board2{padding:10px;}
 .list-resep-carousel{
-	margin: auto !important;
-	width: 80%;
+    margin: auto !important;
+    width: 80%;
 }
 .list-resep-nav-right, .list-resep-nav-left{
-	top:200px;
-	left: 50px;
+    top:200px;
+    left: 50px;
 }
 .list-resep-nav-right{right:50px !important;}
 .list-resep-board{padding: 0 !important;margin:0 !important;}
 .search-form-board{margin: 20px 150px 20px 700px;}
 .bg-box-resep-fav{
-	background: transparent url('../img/bg-kewpie-resep-fav.png') center center no-repeat;
-	height:508px;
-	width:481px;
-	padding:180px 20px 0 100px;
-	float: right;
-	margin-bottom: 80px;
+    background: transparent url('../img/bg-kewpie-resep-fav.png') center center no-repeat;
+    height:508px;
+    width:481px;
+    padding:180px 20px 0 100px;
+    float: right;
+    margin-bottom: 80px;
 }
 .tab-info-resep{
-	margin-top:100px;
+    margin-top:100px;
 }
 .sub-pasta-info-resep{
-	margin:50px 60px 10px 20px;
+    margin:50px 60px 10px 20px;
 }
 .row{margin:0;}
 .tooltip-inner{
-	width:330px;
-	text-align:left;
-	padding: 30px;
+    width:330px;
+    text-align:left;
+    padding: 30px;
 }
 .carousel-news-item-home{
-	overflow: hidden;
-	width:281px;
-	/* height: 350px; */
-	
-	padding:0;
-	margin-top: 28px;
-	margin-left: 15px;
-	margin-right: 40px;
-	margin-bottom: 28px;
-	-webkit-box-shadow: 0px 8px 20px -4px rgba(50, 50, 50, 0.93);
-	-moz-box-shadow:    0px 8px 20px -4px rgba(50, 50, 50, 0.93);
-	box-shadow:         0px 8px 20px -4px rgba(50, 50, 50, 0.93);
+    overflow: hidden;
+    width:281px;
+    /* height: 350px; */
+
+    padding:0;
+    margin-top: 28px;
+    margin-left: 15px;
+    margin-right: 40px;
+    margin-bottom: 28px;
+    -webkit-box-shadow: 0px 8px 20px -4px rgba(50, 50, 50, 0.93);
+    -moz-box-shadow:    0px 8px 20px -4px rgba(50, 50, 50, 0.93);
+    box-shadow:         0px 8px 20px -4px rgba(50, 50, 50, 0.93);
 
 }
 .carousel-news-item-home img{height: 273px;}
@@ -745,9 +745,19 @@ h2, h4{
     -webkit-transform: rotate(-6deg);-moz-transform: rotate(-6deg);-o-transform: rotate(-6deg);writing-mode: rl-bt;
 }
 .info-service{
-	padding:50px;
-	padding-left: 80px;
-	margin-top: 30px;
+    padding:50px;
+    padding-left: 80px;
+    margin-top: 30px;
+}
+ul.group-products li {
+    width:100%;
+    text-align: center;
+    margin: 0 auto;
+}
+ul.group-products li img {
+    margin: 0 auto;
+    text-align: center;
+    display: inline;
 }
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
@@ -1028,6 +1038,7 @@ top: 0px;
  */
 /* komposisi */
 .pricing-table {
+    background: #e70413;
     max-width: 368px;
     margin: 0 auto;
     transition: all .3s ease;
@@ -1038,6 +1049,10 @@ top: 0px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+}
+.pricing-table .table {
+    width: 100%;
+    background: #ffffff;
 }
 .panel {
 	-webkit-border-radius: 10px;

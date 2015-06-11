@@ -115,7 +115,9 @@ class Content extends CI_Model {
         $details = array();
         
         $p=1;
+        $key = array();
         foreach ($rows->result_array() as $row) {
+            $row['field_id'] = $row['id'];
             $key = $this->db->query('SELECT * FROM `tbl_translations` WHERE `table` = \''.$tbl.'\' AND `lang_id` = '.$this->lang_data->id.' AND `field_id` = '.$row['id'].' LIMIT 1;')->result_array();
             $details[$p] = $key[0];
             $returns[$p] = $row;

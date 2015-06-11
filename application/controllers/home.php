@@ -21,8 +21,8 @@ class Home extends Public_Controller {
         // Load Product MOdels
         $this->load->model('product/ProductCategories');
 		$this->load->model('product/Products');
-		
-		
+        $this->load->model('product/ProductImages');
+				
 		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));
 		
 		//print_r($page_menus);
@@ -55,10 +55,16 @@ class Home extends Public_Controller {
         $product_category = $this->Content->find('product_categories',array('status'=>'publish','color !='=>''),array('added' => 'ASC'),4);
         
         $temp = array();
+        
+        //print_r($product_category);
+        
+        $b = 1;
         foreach ($product_category as $category) {
-            $category['products'] = $this->Content->find('products',array('category_id'=>$category['id'],'in_front'=>'no','media !='=>''),array('added'=>'ASC','in_front'=>'DESC'),12);
-            $category['in_front'] = $this->Content->find('products',array('category_id'=>$category['id'],'in_front'=>'yes','media !='=>''),'',1);
-            $temp[$category['id']] = $category;
+            //print_r($category);
+            $category['products']  = $this->Content->find('products',array('category_id'=>$category['field_id'],'in_front'=>'no','media !='=>''),'',14);
+            $category['front_img'] = $this->Content->find('products',array('category_id'=>$category['field_id'],'in_front'=>'yes','media !='=>''),'',1);
+            $temp[$b] = $category;
+            $b++;
         }
         $_product_category = $temp;
         

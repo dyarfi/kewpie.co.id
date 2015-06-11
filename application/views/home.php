@@ -1,4 +1,8 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
+
+// print_r($product_category);
+
+?>
     <div class="kewpie-main-body bg-home"> <!-- for changing background purpose -->
 		<div class="kewpie-main-body bg-home-bottom"> <!-- for changing background purpose -->
 		  <div class="container">
@@ -38,7 +42,7 @@
                                     $m++;
                                     }
                                 ?>
-                                <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$category['in_front'][1]['media']);?>" alt=""></div>
+                                <div class="mask"><img class="" width="88px" src="<?php echo base_url('uploads/products/'.$category['front_img'][1]['media']);?>" alt=""></div>
                                 <div class="title-item-produk-h menu-item6" style="background: transparent url('<?php echo base_url();?>assets/public/img/items/tags-<?php echo $color;?>.png') top center no-repeat; padding-top: 0px;">
                                     <h4><?php echo character_limiter($category['subject'], 30,'');?></h4>
                                 </div>

@@ -9,6 +9,7 @@ class Front_Product extends Public_Controller {
 		$this->load->model('product/Products');
 		$this->load->model('product/ProductCategories');
         $this->load->model('product/ProductRecipes');
+        $this->load->model('product/ProductImages');
         			
 	}
     
@@ -21,13 +22,16 @@ class Front_Product extends Public_Controller {
         $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
         
         // Set products data
-        $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'DESC'));
-        $buffer = array();
-        foreach ($_products as $val) {
-            $val['recipes']      = $this->Content->find('product_recipes',array('product_id'=>$val['id'],'status'=>'publish'));
-            $buffer[]            = $val;
+        $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'ASC'));
+        // Set temporary array
+        $temp = array();
+        // Get product wit recommended recipes
+        foreach ($_products as $product => $val) {
+            $val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
+            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id'])),array('added'=>'DESC'));
+            $temp[] = $val;
         }
-        $products = $buffer;
+        $products = $temp;
         
 		// Set products data
 		$data['products']           = $products;
@@ -66,26 +70,27 @@ class Front_Product extends Public_Controller {
     
     public function category($detail='') {
 		
-         // Set main template
+        // Set main template
         $product_categories         = $this->Content->findIdByUrl('product_categories',$detail);
         $data['product_categories'] = $product_categories;
         
-       
         // Set product category data
         $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
         
         // Set main data products
-        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id),array('added'=>'ASC'));
-		
+        $_products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id,'status'=>'publish'),array('added'=>'DESC'));
+	
         // Set temporary array
         $temp = array();
-        // Get product wit recommended recipes
-        foreach ($products as $product => $val) {
+        
+        // Get product with recommended recipes
+        foreach ($_products as $product => $val) {
+            $val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
             $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['id'])),array('added'=>'DESC'));
             $temp[] = $val;
         }
         $products = $temp;
-        
+        //print_r($products);
         // Set data products
         $data['products']           = $products;
         

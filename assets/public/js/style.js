@@ -47,10 +47,10 @@ $(document).ready(function() {
     });
 
     /* carousel */
-    $('#Carousel').carousel({ interval: 5000 });
+    $('#Carousel').carousel({ interval: 5000, swipe: 30 /* percent-per-second, default is 50. Pass false to disable swipe */ });
     
     /* carousel */
-    $('#Carousel1').carousel({ interval: 5000 });
+    $('#Carousel1').carousel({ interval: 5000, swipe: 30 /* percent-per-second, default is 50. Pass false to disable swipe */ });
 	
     /* TOOLTIPS */
     $(function () { $('[data-toggle="tooltip"]').tooltip(); });

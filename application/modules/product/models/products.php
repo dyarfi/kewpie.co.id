@@ -83,6 +83,21 @@ class Products Extends CI_Model {
 			return $data;
 		}
 	}	
+    
+    public function getProductByCategoryId($options = null,$limit=''){
+	    if(!empty($options)){
+		$data = array();
+		$options = ($options) ? $options : array();
+		$Q = $this->db->get_where($this->table,$options,($limit) ? $limit : '2000');
+		if ($Q->num_rows() > 0){
+            foreach ($Q->result_object() as $row){
+                $data[] = $row;
+            }
+		}
+		$Q->free_result();
+		return $data;
+	    }
+	}	
 	
 	public function getProductByName($name = null){
 		if(!empty($name)){

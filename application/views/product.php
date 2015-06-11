@@ -2,9 +2,14 @@
 <div class="submenu"></div>
 <div class="container item-submenu">
 	<ul class="list-inline">
-		<?php foreach ($product_category as $category) { ?>
-		<li><a href="<?php echo base_url('read/product/category/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
-		<?php } ?>
+		<?php 
+        $i = 1;
+        $c = count($product_category);
+        foreach ($product_category as $category) { ?>
+		<li<?php echo ($i == $c) ? '' :' class="divider-img"';?>><a href="<?php echo base_url('read/product/category/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
+		<?php 
+        $i++;
+        } ?>
 	</ul>
 </div>    
 <div class="kewpie-main-body"> <!-- for changing background purpose -->
@@ -33,7 +38,19 @@
                             // Set recipes
                             $recipes = $this->Content->find('product_recipes',array('status'=>'publish','product_id'=>$product['id'])); ?>
                             <div class="item<?php echo ($n == 1) ? ' active':'';?>">
-                                <?php if ($product['media']) { ?><img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="<?php echo $product['subject'];?>"><?php } ?>
+                                <ul class="list-inline group-products">
+                                    <li>
+                                    <?php /*if ($product['media']) { ?>
+                                        <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="<?php echo $product_category[1]['subject'];?>">
+                                    <?php }*/ ?>
+                                    <?php if ($product['package'] && is_array($product['package'])) { 
+                                      foreach ($product['package'] as $package) { ?>
+                                        <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$package->file_name);?>" alt="<?php echo $product_category[1]['subject'];?>"/>
+                                      <?php 
+                                      }
+                                    }?>
+                                    </li>
+                                </ul>          
                                 <!--img class="title-food-service-img" src="<?php echo base_url();?>assets/public/img/title-food-service.png" alt="food service"-->
                                 <div class="info-service">
                                     <div class="col-xs-6 col-sm-6 col-md-6">

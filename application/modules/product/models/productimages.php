@@ -77,6 +77,21 @@ class ProductImages Extends CI_Model {
 		return $data;
 	    }
 	}	
+    
+    public function getImageByFieldId($field_id = null){
+	    if(!empty($field_id)){
+		$data = array();
+		$options = array('field_id' => $field_id);
+		$Q = $this->db->get_where($this->table,$options);
+		if ($Q->num_rows() > 0){
+            foreach ($Q->result_object() as $row){
+                $data[] = $row;
+            }
+		}
+		$Q->free_result();
+		return $data;
+	    }
+	}	
 	
 	public function getAllImage($admin=null){
 	    $data = array();

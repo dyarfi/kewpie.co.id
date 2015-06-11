@@ -2,9 +2,14 @@
 <div class="submenu"></div>
 <div class="container item-submenu">
 	<ul class="list-inline">
-		<?php foreach ($product_category as $category) { ?>
-		<li><a href="<?php echo base_url('read/product/category/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
-		<?php } ?>
+		<?php 
+        $i = 1;
+        $c = count($product_category);
+        foreach ($product_category as $category) { ?>
+		<li<?php echo ($i == $c) ? '' :' class="divider-img"';?>><a href="<?php echo base_url('read/product/category/'.$category['url']);?>"><?php echo $category['subject'];?></a></li>
+		<?php 
+        $i++;
+        } ?>
 	</ul>
 </div>  
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
@@ -12,7 +17,7 @@
         <div class="container"> <!-- content start -->            
                 <div class=''>
                     <div>
-                      <div class="carousel slide food-service-carousel" data-interval="false" data-ride="carousel" id="quote-carousel">
+                      <div class="carousel slide product-service-carousel" data-interval="false" data-ride="carousel" id="quote-carousel">
                         <!-- Bottom Carousel Indicators -->
                         <ol class="carousel-indicators">
                         <?php 
@@ -32,7 +37,22 @@
                           $i = 1;
                           foreach($products as $product) { ?>
                           <div class="item <?php echo ($i==1) ? 'active' :'';?>">
-                            <?php if ($product['media']) { ?><img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="items"><?php } ?>
+                            <ul class="list-inline group-products">
+                                <li>
+                                <?php /*if ($product['media']) { ?>
+                                    <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="<?php echo $product_category[1]['subject'];?>">
+                                <?php }*/ ?>
+                                <?php if (!empty($product['package'])) { 
+                                    foreach ($product['package'] as $package) { ?>
+                                      <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$package->file_name);?>" alt="<?php echo $product_category[1]['subject'];?>"/>
+                                    <?php 
+                                    } 
+                                  } else if ($product['media']){ ?>
+                                    <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="<?php echo $product_category[1]['subject'];?>">
+                                    <?php
+                                  }?>
+                                </li>
+                            </ul>          
                             <div class="food-service-head hidden"><h5><?php echo $product_category[1]['subject'];?></h5></div>
                             <div class="info-service">                                
                                 <div class="col-xs-6 col-sm-6 col-md-6">

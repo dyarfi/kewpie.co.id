@@ -294,6 +294,7 @@
 }
 
 #fancybox-title-float-wrap {
+        margin-top: -15px; 
 	border: none;
 	border-collapse: collapse;
 	width: auto;
