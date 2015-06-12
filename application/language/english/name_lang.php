@@ -19,6 +19,7 @@ $lang['serve'] = 'Serves';
 $lang['minute'] = 'Minute';
 $lang['suggested_recipe'] = 'Suggested Recipes';
 $lang['favorite_recipe'] = 'Favorite Recipe!';
+$lang['recipes'] = 'Recipes';
 $lang['how_to']	= 'How to Make';
 $lang['more'] = 'Read more';
 $lang['copyright'] = '2015. &copy; KEWPIE Indonesia . All Rights Reserved';

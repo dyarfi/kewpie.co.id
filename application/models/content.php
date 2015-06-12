@@ -187,15 +187,19 @@ class Content extends CI_Model {
 		$default_lang_id = $this->Languages->getDefault()->id;
 		$current_lang_id = $this->getDBLanguage()->id;
 		
+		
+		
+		$this->db->like($query,'both');	
+		
 		if ($current_lang_id !== $default_lang_id) {
 			
-			$this->db->where('table',$tbl);
+			$this->db->where('table', $tbl);
 			$this->db->where('lang_id',$current_lang_id);
 			
 			$tbl = 'tbl_translations';
 		}
 		
-		$this->db->or_like($query);	
+		//print_r($tbl);
 			
 		$query = $this->db->get($tbl);
 		

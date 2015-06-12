@@ -66,11 +66,11 @@ $(document).ready(function() {
 	//$('.carousel-inner').liveFilter('#livefilter-input', 'div.item', {
 		//filterChildSelector: 'a.text-handler'
 	//});
-	var options = {
-		valueNames: [ 'subject']
-	  };
+	//var options = {
+		//valueNames: [ 'subject']
+	  //};
 
-	var userList = new List('quote-carousel', options);
+	//var userList = new List('quote-carousel', options);
 	  
     // CONTACT Form
     $('#contact-form').bootstrapValidator({
@@ -205,18 +205,18 @@ $(document).ready(function() {
             .append(
                 TweenMax.fromTo($('.egg1'), 1.2, 
                 {css:{rotation:0, y:2840, x:-10}, immediateRender:true, ease:Quad.easeInQuart}, 
-                {css:{rotation:360, y:4080, x:700}, immediateRender:true, ease:Quad.easeInQuart})
+                {css:{rotation:360, y:3630, x:700}, immediateRender:true, ease:Quad.easeInQuart})
             ), .8 // scroll duration of tween 
         );
 
         controller.addTween('#scale-it3', (new TimelineLite())
+            //.append(
+                //TweenMax.from($('#scale-it3'), .45,{css:{opacity:0,y:-350},ease:Quad.easeIn},-200, false)
+			//)
             .append(
-                TweenMax.from($('#scale-it3'), .45,{css:{opacity:0,y:-100},ease:Quad.easeIn},-200, false)
-            )
-            .append(
-                TweenMax.fromTo($('.egg1'), 1.0, 
-                {css:{rotation:360, y:4080, x:700}, immediateRender:true, ease:Quad.easeInQuart}, 
-                {css:{rotation:0, y:4790, x:500}, immediateRender:true, ease:Quad.easeInQuart})
+                TweenMax.fromTo($('.egg1'), 0.8, 
+                {css:{rotation:360, y:3630, x:700}, immediateRender:true, ease:Quad.easeInQuart}, 
+                {css:{rotation:0, y:4382, x:500}, immediateRender:true, ease:Quad.easeInQuart})
             ), .8 // scroll duration of tween  
         );
 	

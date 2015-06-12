@@ -19,8 +19,8 @@ class Search extends Public_Controller {
 		$this->load->model('page/Pages');
         
         // Load Product MOdels
-        //$this->load->model('product/ProductCategories');
-		//$this->load->model('product/Products');
+        $this->load->model('product/ProductCategories');
+		$this->load->model('product/Products');
         //$this->load->model('product/ProductImages');
 				
 		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));
@@ -41,17 +41,25 @@ class Search extends Public_Controller {
 		
 		//$query  = $this->db->query($sql1);
 		//print_r($query->result_object());
-		print_r($search);
+		//print_r($search);
 		
-		$return[] = $this->Content->search('product_recipes',array('subject'=>$search,'text'=>$search));
+		//$return['products'] = $this->Content->search('products',array('subject'=>$search,'text'=>$search));
 		
+		$return['product_categories'] = $this->Content->search('product_categories',array('subject'=>$search,'text'=>$search));
 		
-		$return[] = $this->Content->search('products',array('subject'=>$search,'text'=>$search));
+		$return['product_recipes'] = $this->Content->search('product_recipes',array('subject'=>$search,'text'=>$search,'attribute'=>$search,'messages'=>$search));
 		
-		print_r($return);
+		$return['pages'] = $this->Content->search('pages',array('subject'=>$search,'text'=>$search));
+		
+		$return['page_menus'] = $this->Content->search('page_menus',array('subject'=>$search,'text'=>$search));
+		
+		$return['news'] = $this->Content->search('news',array('subject'=>$search,'text'=>$search));
 		
 		$data['results'] = $return;
 		
+		$data['search'] = $search;
+		
+		//print_r($data['results']);
 		/*
 		// Set content
 		//,synopsis,text,attribute,messages 

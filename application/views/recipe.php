@@ -35,23 +35,15 @@
                           <li><a href="#less_than">Tahu</a></li>
                         </ul-->
                     </div>
-                    <input type="hidden" name="search_param" value="all" id="search_param">         
-                    <!--input type="text" class="form-control search" name="x" placeholder="<?php echo $this->lang->line('search');?>..."-->
-					
-                    <input type="text" class="search" name="x" placeholder="<?php echo $this->lang->line('search');?>...">
-					<button class="sort" data-sort="name">
-    Sort by name
-  </button>
-                    <span class="input-group-btn">
-                        <!--<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
-					
-                    </span>
+                   <input type="text" class="form-control" name="x" placeholder="<?php echo $this->lang->line('search');?>...">
+					<!--<button class="sort" data-sort="name">Sort by name</button>-->
+                    <span class="input-group-btn"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </div>
             </div>
         </div>
         <div class="list-resep">
 			<div class="head-board-resep">
-				Aneka Resep
+				<?php echo $this->lang->line('recipes');?>
 			</div>
             <div class="cara-membuat2">
                 <div class="bg-board board2">						

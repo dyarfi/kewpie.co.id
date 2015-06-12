@@ -5,7 +5,10 @@
  */
 
 /* Account for fixed navbar */
-html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x:hidden;}
+html, body {
+  overflow-x:hidden 
+} 
+html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
 body{background:#fbf4e9; font-family:"Gotham-Book";}
 /*body,*/
 .navbar-fixed-top,
