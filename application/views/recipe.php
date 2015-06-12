@@ -4,11 +4,12 @@
     <div class="kewpie-main-body" style="background: transparent url('<?php echo base_url('uploads/recipes/'.$favorited[1]['media']);?>') no-repeat top center; padding-top:150px; position: relative; margin-top:-140px;background-size: 100% auto;"> <!-- for changing background purpose -->
         <div class="container"> <!-- content start -->
             <div class="bg-box-resep-fav">
-                <h2><?php echo $this->lang->line('favorite_recipe');?></h2>
-				<h4><?php echo $favorited[1]['subject'];?></h4>
-                <?php echo $favorited[1]['messages'];?>
-				
-                <a href="<?php echo base_url('read/recipe/'.$favorited[1]['url']);?>" title="<?php echo $favorited[1]['subject'];?>"><strong><?php echo $this->lang->line('more');?></strong></a>
+				<div class="fav-listresep-base">
+					<h2><?php echo $this->lang->line('favorite_recipe');?></h2>
+					<h4><?php echo $favorited[1]['subject'];?></h4>
+					<?php echo $favorited[1]['messages'];?>
+					<a href="<?php echo base_url('read/recipe/'.$favorited[1]['url']);?>" title="<?php echo $favorited[1]['subject'];?>"><strong><?php echo $this->lang->line('more');?></strong></a>
+				</div>
                 <?php if ($this->Products->getProduct( $favorited[1]['product_id'])->media) { ?>
                     <img class="sub-pasta sub-pasta-info-resep" width="50px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($favorited[1]['product_id'])->media);?>" alt="jenis resep">
                 <?php } ?>
