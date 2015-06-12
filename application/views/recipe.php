@@ -50,6 +50,9 @@
             </div>
         </div>
         <div class="list-resep">
+			<div class="head-board-resep">
+				Aneka Resep
+			</div>
             <div class="cara-membuat2">
                 <div class="bg-board board2">						
 

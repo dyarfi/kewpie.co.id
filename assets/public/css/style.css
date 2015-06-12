@@ -478,7 +478,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .title-item-produk-h { height:85px; }
 
 .img-produk-kami h3, .title-item-produk h4, .title-item-produk-h h4, .food-service-head h4,
-.title-cerita-kewpie h3, .food-service-head h5, .resep-title h4, .title-news h3 { font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
+.title-cerita-kewpie h3, .food-service-head h5, .resep-title h4, .title-news h3{ font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
 .title-item-produk-h h4 { width: 120px;  line-height: 0.80em; font-size: 1.34em; margin:12px 0 0 0; }
 .img-produk-kami, .title-cerita-kewpie, .food-service-head { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; padding: 32px 0 0 0; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);writing-mode: rl-bt;}
 .page-content { padding: 15px 25px;}
@@ -623,9 +623,25 @@ h2, h4{
     background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
     padding-top: 85px;
 }
+.head-board-resep{
+	background:transparent url(../img/bg-aneka-resep.png) center no-repeat;
+	height:159px;
+	width:370px;
+	position: absolute;
+	left: 50px;
+	top: -35px;
+	font-family: 'Leckerli_OneRegular';
+    margin: 0 auto;
+    color: #fff;
+	font-size: 36px;
+	padding:37px 0 0 0;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+	text-align: center; font-weight: normal;
+}
 .list-resep{
     background: transparent url(../img/head-cara-bikin3.png) bottom center no-repeat;
     padding-bottom:85px;
+	position: relative;
 }
 .bg-board{
     background: transparent url(../img/body-cara-bikin.png) top center repeat-y;
