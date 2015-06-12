@@ -37,7 +37,7 @@ class Home extends Public_Controller {
 		$data['home_product']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>2));
         
         // Set home product categories == 'food-services'
-		$data['home_food_service']  = $this->Content->find('product_categories',array('status'=>'publish','id'=>4));
+		$data['home_food_service']  = $this->Content->find('product_categories',array('status'=>'publish','url'=>'food-service'));
         
         // Set home product recipe favorite
 		$data['home_recipe_favorite']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('modified' => 'DESC'),2);
