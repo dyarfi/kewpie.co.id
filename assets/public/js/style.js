@@ -63,7 +63,15 @@ $(document).ready(function() {
 			'type'			: 'iframe'
 		});
 	}
-	
+	//$('.carousel-inner').liveFilter('#livefilter-input', 'div.item', {
+		//filterChildSelector: 'a.text-handler'
+	//});
+	var options = {
+		valueNames: [ 'subject']
+	  };
+
+	var userList = new List('quote-carousel', options);
+	  
     // CONTACT Form
     $('#contact-form').bootstrapValidator({
         // live: 'disabled',

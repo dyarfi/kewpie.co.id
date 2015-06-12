@@ -19,7 +19,7 @@ class Content extends CI_Model {
 		$this->load->helper('array');
 		
         // Set language model
-        //$this->load->model('Languages');
+        $this->load->model('language/Languages');
 		
         
 		// Get language default
@@ -61,11 +61,14 @@ class Content extends CI_Model {
 
 					if (in_array($operator, $operators)) {
 						$field		= '`'.$field.'`';
-
-						if ($operator == 'IN' && is_array($value))
+						
+						if($operator == 'LIKE')
+							$buffers[]	= $field.' '.$operator.' \'%'.$value.'%\'';
+						else if ($operator == 'IN' && is_array($value))
 							$buffers[]	= $field.' '.$operator.' (\''.implode('\', \'', $value).'\')';
 						else
 							$buffers[]	= $field.' '.$operator.' \''.$value.'\'';
+						
 					} else if (is_numeric($field)) {
 						$buffers[]	= $value;
 					} else {
@@ -73,6 +76,8 @@ class Content extends CI_Model {
 					}
 				}
 
+				//print_r($buffers);
+				
 				$where_cond	= implode(' AND ', $buffers);
 			}
 		}
@@ -166,10 +171,37 @@ class Content extends CI_Model {
 	public function getDBLanguage() {
 		
 		//$lang  = config_item('language');
-		$language = $this->Languages->getByUrl($this->language);
+		$language = $this->Languages->getByUrl($this->lang_prefix);
 		
 		return $language;
 	
+	}
+	
+	
+	
+	public function search($table='',$query=array()){
+		
+		/** Set table detail **/
+        $tbl = $this->db->dbprefix($table);
+		
+		$default_lang_id = $this->Languages->getDefault()->id;
+		$current_lang_id = $this->getDBLanguage()->id;
+		
+		if ($current_lang_id !== $default_lang_id) {
+			
+			$this->db->where('table',$tbl);
+			$this->db->where('lang_id',$current_lang_id);
+			
+			$tbl = 'tbl_translations';
+		}
+		
+		$this->db->or_like($query);	
+			
+		$query = $this->db->get($tbl);
+		
+		//return $this->db->last_query();
+		return $query->result();
+		
 	}
 	
 }

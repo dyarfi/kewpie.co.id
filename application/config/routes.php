@@ -86,6 +86,7 @@ $route['404_override']		 = '';
 
 $route['download/(:num)']	 = 'download';
 $route['language/(:any)']    = "language";
+$route['search']			 = 'search';
 
 $route['read/news/detail/(:any)']       = "front_news/detail/$1";
 $route['read/news']                     = "front_news";

@@ -13,7 +13,6 @@
           <!--a class="navbar-brand" href="#">
             <span>kewpie</span>
           </a-->
-		  
           <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/public/img/logo.png"/></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -33,7 +32,7 @@
             } 
             ?>
           </ul>
-            <form id="custom-search-form" class="form-search form-horizontal" action="<?php echo base_url();?>">
+            <form id="custom-search-form" class="form-search form-horizontal" action="<?php echo base_url('search');?>" method="POST">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon"><span class="fa fa-search fa-2x"></span></span>
                     <input name="search" type="text" class="form-control search" placeholder="" value="">

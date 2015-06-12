@@ -99,7 +99,8 @@
                             </p>
 							<?php } ?>
                             <div class="detail-left learn-detail pull-right">
-                              <div class="detail-right"><a href="">Learn How</a></div>
+                              <div class="detail-right"><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
+							  <?php echo $this->lang->line('learn_how');?></a></div>
                             </div>
                         </div>
                     <?php } else if ($l == 2) { ?>
@@ -113,7 +114,8 @@
 						</p>
 						<?php } ?>
                         <div class="detail-left learn-detail pull-right">
-                          <div class="detail-right"><a href="">Learn How</a></div>
+                          <div class="detail-right"><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
+							  <?php echo $this->lang->line('learn_how');?></a></div>
                         </div>
                       </div>
 					  <div class="display-sayuran" data-toggle="tooltip-s" data-placement="left" title="<?php //echo strip_tags($recipe['text']);?>">
