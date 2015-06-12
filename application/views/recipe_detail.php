@@ -101,7 +101,13 @@
             </div>
         </div>
         <div class="detail-bahan">
-            <div class="img-resep img-bahan"><img src="<?php echo base_url();?>assets/public/img/items/bahan.png" alt="limg resep"></div>
+            <div class="img-resep img-bahan">
+			 <?php if ($recipe['cover']) { ?>
+				<img src="<?php echo base_url('uploads/recipes/'.$recipe['cover']);?>" alt="<?php echo $recipe['subject'];?>">
+			<?php } else {?>	
+				<img src="<?php echo base_url();?>assets/public/img/items/bahan.png" alt="<?php echo $recipe['subject'];?>">
+			<?php } ?>		
+			</div>
             <div class="detail-info-resep detail-info-bahan">
                 <?php if ($recipe['attribute']) { ?>
                 <div class="col-xs-4 col-sm-4 col-md-4">

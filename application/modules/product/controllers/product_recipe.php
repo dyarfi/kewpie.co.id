@@ -53,7 +53,7 @@ class Product_Recipe extends Admin_Controller {
             $crud->display_as('video','Video (embed code):');
 			$crud->display_as('attribute','Tips');
             $crud->display_as('messages','Instructions');
-			$crud->display_as('cover','Instruction Cover');
+			$crud->display_as('cover','Ingredients Cover');
             $crud->display_as('text','Ingredients');
 			// Changes the default field type
             //$crud->field_type('video', 'text');
