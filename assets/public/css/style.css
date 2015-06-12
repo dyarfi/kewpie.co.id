@@ -578,6 +578,7 @@ h2, h4{
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
       box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     margin-right: 30px;
+	position: relative;
 }
 .img-bahan{width:196px;}
 .detail-info-resep, .detail-info-bahan{
@@ -761,6 +762,11 @@ ul.group-products li img {
 }
 .fav-listresep-base{
 	height:230px;
+}
+.play-button-resep{
+	position:absolute;
+	top:135px;
+	left:220px;
 }
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {

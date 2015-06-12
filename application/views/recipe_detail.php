@@ -20,7 +20,7 @@
 						preg_match('/src="([^"]+)"/', $recipe['video'], $match);
 						$url = $match[1];
 						//$url = preg_replace('/^https(?=:\/\/)/i','http',$url);
-						$return .= $recipe['video'] ? '<a href="'.$url.'" class="fancybox-video iframe" title="'.$recipe['subject'].'"><span class="fa fa-chevron-circle-right fa-3x"></span></a>' : '';		
+						$return .= $recipe['video'] ? '<a href="'.$url.'" class="fancybox-video iframe play-button-resep" title="'.$recipe['subject'].'"><img src="'.base_url().'assets/public/img/play.png" alt="play video"></a>' : '';		
 						echo $return;
 						?>
 					
@@ -30,16 +30,7 @@
             </div>
             <div class="detail-info-resep">
                 <h2><?php echo $recipe['subject'];?></h2>
-                <p><?php echo $recipe['synopsis'];?></p>				
-				<!-- AddThis Button BEGIN -->
-				<!--div class="addthis_default_style addthis_32x32_style"-->
-					<!--a class="addthis_button_compact">Share</a!-->
-					<!--a class="addthis_button_email"></a-->
-					<!--a class="addthis_button_print"></a-->
-					<!--a class="addthis_button_facebook"></a>
-					<a class="addthis_button_twitter"></a>
-					<a class="addthis_button_pinterest_share"></a>
-				</div-->
+                <p><?php echo $recipe['synopsis'];?></p>
 				 
                 <ul class="share list-inline addthis_default_style addthis_32x32_style">
                     <li>
