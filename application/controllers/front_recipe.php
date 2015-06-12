@@ -17,7 +17,7 @@ class Front_Recipe extends Public_Controller {
     public function index() {
         
         // Set data from menu category
-        $data['favorited']   = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('id'=>'DESC'),1);
+        $data['favorited']   = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('modified'=>'ASC'),1);
         
         // Set data from menu category
         $data['recipes']    = $this->Content->find('product_recipes',array('status'=>'publish'));

@@ -5,8 +5,9 @@
         <div class="container"> <!-- content start -->
             <div class="bg-box-resep-fav">
                 <h2><?php echo $this->lang->line('favorite_recipe');?></h2>
+				<h4><?php echo $favorited[1]['subject'];?></h4>
                 <?php echo $favorited[1]['messages'];?>
-                <a href="#"><strong><?php echo $this->lang->line('more');?></strong></a>
+                <a href="<?php echo base_url('read/recipe/'.$favorited[1]['url']);?>" title="<?php echo $favorited[1]['subject'];?>"><strong><?php echo $this->lang->line('more');?></strong></a>
                 <?php if ($this->Products->getProduct( $favorited[1]['product_id'])->media) { ?>
                     <img class="sub-pasta sub-pasta-info-resep" width="50px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($favorited[1]['product_id'])->media);?>" alt="jenis resep">
                 <?php } ?>
@@ -66,7 +67,7 @@
                                                              <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
                                                                 <img class="sub-pasta" width="36px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="<?php echo $recipe['subject'];?>">
                                                              <?php } ?>
-                                                             <p class="text-left"><?php echo character_limiter(strip_tags($recipe['messages']),78);?></p>
+                                                             <p class="text-left"><?php echo character_limiter(strip_tags($recipe['synopsis']),78);?></p>
                                                          </div>
                                                      </div>
                                                      <div class="tab-info">

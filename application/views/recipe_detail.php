@@ -134,13 +134,17 @@
 		 $color    = $this->ProductCategories->getCategory($product)->color; ?>
         <div class="col-xs-4 col-sm-4 col-md-4 box-holder">
             <div class="thumbnail">
-                <?php if ($recipe['media']) { ?><img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt=""><?php } ?>
+                <?php if ($recipe['media']) { ?>
+				<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>">
+					<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="">
+				</a>	
+				<?php } ?>
 				<div class="detail-related-thumbnail">
                     <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>"><?php echo $recipe['subject'];?></a></h4>
 					<?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
 					<img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
 					<?php } ?>
-					<p><?php echo word_limiter(strip_tags($recipe['messages']),9);?></p>
+					<p><?php echo word_limiter(strip_tags($recipe['synopsis']),9);?></p>
 				</div>
             </div>
             <div class="tab-info">

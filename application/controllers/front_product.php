@@ -19,7 +19,7 @@ class Front_Product extends Public_Controller {
         //$data['recipes']            = $this->Content->find('product_recipes',array('status'=>'publish'));
         
         // Set product category data
-        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
+        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'ASC'));
         
         // Set products data
         $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'ASC'));
@@ -75,7 +75,7 @@ class Front_Product extends Public_Controller {
         $data['product_categories'] = $product_categories;
         
         // Set product category data
-        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'DESC'));
+        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'ASC'));
         
         // Set main data products
         $_products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id,'status'=>'publish'),array('added'=>'DESC'));

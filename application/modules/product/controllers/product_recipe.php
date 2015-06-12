@@ -180,6 +180,7 @@ class Product_Recipe extends Admin_Controller {
 		// Set callback before database set
 		$crud->callback_before_insert(array($this,'_callback_url'));
 		$crud->callback_before_update(array($this,'_callback_url'));
+		$crud->callback_before_update(array($this,'_callback_modified'));
         
 		// Sets the required fields of add and edit fields
 		$crud->required_fields('subject','text','status'); 
@@ -268,6 +269,11 @@ class Product_Recipe extends Admin_Controller {
         $value['url'] = url_title($value['subject'],'-',true);
         // Return update database
         return $value; 
+    }
+	
+	public function _callback_modified($value, $primary_key) {
+        // Return update database
+        return time(); 
     }
 	
 	public function _callback_translate ($value, $row) {

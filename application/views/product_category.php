@@ -84,7 +84,7 @@
                                         <div class="caption caption-sub-pasta">
                                             <h4><?php echo $recipe['subject'];?></h4>
                                             <img class="sub-pasta" src="<?php echo base_url();?>assets/public/img/items/sub-cat-pasta.jpg" alt="item pasta">
-                                            <?php echo strip_tags($recipe['text']);?>
+                                            <?php echo strip_tags($recipe['synopsis']);?>
                                         </div>
                                     </div>
                                    <div class="tab-info">

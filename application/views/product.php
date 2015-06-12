@@ -64,9 +64,9 @@
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="col-md-12" style="margin-top: 20px;">
                                             <div class="pricing-table">
-												<div class="panel panel-primary" style="border: none;">
+										
 													<?php echo $product['attribute']; ?>
-												</div>
+									
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                                                     <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
                                                     <img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
                                                     <?php } ?>
-                                                    <p><?php echo word_limiter(strip_tags($recipe['messages']),9);?></p>
+                                                    <p><?php echo word_limiter(strip_tags($recipe['synopsis']),9);?></p>
                                                 </div>
                                             </div>
                                             <div class="tab-info">

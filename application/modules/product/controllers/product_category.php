@@ -37,7 +37,7 @@ class Product_category extends Admin_Controller {
 	    // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
-            $crud->set_table('tbl_product_categories');
+            $crud->set_table('tbl_product_categories')->order_by('added','ASC');
             // Set CRUD subject
             $crud->set_subject('Product Category');                            
             // The fields that user will see on add and edit form
