@@ -16,6 +16,16 @@
                         <img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="<?php echo $recipe['subject'];?>">
                     </a>
                     <?php } ?>
+					<?php if ($recipe['video']) { 
+						preg_match('/src="([^"]+)"/', $recipe['video'], $match);
+						$url = $match[1];
+						//$url = preg_replace('/^https(?=:\/\/)/i','http',$url);
+						$return .= $recipe['video'] ? '<a href="'.$url.'" class="fancybox-video iframe" title="'.$recipe['subject'].'"><span class="fa fa-chevron-circle-right fa-3x"></span></a>' : '';		
+						echo $return;
+						?>
+					
+					<?php } ?>
+				
                 </div>    
             </div>
             <div class="detail-info-resep">
@@ -111,19 +121,19 @@
             <div class="detail-info-resep detail-info-bahan">
                 <?php if ($recipe['attribute']) { ?>
                 <div class="col-xs-4 col-sm-4 col-md-4">
-                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="limg resep"> Kewpie Tip</h4>
+                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="<?php echo $recipe['subject'];?>"> Kewpie Tip</h4>
                     <?php echo $recipe['attribute'];?>
                 </div>
                 <?php } ?>
                 <div class="col-xs-4 col-sm-4 col-md-4">
-                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="limg resep"> <?php echo $this->lang->line('ingredient');?></h4>
+                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="<?php echo $recipe['subject'];?>"> <?php echo $this->lang->line('ingredient');?></h4>
                     <?php echo $recipe['text'];?>
                 </div>
             </div>
         </div>
         <div class="cara-membuat">
 			<div class="black-crown">
-				<img src="<?php echo base_url();?>assets/public/img/black-crown.png" alt="limg resep"> <?php echo $this->lang->line('how_to');?>
+				<img src="<?php echo base_url();?>assets/public/img/black-crown.png" alt="<?php echo $recipe['subject'];?>"> <?php echo $this->lang->line('how_to');?>
 			</div>
             <div class="bg-board">
                 <?php echo $recipe['messages'];?>
@@ -134,7 +144,7 @@
 <div class="container"> <!-- content start -->		
     <?php if (!empty($recipes)) { ?>
     <div class="related-resep">
-        <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> <?php echo $this->lang->line('suggested_recipe');?></div></div>
+        <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="<?php echo $recipe['subject'];?>"> <?php echo $this->lang->line('suggested_recipe');?></div></div>
         <?php foreach($recipes as $recipe) { 
 		 $product  = $this->Products->getProduct($recipe['product_id'])->category_id;
 		 $color    = $this->ProductCategories->getCategory($product)->color; ?>
@@ -142,7 +152,7 @@
             <div class="thumbnail">
                 <?php if ($recipe['media']) { ?>
 				<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>">
-					<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="">
+					<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="<?php echo $recipe['subject'];?>">
 				</a>	
 				<?php } ?>
 				<div class="detail-related-thumbnail">

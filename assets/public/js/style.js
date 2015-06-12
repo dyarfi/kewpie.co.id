@@ -1,6 +1,6 @@
 /* slide produk */
 $(document).ready(function() {
-    
+	
     /* slide menu */
 
     var active1 = false;
@@ -55,9 +55,15 @@ $(document).ready(function() {
     /* TOOLTIPS */
     $(function () { $('[data-toggle="tooltip"]').tooltip(); });
 	
-    /* fancybox */
+	/* fancybox */
     $('.fancybox').fancybox();
-    
+    	
+	if ($('.fancybox-video').size() > 0) {
+		$('.fancybox-video').fancybox({		
+			'type'			: 'iframe'
+		});
+	}
+	
     // CONTACT Form
     $('#contact-form').bootstrapValidator({
         // live: 'disabled',
