@@ -59,16 +59,18 @@ $(document).ready(function() {
     $('.fancybox').fancybox();
     	
 	if ($('.fancybox-video').size() > 0) {
-		$('.fancybox-video').fancybox({		
-			'type'			: 'iframe'
-		});
+            $('.fancybox-video').fancybox({		
+                    'type'			: 'iframe'
+            });
 	}
+        
 	//$('.carousel-inner').liveFilter('#livefilter-input', 'div.item', {
 		//filterChildSelector: 'a.text-handler'
 	//});
+        //
 	//var options = {
-		//valueNames: [ 'subject']
-	  //};
+            //valueNames: [ 'subject']
+        //};
 
 	//var userList = new List('quote-carousel', options);
 	  
@@ -116,7 +118,10 @@ $(document).ready(function() {
         TweenMax.from('.hello', 1, {scale:0.5, opacity:0, delay:0.06, ease:Elastic.easeOut}, 0.1);
         TweenMax.fromTo($('.egg1'), 1, 
 	        {css:{rotation:0, scale:0, y:-353, x:840}, immediateRender:true, ease:Quad.easeInOutQuart}, 
-	        {css:{rotation:360, scale:1, y:-353, x:840}, immediateRender:true, ease:Quad.easeInOutQuart})
+	        {css:{rotation:360, scale:1, y:-353, x:840}, immediateRender:true, ease:Quad.easeInOutQuart});
+        
+        //TweenMax.fromTo( $('.egg1'), 1.5, {css:{rotation:10}, immediateRender:true, ease:Quad.easeInOut}, {css:{rotation:0}, ease:Elastic.easeOut, repeat:-1},9000)
+        
         TweenMax.from('.scroll-me', 1, {rotation:320, y:360,x:-240,'z-index':0, ease:Elastic.easeOut}, 0.1);
         TweenMax.fromTo( $('.scroll-me'), 1.5, {css:{y:-3}, immediateRender:true, ease:Quad.easeInOut}, {css:{y:0}, ease:Quad.easeInOut, repeat:-1});
         
@@ -141,6 +146,8 @@ $(document).ready(function() {
 	      TweenMax.fromTo($('.egg1'), 1, 
 	        {css:{rotation:0, y:-353, x:840}, immediateRender:true, ease:Quad.easeInQuart}, 
 	        {css:{rotation:360, y:-100, x:840}, immediateRender:true, ease:Quad.easeInQuart})
+            ).append(
+                TweenMax.fromTo( $('.egg1'), 1.8, {css:{rotation:10}, immediateRender:true, ease:Quad.easeInOut}, {css:{rotation:0}, ease:Elastic.easeOut, repeat:-1})
             ), 1 // scroll duration of tween
         );
 
@@ -217,6 +224,8 @@ $(document).ready(function() {
                 TweenMax.fromTo($('.egg1'), 0.8, 
                 {css:{rotation:360, y:3630, x:700}, immediateRender:true, ease:Quad.easeInQuart}, 
                 {css:{rotation:0, y:4382, x:500}, immediateRender:true, ease:Quad.easeInQuart})
+            ).append(
+                TweenMax.fromTo( $('.egg1'), 1.8, {css:{rotation:10}, immediateRender:true, ease:Quad.easeInOut}, {css:{rotation:0}, ease:Elastic.easeOut, repeat:-1})
             ), .8 // scroll duration of tween  
         );
 	

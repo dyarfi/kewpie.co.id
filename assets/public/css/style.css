@@ -73,12 +73,12 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
 }
 
 @media (max-width: 1280px) {
-		.container {
-			/*width: 1246px;*/
-			/*overflow: hidden;*/
-			/*max-width: none !important;*/
-			/*padding-bottom:50px;*/
-		}
+    .container {
+            /*width: 1246px;*/
+            /*overflow: hidden;*/
+            /*max-width: none !important;*/
+            /*padding-bottom:50px;*/
+    }
 }
 /* .container { overflow: hidden; } */
 /* .container-fluid { overflow: hidden; } */
@@ -325,14 +325,14 @@ a:hover{color: #e70413; text-decoration: blink;}
 .navbar #navbar ul li { width:18.8%; top:10px; }
 .navbar #navbar li.active a { color: #ff0000; }
 .navbar #navbar a {
-	/*line-height:0.8em !important;*/
-        line-height: 1.0em !important;
-	color:#684b31;
-	font-weight: bold;
-	text-align:center;
-	height:50px;
-	margin-top:0px;
-	padding-top:8px
+    /*line-height:0.8em !important;*/
+    line-height: 1.0em !important;
+    color:#684b31;
+    font-weight: bold;
+    text-align:center;
+    height:50px;
+    margin-top:0px;
+    padding-top:8px
 }
 #navbar ul li.divider-img, ul li.divider-img {
     /*background:url('../img/divider-1px.jpg') right center no-repeat;*/
@@ -807,7 +807,7 @@ ul.group-products li img {
 .detail-right{
   background: transparent url('../img/detail-right.png') right center no-repeat;
   height: 54px;
-  padding-top: 11px;
+  padding-top: 14px;
 }
 .detail-left a { padding-top: 4px; } 
 .learn-detail{width: 200px;}
@@ -1078,19 +1078,19 @@ top: 0px;
     -o-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -webkit-transition: all .3s ease;
-	padding: 0;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+    padding: 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 .pricing-table .table {
     width: 100%;
     background: #ffffff;
 }
 .panel {
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 .pricing-table:hover {
     box-shadow: 0px 0px 30px rgba(0,0,0, .2);
@@ -1171,7 +1171,7 @@ top: 0px;
 }
 .panel-footer-landing {
     border: solid 2px #e70413 !important; 
-	background:#fff;
+    background:#fff;
     border-bottom-left-radius: 10px !important; 
     border-bottom-right-radius: 10px !important; 
     border-top: none !important;

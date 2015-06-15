@@ -158,7 +158,7 @@
 			  <div class="paddingtop10">
 				<img class="fork-spoon" src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork spoon">
 				<div class="detail-left menu-lain">
-				  <div class="detail-right"><a href="<?php echo base_url('read/recipe');?>">Lihat Menu Lainnya</a></div>
+				  <div class="detail-right"><a href="<?php echo base_url('read/recipe');?>"><?php echo $this->lang->line('other_recipes');?></a></div>
 				</div>
 			  </div>
 			</div>

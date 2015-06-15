@@ -64,7 +64,7 @@
 	<script src="<?=base_url();?>assets/public/js/imagesloaded.pkgd.min.js" type="text/javascript"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/public/js/style.js" type="text/javascript"></script>
-	<script src="<?php echo base_url();?>assets/public/js/custom.js" type="text/javascript"></script>
+	<!-- script src="<?php echo base_url();?>assets/public/js/custom.js" type="text/javascript"></script-->
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="<?php echo base_url();?>assets/public/js/ie10-viewport-bug-workaround.js"></script>
 	
