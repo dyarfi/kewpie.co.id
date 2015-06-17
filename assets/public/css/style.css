@@ -792,6 +792,10 @@ ul.group-products li img {
 	top:135px;
 	left:220px;
 }
+.item-submenu > .list-inline > li{
+	padding-left: 35px;
+	padding-right: 35px;
+}
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
     display: block;

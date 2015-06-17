@@ -2,11 +2,14 @@
 <div class="submenu"></div>
 <div class="container item-submenu">
 	<ul class="list-inline">
-	<?php foreach ($pages as $page) { ?>
-		<li>
-			<a href="<?php echo base_url('read/page/detail/'.$page['url']);?>"><?php echo $page['subject'];?></a>
-		</li>    
-	<?php } ?>
+	<?php 
+        $i = 1;
+        $c = count($pages);
+        foreach ($pages as $page) { ?>
+		<li<?php echo ($i == $c) ? '' :' class="divider-img"';?>><a href="<?php echo base_url('read/page/detail/'.$page['url']);?>"><?php echo $page['subject'];?></a></li>
+		<?php 
+        $i++;
+        } ?>
 	</ul>
 </div>
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
