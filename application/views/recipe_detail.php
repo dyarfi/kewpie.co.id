@@ -83,7 +83,7 @@
                                                <div class="col-xs-3 col-sm-3 col-md-3">
                                                    <a href="<?php echo base_url('uploads/recipes/'.$image->file_name);?>" class="fancybox" rel="image_group"><img class="img-responsive" src="<?php echo base_url('uploads/recipes/thumb__'.$image->file_name);?>" alt="<?php echo $image->file_name;?>"></a>                                                           
                                               </div>
-                                              <?php if ($b % 4 == 0) {	?>
+                                              <?php if ($b % 4 == 0 && $b != $n) {	?>
                                               </div><!--.row-->
                                           </div><!--.item-->
                                     <?php } if ($b == $n) { ?>
@@ -104,7 +104,7 @@
         <div class="detail-bahan">
             <div class="img-resep img-bahan">
 			 <?php if ($recipe['cover']) { ?>
-				<img src="<?php echo base_url('uploads/recipes/'.$recipe['cover']);?>" alt="<?php echo $recipe['subject'];?>">
+				<img height="259px" src="<?php echo base_url('uploads/recipes/'.$recipe['cover']);?>" alt="<?php echo $recipe['subject'];?>">
 			<?php } else {?>	
 				<img src="<?php echo base_url();?>assets/public/img/items/bahan.png" alt="<?php echo $recipe['subject'];?>">
 			<?php } ?>		

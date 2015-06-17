@@ -21,10 +21,10 @@ class Product_Gallery extends Admin_Controller {
 		
             $image_crud->set_primary_key_field('id');
             $image_crud->set_url_field('file_name');
-            $image_crud->set_table('tbl_product_images');
+            $image_crud->set_table('tbl_product_recipe_images');
             $image_crud->set_relation_field('field_id')
             ->set_ordering_field('priority')
-            ->set_image_path('uploads/products');
+            ->set_image_path('uploads/recipes');
             
             $this->load($image_crud);
         

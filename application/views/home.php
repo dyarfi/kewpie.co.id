@@ -246,7 +246,7 @@
                                                </div>
                                              </div>
                                         </div>
-                                        <?php if ($b % 3 == 0) {	?>
+                                        <?php if ($b % 3 == 0 && $b != $n) {	?>
                                         </div><!--.row-->
                                     </div><!--.item-->
                               <?php } if ($b == $n) { ?>

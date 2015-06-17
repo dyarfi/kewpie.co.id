@@ -982,6 +982,9 @@ h3.p1 { font-size: 1.5em; text-align: center; padding-top: 15px; margin-bottom: 
     margin-top: 20px;
     margin-bottom: 0px;
 }
+#Carousel1 {
+	margin: 0;
+}
 .carousel {
   margin-bottom: 0;
   padding: 0 40px 30px 10px;
