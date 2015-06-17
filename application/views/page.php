@@ -1,4 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if(!empty($pages)) { ?>
 <div class="submenu"></div>
 <div class="container item-submenu">
 	<ul class="list-inline">
@@ -12,6 +13,7 @@
         } ?>
 	</ul>
 </div>
+<?php } ?>
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
         <div class="container"> <!-- content start -->	

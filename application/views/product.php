@@ -40,16 +40,19 @@
                             <div class="item<?php echo ($n == 1) ? ' active':'';?>">
                                 <ul class="list-inline group-products">
                                     <li>
-                                    <?php /*if ($product['media']) { ?>
-                                        <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="<?php echo $product_category[1]['subject'];?>">
-                                    <?php }*/ ?>
-                                    <?php if ($product['package'] && is_array($product['package'])) { 
-                                      foreach ($product['package'] as $package) { ?>
-                                        <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$package->file_name);?>" alt="<?php echo $product_category[1]['subject'];?>"/>
-                                      <?php 
-                                      }
-                                    }?>
-                                    </li>
+									<?php /*if ($product['media']) { ?>
+										<img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="<?php echo $product_category[1]['subject'];?>">
+									<?php }*/ ?>
+									<?php if (!empty($product['package'])) { 
+										foreach ($product['package'] as $package) { ?>
+										  <img class="img-ctr" src="<?php echo base_url('uploads/products/'.$package->file_name);?>" alt="<?php echo $product_category[1]['subject'];?>"/>
+										<?php 
+										} 
+									  } else if ($product['media']){ ?>
+										<img class="img-ctr" src="<?php echo base_url('uploads/products/'.$product['media']);?>" alt="<?php echo $product_category[1]['subject'];?>">
+										<?php
+									  }?>
+									</li>
                                 </ul>          
                                 <!--img class="title-food-service-img" src="<?php echo base_url();?>assets/public/img/title-food-service.png" alt="food service"-->
                                 <div class="info-service">
@@ -79,9 +82,13 @@
                                         <?php foreach($product['recipes'] as $recipe) { ?>
                                         <div class="col-xs-4 col-sm-4 col-md-4 box-holder">
                                             <div class="thumbnail">
-                                                <?php if ($recipe['media']) { ?><img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt=""><?php } ?>
+                                                <?php if ($recipe['media']) { ?>
+													<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
+														<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="">
+													</a>	
+												<?php } ?>
                                                 <div class="detail-related-thumbnail">
-                                                    <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>"><?php echo $recipe['subject'];?></a></h4>
+                                                    <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>"><?php echo $recipe['subject'];?></a></h4>
                                                     <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
                                                     <img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
                                                     <?php } ?>

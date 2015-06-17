@@ -28,7 +28,7 @@ class Front_Product extends Public_Controller {
         // Get product wit recommended recipes
         foreach ($_products as $product => $val) {
             $val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
-            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id'])),array('added'=>'DESC'));
+            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('added'=>'DESC'));
             $temp[] = $val;
         }
         $products = $temp;
@@ -86,7 +86,7 @@ class Front_Product extends Public_Controller {
         // Get product with recommended recipes
         foreach ($_products as $product => $val) {
             $val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
-            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['id'])),array('added'=>'DESC'));
+            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('added'=>'DESC'));
             $temp[] = $val;
         }
         $products = $temp;

@@ -12,8 +12,8 @@
         } ?>
 	</ul>
 </div>  
-<div class="kewpie-main-body"> <!-- for cahnging background purpose -->
-    <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
+<div class="kewpie-main-body"> <!-- for changing background purpose -->
+    <div class="kewpie-main-body"> <!-- for changing background purpose -->
         <div class="container"> <!-- content start -->            
                 <div class=''>
                     <div>
@@ -70,19 +70,22 @@
                             
                             <div class="clear"></div>
                             
-                            <?php if (!empty($product['recipes'])) { ?>
+                            <?php if (!empty($product['recipes'])) {?>
                             <div class="related-resep">
-                                <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> Anjuran Resep Yang Sesuai</div></div>
+                                <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> <?php echo $this->lang->line('suggested_recipe');?></div></div>
                                 <?php foreach($product['recipes'] as $recipe) { 
 									$product  = $this->Products->getProduct($recipe['product_id'])->category_id;
 									$color    = $this->ProductCategories->getCategory($product)->color;?>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="thumbnail">
 										<?php if ($recipe['media']) { ?>
+										<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
 											<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt=""/>
+										</a>
 										<?php } ?>
                                         <div class="caption caption-sub-pasta">
-                                            <h4><?php echo $recipe['subject'];?></h4>
+                                            <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
+												<?php echo $recipe['subject'];?></a></h4>
                                             <img class="sub-pasta" src="<?php echo base_url();?>assets/public/img/items/sub-cat-pasta.jpg" alt="item pasta">
                                             <?php echo strip_tags($recipe['synopsis']);?>
                                         </div>
