@@ -131,5 +131,5 @@ class Home extends Public_Controller {
 	}
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file home.php */
+/* Location: ./application/controllers/home.php */

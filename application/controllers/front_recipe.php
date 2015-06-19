@@ -56,7 +56,7 @@ class Front_Recipe extends Public_Controller {
         $data['recipe']  = $_field[1];
         
         // Set data Similiar Recipes
-        $data['recipes'] = $this->Content->find('product_recipes',array('id !='=>$field->id,'product_id'=>$_field[1]['product_id']));
+        $data['recipes'] = $this->Content->find('product_recipes',array('id !='=>$field->field_id,'product_id IN'=>array($_field[1]['product_id'])),array('subject'=>'ASC','added'=>'DESC'),6);
        
         // Set data images from recipe
         $data['images'] = $this->ProductRecipeImages->getAllImageByRecipe($field->field_id);
@@ -73,5 +73,5 @@ class Front_Recipe extends Public_Controller {
 	}
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file front_recipe.php */
+/* Location: ./application/controllers/front_recipe.php */

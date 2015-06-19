@@ -127,5 +127,5 @@ class Front_Product extends Public_Controller {
 	}
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file front_product.php */
+/* Location: ./application/controllers/front_product.php */

@@ -72,5 +72,5 @@ class Front_Page extends Public_Controller {
 	}
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file front_page.php */
+/* Location: ./application/controllers/front_page.php */

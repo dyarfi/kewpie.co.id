@@ -89,5 +89,5 @@ class Front_News extends Public_Controller {
 	}
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file front_news.php */
+/* Location: ./application/controllers/front_news.php */

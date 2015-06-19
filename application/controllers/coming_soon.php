@@ -19,5 +19,5 @@ class Coming_Soon extends Ci_Controller {
 
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file coming_soon.php */
+/* Location: ./application/controllers/coming_soon.php */
