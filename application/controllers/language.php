@@ -36,7 +36,13 @@ class Language extends CI_Controller {
 			// print_r(config_item('language'));
 			
 			// Redirect to previous page
-			redirect($this->agent->referrer());
+			if ($this->input->get('rel')) {
+				// Redirect to where the page is requested
+				redirect($this->input->get('rel'));
+			} else {
+				// Redirect to referrer
+				redirect($this->agent->referrer());
+			}
 		}
 		
 	}

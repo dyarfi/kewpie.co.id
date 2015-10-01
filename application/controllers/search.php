@@ -92,5 +92,5 @@ class Search extends Public_Controller {
 	
 }
 
-/* End of file search.php */
-/* Location: ./application/controllers/search.php */
+/* End of file user.php */
+/* Location: ./application/controllers/user.php */

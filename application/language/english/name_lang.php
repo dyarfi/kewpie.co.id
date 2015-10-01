@@ -18,11 +18,12 @@ $lang['main_ingredient'] = 'Main Ingredients';
 $lang['serve'] = 'Serves';
 $lang['minute'] = 'Minute';
 $lang['suggested_recipe'] = 'Suggested Recipes';
-$lang['favorite_recipe'] = 'Favorite Recipe!';
+$lang['favorite_recipe'] = 'Favorite recipe!';
 $lang['recipes'] = 'Recipes';
 $lang['other_recipes'] = 'See Other Recipes';
 $lang['how_to']	= 'How to Make';
 $lang['more'] = 'Read more';
+$lang['meta_description'] = 'Offering the flavors that are popular in Indonesia Eating Culture';
 $lang['copyright'] = '2015. &copy; KEWPIE Indonesia . All Rights Reserved';
 
 /* End of file label_name.php */

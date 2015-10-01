@@ -14,22 +14,19 @@
 	</ul>
 </div>
 <?php } ?>
-<div class="kewpie-main-body"> <!-- for cahnging background purpose -->
-    <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
-        <div class="container"> <!-- content start -->	
-                
-                 
-            
-                <div class="container-fluid content-inside">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                       <?php if ($category[1]['media']) { ?><img src="<?php echo base_url('uploads/pagemenus/'.$category[1]['media']);?>"/><?php } ?>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <?php echo $category[1]['text'];?>
-                    </div>
-                </div>    
-                <div class="clear"></div>
-
-        </div> <!-- content end -->
+<div class="kewpie-main-body">
+    <div class="kewpie-main-body">
+        <div class="container">
+			<div class="container-fluid content-inside">
+				<div class="col-xs-6 col-sm-6 col-md-6">
+				   <?php if ($category[1]['media']) { ?><img src="<?php echo base_url('uploads/pagemenus/'.$category[1]['media']);?>"/><?php } ?>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<?php echo $category[1]['text'];?>
+				</div>
+			</div>
+			<br/><br/><br/><br/>			
+			<div class="clear"></div>
+        </div>
     </div>
 </div>

@@ -45,7 +45,7 @@ class Product extends Admin_Controller {
             // Set columns
             $crud->columns('subject','category_id','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','category_id','text','attribute','messages','in_front','media','status','added','modified');
+			$crud->fields('subject','url','category_id','text','attribute','messages','in_front','order','media','status','added','modified');
             // Set column display 
             $crud->display_as('gallery','Package');
             $crud->display_as('media','Image');
@@ -58,7 +58,7 @@ class Product extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','category_id','text','gallery','in_front','media','status','added','modified','translate');			
+				$crud->columns('subject','category_id','text','gallery','in_front','media','order','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}

@@ -28,10 +28,8 @@
                           $c++;
                         } ?>
                         </ol>
-
                         <!-- Carousel Slides / Quotes -->
                         <div class="carousel-inner">
-                            
                           <?php 
                           if ($products) {
                           $i = 1;
@@ -55,10 +53,14 @@
                             </ul>          
                             <div class="food-service-head hidden"><h5><?php echo $product_category[1]['subject'];?></h5></div>
                             <div class="info-service">                                
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <h2><?php echo $product['subject'];?></h2>
-                                    <?php echo $product['text'];?>
-                                </div>                                 
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<h2><?php echo $product['subject']; ?></h2>
+									<?php if ($product['text']) { ?><p><?php echo $product['text']; ?></p><?php } ?>
+									<?php if ($product['messages']) { ?>
+									<h4><?php echo $this->lang->line('main_ingredient'); ?></h4>
+									<p><?php echo $product['messages']; ?></p>
+									<?php } ?>
+								</div>                                 
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="col-md-12" style="margin-top: 20px;">
                                         <div class="pricing-table">
@@ -67,29 +69,29 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <div class="clear"></div>
-                            
                             <?php if (!empty($product['recipes'])) {?>
                             <div class="related-resep">
                                 <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> <?php echo $this->lang->line('suggested_recipe');?></div></div>
                                 <?php foreach($product['recipes'] as $recipe) { 
+									//print_r($recipe);
 									$product  = $this->Products->getProduct($recipe['product_id'])->category_id;
 									$color    = $this->ProductCategories->getCategory($product)->color;?>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="thumbnail">
+									<div class="thumbnail">
 										<?php if ($recipe['media']) { ?>
-										<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
-											<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt=""/>
-										</a>
+											<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
+												<img src="<?php echo base_url('uploads/recipes/thumb__385x232'.$recipe['media']);?>" alt="">
+											</a>	
 										<?php } ?>
-                                        <div class="caption caption-sub-pasta">
-                                            <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
-												<?php echo $recipe['subject'];?></a></h4>
-                                            <img class="sub-pasta" src="<?php echo base_url();?>assets/public/img/items/sub-cat-pasta.jpg" alt="item pasta">
-                                            <?php echo strip_tags($recipe['synopsis']);?>
-                                        </div>
-                                    </div>
+										<div class="detail-related-thumbnail">
+											<h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>"><?php echo word_limiter($recipe['subject'],7,'');?></a></h4>
+											<?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
+											<img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
+											<?php } ?>
+											<p><?php echo word_limiter(strip_tags($recipe['synopsis']),8,'');?></p>
+										</div>
+									</div>
                                    <div class="tab-info">
 										<button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/sendok-garpu.png" alt="limg resep"> <?php echo $this->lang->line('serve');?> <?php echo $recipe['served'];?></button>
 										<button type="button" class="btn btn-danger" <?php echo ($color) ? 'style="border-color:'.$color.';background:'.$color.'"' :'';?>><img src="<?php echo base_url();?>assets/public/img/mini-jam.png" alt="limg resep"> <?php echo $recipe['time'];?> <?php echo $this->lang->line('minute');?></button>
@@ -97,21 +99,15 @@
                                 </div>
                                 <?php } ?>
                             </div>
-                            
                             <?php } ?>
                           </div>
-                            
                           <?php 
                             $i++;
                             } 
                           } else { ?>
                             <h4>NO CONTENT</h4>
-                          <?php } ?>  
-                                                      
+                          <?php } ?>                                                        
                         </div>
-                        
-                         
-
                         <!-- Carousel Buttons Next/Prev -->
                         <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
                         <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>

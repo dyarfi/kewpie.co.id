@@ -1,5 +1,56 @@
 /* slide produk */
 $(document).ready(function() {
+    /*** maps ***/
+    $(".maps").gmap3({
+        map:{
+            options:{
+              animation:google.maps.Animation.DROP,
+              center:[-6.2738346,106.7132423],
+              zoom: 14
+            }
+          },
+          marker:{
+            //values:[{address:"Ruko Kebayoran Arcade 3, Pondok Pucung, Pondok Aren",id:"1",data:"<div><strong>Kewpie Sales Office</strong></div><div> Ruko Kebayoran Arcade 3 Blok KA/E1-09 Bintaro Jaya, Tangerang Selatan, Indonesia</div>",options:{"icon":base_URL + "assets/public/img/maps.png","animation":"google.maps.Animation.DROP"}}],
+            values:[{address:"Ruko Kebayoran Arcade 3, Pondok Pucung, Pondok Aren, Tangerang Selatan, Indonesia",id:"1",data:"<div><strong>Kewpie Sales Office</strong></div><div>Ruko Kebayoran Arcade 3 Blok KA/E1-09 Bintaro Jaya, Tangerang Selatan, Indonesia</div>",options:{"animation":"google.maps.Animation.DROP"}}],
+            options:{
+                draggable: false,
+                animation:google.maps.Animation.DROP,
+                zoom: 14
+            },
+            events:{
+                mouseover: function(marker, event, context){
+                  //marker.setAnimation(google.maps.Animation.BOUNCE);  
+                  var map = $(this).gmap3("get"),
+                    infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                  if (infowindow){
+                    infowindow.open(map, marker);
+                    infowindow.setContent(context.data);
+                  } else {
+                    $(this).gmap3({
+                      infowindow:{
+                        anchor:marker, 
+                        options:{content: context.data}
+                      }
+                    });
+                  }
+                },
+                mouseout: function(){
+                  //marker.setAnimation(null);  
+                  var infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                  if (infowindow){
+                    infowindow.close();
+                  }
+                },
+                click: function(marker, event, context){
+                    //markerSelected(context.id);
+                    marker.setAnimation(google.maps.Animation.BOUNCE);              
+                    setTimeout(function(){
+                        marker.setAnimation(null);
+                    },1500);
+                }
+              }
+          }
+      });   
 	
     /* slide menu */
 
@@ -40,18 +91,18 @@ $(document).ready(function() {
         //console.log($(this).parent('.row'));
     
     });
-    
     $('.items-produk-link a').mousedown(function() {
         window.location = $(this).attr('href');
         return true;
     });
-
     /* carousel */
-    $('#Carousel').carousel({ interval: 5000, swipe: 30 /* percent-per-second, default is 50. Pass false to disable swipe */ });
-    
+	if ($('#Carousel').size > 0) {
+		$('#Carousel').carousel({ interval: 5000, swipe: 30 /* percent-per-second, default is 50. Pass false to disable swipe */ });
+    }
     /* carousel */
-    $('#Carousel1').carousel({ interval: 5000, swipe: 30 /* percent-per-second, default is 50. Pass false to disable swipe */ });
-	
+	if ($('#Carousel1').size > 0) {
+		$('#Carousel1').carousel({ interval: 5000, swipe: 30 /* percent-per-second, default is 50. Pass false to disable swipe */ });
+	}
     /* TOOLTIPS */
     $(function () { $('[data-toggle="tooltip"]').tooltip(); });
 	

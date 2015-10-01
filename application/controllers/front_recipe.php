@@ -18,7 +18,7 @@ class Front_Recipe extends Public_Controller {
         
         // Set data from menu category
         $data['favorited']   = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('modified'=>'ASC'),1);
-        
+		
         // Set data from menu category
         $data['recipes']    = $this->Content->find('product_recipes',array('status'=>'publish'));
         
@@ -26,7 +26,10 @@ class Front_Recipe extends Public_Controller {
 		$data['main']       = 'recipe';
         
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('recipe');
+		$data['page_title']			= lang('recipe');
+		
+		// Set meta description for html tags in template
+		$this->meta_description		= $this->clean_tags();
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -39,7 +42,7 @@ class Front_Recipe extends Public_Controller {
 		$data['main'] = 'category';
 				
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('recipe');
+		$data['page_title'] = lang('recipe');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -50,13 +53,13 @@ class Front_Recipe extends Public_Controller {
         
         // Set detail recipe
         $field  = $this->Content->findIdByUrl('product_recipes', $detail);
-        $_field = $this->Content->find('product_recipes',array('id'=>$field->field_id));
+        $_field = $this->Content->find('product_recipes',array('id'=>$field->field_id,'status'=>'publish'));
         
         // Set data images from recipe
         $data['recipe']  = $_field[1];
         
         // Set data Similiar Recipes
-        $data['recipes'] = $this->Content->find('product_recipes',array('id !='=>$field->field_id,'product_id IN'=>array($_field[1]['product_id'])),array('subject'=>'ASC','added'=>'DESC'),6);
+        $data['recipes'] = $this->Content->find('product_recipes',array('id !='=>$field->field_id,'product_id'=>$_field[1]['product_id'], 'status'=>'publish'));
        
         // Set data images from recipe
         $data['images'] = $this->ProductRecipeImages->getAllImageByRecipe($field->field_id);
@@ -65,7 +68,10 @@ class Front_Recipe extends Public_Controller {
 		$data['main'] = 'recipe_detail';
         
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('recipe') .' - ' . $_field[1]['subject'];
+		$data['page_title']		=  lang('recipe') . ($_field[1]['subject'] ? ' - '.$_field[1]['subject'] : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description	= $this->clean_tags($_field[1]['messages']);
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -73,5 +79,5 @@ class Front_Recipe extends Public_Controller {
 	}
 }
 
-/* End of file front_recipe.php */
-/* Location: ./application/controllers/front_recipe.php */
+/* End of file user.php */
+/* Location: ./application/controllers/user.php */

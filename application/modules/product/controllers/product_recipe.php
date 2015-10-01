@@ -121,7 +121,7 @@ class Product_Recipe extends Admin_Controller {
 			}
             
 			// Unset action 
-            $crud->unset_delete();
+            //$crud->unset_delete();
             
             // Set upload field
             $crud->set_field_upload('cover','uploads/recipes');
@@ -171,23 +171,23 @@ class Product_Recipe extends Admin_Controller {
         $crud->field_type('url', 'hidden');
 		$crud->field_type('field_id', 'hidden', $id);
         $crud->field_type('lang_id', 'hidden', $lang_id);
-		
+			
 		// This callback escapes the default auto field output of the field name at the add form
 		$crud->callback_add_field('added',array($this,'_callback_time_added'));
 		// This callback escapes the default auto field output of the field name at the edit form
 		$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
-		
-		// Set callback before database set
-		$crud->callback_before_insert(array($this,'_callback_url'));
-		$crud->callback_before_update(array($this,'_callback_url'));
-		$crud->callback_before_update(array($this,'_callback_modified'));
         
 		// Sets the required fields of add and edit fields
 		$crud->required_fields('subject','text','status'); 
 		
 		$state = $crud->getState();
 		$state_info = $crud->getStateInfo();
-
+	
+		// GC Callbacks Method
+		$crud->callback_before_insert(array($this,'_callback_url'));			
+		$crud->callback_before_update(array($this,'_callback_url'));
+		
+		// Unset GC list
 		$crud->unset_list();
 		
 		$this->load($crud, 'product_detail');
@@ -234,6 +234,8 @@ class Product_Recipe extends Admin_Controller {
         $thumbnail[1]      = $field_info->upload_path.'/thumb__200x200'.$uploader_response[0]->name;
         $thumbnail[2]      = $field_info->upload_path.'/thumb__304x182'.$uploader_response[0]->name;
         $thumbnail[3]      = $field_info->upload_path.'/thumb__385x232'.$uploader_response[0]->name;
+        $thumbnail[4]      = $field_info->upload_path.'/thumb__520x353'.$uploader_response[0]->name;
+		$thumbnail[5]      = $field_info->upload_path.'/thumb__1152x980'.$uploader_response[0]->name;
         
         $this->image_moo
         ->load($file_uploaded)
@@ -243,7 +245,11 @@ class Product_Recipe extends Admin_Controller {
         ->resize_crop(304,182)
         ->save($thumbnail[2])
         ->resize_crop(385,232)
-        ->save($thumbnail[3]);
+        ->save($thumbnail[3])
+		->resize_crop(520,353)
+        ->save($thumbnail[4])
+		->resize_crop(1152,980)
+        ->save($thumbnail[5]);
          
         if ($this->image_moo->error) print $this->image_moo->display_errors(); else return true;
         
@@ -251,7 +257,7 @@ class Product_Recipe extends Admin_Controller {
     
     public function _callback_gallery ($value,$row) {
         if ($row->id) { 
-            return '<a href="'.base_url(ADMIN).'/product_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
+            return '<a href="'.base_url(ADMIN).'/product_recipe_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 
         } else { 
             return '-';
         }

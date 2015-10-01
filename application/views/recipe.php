@@ -1,7 +1,11 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
-    <div class="kewpie-main-body" style="background: transparent url('<?php echo base_url('uploads/recipes/'.$favorited[1]['media']);?>') no-repeat top center; padding-top:150px; position: relative; margin-top:-140px;background-size: 100% auto;"> <!-- for changing background purpose -->
+    <?php
+		$path_info 	= pathinfo($favorited[1]['media']);
+		$thumb 		= 'thumb__1152x980'.$path_info['filename'].'.'.$path_info['extension'];
+	?>
+	<div class="kewpie-main-body" style="background: transparent url('<?php echo base_url('uploads/recipes/'.$favorited[1]['media']);?>') no-repeat top center; padding-top:150px; position: relative; margin-top:-140px;background-size: 100% auto;"> <!-- for changing background purpose -->
         <div class="container"> <!-- content start -->
             <div class="bg-box-resep-fav">
 				<div class="fav-listresep-base">
@@ -35,9 +39,9 @@
                           <li><a href="#less_than">Tahu</a></li>
                         </ul-->
                     </div>
-                   <input type="text" class="form-control" name="x" placeholder="<?php echo $this->lang->line('search');?>...">
+                   <!--input type="text" class="form-control" name="x" placeholder="<?php echo $this->lang->line('search');?>..."-->
 					<!--<button class="sort" data-sort="name">Sort by name</button>-->
-                    <span class="input-group-btn"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <!--span class="input-group-btn"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button-->
                 </div>
             </div>
         </div>
@@ -66,7 +70,7 @@
                                                     <div class="thumbnail">
                                                          <?php if ($recipe['media']) { ?><img src="<?php echo base_url('uploads/recipes/thumb__385x232'.$recipe['media']);?>" alt=""><?php } ?>
                                                          <div class="caption caption-sub-pasta">
-                                                             <h4><a class="subject" href="<?php echo base_url('read/recipe/'.$recipe['url']);?>"><?php echo $recipe['subject'];?></a></h4>
+                                                             <h4><a class="subject" href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>"><?php echo word_limiter($recipe['subject'], 4,'');?></a></h4>
                                                              <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
                                                                 <img class="sub-pasta" width="36px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="<?php echo $recipe['subject'];?>">
                                                              <?php } ?>

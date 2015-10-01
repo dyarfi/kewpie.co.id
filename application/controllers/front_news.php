@@ -39,7 +39,7 @@ class Front_News extends Public_Controller {
 		$data['main'] = 'category';
 				
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('latest_news');
+		$data['page_title'] = lang('latest_news');
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -59,9 +59,12 @@ class Front_News extends Public_Controller {
         
         // Set main template
 		$data['main'] = 'news';
-        
+		
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('latest_news');
+		$data['page_title'] =  lang('latest_news') . ($field->subject ? ' - '.$field->subject : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description = $this->clean_tags($field->text);
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -81,7 +84,10 @@ class Front_News extends Public_Controller {
 		$data['main'] = 'news_detail';
         
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('latest_news');
+		$data['page_title'] =  lang('latest_news') . ($field->subject ? ' - '.$field->subject : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description = $this->clean_tags($field->text);
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -89,5 +95,5 @@ class Front_News extends Public_Controller {
 	}
 }
 
-/* End of file front_news.php */
-/* Location: ./application/controllers/front_news.php */
+/* End of file user.php */
+/* Location: ./application/controllers/user.php */

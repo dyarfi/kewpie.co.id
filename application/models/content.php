@@ -208,4 +208,103 @@ class Content extends CI_Model {
 		
 	}
 	
+	public function sitemap ($xml='') {
+
+		// Page menus 		
+		$menus 			= $this->find('page_menus',array('status'=>'publish'),array('id'=>'asc'));
+		// Inside kewpie sitemap
+		$inside_kewpie 	= $this->find('page_menus',array('status'=>'publish','id'=>3),array('id'=>'asc'));
+		// About sitemap
+		$_about_kewpie 	= $this->find('pages',array('status'=>'publish','menu_id'=>5),array('id'=>'desc'));		
+		$about_kewpie 	= array();
+		foreach ($_about_kewpie as $about) {
+			$about_kewpie[$about['subject']] = base_url('read/page/'.$about['url']);
+		}
+		// Product sitemap
+		$_products 	= $this->find('products',array('status'=>'publish'),array('id'=>'asc'));
+		$products 	= array();
+		foreach ($_products as $product) {
+			$products[$product['subject']] = base_url('read/product/'.$product['url']);
+		}
+		// Recipes sitemap
+		$_recipes 	= $this->find('product_recipes',array('status'=>'publish'),array('id'=>'desc'));
+		$recipes 	= array();
+		foreach ($_recipes as $recipe) {
+			$recipes[$recipe['subject']] = base_url('read/recipe/'.$recipe['url']);
+		}
+		// News sitemap
+		$_news 		= $this->find('news',array('status'=>'publish'),array('id'=>'desc'));
+		$news 	= array();
+		foreach ($_news as $new) {
+			$news[$new['subject']] 	= base_url('read/news/detail/'.$new['url']);
+		}
+		// Set the array of sitemap
+		$sitemap 	= array();
+		$sitemap_xml = array();
+		
+		foreach ($menus as $menu) {	
+			
+			// Set for home url
+			$menu['url'] = ($menu['url'] == 'home' || $menu['url'] == 'beranda') ? '' : $menu['url'];	
+
+			// Check if request is xml or not
+			if ($xml !== 1) {						
+				// Flex the menu for product
+				if ($menu['url'] == 'produk-kami' || $menu['url'] == 'our-product') {
+					$sitemap[$menu['subject']][base_url('read/product')] = $products;
+				}
+				// Flex the menu inside kewpie
+				if ($menu['url'] == 'di-dalam-kewpie' || $menu['url'] == 'inside-kewpie') {
+					$sitemap[$menu['subject']] = base_url('read/page/'.$menu['url']);
+				}
+				// Flex the menu recipes
+				if ($menu['url'] == 'resep' || $menu['url'] == 'recipes') {
+					$sitemap[$menu['subject']][base_url('read/recipe')] = $recipes;
+				}
+				// Flex the pages about kewpie
+				if ($menu['url'] == 'tentang-kewpie' || $menu['url'] == 'about-kewpie') {
+					$sitemap[$menu['subject']][base_url('read/page/'.$menu['url'])] = $about_kewpie;
+				}
+				// Flex the menu latest news
+				if ($menu['url'] == 'berita-terbaru' || $menu['url'] == 'latest-news') {
+					$sitemap[$menu['subject']][base_url('read/news/'.$menu['url'])] = $news;
+				}		
+
+			} else {
+
+				// Flex the menu for product
+				if ($menu['url'] == 'produk-kami' || $menu['url'] == 'our-product') {
+					$sitemap[] = base_url('read/product');
+				}
+				// Flex the menu inside kewpie
+				if ($menu['url'] == 'di-dalam-kewpie' || $menu['url'] == 'inside-kewpie') {
+					$sitemap[] = base_url('read/page/'.$menu['url']);
+				}
+				// Flex the menu recipes
+				if ($menu['url'] == 'resep' || $menu['url'] == 'recipes') {
+					$sitemap[] = base_url('read/recipe');
+				}
+				// Flex the pages about kewpie
+				if ($menu['url'] == 'tentang-kewpie' || $menu['url'] == 'about-kewpie') {
+					$sitemap[] = base_url('read/page/'.$menu['url']);
+				}
+				// Flex the menu latest news
+				if ($menu['url'] == 'berita-terbaru' || $menu['url'] == 'latest-news') {
+					$sitemap[] = base_url('read/news');
+				}
+				// Set menu
+				$sitemap = $sitemap;		
+
+			}	
+		}
+
+		// Set merge from menu to content
+		$sitemap = array_merge($sitemap,array_values($products));
+		$sitemap = array_merge($sitemap,array_values($recipes));
+		$sitemap = array_merge($sitemap,array_values($about_kewpie));		
+		$sitemap = array_merge($sitemap,array_values($news));
+		
+		return $sitemap;
+	}
+
 }

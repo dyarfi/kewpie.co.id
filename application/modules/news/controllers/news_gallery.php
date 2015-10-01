@@ -6,7 +6,7 @@ class News_Gallery extends Admin_Controller {
             parent::__construct();
 
             // Load Conferences model
-            $this->load->model('news/Pages');
+            $this->load->model('news/News');
 
             // Load Image CRUD
             $this->load->library('image_CRUD');

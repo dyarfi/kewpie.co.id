@@ -48,7 +48,7 @@ class News extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','synopsis','text','gallery','media','status','added','modified','translate');
+				$crud->columns('subject','synopsis','text'/*,'gallery'*/,'media','status','added','modified','translate');
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -87,6 +87,9 @@ class News extends Admin_Controller {
 			} else if($state == 'detail') {
 				// GC Edit Method. 
 				// exit('asdf');
+			} else if($state == 'read') {
+				// GC Edit Method. 
+				$crud->callback_field('media',array($this,'_callback_media'));
 			} else {
 				// GC List Method
 				/*
@@ -248,7 +251,15 @@ class News extends Admin_Controller {
             return '-';
         }
     }
-   
+    
+	public function _callback_media ($value,$row) {
+	    if ($value) { 
+            return '<a href="'.base_url('uploads/news').'/'.$value.'" class="fancyframe iframe"><img src="'.base_url('uploads/news').'/thumb__288x173'.$value.'"/></a>'; 
+        } else { 
+            return '-';
+        }
+    }
+	
 	public function _callback_url($value, $primary_key) {
         // Set url_title() function to set readable text
         $value['url'] = url_title($value['subject'],'-',true);

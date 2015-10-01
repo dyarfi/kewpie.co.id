@@ -17,12 +17,13 @@ $lang['ingredient'] = 'Bahan Bahan Masakan';
 $lang['main_ingredient'] = 'Bahan Bahan Masakan';
 $lang['serve'] = 'Porsi';
 $lang['minute'] = 'Menit';
-$lang['suggested_recipe'] = 'Anjuran Resep Yang Sesuai';
+$lang['suggested_recipe'] = 'Anjuran Resep yang Sesuai';
 $lang['favorite_recipe'] = 'Resep Favorit!';
 $lang['recipes'] = 'Aneka Resep';
 $lang['other_recipes'] = 'Lihat Menu Lainnya';
 $lang['how_to']	= 'Cara Membuat';
 $lang['more'] = 'Selengkapnya';
+$lang['meta_description'] = 'Mempersembahkan Rasa yang Digemari dalam Budaya Makan Indonesia';
 $lang['copyright'] = '2015. &copy; Kewpie Indonesia. Semua Hak Dilindungi';
 
 /* End of file label_name.php */

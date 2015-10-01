@@ -11,11 +11,18 @@
         <div class="info-resep">
             <div class="img-resep">
                 <div class="content-handler">
-                    <?php if ($recipe['media']) {?>
-                    <a href="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" class="fancybox" title="<?php echo $recipe['subject'];?>">
-                        <img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="<?php echo $recipe['subject'];?>">
-                    </a>
-                    <?php } ?>
+                    <?php 
+					if ($recipe['media']) {
+						$path_info 	= pathinfo($recipe['media']);
+						$thumb 		= 'thumb__520x353'.$path_info['filename'].'.'.$path_info['extension'];
+						if (file_exists('uploads/recipes/'.$thumb)) { ?>
+							<a href="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" class="fancybox" title="<?php echo $recipe['subject'];?>">
+								<img src="<?php echo base_url('uploads/recipes/'.$thumb);?>" alt="<?php echo $recipe['subject'];?>">
+							</a>
+						<?php } else { ?>
+							<img src="<?php echo base_url('assets/public/img/resep-fav1.jpg');?>" alt="Favorite Recipe">
+						<?php }
+					} ?>
 					<?php if ($recipe['video']) { 
 						preg_match('/src="([^"]+)"/', $recipe['video'], $match);
 						$url = $match[1];
@@ -30,8 +37,7 @@
             </div>
             <div class="detail-info-resep">
                 <h2><?php echo $recipe['subject'];?></h2>
-                <p><?php echo $recipe['synopsis'];?></p>
-				 
+                <p><?php echo $recipe['synopsis'];?></p>				 
                 <ul class="share list-inline addthis_default_style addthis_32x32_style">
                     <li>
                         <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter addthis_button_twitter" data-placement="left">
@@ -98,29 +104,32 @@
                     <!-- end carousel -->
                     </div>
                 </div>
-
             </div>
         </div>
-        <div class="detail-bahan">
-            <div class="img-resep img-bahan">
+        <div class="detail-bahan">			
+			<div class="img-resep img-bahan">
 			 <?php if ($recipe['cover']) { ?>
 				<img height="259px" src="<?php echo base_url('uploads/recipes/'.$recipe['cover']);?>" alt="<?php echo $recipe['subject'];?>">
 			<?php } else {?>	
 				<img src="<?php echo base_url();?>assets/public/img/items/bahan.png" alt="<?php echo $recipe['subject'];?>">
 			<?php } ?>		
 			</div>
-            <div class="detail-info-resep detail-info-bahan">
-                <?php if ($recipe['attribute']) { ?>
-                <div class="col-xs-4 col-sm-4 col-md-4">
-                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="<?php echo $recipe['subject'];?>"> Kewpie Tip</h4>
-                    <?php echo $recipe['attribute'];?>
-                </div>
-                <?php } ?>
-                <div class="col-xs-4 col-sm-4 col-md-4">
-                    <h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="<?php echo $recipe['subject'];?>"> <?php echo $this->lang->line('ingredient');?></h4>
-                    <?php echo $recipe['text'];?>
-                </div>
-            </div>
+			<div class="detail-info-resep detail-info-bahan">
+				<div class="row">
+					<?php if ($recipe['attribute']) { ?>
+					<div class="col-xs-4 col-sm-4 col-md-4">
+						<h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="<?php echo $recipe['subject'];?>"> KEWPIE Tips</h4>
+						<?php echo $recipe['attribute'];?>
+					</div>
+					<?php } ?>
+					<div class="col-xs-5 col-sm-5 col-md-5">
+						<h4><img src="<?php echo base_url();?>assets/public/img/title-crown.png" alt="<?php echo $recipe['subject'];?>"> <?php echo $this->lang->line('ingredient');?></h4>
+						<div class="perfect-scroll">
+							<div><?php echo $recipe['text'];?></div>
+						</div>	
+					</div>
+				</div>
+			</div>
         </div>
         <div class="cara-membuat">
 			<div class="black-crown">
@@ -141,9 +150,9 @@
 		 $color    = $this->ProductCategories->getCategory($product)->color; ?>
         <div class="col-xs-4 col-sm-4 col-md-4 box-holder">
             <div class="thumbnail">
-                <?php if ($recipe['media']) { ?>
+                <?php if ($recipe['media'] && file_exists('uploads/recipes/'.$recipe['media'])) { ?>
 				<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>">
-					<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="<?php echo $recipe['subject'];?>">
+					<img src="<?php echo base_url('uploads/recipes/thumb__385x232'.$recipe['media']);?>" alt="<?php echo $recipe['subject'];?>">
 				</a>	
 				<?php } ?>
 				<div class="detail-related-thumbnail">

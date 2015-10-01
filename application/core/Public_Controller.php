@@ -71,29 +71,31 @@ class Public_Controller extends MY_Controller {
 		// Load static language library
 		$this->lang->load('name', config_item('language'));
 		
+		  // Set Language list
+		$this->meta_description	= lang('meta_description') ? lang('meta_description') : '';
+		
         // Set Language list
-		$this->languages	= $this->Languages->getAllLanguage(array('status'=>'1'));
+		$this->languages		= $this->Languages->getAllLanguage(array('status'=>'1'));
 		
         // Set menus
-		$this->menus       = $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
+		$this->menus       		= $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
         
         // Set social media links
         $this->facebook    = $this->Settings->getByParameter('socmed_facebook');        
         $this->twitter     = $this->Settings->getByParameter('socmed_twitter');        
         $this->gplus       = $this->Settings->getByParameter('socmed_gplus');        
         $this->email_info  = $this->Settings->getByParameter('email_info');
-        
-		//$this->template->theme  		= 'default';
-		//$this->template->title  		= 'Page Title';
-		//$this->template->meta_data  	= array();
-
-		//$this->template->layout     	= 'template/public/site_template';
-
-		//print_r($this->template);
-		
-		//print_r(config_item('language'));
 
     }
+	
+	public function clean_tags($text = '', $limit = '150', $end = ''){
+		
+		// Strip html from text
+		$_text = strip_tags($text);
+		// Return cleaned text limiter
+		return character_limiter(preg_replace('/(\n\s)/', '', strip_tags($_text)),$limit,$end);
+		
+	}
 	
 	protected function getSiteStatus() {
 		
@@ -106,40 +108,41 @@ class Public_Controller extends MY_Controller {
 		}
 		
 	}
-	
+		
 	protected function setAccessLog($public='') {
 		
+        // Set site session id
+        $this->session_id = $this->session->userdata('session_id');
+        
 		// Set user agents and platform
 		$user_agents['user_agent']	= $this->agent->agent;
 		$user_agents['platform']	= $this->agent->platform;
 		$user_agents['browser']		= $this->agent->browser;
-		
-		/*
+        $ip_address = $this->input->ip_address();
+        $referrer	= (strpos($this->agent->referrer(),base_url())) ? '' : $this->agent->referrer();
+        
 		if ($public) {
 			// Set ServerLog data
 			$object = array(
-				'session_id'	=> $this->session->userdata('session_id'),
+				'session_id'	=> $this->session_id,
 				'url'			=> base_url(uri_string()),
 				'user_id'		=> @$object['user_id'],	
 				'status_code'	=> $status_code[http_response_code()],	
 				'bytes_served'	=> @$object['bytes_served'],	
 				'total_time'	=> $this->benchmark->marker['total_execution_time_start'],	
-				'ip_address'	=> $this->input->ip_address,	
-				'geolocation'	=> '',	
+				'ip_address'	=> $ip_address,	
+				'geolocation'	=> '',
 				'http_code'		=> http_response_code(),	
-				'referrer'		=> $this->agent->is_referral() ? $this->agent->referrer() : '',			
+				'referrer'		=> $referrer,			
 				'user_agent'	=> json_encode($user_agents),
 				'is_mobile'		=> $this->agent->is_mobile,
 				'status'		=> 1,
 				'added'			=> time()
-			);
-		}*/
-		//echo '<pre>';
-		//print_r($this->output->set_status_header());
-		//exit;
-		//echo '</pre>';
-		// Get value from tbl_configurations for maintenance
-		//if ($this->ServerLogs->setServerLog($object)) { }
-	}
+			);            
+		}
+        
+		// Set value for ServerLogs
+		$this->ServerLogs->setServerLog($object);
+	}	
 	
 }

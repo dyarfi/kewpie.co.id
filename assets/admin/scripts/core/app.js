@@ -13,7 +13,7 @@ var App = function () {
     var sidebarCollapsedWidth = 35;
 
     var responsiveHandlers = [];
-	
+    
     // theme layout color set
     var layoutColorCodes = {
         'blue': '#4b8df8',
@@ -91,15 +91,15 @@ var App = function () {
             each.call();
         }
     }
-		
-	// Dashboard initialize
-	var handleInitDashboard = function(){
-		$('.dashboard-stat').hover(
-			function(){$(this).find('.visual').attr('style','opacity:0.6');},
-			function(){$(this).find('.visual').attr('style','opacity:1');}
-		);
-	}
-	
+        
+    // Dashboard initialize
+    var handleInitDashboard = function(){
+        $('.dashboard-stat').hover(
+            function(){$(this).find('.visual').attr('style','opacity:0.6');},
+            function(){$(this).find('.visual').attr('style','opacity:1');}
+        );
+    }
+    
     // reinitialize the laypot on window resize
     var handleResponsive = function () {
         handleSidebarState();
@@ -1004,6 +1004,15 @@ var App = function () {
         }
     }
 
+    var handleNavigateURL = function() {
+
+        if (App.getURLParameter('active')) {
+            console.log($('.active').parents('li').find('a').click());
+            //console.log(App.getURLParameter('active'));
+        }
+
+    }
+
     //* END:CORE HANDLERS *//
 
     return {
@@ -1016,7 +1025,7 @@ var App = function () {
             //core handlers
             handleInit(); // initialize core variables
             handleResponsiveOnResize(); // set and handle responsive    
-	    //handleUniform(); // hanfle custom radio & checkboxes
+        //handleUniform(); // hanfle custom radio & checkboxes
             handleBootstrapSwitch(); // handle bootstrap switch plugin
             handleScrollers(); // handles slim scrolling contents 
             handleResponsiveOnInit(); // handler responsive elements on page load
@@ -1043,9 +1052,11 @@ var App = function () {
             handleAccordions(); //handles accordions 
             handleModals(); // handle modals
             handleFullScreenMode(); // handles full screen
-			
-			//custom handling
-			handleInitDashboard();
+            
+            //custom handling
+            handleInitDashboard();
+            handleNavigateURL(); // handle get Parameter url Value
+            
         },
 
         //main function to initiate core javascript after ajax complete

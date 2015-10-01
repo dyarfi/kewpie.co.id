@@ -1,0 +1,8 @@
+/* IE Specific Hacks stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+ 
+body {}
+h1, h2, h3, h4, h5, h6 { }

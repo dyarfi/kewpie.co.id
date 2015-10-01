@@ -72,6 +72,7 @@ $route[$admin.'/product/(:any)']		= 'product/$1';
 $route[$admin.'/product_category/(:any)']	= 'product/product_category/$1';
 $route[$admin.'/product_gallery/(:any)']    = 'product/product_gallery/$1';
 $route[$admin.'/product_recipe/(:any)']     = 'product/product_recipe/$1';
+$route[$admin.'/product_recipe_gallery/(:any)']    = 'product/product_recipe_gallery/$1';
 
 /*
 | -------------------------------------------------------------------------

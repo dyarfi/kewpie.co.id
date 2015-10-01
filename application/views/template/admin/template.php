@@ -120,7 +120,7 @@
 			<?php foreach ($functions as $row_function => $row_label) { ?>
 			    <?php if(Acl::user()->group_id != 1 && $row_label == 'Groups') continue; ?>
 			    <li class="<?php echo preg_match('/\b'.$this->uri->segment(2).'\b/i', substr($row_function, 0, strpos($row_function, '/'))) ? 'active' : ''; ?>">
-				<a href="<?php echo base_url(ADMIN . $row_function); ?>"><?php echo $row_label; ?></a>
+				<a href="<?php echo base_url(ADMIN . $row_function .'?active=current'); ?>"><?php echo $row_label; ?></a>
 			    </li>
 			<?php } ?>
 			</ul>				

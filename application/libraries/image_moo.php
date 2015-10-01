@@ -72,7 +72,7 @@ class Image_moo
 	private $main_image="";
  	private $watermark_image;
 	private $temp_image;
-	private $jpeg_quality=75;
+	private $jpeg_quality=80;
 	private $background_colour="#ffffff";
 	private $watermark_method;
 

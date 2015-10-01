@@ -23,9 +23,6 @@ class Home extends Public_Controller {
 		$this->load->model('product/Products');
         $this->load->model('product/ProductImages');
 				
-		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));
-		
-		//print_r($page_menus);
 	}
 	
 	public function index() {
@@ -40,7 +37,7 @@ class Home extends Public_Controller {
 		$data['home_food_service']  = $this->Content->find('product_categories',array('status'=>'publish','url'=>'food-service'));
         
         // Set home product recipe favorite
-		$data['home_recipe_favorite']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('modified' => 'DESC'),2);
+		$data['home_recipe_favorite']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('id' => 'DESC'),2);
         
         // Set home product recipes favorite
 		$data['home_recipes']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited !='=>'yes'),array('modified' => 'DESC'),4);
@@ -52,12 +49,9 @@ class Home extends Public_Controller {
 		$data['home_origin']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>3),'',1);
         
         // Set page product category
-        $product_category = $this->Content->find('product_categories',array('status'=>'publish','color !='=>''),array('added' => 'ASC'),4);
+        $product_category = $this->Content->find('product_categories',array('status'=>'publish','color !='=>''),array('order' => 'ASC'),4);
         
         $temp = array();
-        
-        //print_r($product_category);
-        
         $b = 1;
         foreach ($product_category as $category) {
             //print_r($category);
@@ -72,7 +66,7 @@ class Home extends Public_Controller {
         $data['product_category'] = $_product_category;
                 
 		// Set site title page with module menu
-		$data['page_title'] = $this->config->item('developer_name') .' | '. $this->Settings->getByParameter('title_default')->value;
+		$data['page_title'] = $this->meta_description;
 		
 		// Set facebook link data
 		$data['facebook']	= $this->Settings->getByParameter('socmed_facebook');
@@ -131,5 +125,5 @@ class Home extends Public_Controller {
 	}
 }
 
-/* End of file home.php */
-/* Location: ./application/controllers/home.php */
+/* End of file user.php */
+/* Location: ./application/controllers/user.php */

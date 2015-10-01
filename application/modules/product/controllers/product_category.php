@@ -37,18 +37,19 @@ class Product_category extends Admin_Controller {
 	    // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
-            $crud->set_table('tbl_product_categories')->order_by('added','ASC');
+            $crud->set_table('tbl_product_categories');
+            $crud->order_by('order','ASC');
             // Set CRUD subject
             $crud->set_subject('Product Category');                            
             // The fields that user will see on add and edit form
-			$crud->fields('subject','url','text','color','media','cover','status','added','modified');
+			$crud->fields('subject','url','text','color','media','cover','order','status','added','modified');
             // Set column
-            $crud->columns('subject','position','text','media','color','cover','modified','added','status');	
+            $crud->columns('subject','position','text','media','color','cover','order','modified','added','status');	
 			
             // Unsets the fields at the add form.
-			$crud->unset_add_fields('parent_id','sub_level','has_child','user_id','order','count','is_system','added','modified');
+			$crud->unset_add_fields('parent_id','sub_level','has_child','user_id','count','is_system','added','modified');
 			// Unsets the fields at the edit form.
-			$crud->unset_edit_fields('parent_id','sub_level','has_child','user_id','order','count','is_system','added','modified');
+			$crud->unset_edit_fields('parent_id','sub_level','has_child','user_id','count','is_system','added','modified');
 			
             // Set custom field display for position
             $crud->field_type('position','dropdown',array('top'=>'Top','bottom'=>'Bottom'));  
@@ -59,7 +60,7 @@ class Product_category extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','text','media','color','cover','status','added','modified','translate');			
+				$crud->columns('subject','text','media','color','cover','order','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 				// Callback_column color

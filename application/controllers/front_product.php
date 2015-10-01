@@ -19,16 +19,16 @@ class Front_Product extends Public_Controller {
         //$data['recipes']            = $this->Content->find('product_recipes',array('status'=>'publish'));
         
         // Set product category data
-        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'ASC'));
+        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('order'=>'ASC'));
         
         // Set products data
-        $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('added'=>'ASC'));
+        $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('order'=>'ASC'));
         // Set temporary array
         $temp = array();
         // Get product wit recommended recipes
         foreach ($_products as $product => $val) {
             $val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
-            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('added'=>'DESC'));
+            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('order'=>'ASC'));
             $temp[] = $val;
         }
         $products = $temp;
@@ -39,8 +39,11 @@ class Front_Product extends Public_Controller {
         // Set main template
 		$data['main']               = 'product';
         
-        // Set site title page with module menu
-		$data['page_title']         = $this->lang->line('product');
+		// Set site title page with module menu
+		$data['page_title'] 		=  lang('product') . ($field->subject ? ' - '.$field->subject : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description = $this->clean_tags();
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -54,14 +57,17 @@ class Front_Product extends Public_Controller {
         $data['product_categories'] = $product_categories;
         
         // Set main template
-        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->id),array('added'=>'DESC'));
+        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->id),array('order'=>'ASC'));
 		$data['products']           = $products;
         
         // Set main template
 		$data['main']               = 'product';
         
-        // Set site title page with module menu
-		$data['page_title']         = $this->lang->line('product') .' - '. $product_categories->subject;
+		// Set site title page with module menu
+		$data['page_title']			=  lang('product') . ($product_categories->subject ? ' - '.$product_categories->subject : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description		= $this->clean_tags($product_categories->text);
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -73,20 +79,21 @@ class Front_Product extends Public_Controller {
         // Set main template
         $product_categories         = $this->Content->findIdByUrl('product_categories',$detail);
         $data['product_categories'] = $product_categories;
-        
+		
         // Set product category data
-        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('added'=>'ASC'));
-        
-        // Set main data products
-        $_products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id,'status'=>'publish'),array('added'=>'DESC'));
-	
+        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('order'=>'ASC'));
+		
+		// Set main data products
+        $_products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id,'status'=>'publish','media !='=>''),array('order'=>'ASC'));
+		
+		//print_r($_products);
         // Set temporary array
         $temp = array();
         
         // Get product with recommended recipes
         foreach ($_products as $product => $val) {
-            $val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
-            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('added'=>'DESC'));
+			$val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
+			$val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('order'=>'ASC'));
             $temp[] = $val;
         }
         $products = $temp;
@@ -97,8 +104,11 @@ class Front_Product extends Public_Controller {
         // Set main template
 		$data['main']               = 'product_category';
         
-        // Set site title page with module menu
-		$data['page_title'] = $this->lang->line('product') .' - '. $product_categories->subject;
+		// Set site title page with module menu
+		$data['page_title'] 		=  lang('product') . ($product_categories->subject ? ' - '.$product_categories->subject : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description 	= $this->clean_tags();
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -127,5 +137,5 @@ class Front_Product extends Public_Controller {
 	}
 }
 
-/* End of file front_product.php */
-/* Location: ./application/controllers/front_product.php */
+/* End of file user.php */
+/* Location: ./application/controllers/user.php */

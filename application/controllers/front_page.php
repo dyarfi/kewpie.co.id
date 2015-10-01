@@ -9,6 +9,7 @@ class Front_Page extends Public_Controller {
 		$this->load->model('admin/Users');
 		$this->load->model('admin/UserProfiles');
 		
+		// Load page models
         $this->load->model('page/Pages');
 		
 	}
@@ -37,12 +38,14 @@ class Front_Page extends Public_Controller {
         // Set data from pages
         $data['pages'] = $this->Content->find('pages',array('menu_id'=>$field->field_id),array('added'=>'ASC'));
         
-        
         // Set main template
 		$data['main'] = 'page';
-        
+		
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('page');
+		$data['page_title'] = lang('page') . ($field->subject ? ' - '.$field->subject : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description = $this->clean_tags($field->text);
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -64,7 +67,10 @@ class Front_Page extends Public_Controller {
 		$data['main']       = 'page_detail';
         
 		// Set site title page with module menu
-		$data['page_title'] = $this->lang->line('page');
+		$data['page_title'] =  lang('page') . ($field->subject ? ' - '.$field->subject : '');
+		
+		// Set meta description for html tags in template
+		$this->meta_description = $this->clean_tags($field->text);
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
@@ -72,5 +78,5 @@ class Front_Page extends Public_Controller {
 	}
 }
 
-/* End of file front_page.php */
-/* Location: ./application/controllers/front_page.php */
+/* End of file user.php */
+/* Location: ./application/controllers/user.php */

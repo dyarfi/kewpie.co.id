@@ -67,9 +67,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="col-md-12" style="margin-top: 20px;">
                                             <div class="pricing-table">
-										
-													<?php echo $product['attribute']; ?>
-									
+												<?php echo $product['attribute']; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -79,20 +77,21 @@
                                 <?php if (!empty($product['recipes'])) { ?>
                                     <div class="related-resep">
                                         <div class="line"><div class="line-img"><img src="<?php echo base_url();?>assets/public/img/fork-spoon.png" alt="fork line"> <?php echo $this->lang->line('suggested_recipe');?></div></div>
-                                        <?php foreach($product['recipes'] as $recipe) { ?>
+                                        <?php foreach($product['recipes'] as $recipe) { 
+										//print_r($recipe);?>
                                         <div class="col-xs-4 col-sm-4 col-md-4 box-holder">
                                             <div class="thumbnail">
                                                 <?php if ($recipe['media']) { ?>
 													<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>">
-														<img src="<?php echo base_url('uploads/recipes/'.$recipe['media']);?>" alt="">
+														<img src="<?php echo base_url('uploads/recipes/thumb__385x232'.$recipe['media']);?>" alt="">
 													</a>	
 												<?php } ?>
                                                 <div class="detail-related-thumbnail">
-                                                    <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>"><?php echo $recipe['subject'];?></a></h4>
+                                                    <h4><a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>" title="<?php echo $recipe['subject'];?>"><?php echo word_limiter($recipe['subject'],7,'');?></a></h4>
                                                     <?php if ($this->Products->getProduct($recipe['product_id'])->media) { ?>
                                                     <img class="sub-pasta" width="45px" src="<?php echo base_url('uploads/products/'.$this->Products->getProduct($recipe['product_id'])->media);?>" alt="jenis resep">
                                                     <?php } ?>
-                                                    <p><?php echo word_limiter(strip_tags($recipe['synopsis']),9);?></p>
+                                                    <p><?php echo word_limiter(strip_tags($recipe['synopsis']),8,'');?></p>
                                                 </div>
                                             </div>
                                             <div class="tab-info">
