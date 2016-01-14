@@ -32,6 +32,9 @@ class Admin_Controller extends CI_Controller {
 		// Set i18ln for the default language
 		$this->i18ln			= $this->Languages->getDefault();
 		
+		// Set default language to English
+		$this->config->set_item('language','english'); 
+		
 		// Session destroy
 		//$this->session->sess_destroy();
 

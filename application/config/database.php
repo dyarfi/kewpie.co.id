@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'dentsu_kewpie.co.id';
+$db['default']['username'] = 'kewpiecoidlive';
+$db['default']['password'] = '04S$$zV9?tH4';
+$db['default']['database'] = 'dentsu_kewpie_co_id_live';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = 'tbl_';
 $db['default']['pconnect'] = TRUE;

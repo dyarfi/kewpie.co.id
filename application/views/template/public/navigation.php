@@ -39,7 +39,7 @@
 			<div class="lang-bg pull-right">
 				<ul class="list-unstyled pull-left">
 					<?php foreach ($this->languages as $language) { 
-					if ($language->url == config_item('language')) { ?>
+					if ($language->url === $this->session->userdata('language')) { ?>
 					<li class="bg-danger" style="width: 100%"><?php echo $language->prefix;?></li>
 					<?php } else { ?>
 					<li><a href="<?php echo base_url('language/'.$language->url);?>" title="<?php echo $language->url;?>"><?php echo $language->prefix;?></a></li>

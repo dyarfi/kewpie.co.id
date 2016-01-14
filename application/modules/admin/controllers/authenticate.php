@@ -5,7 +5,10 @@ class Authenticate extends CI_Controller {
 
 	public function __construct() {
 	    parent::__construct();		
-
+				
+		// Set default language to English
+		$this->config->set_item('language','english'); 
+		
 	    // Load user, profile, groups and group permissions models
 	    $this->load->model('Users');
 	    $this->load->model('UserProfiles');

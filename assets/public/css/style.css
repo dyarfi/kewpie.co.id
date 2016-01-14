@@ -3,32 +3,21 @@
  * Customizations just for the template; these are not necessary for anything
  * with disabling the responsiveness.
  */
-
 /* Account for fixed navbar */
-html, body {
-  overflow-x:hidden 
-} 
+html, body { overflow-x:hidden }
 html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-body{background:#fbf4e9; font-family:"Gotham-Book";}
+body{ background:#fbf4e9; font-family:"Gotham-Book";}
 /*body,*/
 .navbar-fixed-top,
-.navbar-fixed-bottom {
-  min-width: 970px;
-}
-
+.navbar-fixed-bottom { min-width: 970px; }
+h1, h2, h3, h4, h5, h6 { writing-mode: lr-tb; }
 /* Don't let the lead text change font-size. */
 .lead {
   font-size: 16px;
 }
-
 /* Finesse the page header spacing */
-.page-header {
-  margin-bottom: 30px;
-}
-.page-header .lead {
-  margin-bottom: 10px;
-}
-
+.page-header { margin-bottom: 30px; }
+.page-header .lead { margin-bottom: 10px; }
 .margintop10 { margin-top: 10px; }
 .margintop20 { margin-top: 20px; }
 .margintop30 { margin-top: 30px; }
@@ -73,23 +62,12 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
 }
 
 @media (max-width: 1280px) {
-    .container {
-            /*width: 1246px;*/
-            /*overflow: hidden;*/
-            /*max-width: none !important;*/
-            /*padding-bottom:50px;*/
-    }
+    .container { }
 }
-/* .container { overflow: hidden; } */
-/* .container-fluid { overflow: hidden; } */
 
-#navigation/* , .footer */ {    
-  /*min-width: 1200px !important;*/
+#navigation {
   max-width: 1246px !important;
-  /* overflow: hidden; */
   margin: 0 auto;
-  /*max-width: none !important;*/
-  /*max-width: none !important;*/
 }
 
 /* Demonstrate the grids */
@@ -223,7 +201,7 @@ body{background:#fbf4e9; font-family:"Gotham-Book";}
     border-radius: 10px;
     height: 33px;
     width: 110px;
-    
+
 }
 .form-control.search:focus {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075) inset;
@@ -307,7 +285,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .navbar-nav > .searchform {padding: 20px 5px;}
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover
 {
-  background-color: transparent; 
+  background-color: transparent;
   color: #e80010;
 }
 .navbar-default .navbar-nav>li>a{
@@ -336,7 +314,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 #navbar ul li.divider-img, ul li.divider-img {
     /*background:url('../img/divider-1px.jpg') right center no-repeat;*/
-    border-right:1px solid #b49579;    
+    border-right:1px solid #b49579;
 }
 
 .hello{
@@ -345,7 +323,7 @@ a:hover{color: #e70413; text-decoration: blink;}
   position:relative;
   z-index:1;
 }
-.lang-bg { 
+.lang-bg {
     /*border: 1px solid #ff0000;*/
     margin: 0 auto;
     padding: 0;
@@ -357,15 +335,15 @@ a:hover{color: #e70413; text-decoration: blink;}
     /* height: 137px; */
     z-index:10;
     /*background:url('../img/lang-bg.png') top right no-repeat;*/
-	font-family:'Courier_new';
-	font-size: 30px;
-	font-weight: bold;
+  font-family:'Courier_new';
+  font-size: 30px;
+  font-weight: bold;
 }
-.lang-bg .bg-danger { 
+.lang-bg .bg-danger {
     /* background: rgba(232,0,16,0.9); */
-	background: transparent;
-	color: rgba(232,0,16,0.9);
-} 
+  background: transparent;
+  color: rgba(232,0,16,0.9);
+}
 .lang-bg ul li { font-size: 1.2em; width: 100%; padding: 0px 10px; width: 100% !important; }
 .lang-bg ul li a {margin: 0 auto; width: 100% !important; }
 .navbar-default .navbar-nav>li>a:hover{color: #e80010;}
@@ -384,34 +362,34 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 
 .pasta-left{
-	position: absolute;
-	left: -380px;
-	top: 0;
+  position: absolute;
+  left: -380px;
+  top: 0;
 }
 .pasta-right{
-	position: absolute;
-	right: -550px;
-	top: 0;
+  position: absolute;
+  right: -550px;
+  top: 0;
 }
 .display-pizza{
-	position:absolute;
-	left: -150%;
-	top: -20%;
+  position:absolute;
+  left: -132%;
+  top: -10%;
 }
 .display-sayuran{
-	position:absolute;
-	right: -100%;
-	bottom: -20%;
+  position:absolute;
+  right: -110%;
+  bottom: -31%;
 }
 .display-telor-peta{
-	position:absolute;
-	right: -90%;
-	top:300px;
+  position:absolute;
+  right: -121%;
+  top:300px;
 }
 .cup-mayonaise{
-	margin-left: -25%;
-	margin-bottom: -25%;
-	margin-top: -25%;
+  margin-left: -25%;
+  margin-bottom: -25%;
+  margin-top: -25%;
 }
 
 .item-produk{
@@ -445,7 +423,12 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 
 .box-1,.box-2{padding: 40px 30px 70px 117px; margin-bottom: 20px;}
-.box-2{margin-left: 20px; width: 120%; padding-right: 90px;}
+.box-2{
+  margin-left: -120px;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 20px;
+}
 .box-3{
   padding: 50px 40px 20px;
   background: #f7a800;
@@ -461,9 +444,9 @@ a:hover{color: #e70413; text-decoration: blink;}
   top: -30px;
 }
 .red-dot-resep{
-	position:absolute;
-	right: 70px;
-	bottom:50px;
+  position:absolute;
+  right: 70px;
+  bottom:50px;
 }
 #scale-it1 .list-resep-home{margin-top: 80px;}
 .cerita-kewpie{
@@ -475,6 +458,7 @@ a:hover{color: #e70413; text-decoration: blink;}
   text-align: center;
   margin: auto;
   margin-top: 100px !important;
+  margin-bottom: 510px !important;
   clear: both;
 }
 .title-item-produk, .title-item-produk-h { margin: 0 auto 0 -30px; padding: 0 15px 0px 15px; display: block;width:148px;height:80px; position: relative; vertical-align: middle; display:table-caption; overflow: hidden}
@@ -483,7 +467,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .img-produk-kami h3, .title-item-produk h4, .title-item-produk-h h4, .food-service-head h4,
 .title-cerita-kewpie h3, .food-service-head h5, .resep-title h4, .title-news h3{ font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
 .title-item-produk-h h4 { width: 120px;  line-height: 0.80em; font-size: 1.34em; margin:12px 0 0 0; }
-.img-produk-kami, .title-cerita-kewpie, .food-service-head { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; padding: 32px 0 0 0; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);writing-mode: rl-bt;}
+.img-produk-kami, .title-cerita-kewpie, .food-service-head { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; padding: 32px 0 0 0; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);}
 .page-content { padding: 15px 25px;}
 .page-content p { text-align: justify;}
 .p1 { text-align: justify; }
@@ -494,59 +478,42 @@ a:hover{color: #e70413; text-decoration: blink;}
   margin-top: 100px;
 }
 /*.egg1 { opacity:0 }*/
-.head-font h3, .head-font h3.p1 { font-family: "Courier_new"; color:#e70413; font-weight: bold; text-align: left; padding: 5px 0}
+.head-font h3, .head-font h3.p1 { font-family: "Courier"; color:#e70413; font-weight: bold; text-align: left; padding: 5px 0}
 .inside-kewpie { border:0px solid #990000; }
 .resep-title { width: 368px; height: 263px; display: block; position: relative; background: transparent url(../img/items/tagb3.png) top center no-repeat; padding: 82px 0 0 0; margin-bottom: -70px;
-  margin-left: -15px; z-index: 1; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);writing-mode: rl-bt;}
-.img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 13px; line-height: 0.78em; } 
-.resep-title h4 { font-size: 3.4em; text-align: center; width: 60%; border: 0px solid #990000; margin:50px auto 0 auto; padding-bottom: 0px; line-height: 0.78em; } 
+  margin-left: -15px; z-index: 1; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);}
+.img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 13px; line-height: 0.78em; }
+.resep-title h4 { font-size: 3.4em; text-align: center; width: 60%; border: 0px solid #990000; margin:50px auto 0 auto; padding-bottom: 0px; line-height: 0.78em; }
 .food-service-head {  width: 214px; height: 113px;border: 0px solid #990000; position: relative;margin: 0 auto; right: -100px; background: transparent url(../img/items/tagm1.png) top center no-repeat; }
-.food-service-head h4, .food-service-head h5 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; } 
-.food-service-head h5 { font-size: 2em; margin-top: 14px }
-.food-service-head h4 { padding-top:2px; font-size: 2.3em; text-align: center; width: 100%; border: 0px solid #990000; margin:6px 60px 0 0; padding-right: 40px; padding-left: 40px; line-height: 0.78em; position: absolute; top: 20px;}
+.food-service-head h4, .food-service-head h5 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; }
+.food-service-head h5 {font-size: 2em; margin-top: 14px }
+.food-service-head h4 {padding-top:2px; font-size: 2.3em; text-align: center; width: 100%; border: 0px solid #990000; margin:6px 60px 0 0; padding-right: 40px; padding-left: 40px; line-height: 0.78em; position: absolute; top: 20px;}
 .title-cerita-kewpie h3 { font-size: 3.5em; padding:8px 0 8px 0; text-align: center; width: 60%; border: 0px solid #990000; margin:0px auto 0 auto; line-height: 0.78em; }
 .title-item-produk, .title-item-produk-h {margin-left: -37px;}
 .items-produk-link-posisi{margin-left: -107px;;}
 .items-produk-link{width: 300px;}
-.items-produk-link a { display: block;}
+.items-produk-link a {display: block;}
 .menu-item5{opacity: 0.0; display: block;}
-.content-handler { position: relative;}
+.content-handler {position: relative;}
 /*.content-handler a { display: block; position: relative; }*/
-.link-handler { position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; margin: 0 auto; display: block; width: 100%}
-.footer{
-	background: transparent url('../img/bg-foot.png') top center repeat-x;
-	padding-top:36px;
-	margin-top:-36px;
-	position:relative;
-}
-.footer-bg{
-	background: #e70413; 
-	color: #fff;
-	padding: 20px;
-}
-.copyright{
-	text-align: center;
-	padding-left:320px;
-	padding-top:15px;
-}
+.link-handler{position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; margin: 0 auto; display: block; width: 100%}
+.footer{background: transparent url('../img/bg-foot.png') top center repeat-x; padding-top:36px; margin-top:-36px; position:relative; }
+.footer-bg{background: #e70413; color: #fff; padding: 20px; }
+.copyright{text-align: center; padding-left:320px; padding-top:15px; }
 .list-resep-home{margin:auto;margin-top: 200px !important;}
 .isi-mayonaise{margin:50px 0  50px 200px;}
 /* .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto;  width and height, can be %, px or whatever. } */
 .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') repeat-x top center; margin-top:-140px;}
 .bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat; background-size: 100% auto; /* width and height, can be %, px or whatever. */}
 .detail-resep{background: transparent url('../img/bg-detail-resep.jpg') no-repeat top center; padding-top:200px; margin-top:-140px;}
-.content-inside{margin-top: 100px;}
-.thumbnail {
-    position: relative;
-    padding: 0px;
-    margin-bottom: 20px;
-}
+.content-inside{margin-top: 100px;margin-bottom: 20px;}
+.thumbnail {position: relative;padding: 0px; margin-bottom: 20px; }
 .thumbnail img {
     /* width: 100%; */
 }
 .title-page{text-align: center;margin: 50px auto;}
 .title-news{ background: url('../img/page-berita-terbaru.png') top center no-repeat; width:210px; height: 172px; display: block; margin:0 auto; text-align: center; border:0px solid #990000;}
-.title-news h3 { font-size: 2.1em; width: 74%; border:0px solid #ff0000; margin: 0px auto 0 auto; line-height: 0.8em; padding:90px 0 0 0;-webkit-transform: rotate(-1deg);-moz-transform: rotate(-1deg);-o-transform: rotate(-1deg);writing-mode: rl-bt; }
+.title-news h3 { font-size: 2.1em; width: 74%; border:0px solid #ff0000; margin: 0px auto 0 auto; line-height: 0.8em; padding:90px 0 0 0;-webkit-transform: rotate(-1deg);-moz-transform: rotate(-1deg);-o-transform: rotate(-1deg); }
 .submenu{
     margin: -83px auto;
     margin-left: 25px;
@@ -555,53 +522,31 @@ a:hover{color: #e70413; text-decoration: blink;}
     position: relative;
     z-index:0;
 }
-.item-submenu{
-    padding: 40px 0 0 0;
-    position: relative;
-    z-index:6;
-	width:800px;
-}
-.item-submenu .list-inline{
-	width: 800px;
-	margin:auto;
+.item-submenu{ padding: 40px 0 0 0; position: relative; z-index:6; width:800px; }
+.item-submenu .list-inline{ width: 800px; margin:auto;
 }
 h2, h4{
     margin-top: 0px;
-    font-family: "Courier_new";
+    font-family: "Courier";
     font-weight: bold;
     color:#e70413;
 }
 .details h4, .info-resep h4{color: #684b31;}
 .details p{margin: 20px 0;}
-.img-ctr{
-    /*display: block;*/
-    margin: 0 auto 20px;
-}
-.img-tentang{
-    margin: 0 28px 0 86px;
-}
-.img-resep, .img-bahan{
-    float:left;
-    width: 519px;
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    margin-right: 30px;
-	position: relative;
+.img-ctr{ /*display: block;*/ margin: 0 auto 20px; }
+.img-tentang{ margin: 0 28px 0 86px; }
+.img-resep, .img-bahan{ float:left; width: 519px;
+  /* -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175); box-shadow: 0 6px 12px rgba(0, 0, 0, .175); */
+  margin-right: 30px;
+  position: relative;
 }
 .img-bahan{width:196px;}
-.detail-info-resep, .detail-info-bahan{
-    height:354px;
-    background: #fff;
-    padding: 30px;
-}
-.detail-info-bahan{height:258px; margin: 50px auto;}
+.detail-info-resep, .detail-info-bahan{ min-height:354px; background: #fff; padding: 30px; }
+.detail-info-bahan{/*height:258px;*/ height:auto; margin: 50px auto;}
 .detail-info-bahan ul li { list-style-type: disc; }
-.img-info Img{
-    margin: 0 20px; 
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-}
+.img-info Img{ margin: 0 20px; -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175); box-shadow: 0 6px 12px rgba(0, 0, 0, .175); }
 .tab-info{margin-top: -35px; margin-right: 30px;margin-bottom:20px;}
+.tab-info .btn{cursor: auto;}
 .tab-info .btn-danger{
     background-color: #e70413;
     /* border-radius: 4px 4px 0px 0px;
@@ -610,11 +555,7 @@ h2, h4{
     z-index:1;
     position:relative;
 }
-.cara-membuat{
-    background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
-    padding-top: 100px;
-	
-}
+.cara-membuat{ background: transparent url(../img/head-cara-bikin2.png) top center no-repeat; padding-top: 100px; }
 .black-crown{
     text-align:center;
     color:#fff;
@@ -625,26 +566,28 @@ h2, h4{
 .cara-membuat2{
     background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
     padding-top: 85px;
+  margin-top: 30px;
 }
 .head-board-resep{
-	background:transparent url(../img/bg-aneka-resep.png) center no-repeat;
-	height:159px;
-	width:370px;
-	position: absolute;
-	left: 50px;
-	top: -35px;
-	font-family: 'Leckerli_OneRegular';
+  background:transparent url(../img/bg-aneka-resep.png) center no-repeat;
+  height:159px;
+  width:370px;
+  position: absolute;
+  left: 50px;
+  top: -35px;
+  font-family: 'Leckerli_OneRegular';
     margin: 0 auto;
     color: #fff;
-	font-size: 36px;
-	padding:37px 0 0 0;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-	text-align: center; font-weight: normal;
+  font-size: 36px;
+  padding:37px 0 0 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  text-align: center; font-weight: normal;
 }
 .list-resep{
     background: transparent url(../img/head-cara-bikin3.png) bottom center no-repeat;
     padding-bottom:85px;
-	position: relative;
+  position: relative;
+  margin-bottom: 30px;
 }
 .bg-board{
     background: transparent url(../img/body-cara-bikin.png) top center repeat-y;
@@ -767,7 +710,8 @@ h2, h4{
     /*border: 1px solid #990000;*/
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.9);
     background: url('../img/button-down.png') bottom center no-repeat;
-    -webkit-transform: rotate(-6deg);-moz-transform: rotate(-6deg);-o-transform: rotate(-6deg);writing-mode: rl-bt;
+    -webkit-transform: rotate(-6deg);-moz-transform: rotate(-6deg);-o-transform: rotate(-6deg);
+  writing-mode: lr-tb;
 }
 .info-service{
     padding:50px;
@@ -785,16 +729,16 @@ ul.group-products li img {
     display: inline;
 }
 .fav-listresep-base{
-	height:230px;
+  height:230px;
 }
 .play-button-resep{
-	position:absolute;
-	top:135px;
-	left:220px;
+  position:absolute;
+  top:135px;
+  left:220px;
 }
 .item-submenu > .list-inline > li{
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 /* BUTTONS */
 .dropdown:hover .dropdown-menu {
@@ -813,7 +757,7 @@ ul.group-products li img {
   height: 54px;
   padding-top: 14px;
 }
-.detail-left a { padding-top: 4px; } 
+.detail-left a { padding-top: 4px; }
 .learn-detail{width: 200px;}
 .menu-lain{width: 320px; margin: auto;}
 .fork-spoon{
@@ -914,7 +858,7 @@ section a {
 }
 
 /* CUSTOM SEARCH */
-#custom-search-form { 
+#custom-search-form {
     margin-top:15px;
     margin-left: -10px;
 }
@@ -925,7 +869,7 @@ section a {
     padding-left: 3px;
     padding-left: 4px \9;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    
+
     margin-bottom: 0;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -949,7 +893,7 @@ section a {
 }
 
 .search-query:focus + button {
-    z-index: 3;   
+    z-index: 3;
 }
 .form-search {
     /*top: 25px;*/
@@ -987,7 +931,7 @@ h3.p1 { font-size: 1.5em; text-align: center; padding-top: 15px; margin-bottom: 
     margin-bottom: 0px;
 }
 #Carousel1 {
-	margin: 0;
+  margin: 0;
 }
 .carousel {
   margin-bottom: 0;
@@ -1017,7 +961,7 @@ h3.p1 { font-size: 1.5em; text-align: center; padding-top: 15px; margin-bottom: 
 }
 .carousel-control:hover,
 .carousel-control:focus{
-	background: #e70413;
+  background: #e70413;
 }
 /* The indicators */
 .carousel-indicators {
@@ -1069,11 +1013,11 @@ line-height: 50px;
 top: 0px;
 }
 
-/* TABLE */ 
+/* TABLE */
 
 /* .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-	border: none;
-	padding: 5px;
+  border: none;
+  padding: 5px;
 }
  */
 /* komposisi */
@@ -1151,19 +1095,19 @@ top: 0px;
     padding: 0;
 }
 .panel-heading-landing {
-    background: #e70413 !important; 
-    padding: 20px !important; 
-    border-top-left-radius: 10px !important;  
-    border-top-right-radius: 10px !important; 
-    border: solid 2px #e70413 !important; 
+    background: #e70413 !important;
+    padding: 20px !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border: solid 2px #e70413 !important;
     border-bottom: none !important;
 }
 .panel-heading-landing-box {
-    background: #e70413 !important; 
-    color: #fff !important; 
-    font-size: 16px !important; 
-    padding: 3px !important; 
-    border: solid 2px #e70413 !important; 
+    background: #e70413 !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    padding: 3px !important;
+    border: solid 2px #e70413 !important;
     border-top: none !important;
 }
 .panel-title-landing {
@@ -1172,14 +1116,17 @@ top: 0px;
     font-weight: bold;
 }
 .panel-body-landing {
-    border: solid 2px #e70413 !important; 
-    border-top: none !important; 
+    border: solid 2px #e70413 !important;
+    border-top: none !important;
     border-bottom: none !important;
 }
 .panel-footer-landing {
-    border: solid 2px #e70413 !important; 
+    border: solid 2px #e70413 !important;
     background:#fff;
-    border-bottom-left-radius: 10px !important; 
-    border-bottom-right-radius: 10px !important; 
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
     border-top: none !important;
+}
+.maps {
+  height:350px
 }

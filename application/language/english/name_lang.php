@@ -24,6 +24,7 @@ $lang['other_recipes'] = 'See Other Recipes';
 $lang['how_to']	= 'How to Make';
 $lang['more'] = 'Read more';
 $lang['meta_description'] = 'Offering the flavors that are popular in Indonesia Eating Culture';
+$lang['meta_keywords'] = 'Recipes, kitchen, mayonnaise, Cooking, Food, Sauces, Spices, Roasted, Healthy Eating, Breakfast, Salad, Vegetable, Nutrition, Processed Eggs, Kewpie Indonesia';
 $lang['copyright'] = '2015. &copy; KEWPIE Indonesia . All Rights Reserved';
 
 /* End of file label_name.php */

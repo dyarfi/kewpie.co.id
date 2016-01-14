@@ -24,6 +24,7 @@ $lang['other_recipes'] = 'Lihat Menu Lainnya';
 $lang['how_to']	= 'Cara Membuat';
 $lang['more'] = 'Selengkapnya';
 $lang['meta_description'] = 'Mempersembahkan Rasa yang Digemari dalam Budaya Makan Indonesia';
+$lang['meta_keywords'] = 'Resep,Dapur,Mayonais,Masak,Makanan,Saus,Bumbu,Sangrai,Makan Sehat,Sarapan,Salad,Sayuran,Gizi,Olahan Telur,Kewpie Indonesia';
 $lang['copyright'] = '2015. &copy; Kewpie Indonesia. Semua Hak Dilindungi';
 
 /* End of file label_name.php */

@@ -8,7 +8,7 @@
 <meta name="google" content="notranslate"/>
 <meta name="msvalidate.01" content="A0A21A55BF8A5297D8AA00CEF63298E3" />
 <meta name="description" content="<?php echo $this->meta_description ? $this->meta_description : lang('meta_description');?>"/>
-<meta name="keywords" content="Resep,Dapur,Mayonais,Masak,Makanan,Saus,Bumbu,Sangrai,Makan Sehat,Sarapan,Salad,Sayuran,Gizi,Olahan Telur,Kewpie Indonesia,mayonnaise"/>
+<meta name="keywords" content="<?php echo lang('meta_keywords');?>"/>
 <meta name="author" content="Kewpie Indonesia" />
 <title><?php echo ($page_title) ? $page_title .' | '. config_item('developer_name') : ''; ?></title>
 <link rel="alternate" href="<?php echo base_url('language/'.$this->Languages->getByUrl(config_item('language'))->url.'?rel='.current_url());?>" hreflang="x-default"/>

@@ -42,41 +42,29 @@ class Public_Controller extends MY_Controller {
 		} else {
 			// $this->template->set_theme('default');
 		}
-
 		
-		// Get language cookie
-		//$language = get_cookie('language');
-        $language = $this->session->userdata('language');
-        
-		// Check if cookie language if already set
-		if (!$language) {
-		
-			// Set expired time for about a month
-			$time_expired = 7200 + 60 * 60 * 24 * 30;
+		// Get language session
+		if (!$this->session->userdata('language')) {
 			
-			// Set language from database 
-			$this->config->set_item('language', $this->Languages->getDefault()->url);
-			
-			// Set cookie from default variables
-			//$this->input->set_cookie("language", config_item('language'), $time_expired);
-            $this->session->set_userdata("language", config_item('language'), $time_expired);
+			// Set default language from config
+			$this->session->set_userdata('language', config_item('language'));
 		
 		} else {
 		
-			// Set language from database 
-			$this->config->set_item('language', $language);
-			
+			// Set config item from session		
+			$this->config->set_item('language', $this->session->userdata('language'));
+		
 		}
-        
+		
 		// Load static language library
-		$this->lang->load('name', config_item('language'));
+		$this->lang->load('name', $this->session->userdata('language'));
 		
 		  // Set Language list
 		$this->meta_description	= lang('meta_description') ? lang('meta_description') : '';
 		
         // Set Language list
 		$this->languages		= $this->Languages->getAllLanguage(array('status'=>'1'));
-		
+		//print_r($this->languages);
         // Set menus
 		$this->menus       		= $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
         

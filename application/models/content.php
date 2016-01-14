@@ -20,7 +20,6 @@ class Content extends CI_Model {
 		
         // Set language model
         $this->load->model('language/Languages');
-		
         
 		// Get language default
 		$this->lang_prefix = $this->session->userdata('language');
