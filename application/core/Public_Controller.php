@@ -25,7 +25,7 @@ class Public_Controller extends MY_Controller {
 		self::getSiteStatus();
 		
 		// Set site user access logs
-		self::setAccessLog(1);
+		//self::setAccessLog(1);
 		
 		if($this->config->item('site_open') === FALSE)
         {

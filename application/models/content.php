@@ -92,7 +92,7 @@ class Content extends CI_Model {
 			}
 			$order_by  = $sql_order;
 		}
-		
+
         $sql_limit = ''; 
 		if ($limit != '' && $offset != '') {
 			$offset    = $offset . ','; 

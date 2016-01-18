@@ -177,15 +177,15 @@
 			  <div class="col-md-12">
 			  <div id="Carousel" class="carousel slide">
 			  <?php if (count($home_news) > 3) { ?>
-				<ol class="carousel-indicators">
+				<!--ol class="carousel-indicators">
 					<?php
 						$z = count($home_news) % 3;
-						for ($m=0;$m < $z;$$m++) { ?>
+						for ($m=0;$m < $z;$m++) { ?>
 						<li data-target="#Carousel" data-slide-to="<?php echo $m;?>" <?php echo $m == 0 ? 'class="active"' :'';?>></li>
 						<?php
 						$m++;
 					} ?>
-				</ol>
+				</ol-->
 				<?php } ?>
 				<!-- Carousel items -->
 				<div class="carousel-inner">

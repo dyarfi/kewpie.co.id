@@ -20,7 +20,7 @@ class Front_News extends Public_Controller {
         $data['category'] = $this->Content->find('page_menus',array('id'=>$field->field_id));
         
         // Set data from news
-        $data['news'] = $this->Content->find('news',array('status'=>'publish'));
+        $data['news'] = $this->Content->find('news',array('status'=>'publish'),array('added'=>'DESC'));
         
         // Set main template
 		$data['main'] = 'news';
