@@ -41,7 +41,7 @@ class Home extends Public_Controller {
 		//$data['home_recipe_favorite']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('modified' => 'ASC','id' => 'DESC'),2);        
         
         // Set home product recipes favorite
-		$data['home_recipes']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited !='=>'yes'),array('modified' => 'DESC'),4);
+		$data['home_recipes']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited !='=>'yes'),array('added' => 'DESC'),4);
                
         // Set home kewpie origin
 		$data['home_origin']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>3),'',1);

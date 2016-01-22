@@ -7,3 +7,4 @@ assets/static/captcha/image/*
 */cache/!.htaccess
 uploads/*
 .DS_Store
+Thumbs.db
