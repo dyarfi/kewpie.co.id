@@ -6,7 +6,7 @@
 /* Account for fixed navbar */
 html, body { overflow-x:hidden }
 html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-body{ background:#ffffff; font-family:"Gotham-Book";}
+body{ background:#fbf4e9; font-family:"Gotham-Book";}
 /*body,*/
 .navbar-fixed-top,
 .navbar-fixed-bottom { min-width: 970px; }
@@ -353,7 +353,7 @@ a:hover{color: #e70413; text-decoration: blink;}
   color: #684b31;
   font-weight: bold;
 }
-.tred{color: #ef5156;}
+.tred{color: #e70413;}
 .produk-kami{
   text-align: center;
   margin: -150px auto 50px;
@@ -406,15 +406,14 @@ a:hover{color: #e70413; text-decoration: blink;}
 .food-service-thumb{float: left; margin-right: 50px;}
 .food-service > .detail-left{margin-left: 363px;}
 .box-white{
-  background: #fff7de;
-  border-radius: 50px 50px 50px 50px;
-  -moz-border-radius: 50px 50px 50px 50px;
-  -webkit-border-radius: 50px 50px 50px 50px;
+  background: #fff;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
   border: 0px solid #ffffff;
   -webkit-box-shadow: 0px 0px 4px 1px rgba(245,245,245,1);
   -moz-box-shadow: 0px 0px 4px 1px rgba(245,245,245,1);
   box-shadow: 0px 0px 4px 1px rgba(245,245,245,1);
-  border: 15px solid #af8c4e;
 }
 .resep-home{
   clear: both;
@@ -432,7 +431,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 }
 .box-3{
   padding: 50px 40px 20px;
-  background: #fff7de;
+  background: #f7a800;
   -webkit-box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
   box-shadow: 0px 3px 13px -3px rgba(0, 0, 0, 0.7);
@@ -459,7 +458,7 @@ a:hover{color: #e70413; text-decoration: blink;}
   text-align: center;
   margin: auto;
   margin-top: 100px !important;
-  margin-bottom: 200px !important;
+  margin-bottom: 510px !important;
   clear: both;
 }
 .title-item-produk, .title-item-produk-h { margin: 0 auto 0 -30px; padding: 0 15px 0px 15px; display: block;width:148px;height:80px; position: relative; vertical-align: middle; display:table-caption; overflow: hidden}
@@ -504,8 +503,8 @@ a:hover{color: #e70413; text-decoration: blink;}
 .list-resep-home{margin:auto;margin-top: 200px !important;}
 .isi-mayonaise{margin:50px 0  50px 200px;}
 /* .bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') no-repeat top center; margin-top:-140px;background-size: 100% auto;  width and height, can be %, px or whatever. } */
-.bg-home{background: #fff url('../img/bg-body-cny.jpg') repeat-x top center; margin-top:-140px;}
-.bg-home-bottom{background: transparent url('../img/bg-footer-cny.jpg') bottom center no-repeat; background-size: 100% auto; /* width and height, can be %, px or whatever. */}
+.bg-home{background: #fbf4e9 url('../img/bg-main-kewpie.jpg') repeat-x top center; margin-top:-140px;}
+.bg-home-bottom{background: transparent url('../img/bg-footer.jpg') bottom center no-repeat; background-size: 100% auto; /* width and height, can be %, px or whatever. */}
 .detail-resep{background: transparent url('../img/bg-detail-resep.jpg') no-repeat top center; padding-top:200px; margin-top:-140px;}
 .content-inside{margin-top: 100px;margin-bottom: 20px;}
 .thumbnail {position: relative;padding: 0px; margin-bottom: 20px; }
@@ -606,7 +605,7 @@ h2, h4{
 .line-img{
     text-align: center;
     margin:-19px auto;
-    background: #fff;
+    background: #fbf4e9;
     width: 362px;
     font-family: desyrel;
     color:#6d5138;
@@ -1084,7 +1083,7 @@ top: 0px;
     -webkit-transition:  all .3s ease;
 }
 .pricing-table:hover>.panel>.panel-body-landing>.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    color: #000 !important;
+    color: #fff !important;
     -webkit-transition:  all .3s ease;
 }
 /* .pricing-table {
