@@ -26,6 +26,6 @@ a:hover {
 <?php foreach ($js_files as $file): ?>
 <script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
-<?php echo $js_inline;?>
+<?php echo ($js_inline) ? "\t".$js_inline."\n" : "";?>
 </body>
 </html>

@@ -4439,7 +4439,7 @@ class UploadHandler {
                 break;
             case 'png':
                 @imagecolortransparent($new_img, @imagecolorallocate($new_img, 0, 0, 0));
-                @imagealphablending($new_img, false);
+                @imagealphablending($new_img, true);
                 @imagesavealpha($new_img, true);
                 $src_img = @imagecreatefrompng($file_path);
                 $write_image = 'imagepng';

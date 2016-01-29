@@ -68,9 +68,11 @@
 				$l=1;
 				foreach ($home_recipe_favorite as $recipe) { ?>
 				<?php if ($l == 1) { ?>
+					<?php if ($recipe['favorited'] === 'yes' && !empty($recipe['favorite_image'])) { ?>
 					<div class="display-pizza" data-toggle="tooltip-s" data-placement="right" title="<?php //echo strip_tags($recipe['text']);?>">
-						<img id="fly-it4" src="<?php echo base_url('assets/public/img/resep-kiri.jpg');?>" alt="resep">
+						<img id="fly-it4" src="<?php echo base_url('uploads/recipes/'.$recipe['favorite_image']);?>" alt="resep">
 					</div>
+					<?php } ?>
 					<div id="fly-it2" class="box-white box-1">
 						<h3 class="title tred"><?php echo $recipe['subject'];?></h3>
 						<div class="food-service-text"><?php echo $recipe['synopsis'];?></div>
@@ -100,9 +102,11 @@
 						  <?php echo $this->lang->line('learn_how');?></a></div>
 					</div>
 				  </div>
+				  <?php if ($recipe['favorited'] === 'yes' && !empty($recipe['favorite_image'])) { ?>					
 				  <div class="display-sayuran" data-toggle="tooltip-s" data-placement="left" title="<?php //echo strip_tags($recipe['text']);?>">
-						<img id="fly-it5" src="<?php echo base_url('assets/public/img/resep-kanan.jpg');?>" alt="resep">
+						<img id="fly-it5" src="<?php echo base_url('uploads/recipes/'.$recipe['favorite_image']);?>" alt="resep">
 				  </div>
+				  <?php } ?>
 				<?php
 				}
 				$l++;
@@ -154,24 +158,26 @@
 		</div>
 		<!-- CERITA KEWPIE -->
 		<div id="scale-it2"  class="cerita-kewpie">
-		  <div class="title-cerita-kewpie"><h3><?php echo $this->lang->line('kewpie_story');?></h3></div>
+		  <div class="title-cerita-kewpie"><h3 class="story_head"><?php echo $this->lang->line('kewpie_story');?></h3></div>
 		  <div class="kewpie-region">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 			  <section>
 			  <a class="cmn-t-scale" href=""><img src="<?php echo base_url();?>assets/public/img/id-kewpie.png" alt="item resep a"><br>KEWPIE in Indonesia</a>
 			  </section>
 			</div>
+			<?php if ($this->ext_link->value) { ?>
 			<div class="col-xs-6 col-sm-6 col-md-6">
 			  <section>
-			  <a class="cmn-t-scale" href="http://www.kewpie.co.jp/"><img src="<?php echo base_url();?>assets/public/img/jp-kewpie.png" alt="item resep a"><br>KEWPIE in Japan</a>
+			  <a class="cmn-t-scale" href="<?php echo $this->ext_link->value;?>" target="_blank"><img src="<?php echo base_url();?>assets/public/img/jp-kewpie.png" alt="item resep a"><br>KEWPIE in Japan</a>
 			  </section>
 			</div>
+			<?php } ?>
 		  </div>
 		</div>
 		<div class="clear"></div>
 		<!-- NEWS KEWPIE -->
 		<div id="scale-it3" class="news-latest">
-			<div class="title-cerita-kewpie"><h3><?php echo $this->lang->line('latest_news');?></h3></div>
+			<div class="title-cerita-kewpie"><h3 class="news_head"><?php echo $this->lang->line('latest_news');?></h3></div>
 			  <!-- start carousel -->
 			  <div class="row">
 			  <div class="col-md-12">

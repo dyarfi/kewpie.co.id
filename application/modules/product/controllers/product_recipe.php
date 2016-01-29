@@ -44,9 +44,9 @@ class Product_Recipe extends Admin_Controller {
             // Set table relation
             $crud->set_relation('product_id','tbl_products','subject');
             // Set columns
-            $crud->columns('subject','product_id','synopsis','text','gallery','background','status','added','modified');			
+            $crud->columns('subject','product_id','text','gallery','background','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','product_id','background','synopsis','text','messages','cover','media','video','attribute','favorited','served','time','status');
+			$crud->fields('subject','url','product_id','background','synopsis','text','messages','cover','media','video','attribute','favorited','favorite_image','served','time','order','in_front','in_front_order','status');
             // Set column display 
             $crud->display_as('product_id','Product');
             $crud->display_as('media','Image');
@@ -55,6 +55,7 @@ class Product_Recipe extends Admin_Controller {
             $crud->display_as('messages','Instructions');
 			$crud->display_as('cover','Ingredients Cover');
             $crud->display_as('text','Ingredients');
+            $crud->display_as('in_front','In Front');
 			// Changes the default field type
             //$crud->field_type('video', 'text');
             $crud->field_type('served', 'integer');
@@ -65,13 +66,15 @@ class Product_Recipe extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','product_id','synopsis','text','attribute','favorited','gallery','media','status','translate');			
+				$crud->columns('id','subject','product_id','text','attribute','favorited','in_front','in_front_order','gallery','media','status','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
 			
 			// This callback escapes the default auto field output of the field name at the add and edit form
 			$crud->callback_field('video',array($this,'_callback_video'));
+			// This callback escapes the default auto field output of the field name at the add and edit form
+			$crud->callback_field('favorited',array($this,'_callback_favorited'));
 			// This callback escapes the default auto field output of the field name at the add form
 			$crud->callback_add_field('added',array($this,'_callback_time_added'));
 			// This callback escapes the default auto field output of the field name at the edit form
@@ -81,10 +84,13 @@ class Product_Recipe extends Admin_Controller {
             
             // Callback Column 
             $crud->callback_column('gallery',array($this,'_callback_gallery'));
+            $crud->callback_column('favorited',array($this,'_callback_column_favorited'));  
+            $crud->callback_column('in_front',array($this,'_callback_column_in_front'));            
             
             // This callback escapes the default auto column output of the field name at the add form
 			$crud->callback_column('added',array($this,'_callback_time'));
 			$crud->callback_column('modified',array($this,'_callback_time'));  
+
 			// Set callback before database set
             $crud->callback_before_insert(array($this,'_callback_url'));
             $crud->callback_before_update(array($this,'_callback_url'));
@@ -94,7 +100,10 @@ class Product_Recipe extends Admin_Controller {
  
 			// Sets the required fields of add and edit fields
 			$crud->required_fields('subject','text','in_front','media','status'); 
-			 
+			
+			// Set order by
+			$crud->order_by('id','desc');
+
 			$state = $crud->getState();
 			$state_info = $crud->getStateInfo();
 			//print_r($state);
@@ -127,6 +136,7 @@ class Product_Recipe extends Admin_Controller {
             $crud->set_field_upload('cover','uploads/recipes');
             $crud->set_field_upload('background','uploads/recipes');
             $crud->set_field_upload('media','uploads/recipes');
+            $crud->set_field_upload('favorite_image','uploads/recipes');
             
             $this->load($crud, 'product_recipe');
             
@@ -327,15 +337,38 @@ class Product_Recipe extends Admin_Controller {
 		// Return update database
 		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
 	}
-	
-	function _callback_video($value = '', $primary_key = null) {
+
+	public function _callback_video($value = '', $primary_key = null) {
 		preg_match('/src="([^"]+)"/', $value, $match);
 		$url = $match[1];
 		$return  = '<textarea name="video" style="width:462px">'.$value.'</textarea>';
 		$return .= $value ? '<a href="'.$url.'" class="fancybox-video iframe"> Preview</a>' : '';
 		return $return;
 	}
+
+	public function _callback_favorited($value = '', $primary_key = null) {
+		$unchecked = ($value == 'no' || $value == '') ? 'checked="checked"' : '';
+		$favorited = $value == 'yes' ? 'checked="checked"' : '';
+		$callbacks = '<div class="add_file_input">'.
+					 'Yes <input type="radio" value="yes" name="favorited" '.$favorited.'>'.
+					 'No <input type="radio" value="no" name="favorited" '.$unchecked.'>'.
+					 '<div class="file_handler"></div>'.
+					 '</div>';
+		return $callbacks;
+	}
 	
+	public function _callback_column_favorited($value, $row) {
+		// Return Yes or No
+		// return "<a href='".site_url('admin/sub_webpages/'.$row->id)."'>$value</a>";
+  		return ($value == '' || $value == 'no') ? '<strong class="text-danger">No</strong>' : '<strong class="text-success">Yes</strong>';
+	}
+
+	public function _callback_column_in_front($value, $row) {
+		// Return Yes or No
+		// return "<a href='".site_url('admin/sub_webpages/'.$row->id)."'>$value</a>";
+  		return ($value == '' || $value == 'no') ? '<strong class="text-danger">No</strong>' : '<strong class="text-success">Yes</strong>';
+	}
+
     private function load($crud, $nav) {
         $output = $crud->render();
         $output->nav = $nav;
@@ -347,10 +380,27 @@ class Product_Recipe extends Admin_Controller {
             // Set Primary Template
             $this->load->view('template/admin/template.php', $output);
         } else {
+			// Load JS execution		
+			$output->js_inline = '<script type="text/javascript">$(\'.add_file_input input[name="favorited"]\').change(function () {
+								if ($(this).val() == "yes") {
+									$(\'#favorite_image_field_box\').show();
+								} else {
+									$(\'#favorite_image_field_box\').hide();
+								}
+							  });
+							  //$(\'.add_file_input input[name="favorited"]\').each(function() {
+								//console.log($(this).val());
+							  //});
+							  if($(\'.add_file_input input[name="favorited"]:checked\').val() == "yes") {
+							  	$(\'#favorite_image_field_box\').show();
+							  } else {
+							  	$(\'#favorite_image_field_box\').hide();							  
+							  }
+							  </script>';
             $this->load->view('template/admin/popup.php', $output);
         }    
     }
 }
 
-/* End of file product.php */
-/* Location: ./application/module/product/controllers/product.php */
+/* End of file product_recipe.php */
+/* Location: ./application/module/product/controllers/product_recipe.php */

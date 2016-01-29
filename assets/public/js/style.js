@@ -1,57 +1,58 @@
 /* slide produk */
 $(document).ready(function() {
     /*** maps ***/
-    $(".maps").gmap3({
-        map:{
-            options:{
-              animation:google.maps.Animation.DROP,
-              center:[-6.2738346,106.7132423],
-              zoom: 14
-            }
-          },
-          marker:{
-            //values:[{address:"Ruko Kebayoran Arcade 3, Pondok Pucung, Pondok Aren",id:"1",data:"<div><strong>Kewpie Sales Office</strong></div><div> Ruko Kebayoran Arcade 3 Blok KA/E1-09 Bintaro Jaya, Tangerang Selatan, Indonesia</div>",options:{"icon":base_URL + "assets/public/img/maps.png","animation":"google.maps.Animation.DROP"}}],
-            values:[{address:"Ruko Kebayoran Arcade 3, Pondok Pucung, Pondok Aren, Tangerang Selatan, Indonesia",id:"1",data:"<div><strong>Kewpie Sales Office</strong></div><div>Ruko Kebayoran Arcade 3 Blok KA/E1-09 Bintaro Jaya, Tangerang Selatan, Indonesia</div>",options:{"animation":"google.maps.Animation.DROP"}}],
-            options:{
-                draggable: false,
-                animation:google.maps.Animation.DROP,
-                zoom: 14
-            },
-            events:{
-                mouseover: function(marker, event, context){
-                  //marker.setAnimation(google.maps.Animation.BOUNCE);  
-                  var map = $(this).gmap3("get"),
-                    infowindow = $(this).gmap3({get:{name:"infowindow"}});
-                  if (infowindow){
-                    infowindow.open(map, marker);
-                    infowindow.setContent(context.data);
-                  } else {
-                    $(this).gmap3({
-                      infowindow:{
-                        anchor:marker, 
-                        options:{content: context.data}
-                      }
-                    });
-                  }
-                },
-                mouseout: function(){
-                  //marker.setAnimation(null);  
-                  var infowindow = $(this).gmap3({get:{name:"infowindow"}});
-                  if (infowindow){
-                    infowindow.close();
-                  }
-                },
-                click: function(marker, event, context){
-                    //markerSelected(context.id);
-                    marker.setAnimation(google.maps.Animation.BOUNCE);              
-                    setTimeout(function(){
-                        marker.setAnimation(null);
-                    },1500);
+    //if(google) {
+        $(".maps").gmap3({
+            map:{
+                options:{
+                  animation:google.maps.Animation.DROP,
+                  center:[-6.2738346,106.7132423],
+                  zoom: 14
                 }
+              },
+              marker:{
+                //values:[{address:"Ruko Kebayoran Arcade 3, Pondok Pucung, Pondok Aren",id:"1",data:"<div><strong>Kewpie Sales Office</strong></div><div> Ruko Kebayoran Arcade 3 Blok KA/E1-09 Bintaro Jaya, Tangerang Selatan, Indonesia</div>",options:{"icon":base_URL + "assets/public/img/maps.png","animation":"google.maps.Animation.DROP"}}],
+                values:[{address:"Ruko Kebayoran Arcade 3, Pondok Pucung, Pondok Aren, Tangerang Selatan, Indonesia",id:"1",data:"<div><strong>Kewpie Sales Office</strong></div><div>Ruko Kebayoran Arcade 3 Blok KA/E1-09 Bintaro Jaya, Tangerang Selatan, Indonesia</div>",options:{"animation":"google.maps.Animation.DROP"}}],
+                options:{
+                    draggable: false,
+                    animation:google.maps.Animation.DROP,
+                    zoom: 14
+                },
+                events:{
+                    mouseover: function(marker, event, context){
+                      //marker.setAnimation(google.maps.Animation.BOUNCE);  
+                      var map = $(this).gmap3("get"),
+                        infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                      if (infowindow){
+                        infowindow.open(map, marker);
+                        infowindow.setContent(context.data);
+                      } else {
+                        $(this).gmap3({
+                          infowindow:{
+                            anchor:marker, 
+                            options:{content: context.data}
+                          }
+                        });
+                      }
+                    },
+                    mouseout: function(){
+                      //marker.setAnimation(null);  
+                      var infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                      if (infowindow){
+                        infowindow.close();
+                      }
+                    },
+                    click: function(marker, event, context){
+                        //markerSelected(context.id);
+                        marker.setAnimation(google.maps.Animation.BOUNCE);              
+                        setTimeout(function(){
+                            marker.setAnimation(null);
+                        },1500);
+                    }
+                  }
               }
-          }
-      });   
-	
+          });   
+	//}
     /* slide menu */
 
     var active1 = false;
@@ -164,6 +165,9 @@ $(document).ready(function() {
 	
     //EFFECT
            
+    //console.log($('.img-produk-kami h3').offset().left);           
+    //console.log($('.img-produk-kami h3').offset().top);
+
     if ($('.hello').size() > 0) {
         
         TweenMax.from('.hello', 1, {scale:0.5, opacity:0, delay:0.06, ease:Elastic.easeOut}, 0.1);
@@ -191,6 +195,13 @@ $(document).ready(function() {
     });
     
     var controller = $.superscrollorama();
+
+    var h3_our_product_x = Math.round($('.img-produk-kami h3').offset().left),
+        h3_our_product_y = Math.round($('.img-produk-kami h3').offset().top);
+
+    //console.log(h3_our_product_x);
+    //console.log(h3_our_product_y);
+    
         controller.addTween('.hello',
             (new TimelineLite())
             .append(
@@ -210,7 +221,7 @@ $(document).ready(function() {
                 .append(
                     TweenMax.fromTo($('.egg1'), 1.5, 
                     {css:{rotation:360, y:-100, x:840}, ease:Quad.easeInQuart}, 
-                    {css:{rotation:0, y:30, x:520}, immediateRender:true, ease:Quad.easeInQuart}
+                    {css:{rotation:0, y:30, x:h3_our_product_x}, immediateRender:true, ease:Quad.easeInQuart}
                 )
             ), 1 // scroll duration of tween
         );
@@ -255,7 +266,10 @@ $(document).ready(function() {
                 {css:{rotation:360, y:2840, x:-10}, immediateRender:true, ease:Quad.easeInQuart})
             ), .8 // scroll duration of tween
         );
-	
+
+        //var h3_kewpie_story_x = Math.round($('.title-cerita-kewpie h3.story_head').offset().left),
+        //   h3_kewpie_story_y = Math.round($('.title-cerita-kewpie h3.story_head').offset().top);	
+
         controller.addTween('#scale-it2', (new TimelineLite())
             .append(
                 TweenMax.fromTo( $('#scale-it2'), .5, {css:{opacity:0, width:'10%'}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, width:'100%'}, ease:Quad.easeInOut})
@@ -267,14 +281,21 @@ $(document).ready(function() {
             ), .8 // scroll duration of tween 
         );
 
+        //var h3_kewpie_news_x = Math.round($('.news-latest').position().left),
+        //h3_kewpie_news_y = Math.round($('.news-latest').position().top);
+
+        //$('.title-cerita-kewpie h3.news_head').attr("style","border:1px solid red");
+        //console.log(h3_kewpie_news_x);
+        //console.log(h3_kewpie_news_y);
+
         controller.addTween('#scale-it3', (new TimelineLite())
             //.append(
                 //TweenMax.from($('#scale-it3'), .45,{css:{opacity:0,y:-350},ease:Quad.easeIn},-200, false)
-			//)
+            //)
             .append(
                 TweenMax.fromTo($('.egg1'), 0.8, 
                 {css:{rotation:360, y:3630, x:700}, immediateRender:true, ease:Quad.easeInQuart}, 
-                {css:{rotation:0, y:4382, x:500}, immediateRender:true, ease:Quad.easeInQuart})
+                {css:{rotation:0, y:4082, x:500}, immediateRender:true, ease:Quad.easeInQuart})
             ).append(
                 TweenMax.fromTo( $('.egg1'), 1.8, {css:{rotation:10}, immediateRender:true, ease:Quad.easeInOut}, {css:{rotation:0}, ease:Elastic.easeOut, repeat:-1})
             ), .8 // scroll duration of tween  

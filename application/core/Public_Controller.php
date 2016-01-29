@@ -73,6 +73,7 @@ class Public_Controller extends MY_Controller {
         $this->twitter     = $this->Settings->getByParameter('socmed_twitter');        
         $this->gplus       = $this->Settings->getByParameter('socmed_gplus');        
         $this->email_info  = $this->Settings->getByParameter('email_info');
+        $this->ext_link	   = $this->Settings->getByParameter('ext_link');
 
     }
 	

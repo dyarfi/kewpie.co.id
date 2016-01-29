@@ -515,7 +515,7 @@ class CI_Image_lib {
 
 		if ($this->image_type == 3) // png we can actually preserve transparency
 		{
-			imagealphablending($dst_img, FALSE);
+			imagealphablending($dst_img, TRUE);
 			imagesavealpha($dst_img, TRUE);
 		}
 
