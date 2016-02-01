@@ -43,17 +43,17 @@ class Search extends Public_Controller {
 		//print_r($query->result_object());
 		//print_r($search);
 		
-		//$return['products'] = $this->Content->search('products',array('subject'=>$search,'text'=>$search));
+		//$return['products'] = $this->Content->search('products',['subject'=>$search,'text'=>$search]);
 		
-		$return['product_categories'] = $this->Content->search('product_categories',array('subject'=>$search,'text'=>$search));
+		$return['product_categories'] = $this->Content->search('product_categories',['subject'=>$search,'text'=>$search]);
 		
-		$return['product_recipes'] = $this->Content->search('product_recipes',array('subject'=>$search,'text'=>$search,'attribute'=>$search,'messages'=>$search));
+		$return['product_recipes'] = $this->Content->search('product_recipes',['subject'=>$search,'text'=>$search,'attribute'=>$search,'messages'=>$search]);
 		
-		$return['pages'] = $this->Content->search('pages',array('subject'=>$search,'text'=>$search));
+		$return['pages'] = $this->Content->search('pages',['subject'=>$search,'text'=>$search]);
 		
-		$return['page_menus'] = $this->Content->search('page_menus',array('subject'=>$search,'text'=>$search));
+		$return['page_menus'] = $this->Content->search('page_menus',['subject'=>$search,'text'=>$search]);
 		
-		$return['news'] = $this->Content->search('news',array('subject'=>$search,'text'=>$search));
+		$return['news'] = $this->Content->search('news',['subject'=>$search,'text'=>$search]);
 		
 		$data['results'] = $return;
 		
@@ -64,16 +64,16 @@ class Search extends Public_Controller {
 		// Set content
 		//,synopsis,text,attribute,messages 
 		$data1  = $this->Content->find('product_recipes',
-				array(
+				[
 					'subject LIKE'=>$search,
 					'status'=>'publish')
-				);
+				];
 		
 		$data2  = $this->Content->find('product_recipes',
-				array(
+				[
 					'synopsis LIKE'=>$search,
 					'status'=>'publish')
-				);
+				];
 		*/
 		
 		//print_r($query);

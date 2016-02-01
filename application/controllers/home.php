@@ -28,37 +28,37 @@ class Home extends Public_Controller {
 	public function index() {
 		
 		// Set home
-		$data['home_welcome']  = $this->Content->find('pages',array('status'=>'publish','menu_id'=>1,'id'=>1));
+		$data['home_welcome']  = $this->Content->find('pages',['status'=>'publish','menu_id'=>1,'id'=>1]);
         
         // Set home product
-		$data['home_product']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>2));
+		$data['home_product']  = $this->Content->find('page_menus',['status'=>'publish','id'=>2]);
         
         // Set home product categories == 'food-services'
-		$data['home_food_service']  = $this->Content->find('product_categories',array('status'=>'publish','url'=>'food-service'));
+		$data['home_food_service']  = $this->Content->find('product_categories',['status'=>'publish','url'=>'food-service']);
         
         // Set home product recipe favorite
-		$data['home_recipe_favorite']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('added'=>'DESC','order' => 'ASC'),2);
-		//$data['home_recipe_favorite']  = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('modified' => 'ASC','id' => 'DESC'),2);        
+		$data['home_recipe_favorite']  = $this->Content->find('product_recipes',['status'=>'publish','favorited'=>'yes'],['added'=>'DESC','order' => 'ASC'],2);
+		//$data['home_recipe_favorite']  = $this->Content->find('product_recipes',['status'=>'publish','favorited'=>'yes'],['modified' => 'ASC','id' => 'DESC'],2);        
         
         // Set home product recipes favorite
-		$data['home_recipes']  = $this->Content->find('product_recipes',array('status'=>'publish','in_front'=>'yes'),array('in_front_order' => 'ASC'),4);
+		$data['home_recipes']  = $this->Content->find('product_recipes',['status'=>'publish','in_front'=>'yes'],['in_front_order' => 'ASC'],4);
                
         // Set home kewpie origin
-		$data['home_origin']  = $this->Content->find('page_menus',array('status'=>'publish','id'=>3),'',1);
+		$data['home_origin']  = $this->Content->find('page_menus',['status'=>'publish','id'=>3],'',1);
 
 		// Set home news with latest three news
-		$data['home_news']  = $this->Content->find('news',array('status'=>'publish'),array('added'=>'desc'),10);       
+		$data['home_news']  = $this->Content->find('news',['status'=>'publish'],['added'=>'desc'],10);       
 		//print_r($data['home_news']);
         
         // Set page product category
-        $product_category = $this->Content->find('product_categories',array('status'=>'publish','color !='=>''),array('order' => 'ASC'),4);
+        $product_category = $this->Content->find('product_categories',['status'=>'publish','color !='=>''],['order' => 'ASC'],4);
         
         $temp = array();
         $b = 1;
         foreach ($product_category as $category) {
             //print_r($category);
-            $category['products']  = $this->Content->find('products',array('category_id'=>$category['field_id'],'in_front'=>'no','media !='=>''),'',14);
-            $category['front_img'] = $this->Content->find('products',array('category_id'=>$category['field_id'],'in_front'=>'yes','media !='=>''),'',1);
+            $category['products']  = $this->Content->find('products',['category_id'=>$category['field_id'],'in_front'=>'no','media !='=>''],'',14);
+            $category['front_img'] = $this->Content->find('products',['category_id'=>$category['field_id'],'in_front'=>'yes','media !='=>''],'',1);
             $temp[$b] = $category;
             $b++;
         }

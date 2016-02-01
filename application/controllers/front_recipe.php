@@ -17,10 +17,10 @@ class Front_Recipe extends Public_Controller {
     public function index() {
         
         // Set data from menu category
-        $data['favorited']   = $this->Content->find('product_recipes',array('status'=>'publish','favorited'=>'yes'),array('modified'=>'ASC'),1);
+        $data['favorited']   = $this->Content->find('product_recipes',['status'=>'publish','favorited'=>'yes'],['modified'=>'ASC'],1);
 		
         // Set data from menu category
-        $data['recipes']    = $this->Content->find('product_recipes',array('status'=>'publish'));
+        $data['recipes']    = $this->Content->find('product_recipes',['status'=>'publish'],['id'=>'desc']);
         
         // Set main template
 		$data['main']       = 'recipe';
@@ -53,13 +53,13 @@ class Front_Recipe extends Public_Controller {
         
         // Set detail recipe
         $field  = $this->Content->findIdByUrl('product_recipes', $detail);
-        $_field = $this->Content->find('product_recipes',array('id'=>$field->field_id,'status'=>'publish'));
+        $_field = $this->Content->find('product_recipes',['id'=>$field->field_id,'status'=>'publish']);
         
         // Set data images from recipe
         $data['recipe']  = $_field[1];
         
         // Set data Similiar Recipes
-        $data['recipes'] = $this->Content->find('product_recipes',array('id !='=>$field->field_id,'product_id'=>$_field[1]['product_id'], 'status'=>'publish'));
+        $data['recipes'] = $this->Content->find('product_recipes',['id !='=>$field->field_id,'product_id'=>$_field[1]['product_id'], 'status'=>'publish']);
        
         // Set data images from recipe
         $data['images'] = $this->ProductRecipeImages->getAllImageByRecipe($field->field_id);

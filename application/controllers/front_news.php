@@ -17,10 +17,10 @@ class Front_News extends Public_Controller {
         $field = $this->Content->findIdByUrl('page_menus', $detail);
         
         // Set data from menu category
-        $data['category'] = $this->Content->find('page_menus',array('id'=>$field->field_id));
+        $data['category'] = $this->Content->find('page_menus',['id'=>$field->field_id]);
         
         // Set data from news
-        $data['news'] = $this->Content->find('news',array('status'=>'publish'),array('added'=>'DESC'));
+        $data['news'] = $this->Content->find('news',['status'=>'publish'],['added'=>'DESC']);
         
         // Set main template
 		$data['main'] = 'news';
@@ -52,10 +52,10 @@ class Front_News extends Public_Controller {
         $field = $this->Content->findIdByUrl('page_menus', $detail);
         
         // Set data from menu category
-        $data['category'] = $this->Content->find('page_menus',array('id'=>$field->field_id));
+        $data['category'] = $this->Content->find('page_menus',['id'=>$field->field_id]);
         
         // Set data from news
-        $data['news'] = $this->Content->find('news',array('status'=>'publish'));
+        $data['news'] = $this->Content->find('news',['status'=>'publish']);
         
         // Set main template
 		$data['main'] = 'news';
@@ -77,7 +77,7 @@ class Front_News extends Public_Controller {
         $field = $this->Content->findIdByUrl('news', $detail);
         
         // Set data from menu category
-        $news         = $this->Content->find('news',array('id'=>$field->field_id,'status'=>'publish'));
+        $news         = $this->Content->find('news',['id'=>$field->field_id,'status'=>'publish']);
         $data['news'] = $news[1];
         
         // Set main template

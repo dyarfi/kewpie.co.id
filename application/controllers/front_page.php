@@ -33,10 +33,10 @@ class Front_Page extends Public_Controller {
         $field = $this->Content->findIdByUrl('page_menus', $detail);
         
         // Set data from menu category
-        $data['category'] = $this->Content->find('page_menus',array('id'=>$field->field_id));
+        $data['category'] = $this->Content->find('page_menus',['id'=>$field->field_id]);
         
         // Set data from pages
-        $data['pages'] = $this->Content->find('pages',array('menu_id'=>$field->field_id),array('added'=>'ASC'));
+        $data['pages'] = $this->Content->find('pages',['menu_id'=>$field->field_id],['added'=>'ASC']);
         
         // Set main template
 		$data['main'] = 'page';
@@ -58,10 +58,10 @@ class Front_Page extends Public_Controller {
         $field = $this->Content->findIdByUrl('pages', $detail);
         
         // Set data from menu category
-        $data['page_detail'] = $this->Content->find('pages',array('id'=>$field->field_id));
+        $data['page_detail'] = $this->Content->find('pages',['id'=>$field->field_id]);
         
         // Set data from pages
-        $data['pages'] = $this->Content->find('pages',array('menu_id'=>$this->Pages->getPage($field->field_id)->menu_id));
+        $data['pages'] = $this->Content->find('pages',['menu_id'=>$this->Pages->getPage($field->field_id)->menu_id]);
         
         // Set main template
 		$data['main']       = 'page_detail';

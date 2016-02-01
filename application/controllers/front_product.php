@@ -19,16 +19,16 @@ class Front_Product extends Public_Controller {
         //$data['recipes']            = $this->Content->find('product_recipes',array('status'=>'publish'));
         
         // Set product category data
-        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('order'=>'ASC'));
+        $data['product_category']    = $this->Content->find('product_categories',['status'=>'publish'],['order'=>'ASC']);
         
         // Set products data
-        $_products                   = $this->Content->find('products',array('status'=>'publish','media !='=>''),array('order'=>'ASC'));
+        $_products                   = $this->Content->find('products',['status'=>'publish','media !='=>''],['order'=>'ASC']);
         // Set temporary array
         $temp = array();
         // Get product wit recommended recipes
         foreach ($_products as $product => $val) {
             $val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
-            $val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('order'=>'ASC'));
+            $val['recipes'] = $this->Content->find('product_recipes',['product_id IN' => [$val['field_id']],'status'=>'publish'],['order'=>'ASC']);
             $temp[] = $val;
         }
         $products = $temp;
@@ -57,7 +57,7 @@ class Front_Product extends Public_Controller {
         $data['product_categories'] = $product_categories;
         
         // Set main template
-        $products                   = $this->Content->find('products',array('category_id'=>$product_categories->id),array('order'=>'ASC'));
+        $products                   = $this->Content->find('products',['category_id'=>$product_categories->id],['order'=>'ASC']);
 		$data['products']           = $products;
         
         // Set main template
@@ -81,10 +81,10 @@ class Front_Product extends Public_Controller {
         $data['product_categories'] = $product_categories;
 		
         // Set product category data
-        $data['product_category']    = $this->Content->find('product_categories',array('status'=>'publish'),array('order'=>'ASC'));
+        $data['product_category']    = $this->Content->find('product_categories',['status'=>'publish'],['order'=>'ASC']);
 		
 		// Set main data products
-        $_products                   = $this->Content->find('products',array('category_id'=>$product_categories->field_id,'status'=>'publish','media !='=>''),array('order'=>'ASC'));
+        $_products                   = $this->Content->find('products',['category_id'=>$product_categories->field_id,'status'=>'publish','media !='=>''],['order'=>'ASC']);
 		
 		//print_r($_products);
         // Set temporary array
@@ -93,7 +93,7 @@ class Front_Product extends Public_Controller {
         // Get product with recommended recipes
         foreach ($_products as $product => $val) {
 			$val['package'] = $this->ProductImages->getImageByFieldId($val['field_id']);
-			$val['recipes'] = $this->Content->find('product_recipes',array('product_id IN' => array($val['field_id']),'status'=>'publish'),array('order'=>'ASC'));
+			$val['recipes'] = $this->Content->find('product_recipes',['product_id IN' => [$val['field_id']],'status'=>'publish'],['order'=>'ASC']);
             $temp[] = $val;
         }
         $products = $temp;
