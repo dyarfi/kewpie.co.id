@@ -50,11 +50,11 @@ class Captcha extends CI_Model {
 		$this->db->delete('captcha');
 		
 		// Set value to insert
-		$value = array(
+		$value = [
 			'time'		=> $captcha['time'],
 			'ip_address'=> $this->input->ip_address(),
 			'word'		=> $captcha['word'],
-		);
+		];
 			
 		// Insert new Captcha data to database
 		$this->db->insert('captcha',$value);
@@ -69,7 +69,7 @@ class Captcha extends CI_Model {
 		$this->db->where('time <',$expire);
 		$this->db->delete($this->table);
 		// Set query to find matches
-		$query = $this->db->limit(1)->get_where($this->table, array('word'=>$word));
+		$query = $this->db->limit(1)->get_where($this->table, ['word'=>$word]);
 		
 		// Check result
 		if($query->num_rows() == 0) {

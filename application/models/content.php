@@ -210,29 +210,29 @@ class Content extends CI_Model {
 	public function sitemap ($xml='') {
 
 		// Page menus 		
-		$menus 			= $this->find('page_menus',array('status'=>'publish'),array('id'=>'asc'));
+		$menus 			= $this->find('page_menus',['status'=>'publish'],['id'=>'asc']);
 		// Inside kewpie sitemap
-		$inside_kewpie 	= $this->find('page_menus',array('status'=>'publish','id'=>3),array('id'=>'asc'));
+		$inside_kewpie 	= $this->find('page_menus',['status'=>'publish','id'=>3],['id'=>'asc']);
 		// About sitemap
-		$_about_kewpie 	= $this->find('pages',array('status'=>'publish','menu_id'=>5),array('id'=>'desc'));		
+		$_about_kewpie 	= $this->find('pages',['status'=>'publish','menu_id'=>5],['id'=>'desc']);		
 		$about_kewpie 	= array();
 		foreach ($_about_kewpie as $about) {
 			$about_kewpie[$about['subject']] = base_url('read/page/'.$about['url']);
 		}
 		// Product sitemap
-		$_products 	= $this->find('products',array('status'=>'publish'),array('id'=>'asc'));
+		$_products 	= $this->find('products',['status'=>'publish'],['id'=>'asc']);
 		$products 	= array();
 		foreach ($_products as $product) {
 			$products[$product['subject']] = base_url('read/product/'.$product['url']);
 		}
 		// Recipes sitemap
-		$_recipes 	= $this->find('product_recipes',array('status'=>'publish'),array('id'=>'desc'));
+		$_recipes 	= $this->find('product_recipes',['status'=>'publish'],['id'=>'desc']);
 		$recipes 	= array();
 		foreach ($_recipes as $recipe) {
 			$recipes[$recipe['subject']] = base_url('read/recipe/'.$recipe['url']);
 		}
 		// News sitemap
-		$_news 		= $this->find('news',array('status'=>'publish'),array('id'=>'desc'));
+		$_news 		= $this->find('news',['status'=>'publish'],['id'=>'desc']);
 		$news 	= array();
 		foreach ($_news as $new) {
 			$news[$new['subject']] 	= base_url('read/news/detail/'.$new['url']);

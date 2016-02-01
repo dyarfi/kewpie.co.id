@@ -63,10 +63,10 @@ class Public_Controller extends MY_Controller {
 		$this->meta_description	= lang('meta_description') ? lang('meta_description') : '';
 		
         // Set Language list
-		$this->languages		= $this->Languages->getAllLanguage(array('status'=>'1'));
-		//print_r($this->languages);
+		$this->languages		= $this->Languages->getAllLanguage(['status'=>'1']);
+		
         // Set menus
-		$this->menus       		= $this->Content->find('page_menus',array('url !='=>'home','status'=>'publish'));
+		$this->menus       		= $this->Content->find('page_menus',['url !='=>'home','status'=>'publish']);
         
         // Set social media links
         $this->facebook    = $this->Settings->getByParameter('socmed_facebook');        
