@@ -21,10 +21,11 @@
             foreach ($this->menus as $menu) { 
                 $type = $menu['type'] !=='page' ? $menu['type'] : $menu['type'].'/'.$menu['url'];
                 ?>
-            <li class="divider-img<?php echo ($this->uri->segment(3) == $menu['url']) ? ' active-m' : '';?>">
-                <a href="<?php echo base_url('read/'.$type);?>"><?php echo $menu['subject'];?></a>
-            </li>
-            <?php 
+				<!--li class="divider-img<?php echo ($this->uri->segment(3) == $menu['url']) ? ' active-m' : '';?>"-->
+				<li class="divider-img<?php echo ($this->uri->segment(2) == $type) ? ' active-m' : '';?>">
+					<a href="<?php echo base_url('read/'.$type);?>"><?php echo $menu['subject'];?></a>
+				</li>
+				<?php 
             $i++;
         } 
         ?>
