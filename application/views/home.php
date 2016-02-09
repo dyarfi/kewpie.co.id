@@ -75,11 +75,11 @@
 					<?php } ?>
 					<div id="fly-it2" class="box-white box-1">
 						<h3 class="title tred"><?php echo $recipe['subject'];?></h3>
-						<div class="food-service-text"><?php echo $recipe['synopsis'];?></div>
+						<div class="food-service-text"><?php echo character_limiter(strip_tags($recipe['synopsis']),154);?></div>
 						<?php if ($recipe['attribute']) { ?>
 						<p>
 						  <h3 class="title">KEWPIE Tips :</h3>
-						  <?php echo $recipe['attribute'];?>
+						  <?php echo character_limiter(strip_tags($recipe['attribute']),120);?>
 						</p>
 						<?php } ?>
 						<div class="detail-left learn-detail pull-right">
@@ -90,11 +90,11 @@
 				<?php } else if ($l == 2) { ?>
 				  <div id="fly-it3" class="box-white box-2">
 					<h3 class="title tred"><?php echo $recipe['subject'];?></h3>
-					<div class="food-service-text"><?php echo $recipe['synopsis'];?></div>
+					<div class="food-service-text"><?php echo character_limiter(strip_tags($recipe['synopsis']),154);?></div>
 					<?php if ($recipe['attribute']) { ?>
 					<p>
 					  <h3 class="title">KEWPIE Tips :</h3>
-					  <?php echo $recipe['attribute'];?>
+					  <?php echo character_limiter(strip_tags($recipe['attribute']),120);?>
 					</p>
 					<?php } ?>
 					<div class="detail-left learn-detail pull-right">
