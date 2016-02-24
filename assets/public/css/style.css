@@ -467,7 +467,7 @@ a:hover{color: #e70413; text-decoration: blink;}
 .img-produk-kami h3, .title-item-produk h4, .title-item-produk-h h4, .food-service-head h4,
 .title-cerita-kewpie h3, .food-service-head h5, .resep-title h4, .title-news h3{ font-family: 'Leckerli_OneRegular'; color:#ffffff; padding: 15px 0 0 0; line-height: 0.68em; border:0px solid #990000; width: 110px; font-size: 1.4em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); text-align: center; font-weight: normal; }
 .title-item-produk-h h4 { width: 120px;  line-height: 0.80em; font-size: 1.34em; margin:12px 0 0 0; }
-.img-produk-kami, .title-cerita-kewpie, .food-service-head { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url(../img/items/tagb1.png) top center no-repeat; padding: 32px 0 0 0; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);}
+.img-produk-kami, .title-cerita-kewpie, .food-service-head { width: 368px; height: 183px; display: block; position: relative; margin: 0 auto 0 auto; background: transparent url('../img/items/tagb1.png') top center no-repeat; padding: 32px 0 0 0; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);}
 .page-content { padding: 15px 25px;}
 .page-content p { text-align: justify;}
 .p1 { text-align: justify; }
@@ -480,11 +480,11 @@ a:hover{color: #e70413; text-decoration: blink;}
 /*.egg1 { opacity:0 }*/
 .head-font h3, .head-font h3.p1 { font-family: "Courier"; color:#e70413; font-weight: bold; text-align: left; padding: 5px 0}
 .inside-kewpie { border:0px solid #990000; }
-.resep-title { width: 368px; height: 263px; display: block; position: relative; background: transparent url(../img/items/tagb3.png) top center no-repeat; padding: 82px 0 0 0; margin-bottom: -70px;
+.resep-title { width: 368px; height: 263px; display: block; position: relative; background: transparent url('../img/items/tagb3.png') top center no-repeat; padding: 82px 0 0 0; margin-bottom: -70px;
   margin-left: -15px; z-index: 1; -webkit-transform: rotate(-3deg);-moz-transform: rotate(-3deg);-o-transform: rotate(-3deg);}
 .img-produk-kami h3 { font-size: 3em; text-align: center; width: 60%; border: 0px solid #990000; margin:0 auto; padding-bottom: 13px; line-height: 0.78em; }
 .resep-title h4 { font-size: 3.4em; text-align: center; width: 60%; border: 0px solid #990000; margin:50px auto 0 auto; padding-bottom: 0px; line-height: 0.78em; }
-.food-service-head {  width: 214px; height: 113px;border: 0px solid #990000; position: relative;margin: 0 auto; right: -100px; background: transparent url(../img/items/tagm1.png) top center no-repeat; }
+.food-service-head {  width: 214px; height: 113px;border: 0px solid #990000; position: relative;margin: 0 auto; right: -100px; background: transparent url('../img/items/tagm1.png') top center no-repeat; }
 .food-service-head h4, .food-service-head h5 { font-size: 3em; text-align: center; width: 100%; border: 0px solid #990000; margin:0 60px 0 0; padding: 0; line-height: 0.78em; position: absolute; top: 20px; }
 .food-service-head h5 {font-size: 2em; margin-top: 14px }
 .food-service-head h4 {padding-top:2px; font-size: 2.3em; text-align: center; width: 100%; border: 0px solid #990000; margin:6px 60px 0 0; padding-right: 40px; padding-left: 40px; line-height: 0.78em; position: absolute; top: 20px;}
@@ -555,7 +555,7 @@ h2, h4{
     z-index:1;
     position:relative;
 }
-.cara-membuat{ background: transparent url(../img/head-cara-bikin2.png) top center no-repeat; padding-top: 100px; }
+.cara-membuat{ background: transparent url('../img/head-cara-bikin2.png') top center no-repeat; padding-top: 100px; }
 .black-crown{
     text-align:center;
     color:#fff;
@@ -564,12 +564,12 @@ h2, h4{
     font-size:24px;
 }
 .cara-membuat2{
-    background: transparent url(../img/head-cara-bikin2.png) top center no-repeat;
+    background: transparent url('../img/head-cara-bikin2.png') top center no-repeat;
     padding-top: 85px;
   margin-top: 30px;
 }
 .head-board-resep{
-  background:transparent url(../img/bg-aneka-resep.png) center no-repeat;
+  background:transparent url('../img/bg-aneka-resep.png') center no-repeat;
   height:159px;
   width:370px;
   position: absolute;
@@ -584,13 +584,13 @@ h2, h4{
   text-align: center; font-weight: normal;
 }
 .list-resep{
-    background: transparent url(../img/head-cara-bikin3.png) bottom center no-repeat;
+    background: transparent url('../img/head-cara-bikin3.png') bottom center no-repeat;
     padding-bottom:85px;
   position: relative;
   margin-bottom: 30px;
 }
 .bg-board{
-    background: transparent url(../img/body-cara-bikin.png) top center repeat-y;
+    background: transparent url('../img/body-cara-bikin.png') top center repeat-y;
     padding: 40px 50px 20px 270px;
     color: #fff;
     margin: 0 auto;

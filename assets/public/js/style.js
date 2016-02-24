@@ -1,7 +1,8 @@
 /* slide produk */
 $(document).ready(function() {
     /*** maps ***/
-    //if(google) {
+    //console.log(typeof(google) == 'object');
+    if(typeof(google) == 'object') {
         $(".maps").gmap3({
             map:{
                 options:{
@@ -52,7 +53,7 @@ $(document).ready(function() {
                   }
               }
           });   
-	//}
+	}
     /* slide menu */
 
     var active1 = false;
@@ -196,8 +197,8 @@ $(document).ready(function() {
     
     var controller = $.superscrollorama();
 
-    var h3_our_product_x = Math.round($('.img-produk-kami h3').offset().left),
-        h3_our_product_y = Math.round($('.img-produk-kami h3').offset().top);
+    //var h3_our_product_x = Math.round($('.img-produk-kami h3').offset().left),
+        //h3_our_product_y = Math.round($('.img-produk-kami h3').offset().top);
 
     //console.log(h3_our_product_x);
     //console.log(h3_our_product_y);
@@ -221,7 +222,7 @@ $(document).ready(function() {
                 .append(
                     TweenMax.fromTo($('.egg1'), 1.5, 
                     {css:{rotation:360, y:-100, x:840}, ease:Quad.easeInQuart}, 
-                    {css:{rotation:0, y:30, x:h3_our_product_x}, immediateRender:true, ease:Quad.easeInQuart}
+                    {css:{rotation:0, y:30, x:520}, immediateRender:true, ease:Quad.easeInQuart}
                 )
             ), 1 // scroll duration of tween
         );

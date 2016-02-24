@@ -14,13 +14,35 @@
 <link rel="alternate" href="<?php echo base_url('language/'.$this->Languages->getByUrl(config_item('language'))->url.'?rel='.current_url());?>" hreflang="x-default"/>
 <link rel="alternate" href="<?php echo base_url('language/'.$this->Languages->getByUrl(config_item('language'))->url.'?rel='.current_url());?>" hreflang="<?php echo $this->Languages->getByUrl(config_item('language'))->prefix;?>"/>
 <link rel="shortcut icon" href="<?php echo base_url();?>favicon.ico" />
-<link href="<?php echo base_url();?>assets/public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url();?>assets/public/css/fonts.css" rel="stylesheet" type="text/css">
-<link href="<?php echo base_url();?>assets/public/css/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url();?>assets/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url();?>assets/public/css/animate.css" rel="stylesheet" />
-<link href="<?php echo base_url();?>assets/public/css/effect.css" rel="stylesheet" />
-<link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">
+<?php 
+    /*
+    * MINIFY CSS 
+    * ----------------------
+    * Add css files that want to be minify
+    */    
+    // Add / Change default dir
+    $this->minify->assets_dir = 'assets/public/css';
+    // Add Stylesheet
+    $this->minify->css([
+      "public/css/bootstrap.min.css",
+      "public/css/fonts.css",
+      "public/css/fancybox/jquery.fancybox.css",
+      "public/font-awesome/css/font-awesome.min.css",
+      "public/css/animate.css",
+      "public/css/effect.css",
+      "public/css/style.css"
+    ]);
+    /*
+     * Adding additional stylesheet from controller
+     */
+    if (!empty($css_files)) { 
+        foreach ($css_files as $sheet => $css):
+          // Add js to minified
+          $this->minify->add_css($css, $sheet);
+        endforeach; 
+    }
+    echo $this->minify->deploy_css(FALSE);
+?>
 <script type="text/javascript">var base_URL = '<?php echo base_url();?>';</script>
 <script src="<?php echo base_url();?>assets/public/js/useragents.js"></script>
 <!--[if IE]><link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/public/css/ie-style.css" /><![endif]-->
@@ -52,18 +74,53 @@
   ga('send', 'pageview'); 
 </script> 
 <!-- Core JavaScript Files -->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script src="<?php echo base_url();?>assets/public/js/jquery.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/jquery.easing.min.js" type="text/javascript"></script>	
-<script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/TweenMax.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/bootstrapValidator/js/bootstrapValidator.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/jquery.superscrollorama.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/jquery.scrollTo.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/wow.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/carousel-swipe.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/public/js/gmap3.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+<?php
+    /*
+    * MINIFY JS 
+    * ----------------------
+    * Add js files that want to be minify
+    */
+    // Add / Change default dir
+    $this->minify->assets_dir = 'assets/public/js';
+    // Add javascripts
+    $this->minify->js([
+      "public/js/jquery.min.js",
+      "public/js/jquery.easing.min.js",
+      "public/js/bootstrap.min.js",
+      "public/js/TweenMax.min.js",
+      "public/js/bootstrapValidator/js/bootstrapValidator.js",
+      "public/js/jquery.superscrollorama.js",
+      "public/js/jquery.scrollTo.js",
+      "public/js/wow.min.js",
+      "public/js/jquery.fancybox.pack.js",
+      "public/js/carousel-swipe.js",
+      "public/js/gmap3.min.js"
+    ]);
+    /*
+     * Adding additional javascript from controller
+     */
+    if (!empty($js_files)) { 
+        foreach ($js_files as $group => $file):
+          // Add js to minified
+          $this->minify->add_js($file, $group);
+        endforeach; 
+    }
+    /* 
+     * ----------------- BEWARE OF DEPLOYING | ALWAYS SET TO FALSE AFTER RECOMPILE ------------------
+     * Recompile javascript!!! Set this to true every times you add javascripts library from anywhere
+     */
+    echo $this->minify->deploy_js(FALSE);
+?>
+<?php 
+  /*
+   * Debugging information only 
+   *
+   */
+  /* if (!empty($js_files)) { foreach ($js_files as $file): ?>
+  <script src="<?php echo $file; ?>"></script>
+  <?php endforeach; } */ 
+?>
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url();?>assets/public/js/style.js" type="text/javascript"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
