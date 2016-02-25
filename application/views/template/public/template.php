@@ -41,6 +41,11 @@
           $this->minify->add_css($css, $sheet);
         endforeach; 
     }
+    /* 
+     * ----------------- BEWARE OF DEPLOYING | ALWAYS SET TO FALSE AFTER RECOMPILE ------------------
+     * Recompile css!!! Set this to true every times you add css library from anywhere
+     * delete assets/public/css/styles.min.css to recompile again
+     */
     echo $this->minify->deploy_css(FALSE);
 ?>
 <script type="text/javascript">var base_URL = '<?php echo base_url();?>';</script>
@@ -109,6 +114,7 @@
     /* 
      * ----------------- BEWARE OF DEPLOYING | ALWAYS SET TO FALSE AFTER RECOMPILE ------------------
      * Recompile javascript!!! Set this to true every times you add javascripts library from anywhere
+     * delete assets/public/js/scripts.min.js to recompile again
      */
     echo $this->minify->deploy_js(FALSE);
 ?>
