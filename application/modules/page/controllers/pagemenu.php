@@ -37,11 +37,11 @@ class PageMenu extends Admin_Controller {
 	    // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
-            $crud->set_table('tbl_page_menus');
+            $crud->set_table('tbl_page_menus')->order_by('id','asc');
             // Set CRUD subject
             $crud->set_subject('Page Menu');                            
             // The fields that user will see on add and edit form
-			$crud->fields('subject','synopsis','text','type','position','media','status','added','modified');
+			$crud->fields('subject','url','synopsis','text','type','position','media','status','added','modified');
             // Set column
             $crud->columns('subject','text','position','media','gallery','status','added','modified');	
 			
@@ -59,7 +59,7 @@ class PageMenu extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','synopsis','text','media','gallery','status','added','modified','translate');			
+				$crud->columns('subject','text','media','gallery','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}
@@ -215,7 +215,7 @@ class PageMenu extends Admin_Controller {
 		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
 			// Find other than the default languages
 			if($lang->default != 1) {
-				$links .= '<a href="'.base_url(ADMIN).'/pagemenu/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
+				$links .= '<a href="'.base_url(ADMIN).'/pagemenu/translate/'.$row->id.'/'.$lang->id.'/'.$lang->prefix.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
 			}
 		}
 		return $links;

@@ -43,7 +43,7 @@ class Page extends Admin_Controller {
             // Set table relation
             $crud->set_relation('menu_id','tbl_page_menus','subject');
             // Set columns
-            $crud->columns('subject','menu_id','synopsis','text','gallery','status','added','modified');			
+            $crud->columns('subject','menu_id','text','gallery','status','added','modified');			
 			// The fields that user will see on add and edit form
 			$crud->fields('subject','url','menu_id','synopsis','text','media','status','added','modified');
             // Set column display 
@@ -55,7 +55,7 @@ class Page extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','menu_id','synopsis','text','gallery','media','status','added','modified','translate');			
+				$crud->columns('subject','menu_id','text','gallery','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}

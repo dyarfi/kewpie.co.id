@@ -11,21 +11,7 @@ class Public_Controller extends MY_Controller {
         parent::__construct();
         
         // Get libraries from system
-		// $this->load->library('Template');
-
-		// Load site models
-		$this->load->model('admin/Configurations');
-		$this->load->model('admin/Settings');
-		$this->load->model('admin/ServerLogs');
-		$this->load->model('admin/Languages');
-        // Site content
-        $this->load->model('Content');
-		
-		// Set site status default
-		self::getSiteStatus();
-		
-		// Set site user access logs
-		//self::setAccessLog(1);
+		// $this->load->library('Template');		
 		
 		if($this->config->item('site_open') === FALSE)
         {
@@ -55,7 +41,21 @@ class Public_Controller extends MY_Controller {
 			$this->config->set_item('language', $this->session->userdata('language'));
 		
 		}
+	
+		// Load site models
+		$this->load->model('admin/Configurations');
+		$this->load->model('admin/Settings');
+		$this->load->model('admin/ServerLogs');
+		$this->load->model('admin/Languages');
+        // Site content
+        $this->load->model('Content');
 		
+		// Set site status default
+		self::getSiteStatus();
+		
+		// Set site user access logs
+		//self::setAccessLog(1);
+
 		// Load static language library
 		$this->lang->load('name', $this->session->userdata('language'));
 		
