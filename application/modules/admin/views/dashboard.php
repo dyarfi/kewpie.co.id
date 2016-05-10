@@ -37,7 +37,7 @@
 		<!-- END PAGE HEADER-->
 		<!-- BEGIN DASHBOARD STATS -->
 		<div class="row">
-			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 hide">
 				<div class="dashboard-stat blue">
 					<div class="visual">
 						<i class="fa fa-comments"></i>

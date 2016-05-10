@@ -51,22 +51,25 @@ class Content extends CI_Model {
 									'>',
 									'<',
 									'=');
-
+				$_fields ='';
 				foreach ($where_cond as $field => $value) {
 					$operator	= '=';
 
 					if (strpos($field, ' ') != 0)
 						list($field, $operator)	= explode(' ', $field);
 
+
 					if (in_array($operator, $operators)) {
 						$field		= '`'.$field.'`';
 						
-						if($operator == 'LIKE')
+						if($operator == 'LIKE') {
+							$_fields = TRUE;
 							$buffers[]	= $field.' '.$operator.' \'%'.$value.'%\'';
-						else if ($operator == 'IN' && is_array($value))
+						} else if ($operator == 'IN' && is_array($value)) {
 							$buffers[]	= $field.' '.$operator.' (\''.implode('\', \'', $value).'\')';
-						else
+						} else {
 							$buffers[]	= $field.' '.$operator.' \''.$value.'\'';
+						}
 						
 					} else if (is_numeric($field)) {
 						$buffers[]	= $value;
@@ -74,10 +77,12 @@ class Content extends CI_Model {
 						$buffers[]	= $field.' '.$operator.' \''.$value.'\'';
 					}
 				}
-
-				//print_r($buffers);
 				
-				$where_cond	= implode(' AND ', $buffers);
+				$where_cond	= ($_fields) ? implode(' OR ', $buffers) : implode(' AND ', $buffers);
+
+			} else {
+
+				$where_cond	= $where_cond;
 			}
 		}
 		
@@ -110,17 +115,16 @@ class Content extends CI_Model {
 		else {
 			$sql = 'SELECT * FROM `'.$tbl.'`' . $order_by . $limit;
         }
-        
+
         // Main table
         $rows  = $this->db->query($sql);
-        
         // Set data result
         $returns = array();
         $details = array();
         
         $p=1;
         $key = array();
-        foreach ($rows->result_array() as $row) {
+        foreach ($rows->result_array() as $row) {        	
             $row['field_id'] = $row['id'];
             $key = $this->db->query('SELECT * FROM `tbl_translations` WHERE `table` = \''.$tbl.'\' AND `lang_id` = '.$this->lang_data->id.' AND `field_id` = '.$row['id'].' LIMIT 1;')->result_array();
             $details[$p] = $key[0];
@@ -128,7 +132,7 @@ class Content extends CI_Model {
             $p++;
 		}
         
-		return ($this->lang_data->is_system == 1) ? $returns : array_replace_recursive($returns, $details);
+        return ($this->lang_data->is_system == 1) ? $returns : array_replace_recursive($returns, $details);
 	}
 	
     public function findIdByUrl($table='',$url='') {
@@ -175,20 +179,21 @@ class Content extends CI_Model {
 		return $language;
 	
 	}
-	
-	
-	
-	public function search($table='',$query=array()){
+		
+	public function search_bak($table='',$query=array()){
 		
 		/** Set table detail **/
         $tbl = $this->db->dbprefix($table);
 		
 		$default_lang_id = $this->Languages->getDefault()->id;
 		$current_lang_id = $this->getDBLanguage()->id;
-		
-		
-		
-		$this->db->like($query,'both');	
+						
+		$c = count($query);
+		if ($c > 1) {
+			$this->db->or_like($query,'both');	
+		} else {
+			$this->db->like($query,'both');
+		}		
 		
 		if ($current_lang_id !== $default_lang_id) {
 			
@@ -202,11 +207,18 @@ class Content extends CI_Model {
 			
 		$query = $this->db->get($tbl);
 		
-		//return $this->db->last_query();
+		print_r( $this->db->last_query() );
+		exit;
 		return $query->result();
 		
 	}
-	
+
+	public function search($table='',$query=array()){
+				
+		return $this->find($table,$query);
+		
+	}
+
 	public function sitemap ($xml='') {
 
 		// Page menus 		

@@ -1,4 +1,6 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
+//print_r($results['news']);
+?>
 
 <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
     <div class="kewpie-main-body"> <!-- for cahnging background purpose -->
@@ -20,30 +22,36 @@
 						} */ 
 						?>
 						<?php
-						if (!empty($results['product_categories'])) {
+						if (!empty($results['product_categories'])) { 
 							foreach ($results['product_categories'] as $category) { ?>
-							<li>
-								<a href="<?php echo base_url('read/product/category/'.$category->url);?>"><?php echo $category->subject;?></a>
-							</li>
-							<?php 
-							} 
-						} if (!empty($results['product_recipes'])) {
+								<li>
+									<a href="<?php echo base_url('read/product/category/'.$category['url']);?>"><?php echo $category['subject'];?></a>
+								</li>
+								<?php
+							}
+						}  if (!empty($results['product_recipes'])) {
 							foreach ($results['product_recipes'] as $recipe) {?>
 							<li>
-								<a href="<?php echo base_url('read/recipe/detail/'.$recipe->url);?>"><?php echo $recipe->subject;?></a>
+								<a href="<?php echo base_url('read/recipe/'.$recipe['url']);?>"><?php echo $recipe['subject']	;?></a>
 							</li>
 						<?php 
 							}
-						} if (!empty($results['pages'])) { 
+						}  if (!empty($results['pages'])) { 
 							foreach ($results['pages'] as $page) {?>
 							<li>
-								<a href="<?php echo base_url('read/page/detail/'.$page->url);?>"><?php echo $page->subject;?></a>
+								<a href="<?php echo base_url('read/page/detail/'.$page['url']);?>"><?php echo $page['subject'];?></a>
 							</li>
 						<?php } 
-						} if (!empty($results['page_menus'])) { 
+						}  if (!empty($results['page_menus'])) { 
 							foreach ($results['page_menus'] as $menu) {?>
 							<li>
-								<a href="<?php echo base_url('read/page/'.$menu->url);?>"><?php echo $menu->subject;?></a>
+								<a href="<?php echo base_url('read/page/'.$menu['url']);?>"><?php echo $menu['subject'];?></a>
+							</li>
+						<?php } 
+						}  if (!empty($results['news'])) { 
+							foreach ($results['news'] as $news) {?>
+							<li>
+								<a href="<?php echo base_url('read/news/detail/'.$news['url']);?>"><?php echo $news['subject'];?></a>
 							</li>
 						<?php } 
 						}

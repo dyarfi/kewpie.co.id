@@ -116,7 +116,7 @@ class News extends Admin_Controller {
         }
     }
 
-	public function detail($operation = '',$field_id='',$lang_id='') {
+	function detail($operation = '',$field_id='',$lang_id='') {
 		
 		/* Just make sure that you don't want to redirect him at the news_lang news but at newss */
 		if($operation == '' || $operation == 'list') {
@@ -170,7 +170,7 @@ class News extends Admin_Controller {
 		
 	}
 	
-	public function translate() {
+	function translate() {
 		
 		// URI segment for news id
 		$field_id = $this->uri->segment(4);
@@ -200,26 +200,7 @@ class News extends Admin_Controller {
 		}
 		
 	}
-    
-    public function _callback_translate ($value, $row) {
-		$links = '';
-		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
-			// Find other than the default languages
-			if($lang->default != 1) {
-				$links .= '<a href="'.base_url(ADMIN).'/news/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
-			}
-		}
-		return $links;
-	}
 	
-    public function _callback_update_detail($post, $primary_key) {
-		// Unset status first and change to 1
-        unset($post['status']);
-		$post['status']  	= 1;
-		// Return update database
-		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
-	}
-
     public function _callback_after_upload($uploader_response,$field_info, $files_to_upload) {
         $this->load->library('image_moo');
 
@@ -243,7 +224,26 @@ class News extends Admin_Controller {
         if ($this->image_moo->error) print $this->image_moo->display_errors(); else return true;
         
     }
-
+    
+    public function _callback_translate ($value, $row) {
+		$links = '';
+		foreach($this->Languages->getAllLanguage(array('status'=>1))as $lang) {
+			// Find other than the default languages
+			if($lang->default != 1) {
+				$links .= '<a href="'.base_url(ADMIN).'/news/translate/'.$row->id.'/'.$lang->id.'" class="fancyframe iframe" title="'.$lang->name.'"><img src="'.base_url('assets/admin/img/flags/'.$lang->prefix.'.png').'"/></a>&nbsp;';
+			}
+		}
+		return $links;
+	}
+	
+    public function _callback_update_detail($post, $primary_key) {
+		// Unset status first and change to 1
+        unset($post['status']);
+		$post['status']  	= 1;
+		// Return update database
+		return $this->db->update('tbl_translations',$post,array('id' => $primary_key));
+	}
+    
     public function _callback_gallery ($value,$row) {
         if ($row->id) { 
             return '<a href="'.base_url(ADMIN).'/news_gallery/index/'.$row->id.'" class="fancyframe iframe"><span class="btn btn-default btn-mini glyphicon glyphicon-camera"></span></a>'; 

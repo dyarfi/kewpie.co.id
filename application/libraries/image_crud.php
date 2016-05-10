@@ -708,7 +708,7 @@ class ImageUploadHandler
 				break;
 			case 'png':
 				@imagecolortransparent($new_img, @imagecolorallocate($new_img, 0, 0, 0));
-				@imagealphablending($new_img, true);
+				@imagealphablending($new_img, false);
 				@imagesavealpha($new_img, true);
 				$src_img = @imagecreatefrompng($file_path);
 				$write_image = 'imagepng';

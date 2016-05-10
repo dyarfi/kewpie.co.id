@@ -21,6 +21,7 @@ class Search extends Public_Controller {
         // Load Product MOdels
         $this->load->model('product/ProductCategories');
 		$this->load->model('product/Products');
+
         //$this->load->model('product/ProductImages');
 				
 		//$page_menus = $this->Content->find('page_menus',array('status'=>'publish'));
@@ -29,56 +30,28 @@ class Search extends Public_Controller {
 	}
 	
 	public function index() {
-		
-		//if (!$search) {
+
+		$search = addslashes(trim(strip_tags($this->input->post('search'))));
+
+		if (!$search) {
 			//$this->session->set_flashdata('message',$this->lang->line('no_search'));
-			//redirect(base_url());
-		//}
+			redirect(base_url());
+		}				
 		
-		$search = $this->input->post('search');
+		$return['product_categories'] = $this->Content->find('product_categories',"status = 'publish' AND subject LIKE '%{$search}%' OR text LIKE '%{$search}%'");
 		
-		//$sql1	= "SELECT * FROM `tbl_translations` WHERE subject LIKE '%".$this->db->escape_like_str($search)."%'";
+		$return['product_recipes'] = $this->Content->find('product_recipes',"status = 'publish' AND subject LIKE '%{$search}%' OR text LIKE '%{$search}%' OR attribute LIKE '%{$search}%' OR messages LIKE '%{$search}%'");
 		
-		//$query  = $this->db->query($sql1);
-		//print_r($query->result_object());
-		//print_r($search);
+		$return['pages'] = $this->Content->find('pages',"status = 'publish' AND subject LIKE '%{$search}%' OR text LIKE '%{$search}%'");
 		
-		//$return['products'] = $this->Content->search('products',['subject'=>$search,'text'=>$search]);
+		$return['page_menus'] = $this->Content->find('page_menus',"status = 'publish' AND subject LIKE '%{$search}%' OR text LIKE '%{$search}%'");
 		
-		$return['product_categories'] = $this->Content->search('product_categories',['subject'=>$search,'text'=>$search]);
-		
-		$return['product_recipes'] = $this->Content->search('product_recipes',['subject'=>$search,'text'=>$search,'attribute'=>$search,'messages'=>$search]);
-		
-		$return['pages'] = $this->Content->search('pages',['subject'=>$search,'text'=>$search]);
-		
-		$return['page_menus'] = $this->Content->search('page_menus',['subject'=>$search,'text'=>$search]);
-		
-		$return['news'] = $this->Content->search('news',['subject'=>$search,'text'=>$search]);
+		$return['news'] = $this->Content->find('news',"status = 'publish' AND subject LIKE '%{$search}%' OR synopsis LIKE '%{$search}%' OR text LIKE '%{$search}%'");
 		
 		$data['results'] = $return;
 		
-		$data['search'] = $search;
-		
-		//print_r($data['results']);
-		/*
-		// Set content
-		//,synopsis,text,attribute,messages 
-		$data1  = $this->Content->find('product_recipes',
-				[
-					'subject LIKE'=>$search,
-					'status'=>'publish')
-				];
-		
-		$data2  = $this->Content->find('product_recipes',
-				[
-					'synopsis LIKE'=>$search,
-					'status'=>'publish')
-				];
-		*/
-		
-		//print_r($query);
-		//print_r($data2);
-		
+		$data['search'] = stripslashes($search);
+					
 		// Set site title page with module menu
 		$data['page_title'] = $this->lang->line('recipe');
 		

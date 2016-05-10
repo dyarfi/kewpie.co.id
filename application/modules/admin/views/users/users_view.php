@@ -172,10 +172,10 @@
 					<div class="tab-content">
 						<div id="tab_1_1" class="tab-pane active">
 							<div class="row">
-								<div class="col-md-4 col-lg-4">
+								<!--div class="col-md-4 col-lg-4">
 									<ul class="list-unstyled profile-nav">
 										<li>
-
+											<?php /*
 											<?php echo form_open_multipart(base_url(ADMIN.'user/upload'), array('id'=>'fileUploadForm'));?>
 											<div class="img_holder_xhr">
 												<div class="img-thumbnail">
@@ -203,10 +203,10 @@
 												</div>
 											</div>
 											<?php echo form_close(); ?>											
-			
+											*/ ?>											
 										</li>
 									</ul>
-								</div>
+								</div-->
 								<div class="col-md-8 col-lg-8">
 									<div class="row">
 										<div class="col-md-8 profile-info">
