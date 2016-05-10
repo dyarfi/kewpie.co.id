@@ -23,8 +23,8 @@
 	</div>
     </div>
     <div class="form-actions">
-	<label class="">
-	<input type="checkbox" name="remember" value="1"/> Remember me </label>
+	<!--label class="">
+	<input type="checkbox" name="remember" value="1"/> Remember me </label-->
 	<button type="submit" class="btn blue pull-right">
 	Login <i class="m-icon-swapright m-icon-white"></i>
 	</button>
