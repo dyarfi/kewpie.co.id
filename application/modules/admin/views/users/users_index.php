@@ -128,11 +128,9 @@
 							    <li><a class="btn default btn-xs purple" href="<?=base_url(ADMIN.$class_name.'/edit/'.$row->id);?>" title="Edit">
 								<i class="fa fa-edit"></i>Edit</a>
 							    </li>
-							    <?php if ($row->id != 1) {?>
 							    <li><a class="btn default btn-xs red" href="<?=base_url(ADMIN.$class_name.'/delete/'.$row->id);?>" title="Delete">
 								<i class="fa fa-trash-o"></i>Delete</a>
 							    </li>
-							    <?php } ?>
 							</ul>
 						    </td>				
 						</tr>

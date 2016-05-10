@@ -949,11 +949,13 @@
 										</div>
 										<div class="tab-pane" id="tab_3-3">
 										<form action="#" id="user-form-password" class="user-form-password">											<input type="hidden" class="form-control" id="user_id" name="user_id" value="<?=$user->id;?>">	
-											<input type="hidden" class="form-control" id="username" name="username" value="<?=$user->username;?>">
-											<div class="form-group">
+											<input type="hidden" name="username" value="<?=$user->username;?>">
+											<input type="hidden" name="email" value="<?=$user->email;?>">
+											<input type="hidden" name="user_id" value="<?=$user->id;?>"/>
+											<!--div class="form-group">
 												<label class="control-label">Current Password</label>
 												<input type="password" class="form-control" name="password" id="password" value="">
-											</div>
+											</div-->
 											<div class="form-group">
 												<label class="control-label">New Password</label>
 												<input type="password" class="form-control" name="password1" id="password1" value="">

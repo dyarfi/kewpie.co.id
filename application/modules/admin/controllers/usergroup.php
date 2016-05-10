@@ -133,6 +133,11 @@ class UserGroup extends Admin_Controller {
 			$this->session->set_flashdata('message','Item not found!');
 			// Redirect to index
 			redirect(base_url().'admin/usergroup');
+		}
+		if ($id == 1 || $id == 99) {
+			$this->session->set_flashdata('message','Not allowed to editing!');
+			// Redirect to index
+			redirect(base_url().'admin/usergroup');
 		}				
 
 		// Default data setup
@@ -222,6 +227,11 @@ class UserGroup extends Admin_Controller {
 
     }
     public function delete($id){
+    	if ($id == 1 || $id == 99) {
+			$this->session->set_flashdata('message','Not allowed to editing!');
+			// Redirect to index
+			redirect(base_url().'admin/usergroup');
+		}
 		// Set delete method in model
 		$this->UserGroups->deleteUserGroup($id);
 		// Set flash message to display
@@ -271,11 +281,18 @@ class UserGroup extends Admin_Controller {
 
     // Action for update item status
     public function change() {	
+
 		if ($this->input->post('check') !='') {
 			$rows	= $this->input->post('check');
 			foreach ($rows as $row) {
+				if ($row == 1 || $row == 99) {
+					$this->session->set_flashdata('message','Not allowed to editing!');
+					// Redirect to index
+					redirect(base_url().'admin/usergroup');
+				}
+
 				// Set id for load and change status
-				$this->UserGroups->setStatus($row,$this->input->post('select_action'));
+				$this->UserGroups->setStatus($row, $this->input->post('select_action'));
 			}
 			// Set message
 			$this->session->set_flashdata('message','Status changed!');

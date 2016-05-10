@@ -248,7 +248,7 @@ var Login = function () {
 		var formForget = $('.forget-form');
 		
 		$.ajax({
-			url: base_URL + 'admin/user/forgot_password',
+			url: base_URL + 'admin/authenticate/forgot_password',
 			type: 'POST',
 			data: formForget.serialize(),
 			timeout: 5000,
@@ -263,6 +263,7 @@ var Login = function () {
 				//loader.hide();
 			},
 			complete: function(message) {
+
 				var msg = message.responseJSON;
 				formForget.find('.msg').empty();
 				formForget.find('.msg')
@@ -276,7 +277,6 @@ var Login = function () {
 						window.location.href = base_URL + 'admin/authenticate/login';
 					}, 6000);
 				}
-				
 				//alert(msg.result);
 				//console.log(msg.result);
 			},

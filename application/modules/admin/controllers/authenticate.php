@@ -168,7 +168,55 @@ class Authenticate extends CI_Controller {
 	    redirect(ADMIN.'authenticate');
 
     }
-    
+
+    public function forgot_password() {
+    	
+		// Check if the request via AJAX
+		if (!$this->input->is_ajax_request()) {
+			exit('No direct script access allowed');		
+		}
+
+		// Define initialize result
+		$result['result'] = '';
+
+		// Get User Data
+		$user = $this->Users->getUserByEmail($this->input->post('email'));
+
+		if (!empty($user) && $user->status == 1) {
+
+			$password = $this->Users->setPassword($user);
+
+			$result['result']['code'] = 1;
+			$result['result']['text'] = 'Your new password: <b>'. $password .'</b>';			
+
+			$this->load->library('email');
+
+			$this->email->from('noreply');
+			$this->email->to($user->email);
+			$this->email->subject('Your new password');
+			$this->email->message('Hey <b>'.$user->username.'</b>, this is your new password: <b>'.$password.'</b>');
+
+			$this->email->send();
+
+		} else if (!empty($user) && $user->status != 1) { 
+
+			// Account is not Active
+			$result['result']['code'] = 2;
+			$result['result']['text'] = 'Your account is not active';			
+
+		} else {
+
+			// Account is not existed
+			$result['result']['code'] = 0;
+			$result['result']['text'] = 'Email or User not found';			
+
+		}
+
+		$data['json'] = $result;	
+		$this->load->view('json', $this->load->vars($data));				
+
+    }
+
     private function log_check ($session='') {
         
         // Check if user is logged in or not

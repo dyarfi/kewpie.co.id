@@ -51,7 +51,7 @@
 			<!-- BEGIN EXAMPLE TABLE PORTLET-->
 			<div class="portlet-body">
 			    <div class="table-toolbar">
-				<div class="btn-group-solid">
+				<div class="btn-group-solid hide">
 				    <a class="btn green" id="sample_editable_1_new" href="<?=base_url(ADMIN.$class_name.'/add');?>">
 						Add New <i class="fa fa-plus"></i>
 				    </a>
@@ -99,8 +99,8 @@
 					</th>
 					<th class="sorting" role="columnheader" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 120px;" aria-label="Username : activate to sort column ascending">Prefix
 					</th>
-					<th class="sorting_disabled" role="columnheader" tabindex="2" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 90px;">Default
-					</th><th class="sorting" role="columnheader" tabindex="3" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 142px;" aria-label="Groups : activate to sort column ascending">Is System
+					<!--th class="sorting_disabled" role="columnheader" tabindex="2" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 90px;">Default
+					</th--><th class="sorting" role="columnheader" tabindex="3" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 142px;" aria-label="Groups : activate to sort column ascending">Is System
 					</th><th class="sorting_disabled" role="columnheader" aria-controls="sample_2" tabindex="4" rowspan="1" colspan="1" style="width: 120px;" aria-label="Status : activate to sort column ascending">Status
 					</th>
 					</th><th class="sorting_disabled" role="columnheader" aria-controls="sample_2" tabindex="4" rowspan="1" colspan="1" style="width: 120px;" aria-label="Status : activate to sort column ascending">Manage
@@ -120,15 +120,15 @@
 					    <td class=" "><?php echo $row->url;?></td>
 						<td class=" "><?php echo $row->prefix;?></td>
 					    <td class=" ">
-					    	<input type="radio" class="btn-language-default" name="default" value="1" <?php echo $row->default ? 'checked' : '';?>/>
+					    	<!--input type="radio" class="btn-language-default" name="default" value="1" <?php echo $row->default ? 'checked' : '';?>/-->
 					    	<?php echo $options[$row->default];?>
 					    </td>
-					    <td class="center ">
+					    <!--td class="center ">
 						<?php //echo $is_system[$row->is_system];?>
 						<span class="label label-sm label-<?php echo $is_system[$row->is_system] == 'Yes' ? 'success' : 'warning'; ?>">
 							<?php echo $is_system[$row->is_system] == 'Yes' ? 'Yes' : 'No';?>
 						</span>
-					    </td>
+					    </td-->
 					    <td class="center "><?php echo $statuses[$row->status];?></td>
 					    <td class=" ">
 						<!--span class="label label-sm label-<?php if($row->status == 'active') { echo 'success'; } else { echo 'warning'; }?>"><?php echo $row->status;?>

@@ -134,7 +134,12 @@ class Language extends Admin_Controller {
 	}
 	
 	public function edit($id=0){
-		
+		// Check if param is given or not and check from database
+	    if (!empty($id)) {
+		    $this->session->set_flashdata('message','Edit disabled!');
+		    // Redirect to index
+		    redirect(base_url().'admin/language');
+	    }
 	    // Check if param is given or not and check from database
 	    if (empty($id) || !$this->Languages->getLanguage($id)) {
 		    $this->session->set_flashdata('message','Item not found!');
@@ -236,7 +241,13 @@ class Language extends Admin_Controller {
 	    $this->load->view('template/admin/template', $this->load->vars($data));
 
 	}
-	public function delete($id){
+	public function delete($id) {
+		// Check if param is given or not and check from database
+	    if (!empty($id)) {
+		    $this->session->set_flashdata('message','Delete disabled!');
+		    // Redirect to index
+		    redirect(base_url().'admin/language');
+	    }	
 	    // Set delete method in model
 	    $this->Languages->deleteLanguage($id);
 	    // Set flash message to display

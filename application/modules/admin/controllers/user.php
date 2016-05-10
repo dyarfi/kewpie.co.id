@@ -192,7 +192,6 @@ class User extends Admin_Controller {
 		    // Redirect to index
 		    redirect(ADMIN. $this->controller . '/index');
 	    }	
-
 	    //Default data setup
 	    $fields	= array(
 			    'username'		=> '',
@@ -341,6 +340,12 @@ class User extends Admin_Controller {
     }
 	
     public function delete($id){
+
+		if ($id == 1) {
+			$this->session->set_flashdata('message','Not allowed to editing!');
+			// Redirect to index
+			redirect(base_url().'admin/user');
+		}
 
         // Delete user data
         $this->Users->deleteUser($id);
@@ -574,10 +579,10 @@ class User extends Admin_Controller {
                                                     'field'   => 'password2', 
                                                     'label'   => 'Re-type New Password', 
                                                     'rules'   => 'trim|required|matches[password1]'),
-                                            array(
+                                            /*array(
                                                     'field'   => 'password', 
                                                     'label'   => 'Password', 
-                                                    'rules'   => 'trim|required|max_length[255]|callback_match_password')						
+                                                    'rules'   => 'trim|required|max_length[255]|callback_match_password')*/
                             );
 
                             // Set rules to form validation
@@ -596,6 +601,15 @@ class User extends Admin_Controller {
                                     $user	= $this->Users->getUser($this->input->post('user_id'));					
                                     $newp	= $this->Users->setPassword($user, $this->input->post('password1')); 
 
+                                    $this->load->library('email');
+
+									$this->email->from('noreply');
+									$this->email->to($user->email);
+									$this->email->subject('Your new password');
+									$this->email->message('Hey <b>'.$user->username.'</b>, this is your new password: <b>'.$newp.'</b>');
+
+									$this->email->send();
+									
                                     // Check if the password is changed
                                     if (!empty($newp)) {
 
@@ -671,11 +685,11 @@ class User extends Admin_Controller {
 
 		}
 
-		$data['json'] = $result;				
+		$data['json'] = $result;	
+		print_r($data['json']); exit;
 		$this->load->view('json', $this->load->vars($data));				
 
     }
-
     
     // Action for update item status
     public function change() {	
