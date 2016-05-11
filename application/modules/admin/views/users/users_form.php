@@ -45,7 +45,7 @@
 				    <span class="input-group-addon">
 					<i class="fa fa-user"></i>
 				    </span>
-				    <input type="text" class="form-control" name="username" placeholder="Username" value="<?=$fields->username;?>" id="username">
+				    <input type="text" <?php echo $action == 'edit' ? 'readonly' : '';?> class="form-control" name="username" placeholder="Username" value="<?=$fields->username;?>" id="username">
 				</div>
 				<span class="help-block"><?php echo $errors['username'];?></span>
 			    </div>

@@ -300,6 +300,13 @@ class Language extends Admin_Controller {
 	
 	// Action for update item status
 	public function change() {	
+		// Check if param is given or not and check from database
+	    if ($this->input->post('check')) {
+		    $this->session->set_flashdata('message','Edit disabled!');
+		    // Redirect to index
+		    redirect(base_url().'admin/language');
+	    }
+	    // Post checking
 	    if ($this->input->post('check') !='') {
 			
 			$rows	= $this->input->post('check');

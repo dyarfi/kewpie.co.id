@@ -317,7 +317,12 @@ class Setting extends Admin_Controller {
     }
     
     public function delete($id){
-
+			// Check if param is given or not and check from database
+		    if ($id) {
+			    $this->session->set_flashdata('message','Delete disabled!');
+			    // Redirect to index
+			    redirect(base_url().'admin/setting');
+		    }
             // Delete user data
             $this->Settings->deleteSetting($id);
 
@@ -331,6 +336,12 @@ class Setting extends Admin_Controller {
     
     // Action for update item status
     public function change() {	
+    	// Check if param is given or not and check from database
+	    if ($this->input->post('check')) {
+		    $this->session->set_flashdata('message','Edit disabled!');
+		    // Redirect to index
+		    redirect(base_url().'admin/setting');
+	    }
 		if ($this->input->post('check') !='') {
 			$rows	= $this->input->post('check');
 			foreach ($rows as $row) {

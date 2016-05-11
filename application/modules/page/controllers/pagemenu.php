@@ -59,7 +59,7 @@ class PageMenu extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','text','media','gallery','status','added','modified','translate');			
+				$crud->columns('subject','text','media','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}

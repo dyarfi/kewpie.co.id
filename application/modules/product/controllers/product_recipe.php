@@ -66,7 +66,7 @@ class Product_Recipe extends Admin_Controller {
 			
 			if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('id','subject','product_id','text','attribute','favorited','in_front','in_front_order','gallery','media','status','translate');			
+				$crud->columns('id','subject','product_id','favorited','in_front','in_front_order','gallery','media','status','translate');
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 			}

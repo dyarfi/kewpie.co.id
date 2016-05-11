@@ -60,7 +60,7 @@ class Product_category extends Admin_Controller {
             
             if ($this->Languages->getActiveCount() > 1) {
 				// Default column of multilanguage
-				$crud->columns('subject','text','media','color','cover','order','status','added','modified','translate');			
+				$crud->columns('subject','media','color','cover','order','status','added','modified','translate');			
 				// Callback_column translate
 				$crud->callback_column('translate',array($this,'_callback_translate'));
 				// Callback_column color
